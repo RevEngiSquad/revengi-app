@@ -1,5 +1,7 @@
 package org.revengi.app
 
+import android.app.ActivityManager
+import android.content.Context
 import android.os.Build
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -23,6 +25,10 @@ class MainActivity : FlutterActivity() {
                         result.error("UNAVAILABLE", "Device info not available.", null)
                     }
                 }
+                "getTotalRAM" -> {
+                    val totalRAM = getTotalRAM(this)
+                    result.success(totalRAM)
+                }
 
                 else -> result.notImplemented()
             }
@@ -39,5 +45,12 @@ class MainActivity : FlutterActivity() {
         deviceInfo["sdkVersion"] = Build.VERSION.SDK_INT.toString()
         deviceInfo["id"] = Build.ID
         return deviceInfo
+    }
+
+    private fun getTotalRAM(context: Context): Long {
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val memoryInfo = ActivityManager.MemoryInfo()
+        activityManager.getMemoryInfo(memoryInfo)
+        return memoryInfo.totalMem
     }
 }

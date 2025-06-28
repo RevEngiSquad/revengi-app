@@ -49,4 +49,13 @@ class DeviceInfo {
       return 0;
     }
   }
+
+  static Future<int> getTotalRAM() async {
+    try {
+      final int totalRAM = await platform.invokeMethod('getTotalRAM');
+      return totalRAM;
+    } on PlatformException {
+      return 0;
+    }
+  }
 }

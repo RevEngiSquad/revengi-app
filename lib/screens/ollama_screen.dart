@@ -5,6 +5,7 @@ import 'package:ollama_dart/ollama_dart.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:revengi/utils/platform.dart';
 
 class OllamaChatScreen extends StatefulWidget {
   const OllamaChatScreen({super.key});
@@ -40,11 +41,14 @@ class OllamaChatScreenState extends State<OllamaChatScreen>
     'llama3.2:1b-instruct-q4_1',
   ];
 
+  Map<String, String?> remoteModelSizes = {};
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     _initializeClient();
+    _fetchRemoteModelSizes();
   }
 
   Future<void> _initializeClient() async {
@@ -77,6 +81,44 @@ class OllamaChatScreenState extends State<OllamaChatScreen>
             res.models!.map((m) => m.model).whereType<String>().toList();
       });
     } catch (_) {}
+  }
+
+  Future<void> _fetchRemoteModelSizes() async {
+    if (isWeb()) return;
+    final prefs = await SharedPreferences.getInstance();
+    for (final model in remoteCatalog) {
+      String? size = prefs.getString('model_size_$model');
+      if (size == null) {
+        size = await _getModelSize(model);
+        if (size != null) {
+          await prefs.setString('model_size_$model', size);
+        }
+      }
+      setState(() {
+        remoteModelSizes[model] = size;
+      });
+    }
+  }
+
+  Future<String?> _getModelSize(String model) async {
+    if (isWeb()) return null;
+    final dio = Dio();
+    final url = 'https://ollama.com/library/${Uri.encodeComponent(model)}';
+    try {
+      final response = await dio.get(url);
+      if (response.statusCode == 200) {
+        final html = response.data as String;
+        final regex = RegExp(
+          r'<div class="flex items-center justify-between bg-neutral-50 px-4 py-3 text-xs text-neutral-900">[\s\S]*?<p>.*?· (.*?)<\/p>',
+          multiLine: true,
+        );
+        final match = regex.firstMatch(html);
+        if (match != null && match.groupCount >= 1) {
+          return match.group(1);
+        }
+      }
+    } catch (_) {}
+    return null;
   }
 
   Future<void> _pullModel(String model) async {
@@ -342,197 +384,341 @@ class OllamaChatScreenState extends State<OllamaChatScreen>
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            if (hasLocalModels) ...[
-              Text(
-                'Downloaded Models:',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              const SizedBox(height: 8),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: localModels.length,
-                  itemBuilder: (_, i) {
-                    final m = localModels[i];
-                    final selected = m == selectedModel;
-                    return Card(
-                      color: selected ? Colors.blue[50] : null,
-                      child: ListTile(
-                        title: Text(m),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              icon: const Icon(Icons.delete),
-                              onPressed: () => _deleteModel(m),
-                            ),
-                            if (selected)
-                              const Icon(
-                                Icons.check_circle,
-                                color: Colors.blue,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (hasLocalModels) ...[
+                      Text(
+                        'Downloaded Models:',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                      const SizedBox(height: 8),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: localModels.length,
+                        itemBuilder: (_, i) {
+                          final m = localModels[i];
+                          final selected = m == selectedModel;
+                          return Card(
+                            color: selected ? Colors.blue[50] : null,
+                            child: ListTile(
+                              title: Text(m),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.delete),
+                                    onPressed: () => _deleteModel(m),
+                                  ),
+                                  if (selected)
+                                    const Icon(
+                                      Icons.check_circle,
+                                      color: Colors.blue,
+                                    ),
+                                ],
                               ),
-                          ],
-                        ),
-                        selected: selected,
-                        onTap: () {
-                          setState(() => selectedModel = m);
-                          _tabController!.animateTo(1);
+                              selected: selected,
+                              onTap: () {
+                                setState(() => selectedModel = m);
+                                _tabController!.animateTo(1);
+                              },
+                            ),
+                          );
                         },
                       ),
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(height: 24),
-            ],
-            Text(
-              'Download a model:',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 8),
-            SizedBox(
-              height: 180,
-              child: ListView.builder(
-                itemCount: remoteCatalog.length,
-                itemBuilder: (_, i) {
-                  final model = remoteCatalog[i];
-                  return Card(
-                    child: ListTile(
-                      title: Text(model),
-                      trailing:
-                          pulling && selectedModel == model
-                              ? SizedBox(
-                                width: 200,
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: LinearProgressIndicator(
-                                        value:
-                                            pullProgress > 0
-                                                ? pullProgress
-                                                : null,
+                      const SizedBox(height: 24),
+                    ],
+                    Text(
+                      'Download a model:',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      height: 260,
+                      child: ListView.builder(
+                        itemCount: remoteCatalog.length,
+                        itemBuilder: (_, i) {
+                          final model = remoteCatalog[i];
+                          final size = remoteModelSizes[model];
+                          return Card(
+                            child: ListTile(
+                              title: Row(
+                                children: [
+                                  Expanded(child: Text(model)),
+                                  if (size != null) ...[
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      '($size)',
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey,
                                       ),
                                     ),
-                                    if (pullStatusText != null) ...[
-                                      const SizedBox(width: 8),
-                                      Text(
-                                        pullStatusText!,
-                                        style: const TextStyle(fontSize: 12),
-                                      ),
-                                    ],
                                   ],
-                                ),
-                              )
-                              : IconButton(
-                                icon: const Icon(Icons.download),
-                                onPressed:
-                                    pulling
-                                        ? null
-                                        : () async {
-                                          selectedModel = model;
-                                          await _pullModel(model);
-                                        },
+                                ],
                               ),
-                    ),
-                  );
-                },
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'OR\nProvide a model from https://ollama.com/library',
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: const InputDecoration(
-                      labelText: 'Enter a model name',
-                      border: OutlineInputBorder(),
-                    ),
-                    onChanged: (value) {
-                      selectedModel = value.trim();
-                    },
-                    onSubmitted: (value) async {
-                      if (value.trim().isNotEmpty && !pulling) {
-                        setState(() {
-                          selectedModel = value.trim();
-                          pulling = true;
-                        });
-                        await _pullModel(selectedModel!);
-                      }
-                    },
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Builder(
-                  builder:
-                      (context) => IconButton(
-                        icon: const Icon(Icons.open_in_new),
-                        tooltip: 'Open Ollama Library',
-                        onPressed: () async {
-                          final url = Uri.parse(
-                            'https://ollama.com/library/${selectedModel ?? ''}',
+                              trailing:
+                                  pulling && selectedModel == model
+                                      ? SizedBox(
+                                        width: 200,
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                              child: LinearProgressIndicator(
+                                                value:
+                                                    pullProgress > 0
+                                                        ? pullProgress
+                                                        : null,
+                                              ),
+                                            ),
+                                            if (pullStatusText != null) ...[
+                                              const SizedBox(width: 8),
+                                              Flexible(
+                                                child: Text(
+                                                  pullStatusText!,
+                                                  style: const TextStyle(
+                                                    fontSize: 12,
+                                                  ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                ),
+                                              ),
+                                            ],
+                                          ],
+                                        ),
+                                      )
+                                      : IconButton(
+                                        icon: const Icon(Icons.download),
+                                        onPressed:
+                                            pulling
+                                                ? null
+                                                : () async {
+                                                  selectedModel = model;
+                                                  await _pullModel(model);
+                                                },
+                                      ),
+                            ),
                           );
-                          if (await canLaunchUrl(url)) {
-                            await launchUrl(
-                              url,
-                              mode: LaunchMode.externalApplication,
-                            );
-                          } else {
-                            if (!context.mounted) return;
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Could not launch URL'),
-                              ),
-                            );
-                          }
                         },
                       ),
-                ),
-              ],
-            ),
-            if (pulling &&
-                selectedModel != null &&
-                !remoteCatalog.contains(selectedModel))
-              Padding(
-                padding: const EdgeInsets.only(top: 12.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: LinearProgressIndicator(
-                        value: pullProgress > 0 ? pullProgress : null,
-                      ),
                     ),
-                    if (pullStatusText != null) ...[
-                      const SizedBox(width: 8),
-                      Text(
-                        pullStatusText!,
-                        style: const TextStyle(fontSize: 12),
+                    const SizedBox(height: 8),
+                    Text(
+                      'OR\nProvide a model from https://ollama.com/library',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: const InputDecoration(
+                              labelText: 'Enter a model name',
+                              border: OutlineInputBorder(),
+                            ),
+                            onChanged: (value) {
+                              selectedModel = value.trim();
+                            },
+                            onSubmitted: (value) async {
+                              if (value.trim().isNotEmpty && !pulling) {
+                                final modelName = value.trim();
+                                bool isOnAndroid = isAndroid();
+                                if (isOnAndroid) {
+                                  setState(() {
+                                    pulling = true;
+                                    pullStatusText = 'Fetching model info...';
+                                  });
+                                }
+                                String? sizeStr = remoteModelSizes[modelName];
+                                if (sizeStr == null) {
+                                  sizeStr = await _getModelSize(modelName);
+                                  if (sizeStr != null) {
+                                    final prefs =
+                                        await SharedPreferences.getInstance();
+                                    await prefs.setString(
+                                      'model_size_$modelName',
+                                      sizeStr,
+                                    );
+                                    setState(() {
+                                      remoteModelSizes[modelName] = sizeStr;
+                                    });
+                                  }
+                                }
+                                bool proceed = true;
+                                if (sizeStr != null && isOnAndroid) {
+                                  setState(() {
+                                    pullStatusText = 'Checking device RAM...';
+                                  });
+                                  double sizeGB = 0;
+                                  final gbMatch = RegExp(
+                                    r'([\d.]+)\s*GB',
+                                    caseSensitive: false,
+                                  ).firstMatch(sizeStr);
+                                  final mbMatch = RegExp(
+                                    r'([\d.]+)\s*MB',
+                                    caseSensitive: false,
+                                  ).firstMatch(sizeStr);
+                                  if (gbMatch != null) {
+                                    sizeGB =
+                                        double.tryParse(
+                                          gbMatch.group(1) ?? '0',
+                                        ) ??
+                                        0;
+                                  } else if (mbMatch != null) {
+                                    sizeGB =
+                                        (double.tryParse(
+                                              mbMatch.group(1) ?? '0',
+                                            ) ??
+                                            0) /
+                                        1024.0;
+                                  }
+                                  final ramBytes =
+                                      await DeviceInfo.getTotalRAM();
+                                  final ramGB = ramBytes / (1024 * 1024 * 1024);
+                                  if (sizeGB > 0 &&
+                                      ramGB > 0 &&
+                                      sizeGB > ramGB * 0.75) {
+                                    setState(() {
+                                      pullStatusText = null;
+                                      pulling = false;
+                                    });
+                                    if (!context.mounted) return;
+                                    proceed =
+                                        await showDialog<bool>(
+                                          context: context,
+                                          builder:
+                                              (context) => AlertDialog(
+                                                title: const Text(
+                                                  'Large Model Warning',
+                                                ),
+                                                content: Text(
+                                                  'The model you are trying to download ($sizeStr) exceeds 75% of your device RAM (${ramGB.toStringAsFixed(2)} GB). This may cause issues or not run at all. Do you want to continue?',
+                                                ),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed:
+                                                        () => Navigator.pop(
+                                                          context,
+                                                          false,
+                                                        ),
+                                                    child: const Text('Cancel'),
+                                                  ),
+                                                  ElevatedButton(
+                                                    onPressed:
+                                                        () => Navigator.pop(
+                                                          context,
+                                                          true,
+                                                        ),
+                                                    child: const Text(
+                                                      'Continue',
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                        ) ??
+                                        false;
+                                  } else {
+                                    setState(() {
+                                      pullStatusText = null;
+                                      pulling = false;
+                                    });
+                                  }
+                                }
+                                if (proceed) {
+                                  setState(() {
+                                    selectedModel = modelName;
+                                    pulling = true;
+                                  });
+                                  await _pullModel(selectedModel!);
+                                } else if (isOnAndroid) {
+                                  setState(() {
+                                    pullStatusText = null;
+                                    pulling = false;
+                                  });
+                                }
+                              }
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Builder(
+                          builder:
+                              (context) => IconButton(
+                                icon: const Icon(Icons.open_in_new),
+                                tooltip: 'Open Ollama Library',
+                                onPressed: () async {
+                                  final url = Uri.parse(
+                                    'https://ollama.com/library/${selectedModel ?? ''}',
+                                  );
+                                  if (await canLaunchUrl(url)) {
+                                    await launchUrl(
+                                      url,
+                                      mode: LaunchMode.externalApplication,
+                                    );
+                                  } else {
+                                    if (!context.mounted) return;
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text('Could not launch URL'),
+                                      ),
+                                    );
+                                  }
+                                },
+                              ),
+                        ),
+                      ],
+                    ),
+                    if (pulling &&
+                        selectedModel != null &&
+                        !remoteCatalog.contains(selectedModel))
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: LinearProgressIndicator(
+                                value: pullProgress > 0 ? pullProgress : null,
+                              ),
+                            ),
+                            if (pullStatusText != null) ...[
+                              const SizedBox(width: 8),
+                              Text(
+                                pullStatusText!,
+                                style: const TextStyle(fontSize: 12),
+                              ),
+                            ],
+                          ],
+                        ),
+                      )
+                    else if (pulling && hasLocalModels)
+                      Row(
+                        children: [
+                          Expanded(
+                            child: LinearProgressIndicator(
+                              value: pullProgress > 0 ? pullProgress : null,
+                            ),
+                          ),
+                          if (pullStatusText != null) ...[
+                            const SizedBox(width: 8),
+                            Text(
+                              pullStatusText!,
+                              style: const TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ],
                       ),
-                    ],
                   ],
                 ),
               ),
-            if (pulling && hasLocalModels)
-              Row(
-                children: [
-                  Expanded(
-                    child: LinearProgressIndicator(
-                      value: pullProgress > 0 ? pullProgress : null,
-                    ),
-                  ),
-                  if (pullStatusText != null) ...[
-                    const SizedBox(width: 8),
-                    Text(pullStatusText!, style: const TextStyle(fontSize: 12)),
-                  ],
-                ],
-              ),
-          ],
+            );
+          },
         ),
       ),
     );
