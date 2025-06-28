@@ -5,6 +5,7 @@ import 'package:revengi/screens/profile_screen.dart';
 import 'package:revengi/screens/uninstall_screen.dart';
 import 'package:revengi/screens/splash.dart';
 import 'package:revengi/utils/dio.dart';
+import 'package:revengi/utils/platform.dart';
 import 'package:revengi/utils/theme_provider.dart';
 
 void main() async {
@@ -33,7 +34,9 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     quickActions = const QuickActions();
-    _setupQuickActions();
+    if (!isWeb() && (isAndroid() || isIOS())) {
+      _setupQuickActions();
+    }
   }
 
   void _setupQuickActions() {

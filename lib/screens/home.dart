@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart'
     show LicenseRegistry, LicenseEntryWithLineBreaks;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:revengi/screens/ollama_chat_screen.dart';
 import 'package:revengi/utils/platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
@@ -256,50 +257,48 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     context.read<ThemeProvider>().toggleTheme();
                   },
                 ),
-                // NOTE: Disabled for now
-
-                // ListTile(
-                //   leading: const Icon(Icons.link),
-                //   title: const Text('API URL'),
-                //   onTap: () async {
-                //     final prefs = await SharedPreferences.getInstance();
-                //     if (!context.mounted) return;
-                //     showDialog(
-                //       context: context,
-                //       builder:
-                //           (context) => AlertDialog(
-                //             title: const Text('API URL'),
-                //             content: TextField(
-                //               controller: TextEditingController(
-                //                 text:
-                //                     prefs.getString('apiUrl') ??
-                //                     'https://api.revengi.in',
-                //               ),
-                //               decoration: const InputDecoration(
-                //                 hintText: 'Enter API URL',
-                //               ),
-                //               onSubmitted: (value) async {
-                //                 await prefs.setString('apiUrl', value);
-                //                 if (context.mounted) Navigator.pop(context);
-                //               },
-                //             ),
-                //             actions: [
-                //               TextButton(
-                //                 onPressed: () => Navigator.pop(context),
-                //                 child: const Text('Cancel'),
-                //               ),
-                //               TextButton(
-                //                 onPressed: () {
-                //                   prefs.remove('apiUrl');
-                //                   Navigator.pop(context);
-                //                 },
-                //                 child: const Text('Reset'),
-                //               ),
-                //             ],
-                //           ),
-                //     );
-                //   },
-                // ),
+                ListTile(
+                  leading: const Icon(Icons.link),
+                  title: const Text('OLLAMA base URL'),
+                  onTap: () async {
+                    final prefs = await SharedPreferences.getInstance();
+                    if (!context.mounted) return;
+                    showDialog(
+                      context: context,
+                      builder:
+                          (context) => AlertDialog(
+                            title: const Text('OLLAMA base URL'),
+                            content: TextField(
+                              controller: TextEditingController(
+                                text:
+                                    prefs.getString('ollamaBaseUrl') ??
+                                    'http://localhost:11434/api',
+                              ),
+                              decoration: const InputDecoration(
+                                hintText: 'Enter API URL',
+                              ),
+                              onSubmitted: (value) async {
+                                await prefs.setString('ollamaBaseUrl', value);
+                                if (context.mounted) Navigator.pop(context);
+                              },
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(context),
+                                child: const Text('Cancel'),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  prefs.remove('ollamaBaseUrl');
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('Reset'),
+                              ),
+                            ],
+                          ),
+                    );
+                  },
+                ),
                 ...(!isWeb()
                     ? [
                       SwitchListTile.adaptive(
@@ -375,6 +374,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const OllamaChatScreen()),
+          );
+        },
+        backgroundColor:
+            Brightness.dark == Theme.of(context).brightness
+                ? Colors.black
+                : Colors.white,
+        child: Icon(Icons.chat, color: Theme.of(context).colorScheme.primary),
+      ),
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       body: LayoutBuilder(
         builder: (context, constraints) {
           return GridView.builder(
