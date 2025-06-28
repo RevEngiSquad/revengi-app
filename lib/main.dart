@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
+import 'package:revengi/screens/ollama_screen.dart';
 import 'package:revengi/screens/profile_screen.dart';
 import 'package:revengi/screens/uninstall_screen.dart';
 import 'package:revengi/screens/splash.dart';
@@ -51,15 +52,20 @@ class _MyAppState extends State<MyApp> {
         localizedTitle: 'Profile',
         icon: 'icon_profile',
       ),
+      const ShortcutItem(type: 'action_aichat', localizedTitle: 'AI Chat'),
     ]);
     quickActions.initialize((String shortcutType) {
       if (shortcutType == 'action_profile') {
-        navigatorKey.currentState?.push(
+        navigatorKey.currentState?.pushReplacement(
           MaterialPageRoute(builder: (_) => const ProfileScreen()),
         );
       } else if (shortcutType == 'action_uninstall') {
-        navigatorKey.currentState?.push(
+        navigatorKey.currentState?.pushReplacement(
           MaterialPageRoute(builder: (_) => const UninstallScreen()),
+        );
+      } else if (shortcutType == 'action_aichat') {
+        navigatorKey.currentState?.pushReplacement(
+          MaterialPageRoute(builder: (_) => const OllamaChatScreen()),
         );
       }
     });
