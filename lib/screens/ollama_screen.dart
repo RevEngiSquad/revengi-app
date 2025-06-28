@@ -26,7 +26,7 @@ class OllamaChatScreenState extends State<OllamaChatScreen>
   String? pullStatusText;
   bool chatInputEnabled = true;
   String systemMessage =
-      "You are a an AI coding & helpful assistant. Your main goal is to follow the USER's instructions at each message. If you are unsure about the answer to the USER's request or how to satiate their request, you should gather more information. This can be done by asking the USER for more information. Bias towards not asking the user for help if you can find the answer yourself. You MUST reply in markdown format. You MUST use code blocks for code. Don't use emojis un-necessarily.";
+      "You are an AI coding & helpful assistant. Your main goal is to follow the USER's instructions at each message. If you are unsure about the answer to the USER's request or how to satiate their request, you should gather more information. This can be done by asking the USER for more information. Bias towards not asking the user for help if you can find the answer yourself. You MUST reply in markdown format. You MUST use code blocks for code. Don't use emojis un-necessarily.";
 
   final List<ChatMessage> messages = [];
   final TextEditingController _inputController = TextEditingController();
