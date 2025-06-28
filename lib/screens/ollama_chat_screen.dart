@@ -119,6 +119,7 @@ class OllamaChatScreenState extends State<OllamaChatScreen>
       }
       setState(() {
         pullStatusText = 'Failed to pull model: ${e.toString()}';
+        chatInputEnabled = false;
       });
     } finally {
       setState(() {
