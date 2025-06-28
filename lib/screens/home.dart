@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart'
     show LicenseRegistry, LicenseEntryWithLineBreaks;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:revengi/screens/ollama_chat_screen.dart';
+import 'package:revengi/screens/ollama_screen.dart';
 import 'package:revengi/utils/platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
