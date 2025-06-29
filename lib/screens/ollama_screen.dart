@@ -323,7 +323,7 @@ class OllamaChatScreenState extends State<OllamaChatScreen>
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('Ollama LLM'),
+        title: const Text('AI Chat (Ollama)'),
         bottom: TabBar(
           controller: _tabController,
           tabs: const [Tab(text: 'Models'), Tab(text: 'Chat')],
