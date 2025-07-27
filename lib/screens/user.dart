@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:revengi/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:revengi/utils/dio.dart';
 import 'package:revengi/screens/home.dart';
@@ -58,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  '${_isLogin ? 'Login' : 'Registration'} successful',
+                  '${_isLogin ? AppLocalizations.of(context)!.login : AppLocalizations.of(context)!.register} successful',
                 ),
               ),
             );
@@ -92,6 +93,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     final card = Card(
       color:
           Theme.of(context).brightness == Brightness.dark
@@ -107,7 +110,9 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                _isLogin ? 'Welcome Back!' : 'Create Account',
+                _isLogin
+                    ? localizations.welcomeBack
+                    : localizations.createAccount,
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -116,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
               TextFormField(
                 controller: _usernameController,
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: localizations.username,
                   prefixIcon: const Icon(Icons.person),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -124,14 +129,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter username';
+                    return localizations.enterUsername;
                   }
                   if (value.length < 5 || value.length > 15) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                          'Username must be between 5 and 15 characters',
-                        ),
+                      SnackBar(
+                        content: Text(localizations.usernameLimit),
                         duration: Duration(seconds: 3),
                       ),
                     );
@@ -141,10 +144,8 @@ class _LoginPageState extends State<LoginPage> {
                     r'^[a-zA-Z0-9]([_]?[a-zA-Z0-9]){4,14}$',
                   ).hasMatch(value)) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                          'Username can only contain letters, numbers, and underscore',
-                        ),
+                      SnackBar(
+                        content: Text(localizations.usernameCond),
                         duration: Duration(seconds: 3),
                       ),
                     );
@@ -158,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: localizations.email,
                     prefixIcon: const Icon(Icons.email),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -166,12 +167,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter email';
+                      return localizations.enterEmail;
                     }
                     if (!RegExp(
                       r'^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@gmail\.com$',
                     ).hasMatch(value)) {
-                      return 'Please enter a valid Gmail address';
+                      return localizations.emailCond;
                     }
                     return null;
                   },
@@ -180,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
               TextFormField(
                 controller: _passwordController,
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: localizations.password,
                   prefixIcon: const Icon(Icons.lock),
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -200,10 +201,10 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: _obscurePassword,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter password';
+                    return localizations.enterPassword;
                   }
                   if (value.length < 8) {
-                    return 'Password must be at least 8 characters';
+                    return localizations.passLen;
                   }
                   if (!_isLogin) {
                     if (!RegExp(
@@ -228,7 +229,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   controller: _confirmPasswordController,
                   decoration: InputDecoration(
-                    labelText: 'Confirm Password',
+                    labelText: localizations.confirmPassword,
                     prefixIcon: const Icon(Icons.lock_outline),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -237,10 +238,10 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please confirm password';
+                      return localizations.pleaseConfirmPassword;
                     }
                     if (value != _passwordController.text) {
-                      return 'Passwords do not match';
+                      return localizations.passMisMatch;
                     }
                     return null;
                   },
@@ -268,7 +269,9 @@ class _LoginPageState extends State<LoginPage> {
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
                           : Text(
-                            _isLogin ? 'Login' : 'Register',
+                            _isLogin
+                                ? localizations.login
+                                : localizations.register,
                             style: const TextStyle(fontSize: 16),
                           ),
                 ),
@@ -285,8 +288,8 @@ class _LoginPageState extends State<LoginPage> {
                         },
                 child: Text(
                   _isLogin
-                      ? 'Need an account? Register'
-                      : 'Have an account? Login',
+                      ? localizations.suggestRegister
+                      : localizations.suggestLogin,
                   style: TextStyle(fontSize: 15),
                 ),
               ),
@@ -309,8 +312,8 @@ class _LoginPageState extends State<LoginPage> {
                             );
                           }
                         },
-                child: const Text(
-                  'Continue as Guest',
+                child: Text(
+                  localizations.continueAsGuest,
                   style: TextStyle(fontSize: 15),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:revengi/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 
@@ -7,8 +8,9 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
+      appBar: AppBar(title: Text(localizations.profile)),
       body: FutureBuilder<SharedPreferences>(
         future: SharedPreferences.getInstance(),
         builder: (context, snapshot) {
@@ -43,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     Text(
-                      'Username',
+                      localizations.username,
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     const SizedBox(height: 8),
@@ -53,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     Text(
-                      'API Key',
+                      localizations.apiKey,
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     const SizedBox(height: 8),
@@ -79,8 +81,8 @@ class ProfileScreen extends StatelessWidget {
                           icon: const Icon(Icons.copy),
                           onPressed: () {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('API Key copied to clipboard'),
+                              SnackBar(
+                                content: Text(localizations.copiedToClipboard),
                               ),
                             );
                             Clipboard.setData(ClipboardData(text: apiKey));
@@ -90,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
                     Text(
-                      'API Endpoints Rate Limits',
+                      localizations.apiRateLimits,
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     const SizedBox(height: 8),
