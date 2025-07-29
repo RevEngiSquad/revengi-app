@@ -1,8 +1,8 @@
 {
   "about": "About",
   "aiChat": "AIチャット",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "analyze": "分析",
+  "analyzing": "分析中...",
   "apiKey": "API キー",
   "apiRateLimits": "APIエンドポイントレート制限",
   "apksToApk": "APKS to APK",
@@ -16,8 +16,8 @@
   "cancel": "キャンセル",
   "chat": "チャット",
   "checkForUpdate": "アップデートの確認",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "デバイスのRAMを確認しています...",
+  "chooseFile": "{type} を選択",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "clean META-INF directory",
   "confirmPassword": "パスワードの確認",
   "continueAsGuest": "ゲストとして続ける",
   "copiedToClipboard": "クリップボードにコピーしました",
   "createAccount": "アカウントを作成",
   "dexRepair": "デックス修理",
   "dexRepairDesc": "DEXファイルの修復",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "ダウンロードしたモデル：",
+  "downloading": "ダウンロード中...",
+  "downloadModel": "モデルをダウンロード:",
   "email": "Eメールアドレス",
   "emailCond": "有効なGmailアドレスを入力してください",
   "enterEmail": "メールアドレスを入力してください",
   "enterModelName": "モデル名を入力してください",
   "enterPassword": "パスワードを入力してください",
   "enterUsername": "ユーザー名を入力してください",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "分析中にエラーが発生しました",
+  "failedToExtractFiles": "ZIPからファイルを抽出できませんでした: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
+  "featureNeedsApp": "この機能にはデスクトップまたはモバイルアプリを使用してください。",
   "fetchingModelInfo": "モデル情報を取得しています...",
   "flutterAnalysis": "Flutter Analysis",
   "flutterAnalysisDesc": "Flutter libs を分析する",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "生成",
+  "generating": "生成中...",
+  "guestNotAllowed": "ゲストユーザーはこの機能を使用できません",
+  "iDonTLoveThisApp": "気にしない、後悔する",
+  "iLoveThisApp": "申し訳ありませんが、私はこのアプリが大好きです",
   "jniAnalysis": "JNI分析",
   "jniAnalysisDesc": "APKでJNI署名を検索",
   "language": "言語: {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "大型モデルの警告",
   "later": "後で",
   "login": "ログイン",
-  "merge": "Merge",
+  "merge": "結合",
   "mergeSplitApks": "分割APKを統合",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "Web版ではスプリットAPKマージはできません。",
+  "models": "モデル",
   "mtHook": "MTフック",
   "mtHookDesc": "MT拡張フックを生成",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "ファイルが選択されていません",
   "ok": "OK",
   "ollama_api_url": "OLLAMAベースURL",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "Orlama クライアントの初期化に失敗しました: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "Ollama図書館を開く",
   "passLen": "パスワードは8文字以上でなければなりません",
   "passMisMatch": "パスワードが一致しません",
   "password": "パスワード",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "apkeditor.jarへのパス",
   "pleaseConfirmPassword": "パスワードを確認してください",
   "preferences": "設定",
-  "proceed": "Proceed",
+  "proceed": "続行する",
   "profile": "プロフィール",
   "register": "登録",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "修復",
+  "repairDexError": "DEXファイルの修復エラー: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "DEXファイルの修復に成功しました。 {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "修理中...",
   "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "保存",
+  "selectAModel": "チャットするモデルを選択",
+  "selectFiles": "{type} ファイルを選択",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "言語の選択",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "「モデル」タブでモデルを選択またはダウンロードしてください。",
+  "selectValidFile": "有効な {type} ファイルを選択してください",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,15 +148,15 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "apkeditor jar パスを設定",
+  "setSystemMessage": "システムメッセージを設定",
   "smaliGrammar": "Smali Grammar",
   "suggestLogin": "アカウントをお持ちですか？ログイン",
   "suggestRegister": "アカウントが必要ですか？登録",
-  "systemMessage": "System Message",
+  "systemMessage": "システムメッセージ",
   "theme": "テーマ",
   "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
+  "uninstallWarning": "あなたはちょうどアプリをアンインストールしようとしていましたね。",
   "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -168,11 +168,11 @@
   "update": "更新",
   "updateAvailable": "アップデートがあります",
   "updateAvailableMessage": "アプリの新しいバージョンが利用可能です。今すぐアップデートしますか？",
-  "uploading": "Uploading...",
+  "uploading": "アップロード中...",
   "username": "ユーザー名",
   "usernameCond": "ユーザー名には、文字、数字、およびアンダースコアのみを含めることができます",
   "usernameLimit": "ユーザー名は5文字以上15文字以下で入力してください",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "base.apkのバージョンを分割APKで検証する",
+  "vrd": "リソースのディレクトリ名を検証する",
   "welcomeBack": "おかえりなさい！"
 }
