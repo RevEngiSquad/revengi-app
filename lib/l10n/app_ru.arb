@@ -1,6 +1,6 @@
 {
   "about": "О программе",
-  "aiChat": "AI Chat",
+  "aiChat": "AI Чат",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "apiKey": "Ключ API",
@@ -12,9 +12,9 @@
   "batteryOptimizationMessage": "Для Android 13 и выше нам нужно отключить оптимизацию батареи, чтобы это приложение работало правильно в фоновом режиме.",
   "blutter": "Blutter",
   "blutterDesc": "Инструмент бинарного анализа Flutter",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Приложение будет работать непосредственно с APK файлами.\n\r\nZIP: Убедитесь, что ZIP файлы содержат только `libapp. o` для архитектуры arm64. Несоответствие может привести к ошибкам.",
   "cancel": "Отмена",
-  "chat": "Chat",
+  "chat": "Чат",
   "checkForUpdate": "Проверить обновления",
   "checkingDeviceRam": "Checking device RAM...",
   "chooseFile": "Choose {type}",
@@ -38,7 +38,7 @@
   "email": "Почта",
   "emailCond": "Пожалуйста, введите действительный Gmail адрес",
   "enterEmail": "Пожалуйста, введите email",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Введите название модели",
   "enterPassword": "Введите пароль",
   "enterUsername": "Пожалуйста, введите имя пользователя",
   "errorDuringAnalysis": "An error occurred during analysis",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Не удалось получить модель: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -59,7 +59,7 @@
     }
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "fetchingModelInfo": "Получение информации о модели...",
   "flutterAnalysis": "Анализ Flutter",
   "flutterAnalysisDesc": "Анализ библиотек Flutter",
   "generate": "Generate",
