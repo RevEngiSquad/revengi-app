@@ -1,8 +1,8 @@
 {
   "about": "O aplikaci",
-  "aiChat": "AI Chat",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "aiChat": "AI chat",
+  "analyze": "Analyzovat",
+  "analyzing": "Analyzuji...",
   "apiKey": "API klíč",
   "apiRateLimits": "Limity API koncových bodů",
   "apksToApk": "APKS do APK",
@@ -12,12 +12,12 @@
   "batteryOptimizationMessage": "Pro Android 13 a výše je třeba zakázat optimalizaci baterie, aby tato aplikace fungovala správně na pozadí.",
   "blutter": "Blutter",
   "blutterDesc": "Binární analytický nástroj Flutter",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Aplikace bude pracovat přímo s APK soubory.\n\r\nZIP: ujistěte se, že ZIP soubory obsahují pouze `libapp. o` pro architekturu arm64. Nesplnění požadavků může mít za následek chyby.",
   "cancel": "Zrušit",
   "chat": "Chat",
   "checkForUpdate": "Zkontrolovat aktualizace",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "Kontrola zařízení RAM...",
+  "chooseFile": "Vybrat {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "Vyčistit složku META-INF",
   "confirmPassword": "Potvrzení hesla",
   "continueAsGuest": "Pokračovat jako hosta",
   "copiedToClipboard": "Zkopírováno do schránky",
   "createAccount": "Vytvořit účet",
   "dexRepair": "Dex oprava",
   "dexRepairDesc": "Opravit soubory DEX",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "Stažené modely:",
+  "downloading": "Stahování...",
+  "downloadModel": "Stáhnout model:",
   "email": "E-mailová adresa",
   "emailCond": "Zadejte prosím platnou adresu Gmail",
   "enterEmail": "Prosím, zadejte e-mail",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Zadejte název modelu",
   "enterPassword": "Zadejte prosím heslo",
   "enterUsername": "Zadejte prosím uživatelské jméno",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "Došlo k chybě během analýzy",
+  "failedToExtractFiles": "Nepodařilo se extrahovat soubory ze ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Nepodařilo se vytáhnout model: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "featureNeedsApp": "Pro tuto funkci prosím použijte stolní nebo mobilní aplikaci.",
+  "fetchingModelInfo": "Načítání informací o modelu...",
   "flutterAnalysis": "Analýza znečišťujících látek",
   "flutterAnalysisDesc": "Analyzovat liby pro znečišťovatel",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "Generovat",
+  "generating": "Generování",
+  "guestNotAllowed": "Tato funkce nemůže použít hosté",
+  "iDonTLoveThisApp": "Je mi to líto, budu litovat",
+  "iLoveThisApp": "Omlouvám se, tuto aplikaci miluji",
   "jniAnalysis": "Analýza JNI",
   "jniAnalysisDesc": "Najít podpisy JNI v APK",
   "language": "Jazyk: {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "Varování velkého modelu",
   "later": "Později",
   "login": "Přihlásit se",
-  "merge": "Merge",
+  "merge": "Sloučit",
   "mergeSplitApks": "Sloučit rozdělené APK",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "Sloučení APK není možné rozdělit ve webové verzi.",
+  "models": "Vzory",
   "mtHook": "MT háček",
   "mtHookDesc": "Generovat MT vylepšené háčky",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "Nebyl vybrán žádný soubor",
   "ok": "Ok",
   "ollama_api_url": "Základní URL OLLAMA",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "Nepodařilo se inicializovat Ollama klienta: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "Otevřít knihovnu Ollama",
   "passLen": "Heslo musí mít alespoň 8 znaků",
   "passMisMatch": "Hesla se neshodují",
   "password": "Heslo",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "Cesta k apkeditoru",
   "pleaseConfirmPassword": "Potvrďte prosím heslo",
   "preferences": "Předvolby",
-  "proceed": "Proceed",
+  "proceed": "Pokračovat",
   "profile": "Profil",
   "register": "Registrovat se",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "Opravit",
+  "repairDexError": "Chyba při opravě DEX souboru: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "DEX soubor byl úspěšně opraven. Uloženo do: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "Oprava...",
   "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "Uložit",
+  "selectAModel": "Vyberte model pro chatování",
+  "selectFiles": "Vybrat soubor {type}",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "Vyberte jazyk",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "Vyberte nebo stáhněte model v záložce \"Modely\".",
+  "selectValidFile": "Vyberte prosím platný {type} soubor",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "Nastavit cestu k apkeditoru",
+  "setSystemMessage": "Nastavit systémovou zprávu",
   "smaliGrammar": "Smali Grammar",
   "suggestLogin": "Máte účet? Přihlašte se",
   "suggestRegister": "Potřebujete účet? Registrovat",
-  "systemMessage": "System Message",
+  "systemMessage": "Systémová zpráva",
   "theme": "Téma",
-  "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "typeMessage": "Napište svou zprávu…",
+  "uninstallWarning": "Chystáte se právě odinstalovat aplikaci?",
+  "unsupportedDartVersion": "Aktuálně RevEngi podporuje pouze stabilní kanál\n\nSoučasná verze grafu: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -168,11 +168,11 @@
   "update": "Aktualizovat",
   "updateAvailable": "Dostupná aktualizace",
   "updateAvailableMessage": "Je dostupná nová verze aplikace. Chcete ji nyní aktualizovat?",
-  "uploading": "Uploading...",
+  "uploading": "Nahrávám...",
   "username": "Uživatelské jméno",
   "usernameCond": "Uživatelské jméno může obsahovat pouze písmena, čísla a podtržítko",
   "usernameLimit": "Uživatelské jméno musí být v rozmezí 5 až 15 znaků",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "Ověřit verzi base.apk pomocí rozdělených APK",
+  "vrd": "Ověřit název dir zdrojů",
   "welcomeBack": "Vítejte zpátky!"
 }
