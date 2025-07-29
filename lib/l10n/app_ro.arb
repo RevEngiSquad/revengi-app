@@ -1,8 +1,8 @@
 {
   "about": "Despre",
-  "aiChat": "AI Chat",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "aiChat": "Chat AI",
+  "analyze": "Analizează",
+  "analyzing": "Analizare...",
   "apiKey": "Cheie API",
   "apiRateLimits": "Limitele ratei de finalizare API",
   "apksToApk": "APKS pentru APK",
@@ -12,12 +12,12 @@
   "batteryOptimizationMessage": "Pentru Android 13 și mai mare, trebuie să dezactivăm optimizarea bateriei pentru ca această aplicație să funcționeze corespunzător în fundal.",
   "blutter": "Blutter",
   "blutterDesc": "Instrument de analiză binară Flutter",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Aplicația se va ocupa direct de fișiere APK.\n\r\nZIP: Asigurați-vă că fișierele ZIP conțin doar `libapp. o` pentru arhitectura arm64. Nerespectarea conformităţii poate duce la erori.",
   "cancel": "Anulează",
   "chat": "Chat",
   "checkForUpdate": "Verifică pentru actualizări",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "Se verifică RAM-ul dispozitivului...",
+  "chooseFile": "Alege {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "Directorul META-INF curat",
   "confirmPassword": "Confirmare parolă",
   "continueAsGuest": "Continuă ca Vizitator",
   "copiedToClipboard": "Copiat în clipboard",
   "createAccount": "Creare cont",
   "dexRepair": "Reparație Dex",
   "dexRepairDesc": "Repară fişierele DEX",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "Modele descărcate:",
+  "downloading": "Descărcare...",
+  "downloadModel": "Descarcă un model:",
   "email": "E-mail",
   "emailCond": "Te rugăm să introduci o adresă Gmail validă",
   "enterEmail": "Te rugăm să introduci e-mail",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Introduceți numele modelului",
   "enterPassword": "Vă rugăm să introduceţi parola",
   "enterUsername": "Introdu numele de utilizator",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "A apărut o eroare în timpul analizei",
+  "failedToExtractFiles": "Nu s-a reușit extragerea fișierelor din ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Nu s-a reușit tragerea modelului: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "featureNeedsApp": "Te rugăm să folosești aplicația desktop sau pentru mobil pentru această funcție.",
+  "fetchingModelInfo": "Preluare informații model...",
   "flutterAnalysis": "Analiză Flutter",
   "flutterAnalysisDesc": "Analizează frezele Flutter",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "Genereaza",
+  "generating": "Generare...",
+  "guestNotAllowed": "Utilizatorii oaspeţi nu pot utiliza această funcţie",
+  "iDonTLoveThisApp": "Nu-mi pasă, regret",
+  "iLoveThisApp": "Îmi pare rău, iubesc această aplicație",
   "jniAnalysis": "Analiza JNI",
   "jniAnalysisDesc": "Găsește semnăturile JNI în APK",
   "language": "Limbă: {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "Avertizare model mare",
   "later": "Mai târziu",
   "login": "Autentificare",
-  "merge": "Merge",
+  "merge": "Îmbinare",
   "mergeSplitApks": "Îmbinare APK-uri",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "Fuzionarea Split APK nu este posibilă în versiunea web.",
+  "models": "Modele",
   "mtHook": "Cârlig MT",
   "mtHookDesc": "Genereaza Cârlige Imbunatite MT",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "Niciun fișier selectat",
   "ok": "Ok",
   "ollama_api_url": "URL bază OLLAMA",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "Eșuare inițializare client Ollama: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "Deschide Biblioteca Ollama",
   "passLen": "Parola trebuie să conțină cel puțin 8 caractere",
   "passMisMatch": "Parolele nu corespund",
   "password": "Parolă",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "Calea către apkeditor jar",
   "pleaseConfirmPassword": "Vă rugăm să confirmați parola",
   "preferences": "Preferințe",
-  "proceed": "Proceed",
+  "proceed": "Continuă",
   "profile": "Profil",
   "register": "Inregistrare",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "Repară",
+  "repairDexError": "Eroare reparare fișier DEX: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "Fișier DEX reparat cu succes. Salvat la: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "Reparați...",
   "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "Salvează",
+  "selectAModel": "Selectați un model pentru a discuta",
+  "selectFiles": "Selectați {type} Fișier",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "Selectaţi limba",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "Vă rugăm să selectați sau să descărcați un model în fila “Models”.",
+  "selectValidFile": "Vă rugăm să selectați un fișier {type} valid",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "Setează calea apkeditor jar",
+  "setSystemMessage": "Setare mesaj de sistem",
   "smaliGrammar": "Smali Grammar",
   "suggestLogin": "Ai un cont? Autentifică-te",
   "suggestRegister": "Ai nevoie de un cont? Înregistrează-te",
-  "systemMessage": "System Message",
+  "systemMessage": "Mesaj de sistem",
   "theme": "Tema",
-  "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "typeMessage": "Introduceți mesajul…",
+  "uninstallWarning": "Ai fost pe cale să dezinstalezi aplicația nu-i așa?",
+  "unsupportedDartVersion": "În prezent, RevEngi suportă doar canalul stabil dart\n\nVersiunea actuală Dart : {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -168,11 +168,11 @@
   "update": "Actualizare",
   "updateAvailable": "Actualizare disponibilă",
   "updateAvailableMessage": "O nouă versiune a aplicației este disponibilă. Doriți să actualizați acum?",
-  "uploading": "Uploading...",
+  "uploading": "Încărcare...",
   "username": "Nume",
   "usernameCond": "Numele de utilizator poate conține doar litere, numere și underscore",
   "usernameLimit": "Numele de utilizator trebuie să aibă între 5 și 15 caractere",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "Validați versiunea de base.apk cu APK-uri împărțite",
+  "vrd": "Validare nume resurse dir",
   "welcomeBack": "Bine ai revenit!"
 }
