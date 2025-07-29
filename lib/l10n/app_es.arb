@@ -3,20 +3,20 @@
   "aiChat": "Chat de IA",
   "analyze": "Analizar",
   "analyzing": "Analizando...",
-  "apiKey": "Clave API",
-  "apiRateLimits": "Límites de Tasa de Endpoints API",
-  "apksToApk": "APKS a APK",
+  "apiKey": "Clave de API",
+  "apiRateLimits": "Límites de tasa de los puntos finales de la API",
+  "apksToApk": "APKS to APK",
   "appDescription": "Una colección de herramientas de ingeniería inversa.",
-  "appTitle": "Revengi",
+  "appTitle": "RevEngi",
   "batteryOptimization": "Optimización de la batería",
-  "batteryOptimizationMessage": "Para Android 13 o superior, necesitamos deshabilitar la optimización de la batería para que esta aplicación funcione correctamente en segundo plano.",
+  "batteryOptimizationMessage": "Para Android 13 y versiones posteriores, necesitamos deshabilitar la optimización de batería para que esta aplicación funcione correctamente en segundo plano.",
   "blutter": "Blutter",
-  "blutterDesc": "Herramienta de análisis binario del flujón",
-  "blutterNote": "\nAPK: La aplicación manejará directamente archivos APK.\n\r\nZIP: Asegúrate de que los archivos ZIP contengan sólo el `libapp. o` para la arquitectura arm64. El incumplimiento puede dar lugar a errores.",
+  "blutterDesc": "Herramienta de análisis binario de Flutter",
+  "blutterNote": "\nAPK: La aplicación manejará directamente los archivos APK.\n\nZIP: Asegúrese de que los archivos ZIP contengan únicamente el archivo `libapp.so` para la arquitectura arm64. El incumplimiento puede resultar en errores.",
   "cancel": "Cancelar",
-  "chat": "Chatear",
+  "chat": "Chat",
   "checkForUpdate": "Buscar actualizaciones",
-  "checkingDeviceRam": "Comprobando RAM del dispositivo...",
+  "checkingDeviceRam": "Comprobando la RAM del dispositivo...",
   "chooseFile": "Elige {type}",
   "@chooseFile": {
     "placeholders": {
@@ -30,19 +30,19 @@
   "continueAsGuest": "Continuar como invitado",
   "copiedToClipboard": "Copiado al portapapeles",
   "createAccount": "Crear cuenta",
-  "dexRepair": "Reparar Dex",
+  "dexRepair": "Reparación de Dex",
   "dexRepairDesc": "Reparar archivos DEX",
   "downloadedModels": "Modelos Descargados:",
   "downloading": "Descargando...",
   "downloadModel": "Descargar un modelo:",
   "email": "E-mail",
-  "emailCond": "Por favor, introduzca una dirección de Gmail válida",
-  "enterEmail": "Por favor ingrese email",
-  "enterModelName": "Introduzca un nombre de modelo",
+  "emailCond": "Por favor, introduce una dirección de Gmail válida",
+  "enterEmail": "Por favor, introduce tu correo electrónico",
+  "enterModelName": "Introduce un nombre de modelo",
   "enterPassword": "Por favor, introduzca la contraseña",
-  "enterUsername": "Por favor ingrese nombre de usuario",
-  "errorDuringAnalysis": "Se ha producido un error durante el análisis",
-  "failedToExtractFiles": "Error al extraer archivos de ZIP: {e}",
+  "enterUsername": "Por favor, introduzca su nombre de usuario",
+  "errorDuringAnalysis": "Se produjo un error durante el análisis",
+  "failedToExtractFiles": "No se pudieron extraer los archivos del ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Error al pull modelo: {error}",
+  "failedToPullModel": "No se pudo extraer el modelo: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -58,17 +58,17 @@
       }
     }
   },
-  "featureNeedsApp": "Por favor, utilice la aplicación de escritorio o móvil para esta función.",
+  "featureNeedsApp": "Utilice la aplicación de escritorio o móvil para esta función.",
   "fetchingModelInfo": "Obteniendo información del modelo...",
   "flutterAnalysis": "Análisis de Flutter",
   "flutterAnalysisDesc": "Analizar librerías de Flutter",
   "generate": "Generar",
   "generating": "Generando...",
-  "guestNotAllowed": "Los usuarios invitados no pueden usar esta función",
-  "iDonTLoveThisApp": "No me importa, lamentaré",
-  "iLoveThisApp": "Lo siento, me encanta esta aplicación",
+  "guestNotAllowed": "Los usuarios invitados no pueden usar esta función.",
+  "iDonTLoveThisApp": "No me importa, me arrepentiré",
+  "iLoveThisApp": "Lo siento, me encanta esta aplicación.",
   "jniAnalysis": "Análisis de JNI",
-  "jniAnalysisDesc": "Encontrar firmas JNI en APK",
+  "jniAnalysisDesc": "Buscar firmas JNI en APK",
   "language": "Idioma: {languageCode}",
   "@language": {
     "description": "Language code",
@@ -81,17 +81,17 @@
   },
   "largeModelWarning": "Advertencia de modelo grande",
   "later": "Luego",
-  "login": "Ingresar",
-  "merge": "Combinar",
-  "mergeSplitApks": "Combinar APKs separados",
-  "mergeUnsupportedOnWeb": "La fusión de Sdiit APK no es posible en la versión web.",
+  "login": "Iniciar sesión",
+  "merge": "Fusionar",
+  "mergeSplitApks": "Fusionar APK divididos",
+  "mergeUnsupportedOnWeb": "La fusión de APK divididos no es posible en la versión web.",
   "models": "Modelos",
-  "mtHook": "Gancho MT",
-  "mtHookDesc": "Generar Hooks Mejorados MT",
+  "mtHook": "MT Hook",
+  "mtHookDesc": "Generar MT Enhanced Hooks",
   "noFileSelected": "Ningún archivo seleccionado",
   "ok": "Ok",
   "ollama_api_url": "URL base OLLAMA",
-  "ollamaInitializeError": "Error al inicializar el cliente Ollama: {e}",
+  "ollamaInitializeError": "No se pudo inicializar el cliente de Ollama: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,12 +99,12 @@
       }
     }
   },
-  "openOllamaLibrary": "Abrir biblioteca Ollama",
+  "openOllamaLibrary": "Abrir biblioteca de Ollama",
   "passLen": "La contraseña debe tener al menos 8 caracteres",
   "passMisMatch": "Las contraseñas no coinciden",
   "password": "Contraseña",
-  "pathToApkeditorJar": "Ruta a apkeditor jar",
-  "pleaseConfirmPassword": "Por favor confirme la contraseña",
+  "pathToApkeditorJar": "Ruta al jar de apkeditor",
+  "pleaseConfirmPassword": "Por favor, confirma la contraseña",
   "preferences": "Preferencias",
   "proceed": "Continuar",
   "profile": "Perfil",
@@ -139,7 +139,7 @@
     }
   },
   "selectLanguage": "Seleccionar idioma",
-  "selectOrDownloadModel": "Por favor, seleccione o descargue un modelo en la pestaña \"Modelos\".",
+  "selectOrDownloadModel": "Por favor, selecciona o descarga un modelo en la pestaña \"Modelos\".",
   "selectValidFile": "Por favor, seleccione un archivo {type} válido",
   "@selectValidFile": {
     "placeholders": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Establecer ruta jar apkeditor",
+  "setJarPath": "Establecer ruta del jar de apkeditor",
   "setSystemMessage": "Establecer mensaje del sistema",
   "smaliGrammar": "Gramática Smali",
-  "suggestLogin": "¿Tienes una cuenta? Iniciar sesión",
-  "suggestRegister": "¿Necesitas una cuenta? Regístrate",
+  "suggestLogin": "¿Ya tienes cuenta? Iniciar sesión",
+  "suggestRegister": "¿Ya tienes cuenta? Iniciar sesión",
   "systemMessage": "Mensaje del sistema",
   "theme": "Tema",
   "typeMessage": "Escribe tu mensaje…",
-  "uninstallWarning": "Estás a punto de desinstalar la aplicación ¿no?",
-  "unsupportedDartVersion": "Actualmente RevEngi sólo soporta el canal estable dart\n\nVersión actual de Dart: {dartversion}",
+  "uninstallWarning": "Estabas a punto de desinstalar la aplicación, ¿verdad?",
+  "unsupportedDartVersion": "Actualmente, RevEngi solo es compatible con el canal estable de Dart.\n\nVersión actual de Dart: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -170,9 +170,9 @@
   "updateAvailableMessage": "Hay una nueva versión de la aplicación disponible. ¿Quieres actualizar ahora?",
   "uploading": "Subiendo...",
   "username": "Usuario",
-  "usernameCond": "El nombre de usuario solo puede contener letras, números y subrayado",
+  "usernameCond": "El nombre de usuario solo puede contener letras, números y guiones bajos",
   "usernameLimit": "El nombre de usuario debe tener entre 5 y 15 caracteres",
   "validateModules": "Validar la versión de base.apk con APKs divididos",
-  "vrd": "Validar nombre del directorio de recursos",
-  "welcomeBack": "¡Bienvenido!"
+  "vrd": "Validar el nombre del directorio de recursos",
+  "welcomeBack": "¡Bienvenido de nuevo!"
 }
