@@ -1,8 +1,8 @@
 {
   "about": "عن",
-  "aiChat": "AI Chat",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "aiChat": "دردشة AI",
+  "analyze": "تحليل",
+  "analyzing": "تحليل...",
   "apiKey": "مفتاح API",
   "apiRateLimits": "حدود معدل نقاط نهاية API",
   "apksToApk": "APKS إلى APK",
@@ -14,10 +14,10 @@
   "blutterDesc": "أداة التحليل الثنائي رفرفة",
   "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
   "cancel": "يلغي",
-  "chat": "Chat",
+  "chat": "الدردشة",
   "checkForUpdate": "تحقق للحصول على التحديثات",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "التحقق من ذاكرة الجهاز...",
+  "chooseFile": "اختر {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "مسح دليل META-INF",
   "confirmPassword": "تأكيد كلمة المرور",
   "continueAsGuest": "الاستمرار كضيف",
   "copiedToClipboard": "نسخ إلى الحافظة",
   "createAccount": "إنشاء حساب",
   "dexRepair": "إصلاح DEX",
   "dexRepairDesc": "إصلاح ملفات DEX",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "النماذج المحمّلة:",
+  "downloading": "تنزيل...",
+  "downloadModel": "تحميل نموذج:",
   "email": "البريد الإلكتروني",
   "emailCond": "الرجاء إدخال عنوان Gmail صالح",
   "enterEmail": "الرجاء إدخال البريد الإلكتروني",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "أدخل اسم النموذج",
   "enterPassword": "الرجاء إدخال كلمة المرور",
   "enterUsername": "الرجاء إدخال اسم المستخدم",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "حدث خطأ أثناء التحليل",
+  "failedToExtractFiles": "فشل في استخراج الملفات من ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "فشل في نموذج السحب: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "featureNeedsApp": "الرجاء استخدام تطبيق سطح المكتب أو الجوال لهذه الميزة.",
+  "fetchingModelInfo": "جلب معلومات النموذج...",
   "flutterAnalysis": "تحليل الرفرفة",
   "flutterAnalysisDesc": "تحليل libs رفرفة",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "توليد",
+  "generating": "توليد ...",
+  "guestNotAllowed": "لا يمكن للمستخدمين الضيوف استخدام هذه الميزة",
+  "iDonTLoveThisApp": "أنا لا أهتم ، سأندم",
+  "iLoveThisApp": "أنا آسف، أحب هذا التطبيق",
   "jniAnalysis": "تحليل JNI",
   "jniAnalysisDesc": "ابحث عن توقيعات JNI في APK",
   "language": "اللغة: {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "نموذج تحذير كبير",
   "later": "لاحقاً",
   "login": "تسجيل الدخول",
-  "merge": "Merge",
+  "merge": "دمج",
   "mergeSplitApks": "دمج انقسام APKs",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "تقسيم دمج APK غير ممكن في إصدار الويب.",
+  "models": "النماذج",
   "mtHook": "هوك",
   "mtHookDesc": "توليد خطافات محسنة MT",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "لم يتم تحديد ملف",
   "ok": "نعم",
   "ollama_api_url": "عنوان ULLAMA BASE URL",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "فشل في تهيئة عميل أولاما: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "فتح مكتبة أولاما",
   "passLen": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
   "passMisMatch": "كلمتا المرور غير متطابقتين",
   "password": "كلمة المرور",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "المسار إلى جرس المحرر",
   "pleaseConfirmPassword": "الرجاء تأكيد كلمة المرور",
   "preferences": "التفضيلات",
-  "proceed": "Proceed",
+  "proceed": "المتابعة",
   "profile": "حساب تعريفي",
   "register": "تسجيل",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "إصلاح",
+  "repairDexError": "خطأ في إصلاح ملف DEX: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "تم إصلاح ملف DEX بنجاح. تم حفظه إلى: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "إصلاح...",
   "reset": "إعادة ضبط",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "حفظ",
+  "selectAModel": "حدد موديل للمحادثة",
+  "selectFiles": "حدد ملف {type}",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "حدد اللغة",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "الرجاء تحديد أو تنزيل نموذج في علامة التبويب \"النماذج\".",
+  "selectValidFile": "الرجاء تحديد ملف {type} صالح",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "تعيين مسار محرر apkitor",
+  "setSystemMessage": "تعيين رسالة النظام",
   "smaliGrammar": "قواعد سميلي",
   "suggestLogin": "لديك حساب؟ تسجيل الدخول",
   "suggestRegister": "هل تحتاج إلى حساب؟ سجل",
-  "systemMessage": "System Message",
+  "systemMessage": "رسالة النظام",
   "theme": "سمة",
-  "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "typeMessage": "اكتب رسالتك…",
+  "uninstallWarning": "كنت على وشك إلغاء تثبيت التطبيق أليس كذلك؟",
+  "unsupportedDartVersion": "حاليا RevEngi يدعم فقط قناة مستقرة\n\nالإصدار الحالي لدارت: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -168,11 +168,11 @@
   "update": "تحديث",
   "updateAvailable": "التحديث المتاح",
   "updateAvailableMessage": "يتوفر إصدار جديد من التطبيق.هل ترغب في التحديث الآن؟",
-  "uploading": "Uploading...",
+  "uploading": "تحميل...",
   "username": "اسم المستخدم",
   "usernameCond": "يمكن أن يحتوي اسم المستخدم فقط على أحرف وأرقام وتسطير سطر",
   "usernameLimit": "اسم المستخدم يجب أن يكون بين 5 و 15 حرفا",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "التحقق من إصدار base.apk مع تقسيم APK",
+  "vrd": "التحقق من اسم لوحة الموارد",
   "welcomeBack": "مرحبا بعودتك!"
 }
