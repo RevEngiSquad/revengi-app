@@ -1,6 +1,6 @@
 {
   "about": "Tietoja",
-  "aiChat": "AI Chat",
+  "aiChat": "Ai Keskustelu",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "apiKey": "Api Avain",
@@ -12,9 +12,9 @@
   "batteryOptimizationMessage": "Android-laitteelle 13 ja sitä vanhemmalle Meidän on poistettava akun optimointi käytöstä, jotta tämä sovellus toimisi kunnolla taustalla.",
   "blutter": "Blutter",
   "blutterDesc": "Flutter binaarinen analyysityökalu",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Sovellus käsittelee APK-tiedostoja suoraan.\n\r\nZIP: Varmista, että ZIP tiedostot sisältävät vain `libapp. o` arm64-arkkitehtuuriin. Epäonnistuminen voi johtaa virheisiin.",
   "cancel": "Peruuta",
-  "chat": "Chat",
+  "chat": "Keskustelu",
   "checkForUpdate": "Tarkista päivitykset",
   "checkingDeviceRam": "Checking device RAM...",
   "chooseFile": "Choose {type}",
@@ -38,7 +38,7 @@
   "email": "Sähköposti",
   "emailCond": "Syötä kelvollinen Gmail-osoite",
   "enterEmail": "Syötä sähköposti",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Anna mallin nimi",
   "enterPassword": "Anna salasana",
   "enterUsername": "Syötä käyttäjänimi",
   "errorDuringAnalysis": "An error occurred during analysis",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Mallin vetäminen epäonnistui: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -59,7 +59,7 @@
     }
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "fetchingModelInfo": "Haetaan mallin tietoja...",
   "flutterAnalysis": "Flutterin Analyysi",
   "flutterAnalysisDesc": "Analysoi Flutter libs",
   "generate": "Generate",
