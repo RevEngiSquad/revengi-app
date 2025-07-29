@@ -1,6 +1,6 @@
 {
   "about": "Über",
-  "aiChat": "AI Chat",
+  "aiChat": "KI-Chat",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "apiKey": "API-Schlüssel",
@@ -12,7 +12,7 @@
   "batteryOptimizationMessage": "Für Android 13 und höher müssen wir die Batterieoptimierung deaktivieren, damit diese App im Hintergrund korrekt funktioniert.",
   "blutter": "Blutter",
   "blutterDesc": "Flutter Binäranalyse-Tool",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Die App verarbeitet direkt APK-Dateien.\n\r\nZIP: Stellen Sie sicher, dass ZIP-Dateien nur die `libapp' enthalten. o` für die arm64-Architektur. Bei Nichteinhaltung kann es zu Fehlern kommen.",
   "cancel": "Abbrechen",
   "chat": "Chat",
   "checkForUpdate": "Nach Updates suchen",
@@ -38,7 +38,7 @@
   "email": "E-Mail",
   "emailCond": "Bitte geben Sie eine gültige Gmail-Adresse ein",
   "enterEmail": "Bitte E-Mail eingeben",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Modellnamen eingeben",
   "enterPassword": "Bitte Passwort eingeben",
   "enterUsername": "Bitte Benutzername eingeben",
   "errorDuringAnalysis": "An error occurred during analysis",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Fehler beim Ziehen des Modells: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -59,7 +59,7 @@
     }
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "fetchingModelInfo": "Modelinformationen werden abgerufen...",
   "flutterAnalysis": "Flutter-Analyse",
   "flutterAnalysisDesc": "Flutter-Bibliotheken analysieren",
   "generate": "Generate",
