@@ -1,6 +1,6 @@
 {
   "about": "Informatie",
-  "aiChat": "AI Chat",
+  "aiChat": "AI chat",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "apiKey": "API Sleutel",
@@ -12,9 +12,9 @@
   "batteryOptimizationMessage": "Voor Android 13 en hoger, moeten we batterij optimalisatie uitschakelen om deze app goed te laten werken op de achtergrond.",
   "blutter": "Blutter",
   "blutterDesc": "Flutter binaire analyse tool",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: De app zal APK bestanden direct afhandelen.\n\r\nZIP: zorg ervoor dat ZIP bestanden alleen de `libapp bevatten. O` for arm64 architectuur. Als je dit niet doet, kan dit fouten veroorzaken.",
   "cancel": "annuleren",
-  "chat": "Chat",
+  "chat": "Chatten",
   "checkForUpdate": "Controleren op updates",
   "checkingDeviceRam": "Checking device RAM...",
   "chooseFile": "Choose {type}",
@@ -38,7 +38,7 @@
   "email": "E-mailadres",
   "emailCond": "Voer een geldig Gmail adres in",
   "enterEmail": "Voer e-mailadres in",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Voer een modelnaam in",
   "enterPassword": "Voer wachtwoord in",
   "enterUsername": "Voer gebruikersnaam in",
   "errorDuringAnalysis": "An error occurred during analysis",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Trekkingsmodel mislukt: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -59,7 +59,7 @@
     }
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "fetchingModelInfo": "Ophalen van modelinformatie...",
   "flutterAnalysis": "Flutter analyse",
   "flutterAnalysisDesc": "Flutter libs analyseren",
   "generate": "Generate",
