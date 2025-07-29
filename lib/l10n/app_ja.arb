@@ -1,6 +1,6 @@
 {
   "about": "About",
-  "aiChat": "AI Chat",
+  "aiChat": "AIチャット",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "apiKey": "API キー",
@@ -12,9 +12,9 @@
   "batteryOptimizationMessage": "Android 13 以降では、バックグラウンドで正常に動作するよう、このアプリのバッテリー最適化を無効にする必要があります。",
   "blutter": "Blutter",
   "blutterDesc": "Flutter バイナリ解析ツール",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: アプリは直接APKファイルを処理します。\n\r\nZIP: ZIPファイルに`libappのみが含まれていることを確認します。 arm64 アーキテクチャ向けの o` 。適合しないとエラーが発生する可能性があります。",
   "cancel": "キャンセル",
-  "chat": "Chat",
+  "chat": "チャット",
   "checkForUpdate": "アップデートの確認",
   "checkingDeviceRam": "Checking device RAM...",
   "chooseFile": "Choose {type}",
@@ -38,7 +38,7 @@
   "email": "Eメールアドレス",
   "emailCond": "有効なGmailアドレスを入力してください",
   "enterEmail": "メールアドレスを入力してください",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "モデル名を入力してください",
   "enterPassword": "パスワードを入力してください",
   "enterUsername": "ユーザー名を入力してください",
   "errorDuringAnalysis": "An error occurred during analysis",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "モデルのプルに失敗しました: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -59,7 +59,7 @@
     }
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "fetchingModelInfo": "モデル情報を取得しています...",
   "flutterAnalysis": "Flutter Analysis",
   "flutterAnalysisDesc": "Flutter libs を分析する",
   "generate": "Generate",
