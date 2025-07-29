@@ -1,8 +1,8 @@
 {
   "about": "Informatie",
   "aiChat": "AI chat",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "analyze": "Analyseren",
+  "analyzing": "Analyseren...",
   "apiKey": "API Sleutel",
   "apiRateLimits": "API Eindpunten Limieten",
   "apksToApk": "APKS naar APK",
@@ -16,8 +16,8 @@
   "cancel": "annuleren",
   "chat": "Chatten",
   "checkForUpdate": "Controleren op updates",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "RAM van apparaat controleren...",
+  "chooseFile": "Kies {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "META-INF map opschonen",
   "confirmPassword": "Bevestig wachtwoord",
   "continueAsGuest": "Doorgaan als gast",
   "copiedToClipboard": "Gekopieerd naar klembord",
   "createAccount": "Account Aanmaken",
   "dexRepair": "Dex Reparatie",
   "dexRepairDesc": "Repareer DEX bestanden",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "Gedownloade modellen:",
+  "downloading": "Downloadenchar@@0",
+  "downloadModel": "Download een model:",
   "email": "E-mailadres",
   "emailCond": "Voer een geldig Gmail adres in",
   "enterEmail": "Voer e-mailadres in",
   "enterModelName": "Voer een modelnaam in",
   "enterPassword": "Voer wachtwoord in",
   "enterUsername": "Voer gebruikersnaam in",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "Er is een fout opgetreden tijdens de analyse",
+  "failedToExtractFiles": "Uitpakken van bestanden van ZIP: {e} mislukt",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
+  "featureNeedsApp": "Gebruik de desktop of mobiele app voor deze functie.",
   "fetchingModelInfo": "Ophalen van modelinformatie...",
   "flutterAnalysis": "Flutter analyse",
   "flutterAnalysisDesc": "Flutter libs analyseren",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "Genereren",
+  "generating": "Genereren...",
+  "guestNotAllowed": "Gastgebruikers kunnen deze functie niet gebruiken",
+  "iDonTLoveThisApp": "Het kan me niet schelen, ik zal spijt",
+  "iLoveThisApp": "Het spijt me, ik hou van deze app",
   "jniAnalysis": "JNI analyse",
   "jniAnalysisDesc": "Zoek JNI handtekeningen in APK",
   "language": "Taal: {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "Waarschuwing groot model",
   "later": "Later",
   "login": "Aanmelden",
-  "merge": "Merge",
+  "merge": "Samenvoegen",
   "mergeSplitApks": "Split-APK's samenvoegen",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "Samenvoegen van de APK is niet mogelijk in de webversie.",
+  "models": "Model",
   "mtHook": "MT Haak",
   "mtHookDesc": "Genereer MT versterkte hooks",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "Geen bestand geselecteerd",
   "ok": "OK",
   "ollama_api_url": "OLLAMA basis-URL",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "Kan Ollama-client niet initialiseren: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "Open Ollama Bibliotheek",
   "passLen": "Wachtwoord moet ten minste 8 tekens bevatten",
   "passMisMatch": "Wachtwoorden komen niet overeen",
   "password": "Wachtwoord",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "Pad naar apkeditor jar",
   "pleaseConfirmPassword": "Bevestig het wachtwoord",
   "preferences": "named@@0",
-  "proceed": "Proceed",
+  "proceed": "Doorgaan",
   "profile": "Profiel",
   "register": "Registreren",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "Herstellen",
+  "repairDexError": "Fout bij het repareren van DEX-bestand: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "DEX-bestand is succesvol gerepareerd. Opgeslagen naar: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "Herstellen...",
   "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "Opslaan",
+  "selectAModel": "Selecteer een model om te chatten",
+  "selectFiles": "Selecteer {type} bestand",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "Selecteer Taal",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "Selecteer of download een model in het tabblad \"Models\".",
+  "selectValidFile": "Selecteer een geldig {type} bestand",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "Stel apkeditor pad in",
+  "setSystemMessage": "Systeembericht instellen",
   "smaliGrammar": "Smali Grammatica",
   "suggestLogin": "Heb je een account? Log in",
   "suggestRegister": "Een account nodig? Registreren",
-  "systemMessage": "System Message",
+  "systemMessage": "Systeem bericht",
   "theme": "Thema",
-  "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "typeMessage": "Typ je bericht…",
+  "uninstallWarning": "U staat op het punt de app te deïnstalleren?",
+  "unsupportedDartVersion": "Momenteel ondersteunt RevEngi alleen dart stable channel\n\nCurrent Dart Version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -168,11 +168,11 @@
   "update": "Vernieuwen",
   "updateAvailable": "Update beschikbaar",
   "updateAvailableMessage": "Er is een nieuwe versie van de app beschikbaar. Wil je nu bijwerken?",
-  "uploading": "Uploading...",
+  "uploading": "Uploaden...",
   "username": "Gebruikersnaam",
   "usernameCond": "Gebruikersnaam mag alleen letters, cijfers en onderstrepingstekens bevatten",
   "usernameLimit": "Gebruikersnaam moet tussen 5 en 15 tekens lang zijn",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "Valideer de versie van de base.apk met gesplitste APK's",
+  "vrd": "Valideer resources map naam",
   "welcomeBack": "Welkom terug!"
 }
