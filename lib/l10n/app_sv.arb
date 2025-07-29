@@ -1,8 +1,8 @@
 {
   "about": "Om",
   "aiChat": "AI Chatt",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "analyze": "Analysera",
+  "analyzing": "Analyserar...",
   "apiKey": "API nyckel",
   "apiRateLimits": "Gränser för API-slutpunkter",
   "apksToApk": "APKS till APK",
@@ -16,8 +16,8 @@
   "cancel": "Avbryt",
   "chat": "Chatt",
   "checkForUpdate": "Sök efter uppdateringar",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "Kontrollerar enheten RAM...",
+  "chooseFile": "Välj {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "Rensa META-INF-katalog",
   "confirmPassword": "Bekräfta lösenord",
   "continueAsGuest": "Fortsätt som gäst",
   "copiedToClipboard": "Kopierad till urklipp",
   "createAccount": "Skapa konto",
   "dexRepair": "Dex Reparation",
   "dexRepairDesc": "Reparera DEX-filer",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "Nedladdade modeller:",
+  "downloading": "Hämtar...",
+  "downloadModel": "Ladda ner en modell:",
   "email": "E-post",
   "emailCond": "Ange en giltig Gmail-adress",
   "enterEmail": "Ange e-postadress",
   "enterModelName": "Ange ett modellnamn",
   "enterPassword": "Ange lösenord",
   "enterUsername": "Ange användarnamn",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "Ett fel inträffade under analysen",
+  "failedToExtractFiles": "Det gick inte att extrahera filer från ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
+  "featureNeedsApp": "Använd skrivbordet eller mobilappen för den här funktionen.",
   "fetchingModelInfo": "Hämtar modellinformation...",
   "flutterAnalysis": "Flutter Analys",
   "flutterAnalysisDesc": "Analysera Flutter libs",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "Generera",
+  "generating": "Genererar...",
+  "guestNotAllowed": "Gästanvändare kan inte använda denna funktion",
+  "iDonTLoveThisApp": "Jag bryr mig inte, jag ångrar",
+  "iLoveThisApp": "Jag är ledsen, jag älskar den här appen",
   "jniAnalysis": "JNI Analys",
   "jniAnalysisDesc": "Hitta JNI-signaturer i APK",
   "language": "Språk: {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "Stor modell varning",
   "later": "Senare",
   "login": "Inloggning",
-  "merge": "Merge",
+  "merge": "Sammanfoga",
   "mergeSplitApks": "Slå ihop delade APK:er",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "Delad APK-sammanslagning är inte möjligt i webbversionen.",
+  "models": "Modeller",
   "mtHook": "MT krok",
   "mtHookDesc": "Generera MT-förbättrade krokar",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "Ingen fil vald",
   "ok": "OK",
   "ollama_api_url": "OLLAMA bas-URL",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "Det gick inte att initiera Ollama-klient: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "Öppna Ollama-biblioteket",
   "passLen": "Lösenordet måste vara minst 8 tecken",
   "passMisMatch": "Lösenorden matchar inte",
   "password": "Lösenord",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "Sökväg till apkeditor burk",
   "pleaseConfirmPassword": "Bekräfta lösenordet",
   "preferences": "Inställningar",
-  "proceed": "Proceed",
+  "proceed": "Fortsätt",
   "profile": "Profil",
   "register": "Registrera",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "Reparera",
+  "repairDexError": "Fel vid reparation av DEX-filen: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "DEX-filen reparerades framgångsrikt. Sparad till: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "Reparerar...",
   "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "Spara",
+  "selectAModel": "Välj en modell att chatta",
+  "selectFiles": "Välj {type} fil",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "Välj språk",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "Välj eller ladda ner en modell i fliken ”Modeller”.",
+  "selectValidFile": "Välj en giltig {type} -fil",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "Ange apkeditor jar sökväg",
+  "setSystemMessage": "Ställ in systemmeddelande",
   "smaliGrammar": "Smali Grammatik",
   "suggestLogin": "Har du ett konto? Logga in",
   "suggestRegister": "Behöver du ett konto? Registrera",
-  "systemMessage": "System Message",
+  "systemMessage": "System meddelande",
   "theme": "Tema",
-  "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "typeMessage": "Skriv ditt meddelande…",
+  "uninstallWarning": "Du höll just på att avinstallera appen var inte du?",
+  "unsupportedDartVersion": "För närvarande stöder RevEngi endast dartstabila kanal\n\nNuvarande Dartversion: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -168,11 +168,11 @@
   "update": "Uppdatera",
   "updateAvailable": "Uppdatering tillgänglig",
   "updateAvailableMessage": "En ny version av appen finns tillgänglig. Vill du uppdatera nu?",
-  "uploading": "Uploading...",
+  "uploading": "Uppladdar...",
   "username": "Användarnamn",
   "usernameCond": "Användarnamnet kan endast innehålla bokstäver, siffror och understreck",
   "usernameLimit": "Användarnamnet måste vara mellan 5 och 15 tecken",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "Validera version av base.apk med delade APK:er",
+  "vrd": "Validera resursnamn",
   "welcomeBack": "Välkommen tillbaka!"
 }
