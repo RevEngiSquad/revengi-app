@@ -1,6 +1,6 @@
 {
   "about": "O programie",
-  "aiChat": "AI Chat",
+  "aiChat": "Czat SI",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "apiKey": "Klucz API",
@@ -12,9 +12,9 @@
   "batteryOptimizationMessage": "W przypadku Android 13 i powyżej musimy wyłączyć optymalizację baterii, aby aplikacja działała poprawnie w tle.",
   "blutter": "Blutter",
   "blutterDesc": "Narzędzie analizy binarnej Flutter",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Aplikacja będzie bezpośrednio obsługiwać pliki APK.\n\r\nZIP: Upewnij się, że pliki ZIP zawierają tylko `libapp. o` dla architektury arm64. Niespełnienie wymagań może spowodować błędy.",
   "cancel": "Anuluj",
-  "chat": "Chat",
+  "chat": "Czat",
   "checkForUpdate": "Sprawdź aktualizacje",
   "checkingDeviceRam": "Checking device RAM...",
   "chooseFile": "Choose {type}",
@@ -38,7 +38,7 @@
   "email": "E-mail",
   "emailCond": "Wprowadź prawidłowy adres Gmail",
   "enterEmail": "Wprowadź adres e-mail",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Wprowadź nazwę modelu",
   "enterPassword": "Wprowadź hasło",
   "enterUsername": "Wprowadź nazwę użytkownika",
   "errorDuringAnalysis": "An error occurred during analysis",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Nie udało się pobrać modelu: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -59,7 +59,7 @@
     }
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "fetchingModelInfo": "Pobieranie informacji o modelu...",
   "flutterAnalysis": "Analiza strumienia powietrza",
   "flutterAnalysisDesc": "Analizuj biblioteki Fluttera",
   "generate": "Generate",
