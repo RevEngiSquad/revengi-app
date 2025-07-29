@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "DEX-fil repareret. Gemt til: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "Reparerer...",
   "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "Gem",
+  "selectAModel": "Vælg en model at chatte",
+  "selectFiles": "Vælg {type} Fil",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "Vælg Sprog",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "Vælg eller download venligst en model i fanen “Modeller”.",
+  "selectValidFile": "Vælg en gyldig {type} fil",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "Sæt apkeditor krukke sti",
+  "setSystemMessage": "Indstil Systembesked",
   "smaliGrammar": "Smali Grammatik",
   "suggestLogin": "Har du en konto? Log ind",
   "suggestRegister": "Har du brug for en konto?",
-  "systemMessage": "System Message",
+  "systemMessage": "System Besked",
   "theme": "Tema",
-  "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "typeMessage": "Skriv din besked…",
+  "uninstallWarning": "Du var lige ved at afinstallere app'en var ikke dig?",
+  "unsupportedDartVersion": "I øjeblikket understøtter RevEngi kun dart stabil kanal\n\nAktuel Dart version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -168,11 +168,11 @@
   "update": "Opdater",
   "updateAvailable": "Opdatering Tilgængelig",
   "updateAvailableMessage": "En ny version af appen er tilgængelig. Vil du opdatere nu?",
-  "uploading": "Uploading...",
+  "uploading": "Uploader...",
   "username": "Brugernavn",
   "usernameCond": "Brugernavn kan kun indeholde bogstaver, tal og understregning",
   "usernameLimit": "Brugernavn skal være mellem 5 og 15 tegn",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "Validér version af base.apk med delte APK'er",
+  "vrd": "Validér ressourcens dir navn",
   "welcomeBack": "Velkommen Tilbage!"
 }
