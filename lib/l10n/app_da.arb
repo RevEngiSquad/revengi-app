@@ -1,8 +1,8 @@
 {
   "about": "Om",
   "aiChat": "AI Chat",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "analyze": "Analysér",
+  "analyzing": "Analyserer...",
   "apiKey": "API Nøgle",
   "apiRateLimits": "API Endepunkter Rate Grænser",
   "apksToApk": "APKS til APK",
@@ -12,12 +12,12 @@
   "batteryOptimizationMessage": "For Android 13 og derover, Vi er nødt til at deaktivere batterioptimering for denne app for at fungere korrekt i baggrunden.",
   "blutter": "Blutter",
   "blutterDesc": "Værktøj til binær analyse af flutter",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Appen vil direkte håndtere APK-filer.\n\r\nZIP: Sørg for, at ZIP-filer kun indeholder 'libapp. o` for arm64-arkitektur. Manglende overholdelse kan medføre fejl.",
   "cancel": "Annuller",
   "chat": "Chat",
   "checkForUpdate": "Søg efter opdateringer",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "Kontrollerer enhed RAM...",
+  "chooseFile": "Vælg {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "Rens META- INF- mappe",
   "confirmPassword": "Bekræft Adgangskode",
   "continueAsGuest": "Fortsæt som gæst",
   "copiedToClipboard": "Kopieret til udklipsholder",
   "createAccount": "Opret Konto",
   "dexRepair": "Dex Reparation",
   "dexRepairDesc": "Reparer DEX filer",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "Downloadede Modeller:",
+  "downloading": "Downloader...",
+  "downloadModel": "Download en model:",
   "email": "E-mail",
   "emailCond": "Indtast en gyldig Gmail-adresse",
   "enterEmail": "Indtast venligst e-mail",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Indtast et modelnavn",
   "enterPassword": "Indtast venligst adgangskode",
   "enterUsername": "Indtast venligst brugernavn",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "Der opstod en fejl under analyse",
+  "failedToExtractFiles": "Kunne ikke udpakke filer fra ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Kunne ikke trække model: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "featureNeedsApp": "Brug venligst skrivebordet eller mobilappen til denne funktion.",
+  "fetchingModelInfo": "Henter modelinfo...",
   "flutterAnalysis": "Analyse Af Flutter",
   "flutterAnalysisDesc": "Analyser Flutter libs",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "Generer",
+  "generating": "Genererer...",
+  "guestNotAllowed": "Gæstebrugere kan ikke bruge denne funktion",
+  "iDonTLoveThisApp": "Jeg er ligeglad med, jeg vil fortryde",
+  "iLoveThisApp": "Beklager, jeg elsker denne app",
   "jniAnalysis": "JNI Analyse",
   "jniAnalysisDesc": "Find JNI signaturer i APK",
   "language": "Sprog: {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "Stor Model Advarsel",
   "later": "Senere",
   "login": "Login",
-  "merge": "Merge",
+  "merge": "Flet",
   "mergeSplitApks": "Flet Split APKs",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "Split APK sammenlægning er ikke muligt i web-versionen.",
+  "models": "Modeller",
   "mtHook": "MT Hook",
   "mtHookDesc": "Generere MT Forbedrede Kroge",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "Ingen fil valgt",
   "ok": "OK",
   "ollama_api_url": "OLLAMA base URL",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "Kunne ikke initialisere Ollama-klient: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "Åbn Ollama Bibliotek",
   "passLen": "Adgangskoden skal være på mindst 8 tegn",
   "passMisMatch": "Adgangskoder stemmer ikke overens",
   "password": "Adgangskode",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "Sti til apkeditor krukke",
   "pleaseConfirmPassword": "Bekræft venligst adgangskode",
   "preferences": "Præferencer",
-  "proceed": "Proceed",
+  "proceed": "Fortsæt",
   "profile": "Profil",
   "register": "Registrer",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "Reparer",
+  "repairDexError": "Fejl ved reparation af DEX-fil: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
