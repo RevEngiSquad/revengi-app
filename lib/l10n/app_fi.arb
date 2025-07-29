@@ -1,8 +1,8 @@
 {
   "about": "Tietoja",
   "aiChat": "Ai Keskustelu",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "analyze": "Analysoi",
+  "analyzing": "Tarkastellaan...",
   "apiKey": "Api Avain",
   "apiRateLimits": "Api Päättymispisteiden Nopeusrajat",
   "apksToApk": "APKS APK",
@@ -16,8 +16,8 @@
   "cancel": "Peruuta",
   "chat": "Keskustelu",
   "checkForUpdate": "Tarkista päivitykset",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "Tarkistetaan laitteen RAM-muistia...",
+  "chooseFile": "Valitse {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "Clean META-INF -hakemisto",
   "confirmPassword": "Vahvista Salasana",
   "continueAsGuest": "Jatka vieraana",
   "copiedToClipboard": "Kopioitu leikepöydälle",
   "createAccount": "Luo Tili",
   "dexRepair": "Dex Korjaus",
   "dexRepairDesc": "Korjaa DEX-tiedostot",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "Ladatut Mallit:",
+  "downloading": "Ladataan...",
+  "downloadModel": "Lataa malli:",
   "email": "Sähköposti",
   "emailCond": "Syötä kelvollinen Gmail-osoite",
   "enterEmail": "Syötä sähköposti",
   "enterModelName": "Anna mallin nimi",
   "enterPassword": "Anna salasana",
   "enterUsername": "Syötä käyttäjänimi",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "Analyysin aikana tapahtui virhe",
+  "failedToExtractFiles": "Ei voitu poimia tiedostoja ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
+  "featureNeedsApp": "Ole hyvä ja käytä työpöytä- tai mobiilisovellusta tähän ominaisuuteen.",
   "fetchingModelInfo": "Haetaan mallin tietoja...",
   "flutterAnalysis": "Flutterin Analyysi",
   "flutterAnalysisDesc": "Analysoi Flutter libs",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "Luo",
+  "generating": "Luodaan...",
+  "guestNotAllowed": "Vieraat käyttäjät eivät voi käyttää tätä ominaisuutta",
+  "iDonTLoveThisApp": "En välitä, minä olen pahoillani",
+  "iLoveThisApp": "Anteeksi, rakastan tätä sovellusta",
   "jniAnalysis": "JNI- Analyysi",
   "jniAnalysisDesc": "Etsi JNI allekirjoituksia APK",
   "language": "Kieli: {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "Suuri Malli Varoitus",
   "later": "Myöhemmin",
   "login": "Kirjaudu",
-  "merge": "Merge",
+  "merge": "Yhdistä",
   "mergeSplitApks": "Yhdistä Jaetut APK:t",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "Jaettu APK yhdistäminen ei ole mahdollista web-versiossa.",
+  "models": "Mallit",
   "mtHook": "MT Koukku",
   "mtHookDesc": "Luo Mt Enhanced Koukut",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "Ei valittua tiedostoa",
   "ok": "OK",
   "ollama_api_url": "OLLAMAn perusosoite",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "Ollama asiakasohjelman alustus epäonnistui: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "Avaa Ollaman Kirjasto",
   "passLen": "Salasanan tulee olla vähintään 8 merkkiä pitkä",
   "passMisMatch": "Salasanat eivät täsmää",
   "password": "Salasana",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "Polku apkeditor purkkiin",
   "pleaseConfirmPassword": "Vahvista salasana",
   "preferences": "Asetukset",
-  "proceed": "Proceed",
+  "proceed": "Jatka",
   "profile": "Profiili",
   "register": "Rekisteröidy",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "Korjaa",
+  "repairDexError": "Virhe korjattaessa DEX-tiedostoa: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "DEX-tiedosto korjattu onnistuneesti. Tallennettu arvoon: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "Korjataan...",
   "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "Tallenna",
+  "selectAModel": "Valitse malli keskustellaksesi",
+  "selectFiles": "Valitse {type} Tiedosto",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "Valitse Kieli",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "Valitse tai lataa malli “Models” -välilehdestä.",
+  "selectValidFile": "Valitse kelvollinen {type} tiedosto",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,15 +148,15 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "Aseta apkeditor jar polku",
+  "setSystemMessage": "Aseta Järjestelmäviesti",
   "smaliGrammar": "Smali Kielioppi",
   "suggestLogin": "Onko sinulla tili? Kirjaudu",
   "suggestRegister": "Tarvitsetko tilin? Rekisteröidy",
-  "systemMessage": "System Message",
+  "systemMessage": "Järjestelmän Viesti",
   "theme": "Teema",
   "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
+  "uninstallWarning": "Oletko juuri aikeissa poistaa sovelluksen oletko sinä?",
   "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -168,11 +168,11 @@
   "update": "Päivitä",
   "updateAvailable": "Päivitys Saatavilla",
   "updateAvailableMessage": "Sovelluksen uusi versio on saatavilla. Haluatko päivittää nyt?",
-  "uploading": "Uploading...",
+  "uploading": "Lähetetään...",
   "username": "Käyttäjätunnus",
   "usernameCond": "Käyttäjätunnus voi sisältää vain kirjaimia, numeroita ja alaviivoja",
   "usernameLimit": "Käyttäjänimen tulee olla 5-15 merkkiä pitkä.",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "Vahvista versio base.apk split APKs",
+  "vrd": "Vahvista resurssien dir nimi",
   "welcomeBack": "Tervetuloa Takaisin!"
 }
