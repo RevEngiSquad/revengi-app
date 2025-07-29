@@ -1,23 +1,23 @@
 {
-  "about": "About",
-  "aiChat": "AI Chat",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
-  "apiKey": "API Key",
-  "apiRateLimits": "API Endpoints Rate Limits",
-  "apksToApk": "APKS to APK",
-  "appDescription": "A collection of reverse engineering tools.",
+  "about": "Hakkında",
+  "aiChat": "AI Sohbet",
+  "analyze": "Analiz",
+  "analyzing": "Analiz ediliyor...",
+  "apiKey": "API Anahtarı",
+  "apiRateLimits": "API Hız Sınırlaması",
+  "apksToApk": "APKS'i APK'ya dönüştürme",
+  "appDescription": "Tersine mühendislik araçlar koleksiyonu",
   "appTitle": "RevEngi",
-  "batteryOptimization": "Battery Optimization",
-  "batteryOptimizationMessage": "For Android 13 and above, We need to disable battery optimization for this app to work properly in the background.",
+  "batteryOptimization": "Batarya Optimizasyonu",
+  "batteryOptimizationMessage": "Android 13 ve üzeri sürümlerde, bu uygulamanın arka planda düzgün çalışması için pil optimizasyonunu devre dışı bırakmanız gerekiyor.",
   "blutter": "Blutter",
-  "blutterDesc": "Flutter binary analysis tool",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
-  "cancel": "Cancel",
-  "chat": "Chat",
-  "checkForUpdate": "Check for Updates",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "blutterDesc": "Flutter ikili analiz aracı",
+  "blutterNote": "\nAPK: APK dosyalarını doğrudan işleyecektir.\n\r\nZIP: dosyalarının yalnızca arm64 mimarisi için `libapp.so` dosyasını içerdiğinden emin olun. Buna uyulmaması hatalara neden olabilir.",
+  "cancel": "Kapat",
+  "chat": "Sohbet",
+  "checkForUpdate": "Güncellemeleri kontrol et",
+  "checkingDeviceRam": "Cihaz RAM'i kontrol ediliyor...",
+  "chooseFile": "Seç {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
-  "confirmPassword": "Confirm Password",
-  "continueAsGuest": "Continue as Guest",
-  "copiedToClipboard": "Copied to clipboard",
-  "createAccount": "Create Account",
-  "dexRepair": "Dex Repair",
-  "dexRepairDesc": "Repair DEX files",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
-  "email": "Email",
-  "emailCond": "Please enter a valid Gmail address",
-  "enterEmail": "Please enter email",
-  "enterModelName": "Enter a model name",
-  "enterPassword": "Please enter password",
-  "enterUsername": "Please enter username",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "cleanMeta": "META-INF dizinini temizle",
+  "confirmPassword": "Parolayı onayla",
+  "continueAsGuest": "Misafir olarak devam et",
+  "copiedToClipboard": "Panoya kopyala",
+  "createAccount": "Hesap Oluştur",
+  "dexRepair": "Dex Onarımı",
+  "dexRepairDesc": "DEX dosyalarını düzelt",
+  "downloadedModels": "İndirilen Modeller:",
+  "downloading": "İndiriliyor...",
+  "downloadModel": "Model indir:",
+  "email": "Eposta",
+  "emailCond": "Lütfen geçerli bir gmail adresi girin",
+  "enterEmail": "Lütfen eposta adresinizi girin",
+  "enterModelName": "Model adını girin",
+  "enterPassword": "Lütfen parolayı girin",
+  "enterUsername": "Lütfen kullanıcı adını girin",
+  "errorDuringAnalysis": "Analiz sırasında bir hata oluştu",
+  "failedToExtractFiles": "Dosyalar ZIP dosyasından çıkarılamadı: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Model çekilemedi: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -58,18 +58,18 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
-  "flutterAnalysis": "Flutter Analysis",
-  "flutterAnalysisDesc": "Analyze Flutter libs",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
-  "jniAnalysis": "JNI Analysis",
-  "jniAnalysisDesc": "Find JNI signatures in APK",
-  "language": "Language: {languageCode}",
+  "featureNeedsApp": "Bu özellik için masaüstü ya da mobil uygulamayı kullanın.",
+  "fetchingModelInfo": "Model bilgileri alınıyor...",
+  "flutterAnalysis": "Flutter Analizi",
+  "flutterAnalysisDesc": "Flutter libs analizi",
+  "generate": "Oluştur",
+  "generating": "Oluşturuluyor...",
+  "guestNotAllowed": "Misafir kullanıcılar bu özelliği kullanamazlar.",
+  "iDonTLoveThisApp": "Umurumda değil, pişman olacağım.",
+  "iLoveThisApp": "Üzgünüm, bu uygulamayı çok seviyorum.",
+  "jniAnalysis": "JNI Analizi",
+  "jniAnalysisDesc": "APK'da JNI imzalarını bulun",
+  "language": "Dil: {languageCode}",
   "@language": {
     "description": "Language code",
     "placeholders": {
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
-  "later": "Later",
-  "login": "Login",
-  "merge": "Merge",
-  "mergeSplitApks": "Merge Split APKs",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
-  "mtHook": "MT Hook",
-  "mtHookDesc": "Generate MT Enhanced Hooks",
-  "noFileSelected": "No file selected",
+  "largeModelWarning": "Büyük Model Uyarısı",
+  "later": "Daha sonra",
+  "login": "Giriş",
+  "merge": "Birleştir",
+  "mergeSplitApks": "Bölünmüş APKs dosyalarını birleştir",
+  "mergeUnsupportedOnWeb": "Web sürümünde bölünmüş APK birleştirme işlemi yapılamaz.",
+  "models": "Modeller",
+  "mtHook": "MT Kancası",
+  "mtHookDesc": "Geliştirilmiş MT Kancaları oluştur",
+  "noFileSelected": "Seçili dosya yok",
   "ok": "Ok",
-  "ollama_api_url": "OLLAMA base URL",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollama_api_url": "OLLAMA temel URL adresi",
+  "ollamaInitializeError": "Ollama istemcisi başlatılamadı: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
-  "passLen": "Password must be at least 8 characters",
-  "passMisMatch": "Passwords do not match",
-  "password": "Password",
-  "pathToApkeditorJar": "Path to apkeditor jar",
-  "pleaseConfirmPassword": "Please confirm password",
-  "preferences": "Preferences",
-  "proceed": "Proceed",
-  "profile": "Profile",
-  "register": "Register",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "openOllamaLibrary": "Ollama kütüphanesini aç",
+  "passLen": "Parola en az 8 karakterden oluşmalıdır.",
+  "passMisMatch": "Parola eşleşmiyor",
+  "password": "Parola",
+  "pathToApkeditorJar": "Apkeditor JAR yolu",
+  "pleaseConfirmPassword": "Lütfen parolayı onaylayın",
+  "preferences": "Seçenekler",
+  "proceed": "Devam et",
+  "profile": "Profil",
+  "register": "Kayıt ol",
+  "repair": "Düzelt",
+  "repairDexError": "DEX dosyaları düzeltilirken hata oluştu: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "DEX dosyaları düzeltildi. Şuraya kaydedildi: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
-  "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "repairing": "Düzeltiliyor...",
+  "reset": "Sıfırla",
+  "save": "Kaydet",
+  "selectAModel": "Sohbet için bir model seç",
+  "selectFiles": "Seç {type} Dosya",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -138,9 +138,9 @@
       }
     }
   },
-  "selectLanguage": "Select Language",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectLanguage": "Dil Seç",
+  "selectOrDownloadModel": "Lütfen “Modeller” sekmesinden bir model seçin veya indirin.",
+  "selectValidFile": "Lütfen geçerli bir {type} dosya seç",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
-  "smaliGrammar": "Smali Grammar",
-  "suggestLogin": "Have an account? Login",
-  "suggestRegister": "Need an account? Register",
-  "systemMessage": "System Message",
-  "theme": "Theme",
-  "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "setJarPath": "Apkeditor JAR yolunu gir",
+  "setSystemMessage": "Sistem Mesajı Ayarla",
+  "smaliGrammar": "Smali DilBilgisi",
+  "suggestLogin": "Hesabın mı var? Giriş yap",
+  "suggestRegister": "Hesabın yok mu? Kaydol",
+  "systemMessage": "Sistem Mesajı",
+  "theme": "Tema",
+  "typeMessage": "Mesajınızı yazın…",
+  "uninstallWarning": "Uygulamayı kaldırmak üzeresin, değil mi?",
+  "unsupportedDartVersion": "Şu anda RevEngi yalnızca dart kararlı versiyonu destekliyor\n\nMevcut Dart Versiyonu: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -165,14 +165,14 @@
       }
     }
   },
-  "update": "Update",
-  "updateAvailable": "Update Available",
-  "updateAvailableMessage": "A new version of the app is available. Would you like to update now?",
-  "uploading": "Uploading...",
-  "username": "Username",
-  "usernameCond": "Username can only contain letters, numbers, and underscore",
-  "usernameLimit": "Username must be between 5 and 15 characters",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
-  "welcomeBack": "Welcome Back!"
+  "update": "Güncelleme",
+  "updateAvailable": "Güncelleme Mevcut",
+  "updateAvailableMessage": "Uygulamanın yeni bir sürümü mevcut. Şimdi güncellemek ister misiniz?",
+  "uploading": "Yükleniyor...",
+  "username": "Kullanıcı adı",
+  "usernameCond": "Kullanıcı adı yalnızca harfler, rakamlar ve alt çizgi içerebilir.",
+  "usernameLimit": "Kullanıcı adı 5 ile 15 karakter arasında olmalıdır.",
+  "validateModules": "base.apk sürümünü bölünmüş APKs dosyaları ile doğrula",
+  "vrd": "Kaynaklar dizini adını doğrula",
+  "welcomeBack": "Tekrardan Hoş geldin!"
 }
