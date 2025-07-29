@@ -1,8 +1,8 @@
 {
   "about": "À propos de",
-  "aiChat": "AI Chat",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
+  "aiChat": "Chat IA",
+  "analyze": "Analyser",
+  "analyzing": "Analyse en cours...",
   "apiKey": "Clé API",
   "apiRateLimits": "Limite de débit des points de terminaison de l'API",
   "apksToApk": "APKS à APK",
@@ -12,12 +12,12 @@
   "batteryOptimizationMessage": "Pour Android 13 et plus, nous devons désactiver l'optimisation de la batterie pour que cette application fonctionne correctement en arrière-plan.",
   "blutter": "Blutter",
   "blutterDesc": "Outil d'analyse binaire Flutter",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: L'application gérera directement les fichiers APK.\n\r\nZIP: Assurez-vous que les fichiers ZIP ne contiennent que la « libapp ». o` pour l'architecture arm64. Ne pas respecter peut entraîner des erreurs.",
   "cancel": "Abandonner",
-  "chat": "Chat",
+  "chat": "Discuter",
   "checkForUpdate": "Vérifier les mises à jour",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "checkingDeviceRam": "Vérification de la mémoire vive de l'appareil...",
+  "chooseFile": "Choisissez {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -25,24 +25,24 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
+  "cleanMeta": "Nettoyer le répertoire META-INF",
   "confirmPassword": "Confirmer le mot de passe",
   "continueAsGuest": "Continuer en tant qu'invité",
   "copiedToClipboard": "Copié dans le presse-papiers",
   "createAccount": "Créer un compte",
   "dexRepair": "Réparation de Dex",
   "dexRepairDesc": "Réparer les fichiers DEX",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
+  "downloadedModels": "Modèles téléchargés :",
+  "downloading": "Téléchargement...",
+  "downloadModel": "Télécharger un modèle :",
   "email": "Courriel",
   "emailCond": "Veuillez entrer une adresse Gmail valide",
   "enterEmail": "Veuillez saisir votre adresse e-mail",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Entrez un nom de modèle",
   "enterPassword": "Veuillez entrer le mot de passe",
   "enterUsername": "Veuillez entrer le nom d'utilisateur",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "errorDuringAnalysis": "Une erreur s'est produite lors de l'analyse",
+  "failedToExtractFiles": "Impossible d'extraire les fichiers depuis le ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Impossible d'extraire le modèle : {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -58,15 +58,15 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "featureNeedsApp": "Veuillez utiliser l'application de bureau ou mobile pour cette fonctionnalité.",
+  "fetchingModelInfo": "Récupération des informations du modèle...",
   "flutterAnalysis": "Analyse de lutte",
   "flutterAnalysisDesc": "Analyser les libs de lutte",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
+  "generate": "Générer",
+  "generating": "Génération en cours...",
+  "guestNotAllowed": "Les utilisateurs invités ne peuvent pas utiliser cette fonctionnalité",
+  "iDonTLoveThisApp": "« Je m'en fiche, je vais regretter",
+  "iLoveThisApp": "Je suis désolé, j'adore cette application",
   "jniAnalysis": "Analyse JNI",
   "jniAnalysisDesc": "Trouver les signatures JNI dans l'APK",
   "language": "Langue : {languageCode}",
@@ -79,19 +79,19 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
+  "largeModelWarning": "Avertissement de grand modèle",
   "later": "Plus tard",
   "login": "Se connecter",
-  "merge": "Merge",
+  "merge": "Fusionner",
   "mergeSplitApks": "Fusionner les APK Split",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
+  "mergeUnsupportedOnWeb": "La fusion de Split APK n'est pas possible dans la version web.",
+  "models": "Modèles",
   "mtHook": "Crochet MT",
   "mtHookDesc": "Générer des crochets MT améliorés",
-  "noFileSelected": "No file selected",
+  "noFileSelected": "Aucun fichier sélectionné",
   "ok": "Ok",
   "ollama_api_url": "URL de base OLLAMA",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "ollamaInitializeError": "Impossible d'initialiser le client Ollama : {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -99,18 +99,18 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
+  "openOllamaLibrary": "Ouvrir la bibliothèque Ollama",
   "passLen": "Le mot de passe doit comporter au moins 8 caractères",
   "passMisMatch": "Les mots de passe ne correspondent pas",
   "password": "Mot de passe",
-  "pathToApkeditorJar": "Path to apkeditor jar",
+  "pathToApkeditorJar": "Chemin vers le jar apkeditor",
   "pleaseConfirmPassword": "Veuillez confirmer le mot de passe",
   "preferences": "Préférences",
-  "proceed": "Proceed",
+  "proceed": "Procéder",
   "profile": "Profil",
   "register": "Inscription",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "repair": "Réparer",
+  "repairDexError": "Erreur lors de la réparation du fichier DEX : {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -118,7 +118,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "Le fichier DEX a été réparé avec succès. Enregistré dans : {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -126,11 +126,11 @@
       }
     }
   },
-  "repairing": "Repairing...",
+  "repairing": "Réparation en cours...",
   "reset": "Reset",
-  "save": "Save",
-  "selectAModel": "Select a model to chat",
-  "selectFiles": "Select {type} File",
+  "save": "Enregistrer",
+  "selectAModel": "Sélectionnez un modèle pour discuter",
+  "selectFiles": "Sélectionner un fichier {type}",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -139,8 +139,8 @@
     }
   },
   "selectLanguage": "Sélectionner la langue",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectOrDownloadModel": "Veuillez sélectionner ou télécharger un modèle dans l’onglet « Modèles ».",
+  "selectValidFile": "Veuillez sélectionner un fichier {type} valide",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -148,16 +148,16 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
+  "setJarPath": "Définir le chemin du jar de l'apkeditor",
+  "setSystemMessage": "Définir le message système",
   "smaliGrammar": "Grammaire Smali",
   "suggestLogin": "Vous avez un compte ? Connectez-vous",
   "suggestRegister": "Besoin d'un compte ? Inscrivez-vous",
-  "systemMessage": "System Message",
+  "systemMessage": "Message système",
   "theme": "Thème",
-  "typeMessage": "Type your message…",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "typeMessage": "Tapez votre message…",
+  "uninstallWarning": "Vous étiez sur le point de désinstaller l'application ?",
+  "unsupportedDartVersion": "Actuellement, RevEngi ne prend en charge que le canal stable Dart\n\nVersion actuelle de Dart : {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -168,11 +168,11 @@
   "update": "Mise à jour",
   "updateAvailable": "Mise à jour disponible",
   "updateAvailableMessage": "Une nouvelle version de l'application est disponible. Voulez-vous mettre à jour maintenant ?",
-  "uploading": "Uploading...",
+  "uploading": "Téléversement...",
   "username": "Nom d'utilisateur",
   "usernameCond": "Le nom d'utilisateur ne peut contenir que des lettres, des chiffres et des tirets bas",
   "usernameLimit": "Le nom d'utilisateur doit contenir entre 5 et 15 caractères",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "vrd": "Validate resources dir name",
+  "validateModules": "Valider la version de base.apk avec des APK séparés",
+  "vrd": "Valider le nom du répertoire des ressources",
   "welcomeBack": "Bienvenue!"
 }
