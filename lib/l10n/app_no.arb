@@ -1,6 +1,6 @@
 {
   "about": "Om",
-  "aiChat": "AI Chat",
+  "aiChat": "AI chat",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "apiKey": "API-nøkkel (Automatic Translation)",
@@ -12,9 +12,9 @@
   "batteryOptimizationMessage": "Vi må deaktivere batterioptimalisering for Android 13 og eldre for at denne appen skal fungere ordentlig i bakgrunnen.",
   "blutter": "Blutter",
   "blutterDesc": "Verktøy for binær analyse",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Appen vil håndtere APK filer direkte.\n\r\nZIP: Forsikre deg om at ZIP filer bare inneholder `libapp. o` for Anarm64-arkitektur. Manglende overholdelse kan føre til feil.",
   "cancel": "Avbryt",
-  "chat": "Chat",
+  "chat": "Samtale",
   "checkForUpdate": "Se etter oppdateringer",
   "checkingDeviceRam": "Checking device RAM...",
   "chooseFile": "Choose {type}",
@@ -38,7 +38,7 @@
   "email": "E-post",
   "emailCond": "Vennligst skriv inn en gyldig Gmail-adresse",
   "enterEmail": "Skriv inn e-post adressen",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Angi et modellnavn",
   "enterPassword": "Vennligst angi passord",
   "enterUsername": "Skriv inn brukernavn",
   "errorDuringAnalysis": "An error occurred during analysis",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Kan ikke trekke modellen: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -59,7 +59,7 @@
     }
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "fetchingModelInfo": "Henter modellinformasjon...",
   "flutterAnalysis": "Flutter analyse",
   "flutterAnalysisDesc": "Analyser libs",
   "generate": "Generate",
