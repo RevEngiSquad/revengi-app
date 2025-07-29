@@ -1,6 +1,6 @@
 {
   "about": "Σχετικά",
-  "aiChat": "AI Chat",
+  "aiChat": "AI Συνομιλία",
   "analyze": "Analyze",
   "analyzing": "Analyzing...",
   "apiKey": "Κλειδί API",
@@ -12,9 +12,9 @@
   "batteryOptimizationMessage": "Για Android 13 και παραπάνω, Πρέπει να απενεργοποιήσετε τη βελτιστοποίηση της μπαταρίας για να λειτουργήσει σωστά αυτή η εφαρμογή στο παρασκήνιο.",
   "blutter": "Blutter",
   "blutterDesc": "Εργαλείο ανάλυσης δυαδικών πτερυγίων",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: Η εφαρμογή θα χειριστεί απευθείας τα αρχεία APK.\n\r\nZIP: Βεβαιωθείτε ότι τα αρχεία ZIP περιέχουν μόνο το `libapp. o` για την αρχιτεκτονική arm64. Η μη συμμόρφωση μπορεί να οδηγήσει σε σφάλματα.",
   "cancel": "Ακύρωση",
-  "chat": "Chat",
+  "chat": "Συνομιλία",
   "checkForUpdate": "Έλεγχος για ενημερώσεις",
   "checkingDeviceRam": "Checking device RAM...",
   "chooseFile": "Choose {type}",
@@ -38,7 +38,7 @@
   "email": "E-mail",
   "emailCond": "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση Gmail",
   "enterEmail": "Παρακαλώ εισάγετε email",
-  "enterModelName": "Enter a model name",
+  "enterModelName": "Εισάγετε ένα όνομα μοντέλου",
   "enterPassword": "Παρακαλώ εισάγετε κωδικό πρόσβασης",
   "enterUsername": "Παρακαλώ εισάγετε όνομα χρήστη",
   "errorDuringAnalysis": "An error occurred during analysis",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "Αποτυχία έλξης μοντέλου: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -59,7 +59,7 @@
     }
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
+  "fetchingModelInfo": "Λήψη πληροφοριών μοντέλου...",
   "flutterAnalysis": "Ανάλυση Flutter",
   "flutterAnalysisDesc": "Αναλύστε τα χείλη Flutter",
   "generate": "Generate",
