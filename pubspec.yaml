@@ -79,6 +79,7 @@ flutter:
     - assets/light_splash.png
     - assets/smali_grammar.yaml
     - assets/licenses/
+    - assets/dev.png
 
   fonts:
     - family: Roboto

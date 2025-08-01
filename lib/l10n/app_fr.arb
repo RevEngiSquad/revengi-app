@@ -174,5 +174,10 @@
   "usernameLimit": "Le nom d'utilisateur doit contenir entre 5 et 15 caractères",
   "validateModules": "Valider la version de base.apk avec des APKs séparés",
   "vrd": "Valider le nom du répertoire des ressources",
-  "welcomeBack": "Bienvenue!"
+  "welcomeBack": "Bienvenue!",
+  "developer": "Developer",
+  "sponsors": "Sponsors",
+  "licenses": "Licenses",
+  "donate": "Donate",
+  "mail": "Mail"
 }

@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:revengi/l10n/app_localizations.dart';
+import 'package:revengi/screens/about.dart';
 import 'package:revengi/screens/ollama_screen.dart';
 import 'package:revengi/utils/platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -482,31 +483,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
               title: Text(localizations.about),
               onTap: () {
                 Navigator.pop(context);
-                showAboutDialog(
-                  context: context,
-                  applicationName: localizations.appTitle,
-                  applicationVersion: currentVersion,
-                  applicationLegalese: '© ${DateTime.now().year} RevEngi',
-                  applicationIcon: Image.asset(
-                    Theme.of(context).brightness == Brightness.dark
-                        ? 'assets/dark_splash.png'
-                        : 'assets/light_splash.png',
-                    height: 50,
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) =>
+                            AboutScreen(currentVersion: currentVersion),
                   ),
-                  children: [
-                    Text(localizations.appDescription),
-                    const SizedBox(height: 16),
-                    TextButton.icon(
-                      icon: const Icon(Icons.star),
-                      label: const Text('Star on GitHub'),
-                      onPressed:
-                          () => launchUrl(
-                            Uri.parse(
-                              'https://github.com/RevEngiSquad/revengi-app',
-                            ),
-                          ),
-                    ),
-                  ],
                 );
               },
             ),
