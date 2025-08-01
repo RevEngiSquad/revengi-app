@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
-import 'package:revengi/screens/ollama_screen.dart';
-import 'package:revengi/screens/profile_screen.dart';
-import 'package:revengi/screens/uninstall_screen.dart';
+import 'package:revengi/screens/ollama.dart';
+import 'package:revengi/screens/profile.dart';
+import 'package:revengi/screens/uninstall.dart';
 import 'package:revengi/screens/splash.dart';
 import 'package:revengi/utils/dio.dart';
 import 'package:revengi/utils/platform.dart';
