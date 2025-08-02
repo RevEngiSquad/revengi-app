@@ -4,7 +4,7 @@
   "analyze": "Analiz",
   "analyzing": "Analiz ediliyor...",
   "apiKey": "API Anahtarı",
-  "apiRateLimits": "API Hız Sınırlaması",
+  "apiRateLimits": "API Hız Sınırlamaları",
   "apksToApk": "APKS'i APK'ya dönüştürme",
   "appDescription": "Tersine mühendislik araçlar koleksiyonu",
   "appTitle": "RevEngi",
@@ -17,7 +17,7 @@
   "chat": "Sohbet",
   "checkForUpdate": "Güncellemeleri kontrol et",
   "checkingDeviceRam": "Cihaz RAM'i kontrol ediliyor...",
-  "chooseFile": "Seç {type}",
+  "chooseFile": "type} Seç",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -70,7 +70,7 @@
   "iDonTLoveThisApp": "Umurumda değil, pişman olacağım.",
   "iLoveThisApp": "Üzgünüm, bu uygulamayı çok seviyorum.",
   "jniAnalysis": "JNI Analizi",
-  "jniAnalysisDesc": "APK'da JNI imzalarını bulun",
+  "jniAnalysisDesc": "APK'da JNI imzalarını bul",
   "language": "Dil: {languageCode}",
   "@language": {
     "description": "Language code",
@@ -87,11 +87,11 @@
   "login": "Giriş",
   "mail": "Mail",
   "merge": "Birleştir",
-  "mergeSplitApks": "Bölünmüş APKs dosyalarını birleştir",
+  "mergeSplitApks": "APKs dosyalarını birleştir",
   "mergeUnsupportedOnWeb": "Web sürümünde bölünmüş APK birleştirme işlemi yapılamaz.",
   "models": "Modeller",
   "mtHook": "MT Kancası",
-  "mtHookDesc": "Geliştirilmiş MT Kancaları oluştur",
+  "mtHookDesc": "Güçlendirilmiş MT Kancaları oluştur",
   "noFileSelected": "Seçili dosya yok",
   "ok": "Ok",
   "ollama_api_url": "OLLAMA temel URL adresi",
@@ -134,7 +134,7 @@
   "reset": "Sıfırla",
   "save": "Kaydet",
   "selectAModel": "Sohbet için bir model seç",
-  "selectFiles": "Seç {type} Dosya",
+  "selectFiles": "{type} Dosyası Seç",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -178,5 +178,5 @@
   "usernameLimit": "Kullanıcı adı 5 ile 15 karakter arasında olmalıdır.",
   "validateModules": "base.apk sürümünü bölünmüş APKs dosyaları ile doğrula",
   "vrd": "Kaynaklar dizini adını doğrula",
-  "welcomeBack": "Tekrardan Hoş geldin!"
+  "welcomeBack": "Tekrar Hoş geldin!"
 }
