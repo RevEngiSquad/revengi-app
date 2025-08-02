@@ -84,7 +84,7 @@ class _MTHookAnalysisScreenState extends State<MTHookAnalysisScreen> {
       );
 
       // Save response bytes to file
-      final Directory dir = Directory(getDownloadsDirectory());
+      final Directory dir = Directory(await getDownloadsDirectory());
       if (!dir.existsSync()) {
         await dir.create(recursive: true);
       }

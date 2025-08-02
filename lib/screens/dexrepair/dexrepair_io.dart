@@ -91,7 +91,7 @@ class _DexRepairScreenState extends State<DexRepairScreen> {
       var repairedDex = repairDexMagic(dexData);
       repairedDex = updateDexHashes(repairedDex, repairSha1: true);
 
-      final Directory dir = Directory(getDownloadsDirectory());
+      final Directory dir = Directory(await getDownloadsDirectory());
       if (!dir.existsSync()) {
         await dir.create(recursive: true);
       }

@@ -52,6 +52,7 @@ dependencies:
   quick_actions: ^1.1.0
   ollama_dart: ^0.2.3
   gpt_markdown: ^1.1.0
+  path_provider: ^2.1.5
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 
 bool isAndroid() {
   return Platform.isAndroid;
@@ -22,11 +23,13 @@ bool isWeb() {
   return kIsWeb;
 }
 
-String getDownloadsDirectory() {
+Future<String> getDownloadsDirectory() async {
   if (isAndroid()) {
     return '/storage/emulated/0/Download/RevEngi';
   } else if (isIOS()) {
-    return '/Users/${Platform.environment['USER']}/Downloads/RevEngi';
+    return await getApplicationDocumentsDirectory().then(
+      (dir) => '${dir.path}/RevEngi',
+    );
   } else if (isWindows()) {
     return '${Platform.environment['USERPROFILE']}\\Downloads\\RevEngi';
   } else if (isLinux()) {
