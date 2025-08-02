@@ -17,7 +17,7 @@
   "chat": "Sohbet",
   "checkForUpdate": "Güncellemeleri kontrol et",
   "checkingDeviceRam": "Cihaz RAM'i kontrol ediliyor...",
-  "chooseFile": "type} Seç",
+  "chooseFile": "{type} Seç",
   "@chooseFile": {
     "placeholders": {
       "type": {
