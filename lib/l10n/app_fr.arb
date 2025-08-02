@@ -30,8 +30,10 @@
   "continueAsGuest": "Continuer en tant qu'invité",
   "copiedToClipboard": "Copié dans le presse-papiers",
   "createAccount": "Créer un compte",
+  "developer": "Développeur",
   "dexRepair": "Réparation de Dex",
   "dexRepairDesc": "Réparer les fichiers DEX",
+  "donate": "Faire un don",
   "downloadedModels": "Modèles téléchargés :",
   "downloading": "Téléchargement...",
   "downloadModel": "Télécharger un modèle :",
@@ -81,7 +83,9 @@
   },
   "largeModelWarning": "Avertissement de grand modèle",
   "later": "Plus tard",
+  "licenses": "Licences",
   "login": "Se connecter",
+  "mail": "Courrier",
   "merge": "Fusionner",
   "mergeSplitApks": "Fusionner les APKs séparés",
   "mergeUnsupportedOnWeb": "La fusion des APKs séparés n'est pas possible dans la version web.",
@@ -174,9 +178,5 @@
   "usernameLimit": "Le nom d'utilisateur doit contenir entre 5 et 15 caractères",
   "validateModules": "Valider la version de base.apk avec des APKs séparés",
   "vrd": "Valider le nom du répertoire des ressources",
-  "welcomeBack": "Bienvenue!",
-  "developer": "Developer",
-  "licenses": "Licenses",
-  "donate": "Donate",
-  "mail": "Mail"
+  "welcomeBack": "Bienvenue!"
 }
