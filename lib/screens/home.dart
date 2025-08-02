@@ -590,18 +590,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                   );
                 case 5:
-                  return AnalysisCard(
-                    title: localizations.apksToApk,
-                    icon: Icons.merge_type,
-                    description: localizations.mergeSplitApks,
-                    onTap:
-                        () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SplitApksMergerScreen(),
-                          ),
-                        ),
-                  );
+                  return !isIOS()
+                      ? AnalysisCard(
+                        title: localizations.apksToApk,
+                        icon: Icons.merge_type,
+                        description: localizations.mergeSplitApks,
+                        onTap:
+                            () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => const SplitApksMergerScreen(),
+                              ),
+                            ),
+                      )
+                      : const SizedBox.shrink();
                 default:
                   return const SizedBox.shrink();
               }
