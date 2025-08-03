@@ -15,7 +15,7 @@
   "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
   "cancel": "يلغي",
   "chat": "المحادثة",
-  "checkForUpdate": "تحقق للحصول على التحديثات",
+  "checkForUpdate": "عرض التحديثات",
   "checkingDeviceRam": "التحقق من ذاكرة الجهاز...",
   "chooseFile": "اختر {type}",
   "@chooseFile": {
@@ -94,7 +94,7 @@
   "mtHookDesc": "حقن كود قتل التوقيع مثل MT",
   "noFileSelected": "لم يتم تحديد ملف",
   "ok": "نعم",
-  "ollama_api_url": "عنوان ULLAMA BASE URL",
+  "ollama_api_url": "إعداد نقطة إتصال ollama",
   "ollamaInitializeError": "فشل في تهيئة عميل أولاما: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
@@ -142,7 +142,7 @@
       }
     }
   },
-  "selectLanguage": "إختيار لغة التطبيق",
+  "selectLanguage": "أختر لغة التطبيق",
   "selectOrDownloadModel": "حسناً ، قم تنزيل محرك (أو أختيار محرك منزل مسبقاً) من خانة \"المحركات\".",
   "selectValidFile": "الرجاء تحديد ملف {type} صالح",
   "@selectValidFile": {
