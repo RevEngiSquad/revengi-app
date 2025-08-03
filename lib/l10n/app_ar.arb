@@ -71,7 +71,7 @@
   "iLoveThisApp": "أنا آسف، أحب هذا التطبيق",
   "jniAnalysis": "تحليل ملفات lib",
   "jniAnalysisDesc": "تحليل هيكل ملفات ال\".so\" داخل التطبيق",
-  "language": "اللغة: {languageCode}",
+  "language": "لغة التطبيق : {languageCode}",
   "@language": {
     "description": "Language code",
     "placeholders": {
@@ -109,7 +109,7 @@
   "password": "كلمة المرور",
   "pathToApkeditorJar": "المسار إلى جرس المحرر",
   "pleaseConfirmPassword": "الرجاء تأكيد كلمة المرور",
-  "preferences": "التفضيلات",
+  "preferences": "الإعدادات",
   "proceed": "المتابعة",
   "profile": "حساب تعريفي",
   "register": "تسجيل",
@@ -142,7 +142,7 @@
       }
     }
   },
-  "selectLanguage": "حدد اللغة",
+  "selectLanguage": "إختيار لغة التطبيق",
   "selectOrDownloadModel": "حسناً ، قم تنزيل محرك (أو أختيار محرك منزل مسبقاً) من خانة \"المحركات\".",
   "selectValidFile": "الرجاء تحديد ملف {type} صالح",
   "@selectValidFile": {
@@ -158,7 +158,7 @@
   "suggestLogin": "لديك حساب؟ تسجيل الدخول",
   "suggestRegister": "هل تحتاج إلى حساب؟ سجل",
   "systemMessage": "رسالة النظام",
-  "theme": "سمة",
+  "theme": "المظهر",
   "typeMessage": "اكتب رسالتك…",
   "uninstallWarning": "كنت على وشك إلغاء تثبيت التطبيق أليس كذلك؟",
   "unsupportedDartVersion": "حاليا RevEngi يدعم فقط قناة مستقرة\n\nالإصدار الحالي لدارت: {dartversion}",
