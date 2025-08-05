@@ -12,7 +12,7 @@
   "batteryOptimizationMessage": "بالنسبة إلى Android 13 وما فوق ، نحتاج إلى تعطيل تحسين البطارية لهذا التطبيق للعمل بشكل صحيح في الخلفية.",
   "blutter": "أداة بلاتر",
   "blutterDesc": "تحليل بنية كود تطبيقات الفلاتر",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
+  "blutterNote": "\nAPK: سيتعامل التطبيق مباشرة مع ملفات APK.\n\nZIP: تأكد من أن ملفات ZIP تحتوي فقط على \"libapp.so\" لهيكل arm64. قد يؤدي عدم الامتثال إلى أخطاء.",
   "cancel": "يلغي",
   "chat": "المحادثة",
   "checkForUpdate": "عرض التحديثات",
