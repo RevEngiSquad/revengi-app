@@ -110,6 +110,7 @@ class MainActivity : FlutterActivity() {
                     FileOutputStream(outputPath)
                 )
             ).use { zipOutputStream ->
+                zipOutputStream.setLevel(3)
                 for (path in apkPaths) {
                     Log.i("ExtractAPK", "Adding: $path")
                     val file = File(path)
