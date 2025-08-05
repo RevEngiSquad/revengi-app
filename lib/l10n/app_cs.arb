@@ -5,6 +5,23 @@
   "analyzing": "Analyzuji...",
   "apiKey": "API klíč",
   "apiRateLimits": "Limity API koncových bodů",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS do APK",
   "appDescription": "Kolekce reverzních inženýrských nástrojů.",
   "appTitle": "Revengi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Pokračovat jako hosta",
   "copiedToClipboard": "Zkopírováno do schránky",
   "createAccount": "Vytvořit účet",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Vývojář",
   "dexRepair": "Dex oprava",
   "dexRepairDesc": "Opravit soubory DEX",
@@ -44,6 +63,9 @@
   "enterPassword": "Zadejte prosím heslo",
   "enterUsername": "Zadejte prosím uživatelské jméno",
   "errorDuringAnalysis": "Došlo k chybě během analýzy",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Nepodařilo se extrahovat soubory ze ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Pro tuto funkci prosím použijte stolní nebo mobilní aplikaci.",
   "fetchingModelInfo": "Načítání informací o modelu...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Analýza znečišťujících látek",
   "flutterAnalysisDesc": "Analyzovat liby pro znečišťovatel",
   "generate": "Generovat",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Tato funkce nemůže použít hosté",
   "iDonTLoveThisApp": "Je mi to líto, budu litovat",
   "iLoveThisApp": "Omlouvám se, tuto aplikaci miluji",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "Analýza JNI",
   "jniAnalysisDesc": "Najít podpisy JNI v APK",
   "language": "Jazyk: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Varování velkého modelu",
+  "lastUpdate": "Last update",
   "later": "Později",
   "licenses": "Licence",
   "login": "Přihlásit se",
   "mail": "Pošta",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Sloučit",
   "mergeSplitApks": "Sloučit rozdělené APK",
   "mergeUnsupportedOnWeb": "Sloučení APK není možné rozdělit ve webové verzi.",
   "models": "Vzory",
   "mtHook": "MT háček",
   "mtHookDesc": "Generovat MT vylepšené háčky",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Nebyl vybrán žádný soubor",
   "ok": "Ok",
   "ollama_api_url": "Základní URL OLLAMA",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Otevřít knihovnu Ollama",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Heslo musí mít alespoň 8 znaků",
   "passMisMatch": "Hesla se neshodují",
   "password": "Heslo",
   "pathToApkeditorJar": "Cesta k apkeditoru",
   "pleaseConfirmPassword": "Potvrďte prosím heslo",
+  "pleaseWait": "Please wait...",
   "preferences": "Předvolby",
   "proceed": "Pokračovat",
   "profile": "Profil",
@@ -133,6 +173,7 @@
   "repairing": "Oprava...",
   "reset": "Reset",
   "save": "Uložit",
+  "searchApps": "Search apps...",
   "selectAModel": "Vyberte model pro chatování",
   "selectFiles": "Vybrat soubor {type}",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Uživatelské jméno může obsahovat pouze písmena, čísla a podtržítko",
   "usernameLimit": "Uživatelské jméno musí být v rozmezí 5 až 15 znaků",
   "validateModules": "Ověřit verzi base.apk pomocí rozdělených APK",
+  "versionCode": "Version code",
   "vrd": "Ověřit název dir zdrojů",
   "welcomeBack": "Vítejte zpátky!"
 }

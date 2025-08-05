@@ -5,6 +5,23 @@
   "analyzing": "分析中...",
   "apiKey": "API キー",
   "apiRateLimits": "APIエンドポイントレート制限",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS to APK",
   "appDescription": "リバースエンジニアリングツールのコレクション。",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "ゲストとして続ける",
   "copiedToClipboard": "クリップボードにコピーしました",
   "createAccount": "アカウントを作成",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "開発者",
   "dexRepair": "デックス修理",
   "dexRepairDesc": "DEXファイルの修復",
@@ -44,6 +63,9 @@
   "enterPassword": "パスワードを入力してください",
   "enterUsername": "ユーザー名を入力してください",
   "errorDuringAnalysis": "分析中にエラーが発生しました",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "ZIPからファイルを抽出できませんでした: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "この機能にはデスクトップまたはモバイルアプリを使用してください。",
   "fetchingModelInfo": "モデル情報を取得しています...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Flutter Analysis",
   "flutterAnalysisDesc": "Flutter libs を分析する",
   "generate": "生成",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "ゲストユーザーはこの機能を使用できません",
   "iDonTLoveThisApp": "気にしない、後悔する",
   "iLoveThisApp": "申し訳ありませんが、私はこのアプリが大好きです",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "JNI分析",
   "jniAnalysisDesc": "APKでJNI署名を検索",
   "language": "言語: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "大型モデルの警告",
+  "lastUpdate": "Last update",
   "later": "後で",
   "licenses": "ライセンス",
   "login": "ログイン",
   "mail": "メール",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "結合",
   "mergeSplitApks": "分割APKを統合",
   "mergeUnsupportedOnWeb": "Web版ではスプリットAPKマージはできません。",
   "models": "モデル",
   "mtHook": "MTフック",
   "mtHookDesc": "MT拡張フックを生成",
+  "noAppsFound": "No apps found",
   "noFileSelected": "ファイルが選択されていません",
   "ok": "OK",
   "ollama_api_url": "OLLAMAベースURL",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Ollama図書館を開く",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "パスワードは8文字以上でなければなりません",
   "passMisMatch": "パスワードが一致しません",
   "password": "パスワード",
   "pathToApkeditorJar": "apkeditor.jarへのパス",
   "pleaseConfirmPassword": "パスワードを確認してください",
+  "pleaseWait": "Please wait...",
   "preferences": "設定",
   "proceed": "続行する",
   "profile": "プロフィール",
@@ -133,6 +173,7 @@
   "repairing": "修理中...",
   "reset": "Reset",
   "save": "保存",
+  "searchApps": "Search apps...",
   "selectAModel": "チャットするモデルを選択",
   "selectFiles": "{type} ファイルを選択",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "ユーザー名には、文字、数字、およびアンダースコアのみを含めることができます",
   "usernameLimit": "ユーザー名は5文字以上15文字以下で入力してください",
   "validateModules": "base.apkのバージョンを分割APKで検証する",
+  "versionCode": "Version code",
   "vrd": "リソースのディレクトリ名を検証する",
   "welcomeBack": "おかえりなさい！"
 }

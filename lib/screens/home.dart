@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/screens/about.dart';
+import 'package:revengi/screens/extract_apk.dart';
 import 'package:revengi/screens/ollama.dart';
 import 'package:revengi/utils/platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -465,6 +466,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 _showSmaliGrammarDialog(context);
               },
             ),
+            (!isWeb() && isAndroid())
+                ? ListTile(
+                  leading: const Icon(Icons.layers),
+                  title: Text("Extract APK"),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ExtractApkScreen(),
+                      ),
+                    );
+                  },
+                )
+                : const SizedBox.shrink(),
             ListTile(
               leading: const Icon(Icons.person),
               title: Text(localizations.profile),
@@ -590,7 +606,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                   );
                 case 5:
-                  return !isIOS()
+                  return (isWeb() || !isIOS())
                       ? AnalysisCard(
                         title: localizations.apksToApk,
                         icon: Icons.merge_type,

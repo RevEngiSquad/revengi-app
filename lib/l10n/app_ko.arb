@@ -5,6 +5,23 @@
   "analyzing": "Analyzing...",
   "apiKey": "API Key",
   "apiRateLimits": "API Endpoints Rate Limits",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS to APK",
   "appDescription": "A collection of reverse engineering tools.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Continue as Guest",
   "copiedToClipboard": "Copied to clipboard",
   "createAccount": "Create Account",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Developer",
   "dexRepair": "Dex Repair",
   "dexRepairDesc": "Repair DEX files",
@@ -44,6 +63,9 @@
   "enterPassword": "Please enter password",
   "enterUsername": "Please enter username",
   "errorDuringAnalysis": "An error occurred during analysis",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
   "fetchingModelInfo": "Fetching model info...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Flutter Analysis",
   "flutterAnalysisDesc": "Analyze Flutter libs",
   "generate": "Generate",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Guest users cannot use this feature",
   "iDonTLoveThisApp": "I don't care, I'll regret",
   "iLoveThisApp": "I'm sorry, I love this app",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "JNI Analysis",
   "jniAnalysisDesc": "Find JNI signatures in APK",
   "language": "Language: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Large Model Warning",
+  "lastUpdate": "Last update",
   "later": "Later",
   "licenses": "Licenses",
   "login": "Login",
   "mail": "Mail",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Merge",
   "mergeSplitApks": "Merge Split APKs",
   "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
   "models": "Models",
   "mtHook": "MT Hook",
   "mtHookDesc": "Generate MT Enhanced Hooks",
+  "noAppsFound": "No apps found",
   "noFileSelected": "No file selected",
   "ok": "Ok",
   "ollama_api_url": "OLLAMA base URL",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Open Ollama Library",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Password must be at least 8 characters",
   "passMisMatch": "Passwords do not match",
   "password": "Password",
   "pathToApkeditorJar": "Path to apkeditor jar",
   "pleaseConfirmPassword": "Please confirm password",
+  "pleaseWait": "Please wait...",
   "preferences": "Preferences",
   "proceed": "Proceed",
   "profile": "Profile",
@@ -133,6 +173,7 @@
   "repairing": "Repairing...",
   "reset": "Reset",
   "save": "Save",
+  "searchApps": "Search apps...",
   "selectAModel": "Select a model to chat",
   "selectFiles": "Select {type} File",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Username can only contain letters, numbers, and underscore",
   "usernameLimit": "Username must be between 5 and 15 characters",
   "validateModules": "Validate version of base.apk with split APKs",
+  "versionCode": "Version code",
   "vrd": "Validate resources dir name",
   "welcomeBack": "Welcome Back!"
 }

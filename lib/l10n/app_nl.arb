@@ -5,6 +5,23 @@
   "analyzing": "Analyseren...",
   "apiKey": "API Sleutel",
   "apiRateLimits": "API Eindpunten Limieten",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS naar APK",
   "appDescription": "Een verzameling omgekeerde engineering gereedschappen.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Doorgaan als gast",
   "copiedToClipboard": "Gekopieerd naar klembord",
   "createAccount": "Account Aanmaken",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Ontwikkelaar",
   "dexRepair": "Dex Reparatie",
   "dexRepairDesc": "Repareer DEX bestanden",
@@ -44,6 +63,9 @@
   "enterPassword": "Voer wachtwoord in",
   "enterUsername": "Voer gebruikersnaam in",
   "errorDuringAnalysis": "Er is een fout opgetreden tijdens de analyse",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Uitpakken van bestanden van ZIP: {e} mislukt",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Gebruik de desktop of mobiele app voor deze functie.",
   "fetchingModelInfo": "Ophalen van modelinformatie...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Flutter analyse",
   "flutterAnalysisDesc": "Flutter libs analyseren",
   "generate": "Genereren",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Gastgebruikers kunnen deze functie niet gebruiken",
   "iDonTLoveThisApp": "Het kan me niet schelen, ik zal spijt",
   "iLoveThisApp": "Het spijt me, ik hou van deze app",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "JNI analyse",
   "jniAnalysisDesc": "Zoek JNI handtekeningen in APK",
   "language": "Taal: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Waarschuwing groot model",
+  "lastUpdate": "Last update",
   "later": "Later",
   "licenses": "Licenties",
   "login": "Aanmelden",
   "mail": "E-mailen",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Samenvoegen",
   "mergeSplitApks": "Split-APK's samenvoegen",
   "mergeUnsupportedOnWeb": "Samenvoegen van de APK is niet mogelijk in de webversie.",
   "models": "Model",
   "mtHook": "MT Haak",
   "mtHookDesc": "Genereer MT versterkte hooks",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Geen bestand geselecteerd",
   "ok": "OK",
   "ollama_api_url": "OLLAMA basis-URL",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Open Ollama Bibliotheek",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Wachtwoord moet ten minste 8 tekens bevatten",
   "passMisMatch": "Wachtwoorden komen niet overeen",
   "password": "Wachtwoord",
   "pathToApkeditorJar": "Pad naar apkeditor jar",
   "pleaseConfirmPassword": "Bevestig het wachtwoord",
+  "pleaseWait": "Please wait...",
   "preferences": "named@@0",
   "proceed": "Doorgaan",
   "profile": "Profiel",
@@ -133,6 +173,7 @@
   "repairing": "Herstellen...",
   "reset": "Reset",
   "save": "Opslaan",
+  "searchApps": "Search apps...",
   "selectAModel": "Selecteer een model om te chatten",
   "selectFiles": "Selecteer {type} bestand",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Gebruikersnaam mag alleen letters, cijfers en onderstrepingstekens bevatten",
   "usernameLimit": "Gebruikersnaam moet tussen 5 en 15 tekens lang zijn",
   "validateModules": "Valideer de versie van de base.apk met gesplitste APK's",
+  "versionCode": "Version code",
   "vrd": "Valideer resources map naam",
   "welcomeBack": "Welkom terug!"
 }

@@ -5,6 +5,23 @@
   "analyzing": "Аналізуємо...",
   "apiKey": "API ключ",
   "apiRateLimits": "Ліміт кількості кінцевих точок API",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS до APK",
   "appDescription": "Колекція альтернативних інструментів.",
   "appTitle": "Ревенґі",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Продовжити як гість",
   "copiedToClipboard": "Скопійовано до буферу обміну",
   "createAccount": "Створити обл. запис",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Розробник",
   "dexRepair": "Відновити",
   "dexRepairDesc": "Відновлення файлів DEX",
@@ -44,6 +63,9 @@
   "enterPassword": "Будь ласка, введіть пароль",
   "enterUsername": "Будь ласка, введіть ім'я користувача",
   "errorDuringAnalysis": "Сталася помилка під час аналізу",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Будь ласка, використовуйте настільний або мобільний додаток для цієї функції.",
   "fetchingModelInfo": "Отримання інформації про модель...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Пробний аналіз",
   "flutterAnalysisDesc": "Аналізувати очищання",
   "generate": "Генерувати",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Користувачі не можуть використовувати цю функцію",
   "iDonTLoveThisApp": "Мені байдуже, я пошкодую",
   "iLoveThisApp": "Перепрошую, я люблю цю програму",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "Аналіз JNI",
   "jniAnalysisDesc": "Знайти JNI підписи в APK",
   "language": "Language: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Попередження про довгу модель",
+  "lastUpdate": "Last update",
   "later": "Пізніше",
   "licenses": "Ліцензії",
   "login": "Логін",
   "mail": "Пошта",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Об'єднати",
   "mergeSplitApks": "Об'єднати розділені APK",
   "mergeUnsupportedOnWeb": "Розділення злиття APK неможливе у веб-версії.",
   "models": "Моделі",
   "mtHook": "МТ Хук",
   "mtHookDesc": "Створити MT посилені хуки",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Файл не вибрано",
   "ok": "Гаразд",
   "ollama_api_url": "Основний URL OLAMA",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Відкрити бібліотеку Оллама",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Пароль має складатися хоча б з 8 символів",
   "passMisMatch": "Паролі не збігаються",
   "password": "Пароль",
   "pathToApkeditorJar": "Шлях до apkeditor jar",
   "pleaseConfirmPassword": "Будь ласка, підтвердіть пароль",
+  "pleaseWait": "Please wait...",
   "preferences": "Властивості",
   "proceed": "Далі",
   "profile": "Анкета",
@@ -133,6 +173,7 @@
   "repairing": "Відновлення...",
   "reset": "Reset",
   "save": "Зберегти",
+  "searchApps": "Search apps...",
   "selectAModel": "Виберіть модель для чату",
   "selectFiles": "Виберіть {type} файл",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Ім'я користувача може містити лише літери, цифри та підкреслення",
   "usernameLimit": "Ім'я користувача повинно бути від 5 до 15 символів",
   "validateModules": "Перевірити версію base.apk з розділом APK",
+  "versionCode": "Version code",
   "vrd": "Перевірити ім'я ресурсів dir",
   "welcomeBack": "З поверненням!"
 }

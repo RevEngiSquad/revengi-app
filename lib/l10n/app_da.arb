@@ -5,6 +5,23 @@
   "analyzing": "Analyserer...",
   "apiKey": "API Nøgle",
   "apiRateLimits": "API Endepunkter Rate Grænser",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS til APK",
   "appDescription": "En samling af reverse engineering værktøjer.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Fortsæt som gæst",
   "copiedToClipboard": "Kopieret til udklipsholder",
   "createAccount": "Opret Konto",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Udvikler",
   "dexRepair": "Dex Reparation",
   "dexRepairDesc": "Reparer DEX filer",
@@ -44,6 +63,9 @@
   "enterPassword": "Indtast venligst adgangskode",
   "enterUsername": "Indtast venligst brugernavn",
   "errorDuringAnalysis": "Der opstod en fejl under analyse",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Kunne ikke udpakke filer fra ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Brug venligst skrivebordet eller mobilappen til denne funktion.",
   "fetchingModelInfo": "Henter modelinfo...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Analyse Af Flutter",
   "flutterAnalysisDesc": "Analyser Flutter libs",
   "generate": "Generer",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Gæstebrugere kan ikke bruge denne funktion",
   "iDonTLoveThisApp": "Jeg er ligeglad med, jeg vil fortryde",
   "iLoveThisApp": "Beklager, jeg elsker denne app",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "JNI Analyse",
   "jniAnalysisDesc": "Find JNI signaturer i APK",
   "language": "Sprog: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Stor Model Advarsel",
+  "lastUpdate": "Last update",
   "later": "Senere",
   "licenses": "Licenser",
   "login": "Login",
   "mail": "Mail",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Flet",
   "mergeSplitApks": "Flet Split APKs",
   "mergeUnsupportedOnWeb": "Split APK sammenlægning er ikke muligt i web-versionen.",
   "models": "Modeller",
   "mtHook": "MT Hook",
   "mtHookDesc": "Generere MT Forbedrede Kroge",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Ingen fil valgt",
   "ok": "OK",
   "ollama_api_url": "OLLAMA base URL",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Åbn Ollama Bibliotek",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Adgangskoden skal være på mindst 8 tegn",
   "passMisMatch": "Adgangskoder stemmer ikke overens",
   "password": "Adgangskode",
   "pathToApkeditorJar": "Sti til apkeditor krukke",
   "pleaseConfirmPassword": "Bekræft venligst adgangskode",
+  "pleaseWait": "Please wait...",
   "preferences": "Præferencer",
   "proceed": "Fortsæt",
   "profile": "Profil",
@@ -133,6 +173,7 @@
   "repairing": "Reparerer...",
   "reset": "Reset",
   "save": "Gem",
+  "searchApps": "Search apps...",
   "selectAModel": "Vælg en model at chatte",
   "selectFiles": "Vælg {type} Fil",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Brugernavn kan kun indeholde bogstaver, tal og understregning",
   "usernameLimit": "Brugernavn skal være mellem 5 og 15 tegn",
   "validateModules": "Validér version af base.apk med delte APK'er",
+  "versionCode": "Version code",
   "vrd": "Validér ressourcens dir navn",
   "welcomeBack": "Velkommen Tilbage!"
 }

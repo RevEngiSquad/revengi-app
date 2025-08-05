@@ -5,6 +5,23 @@
   "analyzing": "Analizowanie...",
   "apiKey": "Klucz API",
   "apiRateLimits": "Wartości graniczne punktów końcowych API",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS do APK",
   "appDescription": "Zbiór narzędzi inżynierii odwrotnej.",
   "appTitle": "Odwołanie Engi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Kontynuuj jako gość",
   "copiedToClipboard": "Skopiowano do schowka",
   "createAccount": "Utwórz konto",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Programista",
   "dexRepair": "Naprawa dex",
   "dexRepairDesc": "Napraw pliki DEX",
@@ -44,6 +63,9 @@
   "enterPassword": "Wprowadź hasło",
   "enterUsername": "Wprowadź nazwę użytkownika",
   "errorDuringAnalysis": "Wystąpił błąd podczas analizy",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Nie udało się wyodrębnić plików z ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Użyj tej funkcji na pulpicie lub aplikacji mobilnej.",
   "fetchingModelInfo": "Pobieranie informacji o modelu...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Analiza strumienia powietrza",
   "flutterAnalysisDesc": "Analizuj biblioteki Fluttera",
   "generate": "Wygeneruj",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Użytkownicy gości nie mogą używać tej funkcji",
   "iDonTLoveThisApp": "Nie podoba mi się, żałuję",
   "iLoveThisApp": "Przepraszam, kocham tę aplikację",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "Analiza JNI",
   "jniAnalysisDesc": "Znajdź podpisy JNI w APK",
   "language": "Język: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Ostrzeżenie o dużym modelu",
+  "lastUpdate": "Last update",
   "later": "Później",
   "licenses": "Licencje",
   "login": "Logowanie",
   "mail": "Poczta",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Połącz",
   "mergeSplitApks": "Scalanie podzielonych APK",
   "mergeUnsupportedOnWeb": "Split APK nie jest możliwy w wersji internetowej.",
   "models": "Modele",
   "mtHook": "MT Hook",
   "mtHookDesc": "Generuj zaawansowane hooki MT",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Nie wybrano pliku",
   "ok": "Ok",
   "ollama_api_url": "Podstawowy URL OLLAMA",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Otwórz bibliotekę Ollama",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Hasło musi mieć co najmniej 8 znaków",
   "passMisMatch": "Hasła nie pasują",
   "password": "Hasło",
   "pathToApkeditorJar": "Ścieżka do apkeditor jar",
   "pleaseConfirmPassword": "Proszę potwierdzić hasło",
+  "pleaseWait": "Please wait...",
   "preferences": "Ustawienia",
   "proceed": "Kontynuuj",
   "profile": "Profil",
@@ -133,6 +173,7 @@
   "repairing": "Naprawianie...",
   "reset": "Reset",
   "save": "Zapisz",
+  "searchApps": "Search apps...",
   "selectAModel": "Wybierz model do czatu",
   "selectFiles": "Wybierz plik {type}",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Nazwa użytkownika może zawierać tylko litery, cyfry i podkreślenia",
   "usernameLimit": "Nazwa użytkownika musi mieć od 5 do 15 znaków",
   "validateModules": "Zatwierdź wersję base.apk z podzielonymi APK",
+  "versionCode": "Version code",
   "vrd": "Potwierdź nazwę katalogu zasobów",
   "welcomeBack": "Witaj ponownie!"
 }

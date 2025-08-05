@@ -5,6 +5,23 @@
   "analyzing": "Analyse en cours...",
   "apiKey": "Clé API",
   "apiRateLimits": "Limite de débit des points de terminaison de l'API",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS à APK",
   "appDescription": "Une collection d'outils d'ingénierie inversée.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Continuer en tant qu'invité",
   "copiedToClipboard": "Copié dans le presse-papiers",
   "createAccount": "Créer un compte",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Développeur",
   "dexRepair": "Réparation de Dex",
   "dexRepairDesc": "Réparer les fichiers DEX",
@@ -44,6 +63,9 @@
   "enterPassword": "Veuillez entrer le mot de passe",
   "enterUsername": "Veuillez entrer le nom d'utilisateur",
   "errorDuringAnalysis": "Une erreur s'est produite lors de l'analyse",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Impossible d'extraire les fichiers depuis le ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Veuillez utiliser l'application de bureau ou mobile pour cette fonctionnalité.",
   "fetchingModelInfo": "Récupération des informations du modèle...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Analyse de Flutter",
   "flutterAnalysisDesc": "Analyser les libs de Flutter",
   "generate": "Générer",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Les utilisateurs invités ne peuvent pas utiliser cette fonctionnalité",
   "iDonTLoveThisApp": "« Je m'en fiche, je vais regretter",
   "iLoveThisApp": "Je suis désolé, j'adore cette application",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "Analyse JNI",
   "jniAnalysisDesc": "Trouver les signatures JNI dans l'APK",
   "language": "Langue : {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Avertissement de grand modèle",
+  "lastUpdate": "Last update",
   "later": "Plus tard",
   "licenses": "Licences",
   "login": "Se connecter",
   "mail": "Courrier",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Fusionner",
   "mergeSplitApks": "Fusionner les APKs séparés",
   "mergeUnsupportedOnWeb": "La fusion des APKs séparés n'est pas possible dans la version web.",
   "models": "Modèles",
   "mtHook": "Crochet MT",
   "mtHookDesc": "Générer des crochets MT avancée",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Aucun fichier sélectionné",
   "ok": "Ok",
   "ollama_api_url": "URL de base OLLAMA",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Ouvrir la bibliothèque Ollama",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Le mot de passe doit comporter au moins 8 caractères",
   "passMisMatch": "Les mots de passe ne correspondent pas",
   "password": "Mot de passe",
   "pathToApkeditorJar": "Chemin vers le jar apkeditor",
   "pleaseConfirmPassword": "Veuillez confirmer le mot de passe",
+  "pleaseWait": "Please wait...",
   "preferences": "Préférences",
   "proceed": "Procéder",
   "profile": "Profil",
@@ -133,6 +173,7 @@
   "repairing": "Réparation en cours...",
   "reset": "Réinitialiser",
   "save": "Enregistrer",
+  "searchApps": "Search apps...",
   "selectAModel": "Sélectionnez un modèle pour discuter",
   "selectFiles": "Sélectionner un fichier {type}",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Le nom d'utilisateur ne peut contenir que des lettres, des chiffres et des tirets bas",
   "usernameLimit": "Le nom d'utilisateur doit contenir entre 5 et 15 caractères",
   "validateModules": "Valider la version de base.apk avec des APKs séparés",
+  "versionCode": "Version code",
   "vrd": "Valider le nom du répertoire des ressources",
   "welcomeBack": "Bienvenue!"
 }

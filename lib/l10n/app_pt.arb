@@ -5,6 +5,23 @@
   "analyzing": "Analisando...",
   "apiKey": "Chave de API",
   "apiRateLimits": "Taxa de API Endpoints",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS para APK",
   "appDescription": "Uma coleção de ferramentas de engenharia reversa.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Continuar como Convidado",
   "copiedToClipboard": "Copiado para o clipboard",
   "createAccount": "Criar conta",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Desenvolvedores",
   "dexRepair": "Reparo de Dex",
   "dexRepairDesc": "Reparar arquivos DEX",
@@ -44,6 +63,9 @@
   "enterPassword": "Por favor, digite a senha",
   "enterUsername": "Insira o nome de usuário",
   "errorDuringAnalysis": "Ocorreu um erro durante a análise",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Falha ao extrair arquivos do ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Por favor, use o aplicativo desktop ou móvel para este recurso.",
   "fetchingModelInfo": "Buscando informações do modelo...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Análise de Flauta",
   "flutterAnalysisDesc": "Analisar tampas flamejantes",
   "generate": "Gerar",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Usuários convidados não podem usar este recurso",
   "iDonTLoveThisApp": "Não me importo, arrepender-me-ei",
   "iLoveThisApp": "Sinto muito, adoro este app",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "Análise JNI",
   "jniAnalysisDesc": "Encontre assinaturas do JNI no APK",
   "language": "Idioma: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Aviso do Modelo Grande",
+  "lastUpdate": "Last update",
   "later": "Mais tarde",
   "licenses": "Licenças",
   "login": "Conectar-se",
   "mail": "Correio",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Mesclar",
   "mergeSplitApks": "Fundir APKs divididos",
   "mergeUnsupportedOnWeb": "Não é possível a fusão de APK dividida na versão web.",
   "models": "Modelos",
   "mtHook": "MT Hook",
   "mtHookDesc": "Gerar MT Hooks Aprimorados",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Nenhum arquivo selecionado",
   "ok": "OK",
   "ollama_api_url": "Base URL OLLAMA",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Abrir Biblioteca Ollama",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "A senha deve ter pelo menos 8 caracteres",
   "passMisMatch": "As senhas não coincidem",
   "password": "Palavra-passe",
   "pathToApkeditorJar": "Caminho para apkeditor jar",
   "pleaseConfirmPassword": "Por favor, confirme a senha",
+  "pleaseWait": "Please wait...",
   "preferences": "Preferências:",
   "proceed": "Continuar",
   "profile": "Perfil",
@@ -133,6 +173,7 @@
   "repairing": "Reparando...",
   "reset": "Reset",
   "save": "Guardar",
+  "searchApps": "Search apps...",
   "selectAModel": "Selecione um modelo para bater papo",
   "selectFiles": "Selecionar Arquivo {type}",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "O nome de usuário só pode conter letras, números e sublinhado",
   "usernameLimit": "O nome de usuário deve ter entre 5 e 15 caracteres",
   "validateModules": "Validar a versão de base.apk com APKs divididos",
+  "versionCode": "Version code",
   "vrd": "Validar nome do diretório de recursos",
   "welcomeBack": "Bem-vindo(a) de volta!"
 }

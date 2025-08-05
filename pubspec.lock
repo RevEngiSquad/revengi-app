@@ -213,6 +213,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
+  installed_apps:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "56d071de088d3c3e1a7ccbdddedad011c7ccbb66"
+      url: "https://github.com/RevEngiSquad/installed_apps.git"
+    source: git
+    version: "1.6.0"
   intl:
     dependency: "direct main"
     description:

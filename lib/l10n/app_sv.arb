@@ -5,6 +5,23 @@
   "analyzing": "Analyserar...",
   "apiKey": "API nyckel",
   "apiRateLimits": "Gränser för API-slutpunkter",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS till APK",
   "appDescription": "En samling av verktyg för omvänd konstruktion.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Fortsätt som gäst",
   "copiedToClipboard": "Kopierad till urklipp",
   "createAccount": "Skapa konto",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Utvecklare",
   "dexRepair": "Dex Reparation",
   "dexRepairDesc": "Reparera DEX-filer",
@@ -44,6 +63,9 @@
   "enterPassword": "Ange lösenord",
   "enterUsername": "Ange användarnamn",
   "errorDuringAnalysis": "Ett fel inträffade under analysen",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Det gick inte att extrahera filer från ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Använd skrivbordet eller mobilappen för den här funktionen.",
   "fetchingModelInfo": "Hämtar modellinformation...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Flutter Analys",
   "flutterAnalysisDesc": "Analysera Flutter libs",
   "generate": "Generera",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Gästanvändare kan inte använda denna funktion",
   "iDonTLoveThisApp": "Jag bryr mig inte, jag ångrar",
   "iLoveThisApp": "Jag är ledsen, jag älskar den här appen",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "JNI Analys",
   "jniAnalysisDesc": "Hitta JNI-signaturer i APK",
   "language": "Språk: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Stor modell varning",
+  "lastUpdate": "Last update",
   "later": "Senare",
   "licenses": "Licenser",
   "login": "Inloggning",
   "mail": "E-post",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Sammanfoga",
   "mergeSplitApks": "Slå ihop delade APK:er",
   "mergeUnsupportedOnWeb": "Delad APK-sammanslagning är inte möjligt i webbversionen.",
   "models": "Modeller",
   "mtHook": "MT krok",
   "mtHookDesc": "Generera MT-förbättrade krokar",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Ingen fil vald",
   "ok": "OK",
   "ollama_api_url": "OLLAMA bas-URL",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Öppna Ollama-biblioteket",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Lösenordet måste vara minst 8 tecken",
   "passMisMatch": "Lösenorden matchar inte",
   "password": "Lösenord",
   "pathToApkeditorJar": "Sökväg till apkeditor burk",
   "pleaseConfirmPassword": "Bekräfta lösenordet",
+  "pleaseWait": "Please wait...",
   "preferences": "Inställningar",
   "proceed": "Fortsätt",
   "profile": "Profil",
@@ -133,6 +173,7 @@
   "repairing": "Reparerar...",
   "reset": "Reset",
   "save": "Spara",
+  "searchApps": "Search apps...",
   "selectAModel": "Välj en modell att chatta",
   "selectFiles": "Välj {type} fil",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Användarnamnet kan endast innehålla bokstäver, siffror och understreck",
   "usernameLimit": "Användarnamnet måste vara mellan 5 och 15 tecken",
   "validateModules": "Validera version av base.apk med delade APK:er",
+  "versionCode": "Version code",
   "vrd": "Validera resursnamn",
   "welcomeBack": "Välkommen tillbaka!"
 }

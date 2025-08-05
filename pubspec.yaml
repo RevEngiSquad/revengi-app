@@ -53,6 +53,10 @@ dependencies:
   ollama_dart: ^0.2.3
   gpt_markdown: ^1.1.0
   path_provider: ^2.1.5
+  installed_apps:
+    git:
+      url: https://github.com/RevEngiSquad/installed_apps.git
+      ref: master
 
 dev_dependencies:
   flutter_test:

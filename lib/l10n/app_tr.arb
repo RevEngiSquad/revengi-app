@@ -5,6 +5,23 @@
   "analyzing": "Analiz ediliyor...",
   "apiKey": "API Anahtarı",
   "apiRateLimits": "API Hız Sınırlamaları",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS'i APK'ya dönüştürme",
   "appDescription": "Tersine mühendislik araçlar koleksiyonu",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Misafir olarak devam et",
   "copiedToClipboard": "Panoya kopyala",
   "createAccount": "Hesap Oluştur",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Developer",
   "dexRepair": "Dex Onarımı",
   "dexRepairDesc": "DEX dosyalarını düzelt",
@@ -44,6 +63,9 @@
   "enterPassword": "Lütfen parolayı girin",
   "enterUsername": "Lütfen kullanıcı adını girin",
   "errorDuringAnalysis": "Analiz sırasında bir hata oluştu",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Dosyalar ZIP dosyasından çıkarılamadı: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Bu özellik için masaüstü ya da mobil uygulamayı kullanın.",
   "fetchingModelInfo": "Model bilgileri alınıyor...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Flutter Analizi",
   "flutterAnalysisDesc": "Flutter libs analizi",
   "generate": "Oluştur",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Misafir kullanıcılar bu özelliği kullanamazlar.",
   "iDonTLoveThisApp": "Umurumda değil, pişman olacağım.",
   "iLoveThisApp": "Üzgünüm, bu uygulamayı çok seviyorum.",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "JNI Analizi",
   "jniAnalysisDesc": "APK'da JNI imzalarını bul",
   "language": "Dil: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Büyük Model Uyarısı",
+  "lastUpdate": "Last update",
   "later": "Daha sonra",
   "licenses": "Licenses",
   "login": "Giriş",
   "mail": "Mail",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Birleştir",
   "mergeSplitApks": "APKs dosyalarını birleştir",
   "mergeUnsupportedOnWeb": "Web sürümünde bölünmüş APK birleştirme işlemi yapılamaz.",
   "models": "Modeller",
   "mtHook": "MT Kancası",
   "mtHookDesc": "Güçlendirilmiş MT Kancaları oluştur",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Seçili dosya yok",
   "ok": "Ok",
   "ollama_api_url": "OLLAMA temel URL adresi",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Ollama kütüphanesini aç",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Parola en az 8 karakterden oluşmalıdır.",
   "passMisMatch": "Parola eşleşmiyor",
   "password": "Parola",
   "pathToApkeditorJar": "Apkeditor JAR yolu",
   "pleaseConfirmPassword": "Lütfen parolayı onaylayın",
+  "pleaseWait": "Please wait...",
   "preferences": "Seçenekler",
   "proceed": "Devam et",
   "profile": "Profil",
@@ -133,6 +173,7 @@
   "repairing": "Düzeltiliyor...",
   "reset": "Sıfırla",
   "save": "Kaydet",
+  "searchApps": "Search apps...",
   "selectAModel": "Sohbet için bir model seç",
   "selectFiles": "{type} Dosyası Seç",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Kullanıcı adı yalnızca harfler, rakamlar ve alt çizgi içerebilir.",
   "usernameLimit": "Kullanıcı adı 5 ile 15 karakter arasında olmalıdır.",
   "validateModules": "base.apk sürümünü bölünmüş APKs dosyaları ile doğrula",
+  "versionCode": "Version code",
   "vrd": "Kaynaklar dizini adını doğrula",
   "welcomeBack": "Tekrar Hoş geldin!"
 }

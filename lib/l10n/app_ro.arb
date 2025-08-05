@@ -5,6 +5,23 @@
   "analyzing": "Analizare...",
   "apiKey": "Cheie API",
   "apiRateLimits": "Limitele ratei de finalizare API",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS pentru APK",
   "appDescription": "O colecție de instrumente de inginerie inversată.",
   "appTitle": "Revendică",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Continuă ca Vizitator",
   "copiedToClipboard": "Copiat în clipboard",
   "createAccount": "Creare cont",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Dezvoltator",
   "dexRepair": "Reparație Dex",
   "dexRepairDesc": "Repară fişierele DEX",
@@ -44,6 +63,9 @@
   "enterPassword": "Vă rugăm să introduceţi parola",
   "enterUsername": "Introdu numele de utilizator",
   "errorDuringAnalysis": "A apărut o eroare în timpul analizei",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Nu s-a reușit extragerea fișierelor din ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Te rugăm să folosești aplicația desktop sau pentru mobil pentru această funcție.",
   "fetchingModelInfo": "Preluare informații model...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Analiză Flutter",
   "flutterAnalysisDesc": "Analizează frezele Flutter",
   "generate": "Genereaza",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Utilizatorii oaspeţi nu pot utiliza această funcţie",
   "iDonTLoveThisApp": "Nu-mi pasă, regret",
   "iLoveThisApp": "Îmi pare rău, iubesc această aplicație",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "Analiza JNI",
   "jniAnalysisDesc": "Găsește semnăturile JNI în APK",
   "language": "Limbă: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Avertizare model mare",
+  "lastUpdate": "Last update",
   "later": "Mai târziu",
   "licenses": "Licențe",
   "login": "Autentificare",
   "mail": "E-mail",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Îmbinare",
   "mergeSplitApks": "Îmbinare APK-uri",
   "mergeUnsupportedOnWeb": "Fuzionarea Split APK nu este posibilă în versiunea web.",
   "models": "Modele",
   "mtHook": "Cârlig MT",
   "mtHookDesc": "Genereaza Cârlige Imbunatite MT",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Niciun fișier selectat",
   "ok": "Ok",
   "ollama_api_url": "URL bază OLLAMA",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Deschide Biblioteca Ollama",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Parola trebuie să conțină cel puțin 8 caractere",
   "passMisMatch": "Parolele nu corespund",
   "password": "Parolă",
   "pathToApkeditorJar": "Calea către apkeditor jar",
   "pleaseConfirmPassword": "Vă rugăm să confirmați parola",
+  "pleaseWait": "Please wait...",
   "preferences": "Preferințe",
   "proceed": "Continuă",
   "profile": "Profil",
@@ -133,6 +173,7 @@
   "repairing": "Reparați...",
   "reset": "Reset",
   "save": "Salvează",
+  "searchApps": "Search apps...",
   "selectAModel": "Selectați un model pentru a discuta",
   "selectFiles": "Selectați {type} Fișier",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Numele de utilizator poate conține doar litere, numere și underscore",
   "usernameLimit": "Numele de utilizator trebuie să aibă între 5 și 15 caractere",
   "validateModules": "Validați versiunea de base.apk cu APK-uri împărțite",
+  "versionCode": "Version code",
   "vrd": "Validare nume resurse dir",
   "welcomeBack": "Bine ai revenit!"
 }

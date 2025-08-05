@@ -5,6 +5,23 @@
   "analyzing": "Tarkastellaan...",
   "apiKey": "Api Avain",
   "apiRateLimits": "Api Päättymispisteiden Nopeusrajat",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS APK",
   "appDescription": "Kokoelma kääntöteknisiä työkaluja.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Jatka vieraana",
   "copiedToClipboard": "Kopioitu leikepöydälle",
   "createAccount": "Luo Tili",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Kehittäjä",
   "dexRepair": "Dex Korjaus",
   "dexRepairDesc": "Korjaa DEX-tiedostot",
@@ -44,6 +63,9 @@
   "enterPassword": "Anna salasana",
   "enterUsername": "Syötä käyttäjänimi",
   "errorDuringAnalysis": "Analyysin aikana tapahtui virhe",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Ei voitu poimia tiedostoja ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Ole hyvä ja käytä työpöytä- tai mobiilisovellusta tähän ominaisuuteen.",
   "fetchingModelInfo": "Haetaan mallin tietoja...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Flutterin Analyysi",
   "flutterAnalysisDesc": "Analysoi Flutter libs",
   "generate": "Luo",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Vieraat käyttäjät eivät voi käyttää tätä ominaisuutta",
   "iDonTLoveThisApp": "En välitä, minä olen pahoillani",
   "iLoveThisApp": "Anteeksi, rakastan tätä sovellusta",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "JNI- Analyysi",
   "jniAnalysisDesc": "Etsi JNI allekirjoituksia APK",
   "language": "Kieli: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Suuri Malli Varoitus",
+  "lastUpdate": "Last update",
   "later": "Myöhemmin",
   "licenses": "Lisenssit",
   "login": "Kirjaudu",
   "mail": "Sähköposti",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Yhdistä",
   "mergeSplitApks": "Yhdistä Jaetut APK:t",
   "mergeUnsupportedOnWeb": "Jaettu APK yhdistäminen ei ole mahdollista web-versiossa.",
   "models": "Mallit",
   "mtHook": "MT Koukku",
   "mtHookDesc": "Luo Mt Enhanced Koukut",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Ei valittua tiedostoa",
   "ok": "OK",
   "ollama_api_url": "OLLAMAn perusosoite",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Avaa Ollaman Kirjasto",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Salasanan tulee olla vähintään 8 merkkiä pitkä",
   "passMisMatch": "Salasanat eivät täsmää",
   "password": "Salasana",
   "pathToApkeditorJar": "Polku apkeditor purkkiin",
   "pleaseConfirmPassword": "Vahvista salasana",
+  "pleaseWait": "Please wait...",
   "preferences": "Asetukset",
   "proceed": "Jatka",
   "profile": "Profiili",
@@ -133,6 +173,7 @@
   "repairing": "Korjataan...",
   "reset": "Reset",
   "save": "Tallenna",
+  "searchApps": "Search apps...",
   "selectAModel": "Valitse malli keskustellaksesi",
   "selectFiles": "Valitse {type} Tiedosto",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Käyttäjätunnus voi sisältää vain kirjaimia, numeroita ja alaviivoja",
   "usernameLimit": "Käyttäjänimen tulee olla 5-15 merkkiä pitkä.",
   "validateModules": "Vahvista versio base.apk split APKs",
+  "versionCode": "Version code",
   "vrd": "Vahvista resurssien dir nimi",
   "welcomeBack": "Tervetuloa Takaisin!"
 }

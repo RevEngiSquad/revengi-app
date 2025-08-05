@@ -5,6 +5,23 @@
   "analyzing": "Анализ...",
   "apiKey": "Ключ API",
   "apiRateLimits": "Пределы конечной ставки API",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS в АПК",
   "appDescription": "Сбор обратных инженерных инструментов.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Продолжить как гость",
   "copiedToClipboard": "Скопировано в буфер обмена",
   "createAccount": "Создать Аккаунт",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Разработчик",
   "dexRepair": "Ремонт",
   "dexRepairDesc": "Восстановление DEX файлов",
@@ -44,6 +63,9 @@
   "enterPassword": "Введите пароль",
   "enterUsername": "Пожалуйста, введите имя пользователя",
   "errorDuringAnalysis": "Произошла ошибка во время анализа",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Не удалось извлечь файлы из ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Пожалуйста, используйте настольное или мобильное приложение для этой функции.",
   "fetchingModelInfo": "Получение информации о модели...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Анализ Flutter",
   "flutterAnalysisDesc": "Анализ библиотек Flutter",
   "generate": "Сгенерировать",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Гостевые пользователи не могут использовать эту функцию",
   "iDonTLoveThisApp": "Не волнуйтесь, пожалею",
   "iLoveThisApp": "Извините, я люблю это приложение",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "JNI Анализ",
   "jniAnalysisDesc": "Поиск JNI подписей в APK",
   "language": "Язык: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Большое предупреждение модели",
+  "lastUpdate": "Last update",
   "later": "Позже",
   "licenses": "Лицензии",
   "login": "Логин",
   "mail": "Почта",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Объединить",
   "mergeSplitApks": "Объединить API",
   "mergeUnsupportedOnWeb": "Слияние Split APK в веб-версии невозможно.",
   "models": "Модели",
   "mtHook": "MT Hook",
   "mtHookDesc": "Генерировать улучшенные хуки MT",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Файл не выбран",
   "ok": "Ок",
   "ollama_api_url": "OLLAMA базовый URL",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Открыть библиотеку Ollama",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "Пароль должен содержать не менее 8 символов",
   "passMisMatch": "Пароли не совпадают",
   "password": "Пароль",
   "pathToApkeditorJar": "Путь к apkeditor jar",
   "pleaseConfirmPassword": "Подтвердите пароль",
+  "pleaseWait": "Please wait...",
   "preferences": "Настройки",
   "proceed": "Продолжить",
   "profile": "Профиль",
@@ -133,6 +173,7 @@
   "repairing": "Починка...",
   "reset": "Reset",
   "save": "Сохранить",
+  "searchApps": "Search apps...",
   "selectAModel": "Выберите модель для чата",
   "selectFiles": "Выберите файл {type}",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Имя пользователя может содержать только буквы, цифры и подчеркивание",
   "usernameLimit": "Имя пользователя должно быть от 5 до 15 символов",
   "validateModules": "Проверить версию base.apk с помощью разделенного APK",
+  "versionCode": "Version code",
   "vrd": "Проверить имя каталога ресурсов",
   "welcomeBack": "С возвращением!"
 }

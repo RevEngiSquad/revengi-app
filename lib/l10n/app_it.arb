@@ -5,6 +5,23 @@
   "analyzing": "Analizzando...",
   "apiKey": "Chiave API",
   "apiRateLimits": "Limiti Di Tasso Endpoint Api",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "APKS a APK",
   "appDescription": "Una collezione di strumenti di reverse engineering.",
   "appTitle": "RevEngi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "Continua come ospite",
   "copiedToClipboard": "Copiato negli appunti",
   "createAccount": "Crea Account",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "Sviluppatore",
   "dexRepair": "Riparazione Dex",
   "dexRepairDesc": "Ripara file DEX",
@@ -44,6 +63,9 @@
   "enterPassword": "Inserisci la password",
   "enterUsername": "Inserisci il nome utente",
   "errorDuringAnalysis": "Si è verificato un errore durante l'analisi",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "Impossibile estrarre i file da ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "Si prega di utilizzare l'app desktop o mobile per questa funzionalità.",
   "fetchingModelInfo": "Recupero informazioni modello...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "Analisi Flutter",
   "flutterAnalysisDesc": "Analizza libs Flutter",
   "generate": "Genera",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "Gli utenti ospiti non possono utilizzare questa funzione",
   "iDonTLoveThisApp": "Non mi importa, rimpiangerò",
   "iLoveThisApp": "Mi dispiace, amo questa app",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "Analisi JNI",
   "jniAnalysisDesc": "Trova firme JNI nell'APK",
   "language": "Lingua: {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "Avviso Modello Grande",
+  "lastUpdate": "Last update",
   "later": "Dopo",
   "licenses": "Licenze",
   "login": "Accedi",
   "mail": "Posta",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "Unisci",
   "mergeSplitApks": "Unisci APK Divisi",
   "mergeUnsupportedOnWeb": "Dividere l'unione APK non è possibile nella versione web.",
   "models": "Modelli",
   "mtHook": "MT Hook",
   "mtHookDesc": "Genera MT Enhanced Hooks",
+  "noAppsFound": "No apps found",
   "noFileSelected": "Nessun file selezionato",
   "ok": "Ok",
   "ollama_api_url": "Url base OLLAMA",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "Apri Libreria Ollama",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "La password deve contenere almeno 8 caratteri",
   "passMisMatch": "Le password non corrispondono",
   "password": "Password",
   "pathToApkeditorJar": "Percorso al jar apkeditor",
   "pleaseConfirmPassword": "Conferma la password",
+  "pleaseWait": "Please wait...",
   "preferences": "Preferenze",
   "proceed": "Procedere",
   "profile": "Profilo",
@@ -133,6 +173,7 @@
   "repairing": "Riparazione...",
   "reset": "Reset",
   "save": "Salva",
+  "searchApps": "Search apps...",
   "selectAModel": "Seleziona un modello da chattare",
   "selectFiles": "Seleziona File {type}",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "Il nome utente può contenere solo lettere, numeri e underscore",
   "usernameLimit": "Il nome utente deve essere compreso tra 5 e 15 caratteri",
   "validateModules": "Convalida la versione di base.apk con APK divisi",
+  "versionCode": "Version code",
   "vrd": "Convalida nome dir risorse",
   "welcomeBack": "Bentornato!"
 }

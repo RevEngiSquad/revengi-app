@@ -5,6 +5,23 @@
   "analyzing": "تحليل...",
   "apiKey": "مفتاح API",
   "apiRateLimits": "حدود معدل نقاط نهاية API",
+  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "@apkExtractedMsg": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
+  "apkExtractError": "Error extracting APK: {e}",
+  "@apkExtractError": {
+    "placeholders": {
+      "e": {
+        "type": "String"
+      }
+    }
+  },
+  "apkPath": "APK path",
   "apksToApk": "مجمع APKS",
   "appDescription": "مجموعة من أدوات الهندسة العكسية.",
   "appTitle": "Revengi",
@@ -30,6 +47,8 @@
   "continueAsGuest": "الاستمرار كضيف",
   "copiedToClipboard": "نسخ إلى الحافظة",
   "createAccount": "إنشاء حساب",
+  "dataDirectory": "Data directory",
+  "dataDirectory2": "Data directory 2",
   "developer": "المطور",
   "dexRepair": "إصلاح الديكس",
   "dexRepairDesc": "تصحيح بنية ملفات. dex",
@@ -44,6 +63,9 @@
   "enterPassword": "الرجاء إدخال كلمة المرور",
   "enterUsername": "الرجاء إدخال اسم المستخدم",
   "errorDuringAnalysis": "حدث خطأ أثناء التحليل",
+  "excludeSystemApps": "Exclude System Apps",
+  "extractApk": "Extract APK",
+  "extractingApk": "Extracting APK",
   "failedToExtractFiles": "فشل في استخراج الملفات من ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -62,6 +84,10 @@
   },
   "featureNeedsApp": "الرجاء استخدام تطبيق سطح المكتب أو الجوال لهذه الميزة.",
   "fetchingModelInfo": "جلب معلومات النموذج...",
+  "fileExists": "File Exists",
+  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
+  "fileSize": "File size",
+  "firstInstall": "First install",
   "flutterAnalysis": "تحليل تطبيقات الفلاتر",
   "flutterAnalysisDesc": "عرض معلومات ملفات الفلاتر",
   "generate": "توليد",
@@ -69,6 +95,7 @@
   "guestNotAllowed": "لا يمكن للمستخدمين الضيوف استخدام هذه الميزة",
   "iDonTLoveThisApp": "أنا لا أهتم ، سأندم",
   "iLoveThisApp": "أنا آسف، أحب هذا التطبيق",
+  "includeSystemApps": "Include System Apps",
   "jniAnalysis": "تحليل ملفات lib",
   "jniAnalysisDesc": "تحليل هيكل ملفات ال\".so\" داخل التطبيق",
   "language": "لغة التطبيق : {languageCode}",
@@ -82,16 +109,26 @@
     }
   },
   "largeModelWarning": "نموذج تحذير كبير",
+  "lastUpdate": "Last update",
   "later": "لاحقاً",
   "licenses": "التراخيص",
   "login": "تسجيل الدخول",
   "mail": "البريد",
+  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "@manualDeleteRequired": {
+    "placeholders": {
+      "outputfile": {
+        "type": "String"
+      }
+    }
+  },
   "merge": "دمج",
   "mergeSplitApks": "دمج التطبيق المقسم لملف واحد",
   "mergeUnsupportedOnWeb": "تقسيم دمج APK غير ممكن في إصدار الويب.",
   "models": "المحركات",
   "mtHook": "قتل توقيع MT",
   "mtHookDesc": "حقن كود قتل التوقيع مثل MT",
+  "noAppsFound": "No apps found",
   "noFileSelected": "لم يتم تحديد ملف",
   "ok": "نعم",
   "ollama_api_url": "عنوان ULLAMA BASE URL",
@@ -104,11 +141,14 @@
     }
   },
   "openOllamaLibrary": "فتح مكتبة أولاما",
+  "overwrite": "Overwrite",
+  "packageName": "Package name",
   "passLen": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
   "passMisMatch": "كلمتا المرور غير متطابقتين",
   "password": "كلمة المرور",
   "pathToApkeditorJar": "المسار إلى جرس المحرر",
   "pleaseConfirmPassword": "الرجاء تأكيد كلمة المرور",
+  "pleaseWait": "Please wait...",
   "preferences": "الإعدادات",
   "proceed": "المتابعة",
   "profile": "حساب تعريفي",
@@ -133,6 +173,7 @@
   "repairing": "إصلاح...",
   "reset": "إعادة ضبط",
   "save": "حفظ",
+  "searchApps": "Search apps...",
   "selectAModel": "أختر محركا كى تبدأ المحادثة",
   "selectFiles": "حدد ملف {type}",
   "@selectFiles": {
@@ -177,6 +218,7 @@
   "usernameCond": "يمكن أن يحتوي اسم المستخدم فقط على أحرف وأرقام وتسطير سطر",
   "usernameLimit": "اسم المستخدم يجب أن يكون بين 5 و 15 حرفا",
   "validateModules": "التحقق من إصدار base.apk مع تقسيم APK",
+  "versionCode": "Version code",
   "vrd": "التحقق من اسم لوحة الموارد",
   "welcomeBack": "مرحبا بعودتك!"
 }
