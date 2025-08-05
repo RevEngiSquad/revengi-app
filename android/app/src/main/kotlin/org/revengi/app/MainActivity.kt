@@ -5,11 +5,20 @@ import android.content.Context
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
 import org.revengi.app.arsclib.Merger
+import java.io.BufferedOutputStream
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.IOException
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
+
 
 class MainActivity : FlutterActivity() {
     private val myChannel = "flutter.native/helper"
@@ -41,6 +50,15 @@ class MainActivity : FlutterActivity() {
                     val options = call.arguments as? Map<String, Any?>
                     Merger().startMerge(options)
                     result.success(true)
+                }
+
+                "zipApks" -> {
+                    val apkPaths = call.argument<List<String>>("apkPaths")
+                    val outputPath = call.argument<String>("outputPath")
+                    Thread {
+                        val success = zipApks(apkPaths!!, outputPath!!)
+                        result.success(success)
+                    }.start()
                 }
 
                 else -> result.notImplemented()
@@ -83,6 +101,34 @@ class MainActivity : FlutterActivity() {
         activityManager.getMemoryInfo(memoryInfo)
         return memoryInfo.totalMem
     }
+
+    @Throws(IOException::class)
+    private fun zipApks(apkPaths: List<String>, outputPath: String): Boolean {
+        return try {
+            ZipOutputStream(
+                BufferedOutputStream(
+                    FileOutputStream(outputPath)
+                )
+            ).use { zipOutputStream ->
+                for (path in apkPaths) {
+                    Log.i("ExtractAPK", "Adding: $path")
+                    val file = File(path)
+                    FileInputStream(file).use { fileInputStream ->
+                        val entry = ZipEntry(file.name)
+                        entry.time = file.lastModified()
+                        entry.size = file.length()
+                        zipOutputStream.putNextEntry(entry)
+                        fileInputStream.copyTo(zipOutputStream)
+                    }
+                }
+            }
+            true
+        } catch (e: Exception) {
+            Log.e("ExtractAPK", "Error zipping APKs", e)
+            false
+        }
+    }
+
 
     companion object {
         var eventSinkStatic: EventChannel.EventSink? = null

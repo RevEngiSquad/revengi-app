@@ -161,46 +161,16 @@ class _ExtractApkScreenState extends State<ExtractApkScreen> {
       }
 
       if (isSplitApp) {
-        final apkFileBytes = await File(apkPath).readAsBytes();
-        final archive = Archive();
-        final zipEncoder = ZipEncoder();
-
-        final archiveFile = ArchiveFile(
-          "base.apk",
-          apkFileBytes.length,
-          apkFileBytes,
-        );
-        archive.addFile(archiveFile);
-
-        for (final splitPath in splitSourceDirs) {
-          final splitFile = File(splitPath);
-          if (splitFile.existsSync()) {
-            final splitFileBytes = await splitFile.readAsBytes();
-            final splitArchiveFile = ArchiveFile(
-              splitFile.path.split(Platform.pathSeparator).last,
-              splitFileBytes.length,
-              splitFileBytes,
-            );
-            archive.addFile(splitArchiveFile);
-          }
-        }
-
-        final zipData = zipEncoder.encode(
-          archive,
-          level: DeflateLevel.defaultCompression,
-        );
-        await outputFile.writeAsBytes(zipData);
-        setState(() {
-          isExtracting = false;
-          extracted = true;
-        });
+        final methodChannel = MethodChannel('flutter.native/helper');
+        final apkPaths = [apkPath, ...splitSourceDirs];
+        extracted =
+            (await methodChannel.invokeMethod<bool>('zipApks', {
+              'apkPaths': apkPaths,
+              'outputPath': outputFile.path,
+            }))!;
       } else {
-        final apkFileBytes = await File(apkPath).readAsBytes();
-        await outputFile.writeAsBytes(apkFileBytes);
-        setState(() {
-          isExtracting = false;
-          extracted = true;
-        });
+        final apkFile = File(apkPath);
+        await apkFile.copy(outputFile.path);
       }
     } catch (e) {
       // Check if error is of PathAccessException type
