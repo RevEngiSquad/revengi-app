@@ -218,7 +218,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "69a7784746beaefcdb5eaed2ffae9f68ac9c80b9"
+      resolved-ref: "1fae49dd8e8e8bebfa95ce3e808cf92f76516e32"
       url: "https://github.com/RevEngiSquad/installed_apps.git"
     source: git
     version: "1.6.0"

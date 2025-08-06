@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:installed_apps/app_info.dart';
 import 'package:installed_apps/installed_apps.dart';
+import 'package:installed_apps/sign_info.dart';
 import 'package:intl/intl.dart';
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/utils/platform.dart';
@@ -22,6 +23,8 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   bool _excludeSystemApps = true;
   bool _isLoading = false;
   bool _isSearching = false;
+  bool upperCase = true;
+  bool addColon = false;
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -232,17 +235,631 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     }
   }
 
+  void copyToClipboard(String text) {
+    Clipboard.setData(ClipboardData(text: text));
+    InstalledApps.toast(AppLocalizations.of(context)!.copiedToClipboard, true);
+  }
+
+  Future<void> _rawData(List<int> rawData, String baseData) async {
+    final localizations = AppLocalizations.of(context)!;
+
+    String hexData = rawData
+        .map((byte) => byte.toRadixString(16).padLeft(2, '0'))
+        .join(' ');
+
+    TextEditingController textEditingController = TextEditingController(
+      text: hexData,
+    );
+
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Raw data"),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                TextField(
+                  controller: textEditingController,
+                  readOnly: true,
+                  maxLines: null,
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text("Copy"),
+              onPressed: () {
+                copyToClipboard(textEditingController.text);
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text("Copy Base64"),
+              onPressed: () {
+                copyToClipboard(baseData);
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text(localizations.cancel),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _showSignInfo(SignInfo signInfo) async {
+    final localizations = AppLocalizations.of(context)!;
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  right: 20.0,
+                  left: 20.0,
+                  top: 20.0,
+                  bottom: 10.0,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Signature Information",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Table(
+                          columnWidths: const {0: FixedColumnWidth(120)},
+                          children: [
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "Scheme",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        '${signInfo.schemes}',
+                                      ),
+                                  child: Text(
+                                    signInfo.schemes.join(" + "),
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "Algorithm",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(signInfo.algorithm),
+                                  child: Text(
+                                    signInfo.algorithm,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "Status",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        '${signInfo.verified}',
+                                      ),
+                                  child: Text(
+                                    signInfo.verified
+                                        ? "Verified${signInfo.warnings.isNotEmpty ? ' with ${signInfo.warnings.length} warnings' : ''}${signInfo.errors.isNotEmpty ? ' and ${signInfo.errors.length} errors' : ''}"
+                                        : "Not Verified",
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "Created",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () =>
+                                          copyToClipboard(signInfo.createDate),
+                                  child: Text(
+                                    signInfo.createDate,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "Expired",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () =>
+                                          copyToClipboard(signInfo.expireDate),
+                                  child: Text(
+                                    signInfo.expireDate,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "Owner",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap: () => copyToClipboard(signInfo.issuer),
+                                  child: Text(
+                                    signInfo.issuer,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "HASH",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        upperCase
+                                            ? "0x${(int.parse(signInfo.digests.hash) & 0xFFFFFFFF).toRadixString(16).toUpperCase()} (${signInfo.digests.hash})"
+                                            : "0x${(int.parse(signInfo.digests.hash) & 0xFFFFFFFF).toRadixString(16)} (${signInfo.digests.hash})",
+                                      ),
+                                  child: Text(
+                                    upperCase
+                                        ? "0x${(int.parse(signInfo.digests.hash) & 0xFFFFFFFF).toRadixString(16).toUpperCase()} (${signInfo.digests.hash})"
+                                        : "0x${(int.parse(signInfo.digests.hash) & 0xFFFFFFFF).toRadixString(16)} (${signInfo.digests.hash})",
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "CRC32",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        upperCase
+                                            ? "0x${signInfo.digests.crc32.replaceFirst(RegExp('^0+'), '').toUpperCase()} (${int.parse((signInfo.digests.crc32), radix: 16)})"
+                                            : "0x${signInfo.digests.crc32.replaceFirst(RegExp('^0+'), '')} (${int.parse((signInfo.digests.crc32), radix: 16)})",
+                                      ),
+                                  child: Text(
+                                    upperCase
+                                        ? "0x${signInfo.digests.crc32.replaceFirst(RegExp('^0+'), '').toUpperCase()} (${int.parse((signInfo.digests.crc32), radix: 16)})"
+                                        : "0x${signInfo.digests.crc32.replaceFirst(RegExp('^0+'), '')} (${int.parse((signInfo.digests.crc32), radix: 16)})",
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "MD5",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        upperCase
+                                            ? addColon
+                                                ? _formatWithColon(
+                                                  signInfo.digests.md5
+                                                      .toUpperCase(),
+                                                )
+                                                : signInfo.digests.md5
+                                                    .toUpperCase()
+                                            : addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.md5,
+                                            )
+                                            : signInfo.digests.md5,
+                                      ),
+                                  child: Text(
+                                    upperCase
+                                        ? addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.md5
+                                                  .toUpperCase(),
+                                            )
+                                            : signInfo.digests.md5.toUpperCase()
+                                        : addColon
+                                        ? _formatWithColon(signInfo.digests.md5)
+                                        : signInfo.digests.md5,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "SHA1",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        upperCase
+                                            ? addColon
+                                                ? _formatWithColon(
+                                                  signInfo.digests.sha1
+                                                      .toUpperCase(),
+                                                )
+                                                : signInfo.digests.sha1
+                                                    .toUpperCase()
+                                            : addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.sha1,
+                                            )
+                                            : signInfo.digests.sha1,
+                                      ),
+                                  child: Text(
+                                    upperCase
+                                        ? addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.sha1
+                                                  .toUpperCase(),
+                                            )
+                                            : signInfo.digests.sha1
+                                                .toUpperCase()
+                                        : addColon
+                                        ? _formatWithColon(
+                                          signInfo.digests.sha1,
+                                        )
+                                        : signInfo.digests.sha1,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "SHA256",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        upperCase
+                                            ? addColon
+                                                ? _formatWithColon(
+                                                  signInfo.digests.sha256
+                                                      .toUpperCase(),
+                                                )
+                                                : signInfo.digests.sha256
+                                                    .toUpperCase()
+                                            : addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.sha256,
+                                            )
+                                            : signInfo.digests.sha256,
+                                      ),
+                                  child: Text(
+                                    upperCase
+                                        ? addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.sha256
+                                                  .toUpperCase(),
+                                            )
+                                            : signInfo.digests.sha256
+                                                .toUpperCase()
+                                        : addColon
+                                        ? _formatWithColon(
+                                          signInfo.digests.sha256,
+                                        )
+                                        : signInfo.digests.sha256,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "SHA384",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        upperCase
+                                            ? addColon
+                                                ? _formatWithColon(
+                                                  signInfo.digests.sha384
+                                                      .toUpperCase(),
+                                                )
+                                                : signInfo.digests.sha384
+                                                    .toUpperCase()
+                                            : addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.sha384,
+                                            )
+                                            : signInfo.digests.sha384,
+                                      ),
+                                  child: Text(
+                                    upperCase
+                                        ? addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.sha384
+                                                  .toUpperCase(),
+                                            )
+                                            : signInfo.digests.sha384
+                                                .toUpperCase()
+                                        : addColon
+                                        ? _formatWithColon(
+                                          signInfo.digests.sha384,
+                                        )
+                                        : signInfo.digests.sha384,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "SHA512",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                InkWell(
+                                  onTap:
+                                      () => copyToClipboard(
+                                        upperCase
+                                            ? addColon
+                                                ? _formatWithColon(
+                                                  signInfo.digests.sha512
+                                                      .toUpperCase(),
+                                                )
+                                                : signInfo.digests.sha512
+                                                    .toUpperCase()
+                                            : addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.sha512,
+                                            )
+                                            : signInfo.digests.sha512,
+                                      ),
+                                  child: Text(
+                                    upperCase
+                                        ? addColon
+                                            ? _formatWithColon(
+                                              signInfo.digests.sha512
+                                                  .toUpperCase(),
+                                            )
+                                            : signInfo.digests.sha512
+                                                .toUpperCase()
+                                        : addColon
+                                        ? _formatWithColon(
+                                          signInfo.digests.sha512,
+                                        )
+                                        : signInfo.digests.sha512,
+                                    style: TextStyle(color: Colors.grey[600]),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                const SizedBox(height: 8),
+                                const SizedBox(height: 8),
+                              ],
+                            ),
+                            TableRow(
+                              children: [
+                                Text(
+                                  "Format",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text("Add colon"),
+                                        Switch.adaptive(
+                                          value: addColon,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              addColon = value;
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text("Upper case"),
+                                        Switch.adaptive(
+                                          value: upperCase,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              upperCase = value;
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            _rawData(signInfo.rawData, signInfo.baseData);
+                          },
+                          child: Text(
+                            "View Data".toUpperCase(),
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(
+                            localizations.cancel.toUpperCase(),
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  String _formatWithColon(String input) {
+    final buffer = StringBuffer();
+    for (int i = 0; i < input.length; i += 2) {
+      buffer.write(input.substring(i, i + 2));
+      if (i + 2 < input.length) {
+        buffer.write(':');
+      }
+    }
+    return buffer.toString();
+  }
+
   Future<void> _showAppDetails(AppInfo app) async {
     final localizations = AppLocalizations.of(context)!;
     final GlobalKey menuKey = GlobalKey();
-    void copyToClipboard(String text) {
-      Clipboard.setData(ClipboardData(text: text));
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(localizations.copiedToClipboard)));
-    }
 
     List<String>? signatureSchemes;
+    SignInfo? signInfo;
 
     showDialog(
       context: context,
@@ -251,12 +868,14 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
           builder: (context, setState) {
             if (signatureSchemes == null) {
               Future.microtask(() async {
-                final result = await InstalledApps.getSignatureSchemes(
+                final result = await InstalledApps.extractSignatureInfo(
                   app.apkPath,
                 );
+
                 if (mounted) {
                   setState(() {
-                    signatureSchemes = result;
+                    signatureSchemes = result.schemes;
+                    signInfo = result;
                   });
                 }
               });
@@ -395,9 +1014,10 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                             ),
                             InkWell(
                               onTap:
-                                  () => copyToClipboard(
-                                    signatureSchemes!.join(" + "),
-                                  ),
+                                  () =>
+                                      signatureSchemes != null
+                                          ? _showSignInfo(signInfo!)
+                                          : null,
                               child: Text(
                                 signatureSchemes != null
                                     ? signatureSchemes!.join(" + ")
