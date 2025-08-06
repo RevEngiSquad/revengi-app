@@ -183,6 +183,11 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
       } else {
         final apkFile = File(apkPath);
         await apkFile.copy(outputFile.path);
+        if (!outputFile.existsSync()) {
+          extracted = false;
+        } else {
+          extracted = true;
+        }
       }
     } catch (e) {
       // Check if error is of PathAccessException type
