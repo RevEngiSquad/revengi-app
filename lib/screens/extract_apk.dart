@@ -15,7 +15,8 @@ class ExtractApkScreen extends StatefulWidget {
   State<ExtractApkScreen> createState() => _ExtractApkScreenState();
 }
 
-class _ExtractApkScreenState extends State<ExtractApkScreen> {
+class _ExtractApkScreenState extends State<ExtractApkScreen>
+    with WidgetsBindingObserver {
   List<AppInfo> _apps = [];
   List<AppInfo> _filteredApps = [];
   bool _excludeSystemApps = true;
@@ -26,14 +27,23 @@ class _ExtractApkScreenState extends State<ExtractApkScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _loadApps();
     _searchController.addListener(_filterApps);
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _searchController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _loadApps();
+    }
   }
 
   Future<void> _loadApps() async {
@@ -560,6 +570,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen> {
                               PopupMenuItem(
                                 onTap: () {
                                   InstalledApps.uninstallApp(app.packageName);
+                                  Navigator.of(context).pop();
                                 },
                                 child: Text(
                                   'Uninstall',
