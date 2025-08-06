@@ -913,17 +913,6 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                     signInfo = result;
                   });
                 }
-                var (appStor, appStoreUr) = await checkAppOnStore(
-                  app.packageName,
-                );
-                if (mounted) {
-                  setState(() {
-                    if (appStor != null && appStoreUr != null) {
-                      appStore = appStor;
-                      appStoreUrl = appStoreUr;
-                    }
-                  });
-                }
                 final installerResult = await InstalledApps.getAppInfo(
                   app.installer,
                   BuiltWith.flutter,
@@ -932,6 +921,17 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                   setState(() {
                     if (installerResult != null) {
                       installer = installerResult.name;
+                    }
+                  });
+                }
+                var (appStor, appStoreUr) = await checkAppOnStore(
+                  app.packageName,
+                );
+                if (mounted) {
+                  setState(() {
+                    if (appStor != null && appStoreUr != null) {
+                      appStore = appStor;
+                      appStoreUrl = appStoreUr;
                     }
                   });
                 }
