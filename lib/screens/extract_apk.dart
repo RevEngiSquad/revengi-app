@@ -552,8 +552,8 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                                 onTap:
                                     () =>
                                         InstalledApps.startApp(app.packageName),
-                                child: const Text(
-                                  'Launch',
+                                child: Text(
+                                  localizations.launch,
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
@@ -562,8 +562,8 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                                     () => InstalledApps.openSettings(
                                       app.packageName,
                                     ),
-                                child: const Text(
-                                  'Details',
+                                child: Text(
+                                  localizations.details,
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
@@ -573,7 +573,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                                   Navigator.of(context).pop();
                                 },
                                 child: Text(
-                                  'Uninstall',
+                                  localizations.uninstall,
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ),
@@ -581,7 +581,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                           );
                         },
                         child: Text(
-                          "More".toUpperCase(),
+                          localizations.more.toUpperCase(),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
