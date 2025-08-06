@@ -224,6 +224,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen> {
 
   void _showAppDetails(AppInfo app) {
     final localizations = AppLocalizations.of(context)!;
+    final GlobalKey menuKey = GlobalKey();
     void copyToClipboard(String text) {
       Clipboard.setData(ClipboardData(text: text));
       ScaffoldMessenger.of(
@@ -512,8 +513,70 @@ class _ExtractApkScreenState extends State<ExtractApkScreen> {
                   ),
                   const SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      TextButton(
+                        key: menuKey,
+                        onPressed: () async {
+                          final RenderBox button =
+                              menuKey.currentContext!.findRenderObject()
+                                  as RenderBox;
+                          final RenderBox overlay =
+                              Overlay.of(context).context.findRenderObject()
+                                  as RenderBox;
+                          final Offset position = button.localToGlobal(
+                            Offset.zero,
+                            ancestor: overlay,
+                          );
+                          final RelativeRect rect = RelativeRect.fromLTRB(
+                            position.dx,
+                            position.dy + button.size.height,
+                            position.dx + button.size.width,
+                            position.dy,
+                          );
+                          await showMenu<String>(
+                            context: context,
+                            position: rect,
+                            items: [
+                              PopupMenuItem(
+                                onTap:
+                                    () =>
+                                        InstalledApps.startApp(app.packageName),
+                                child: const Text(
+                                  'Launch',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap:
+                                    () => InstalledApps.openSettings(
+                                      app.packageName,
+                                    ),
+                                child: const Text(
+                                  'Details',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () {
+                                  InstalledApps.uninstallApp(app.packageName);
+                                },
+                                child: Text(
+                                  'Uninstall',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                        child: Text(
+                          "More".toUpperCase(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
                       TextButton(
                         onPressed: () {
                           Navigator.of(context).pop();
@@ -606,49 +669,52 @@ class _ExtractApkScreenState extends State<ExtractApkScreen> {
                 ? const Center(child: CircularProgressIndicator())
                 : _filteredApps.isEmpty
                 ? Center(child: Text(localizations.noAppsFound))
-                : SafeArea(
-                  top: false,
-                  child: ListView.builder(
-                    padding: const EdgeInsets.all(8),
-                    itemCount: _filteredApps.length,
-                    itemBuilder: (context, index) {
-                      final app = _filteredApps[index];
-                      bool isSplitApp = app.splitSourceDirs.isNotEmpty;
-                      return Card(
-                        elevation: 2,
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 4,
-                          horizontal: 8,
-                        ),
-                        child: ListTile(
-                          leading:
-                              app.icon != null
-                                  ? Image.memory(
-                                    app.icon!,
-                                    width: 40,
-                                    height: 40,
-                                  )
-                                  : const Icon(Icons.android, size: 40),
-                          title: Text(app.name),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                !isSplitApp
-                                    ? "${app.versionName}    ${formatSize(app.packageSize)}"
-                                    : "${app.versionName}    ${formatSize(app.packageSize)}    SPLIT+${formatSize(app.splitSourceDirs.fold(0, (sum, dir) => sum + File(dir).lengthSync()))}",
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                app.packageName,
-                                style: const TextStyle(fontSize: 13),
-                              ),
-                            ],
+                : RefreshIndicator(
+                  onRefresh: _loadApps,
+                  child: SafeArea(
+                    top: false,
+                    child: ListView.builder(
+                      padding: const EdgeInsets.all(8),
+                      itemCount: _filteredApps.length,
+                      itemBuilder: (context, index) {
+                        final app = _filteredApps[index];
+                        bool isSplitApp = app.splitSourceDirs.isNotEmpty;
+                        return Card(
+                          elevation: 2,
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 4,
+                            horizontal: 8,
                           ),
-                          onTap: () => _showAppDetails(app),
-                        ),
-                      );
-                    },
+                          child: ListTile(
+                            leading:
+                                app.icon != null
+                                    ? Image.memory(
+                                      app.icon!,
+                                      width: 40,
+                                      height: 40,
+                                    )
+                                    : const Icon(Icons.android, size: 40),
+                            title: Text(app.name),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  !isSplitApp
+                                      ? "${app.versionName}    ${formatSize(app.packageSize)}"
+                                      : "${app.versionName}    ${formatSize(app.packageSize)}    SPLIT+${formatSize(app.splitSourceDirs.fold(0, (sum, dir) => sum + File(dir).lengthSync()))}",
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  app.packageName,
+                                  style: const TextStyle(fontSize: 13),
+                                ),
+                              ],
+                            ),
+                            onTap: () => _showAppDetails(app),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
       ),
