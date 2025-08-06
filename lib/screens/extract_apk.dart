@@ -232,7 +232,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     }
   }
 
-  void _showAppDetails(AppInfo app) {
+  Future<void> _showAppDetails(AppInfo app) async {
     final localizations = AppLocalizations.of(context)!;
     final GlobalKey menuKey = GlobalKey();
     void copyToClipboard(String text) {
@@ -242,373 +242,426 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
       ).showSnackBar(SnackBar(content: Text(localizations.copiedToClipboard)));
     }
 
+    List<String>? signatureSchemes;
+
     showDialog(
       context: context,
-      builder:
-          (context) => Dialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                right: 20.0,
-                left: 20.0,
-                top: 20.0,
-                bottom: 10.0,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            if (signatureSchemes == null) {
+              Future.microtask(() async {
+                final result = await InstalledApps.getSignatureSchemes(
+                  app.apkPath,
+                );
+                if (mounted) {
+                  setState(() {
+                    signatureSchemes = result;
+                  });
+                }
+              });
+            }
+
+            return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    children: [
-                      if (app.icon != null)
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: Image.memory(app.icon!, width: 40, height: 40),
-                        ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: () => copyToClipboard(app.name),
-                              child: Text(
-                                app.name,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  right: 20.0,
+                  left: 20.0,
+                  top: 20.0,
+                  bottom: 10.0,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      children: [
+                        if (app.icon != null)
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Image.memory(
+                              app.icon!,
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              InkWell(
+                                onTap: () => copyToClipboard(app.name),
+                                child: Text(
+                                  app.name,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
+                              InkWell(
+                                onTap: () => copyToClipboard(app.versionName),
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 6, bottom: 4),
+                                  child: Text(
+                                    app.versionName,
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Table(
+                      columnWidths: const {0: FixedColumnWidth(120)},
+                      children: [
+                        TableRow(
+                          children: [
+                            Text(
+                              localizations.packageName,
+                              style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             InkWell(
-                              onTap: () => copyToClipboard(app.versionName),
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 6, bottom: 4),
-                                child: Text(
-                                  app.versionName,
-                                  style: TextStyle(fontSize: 14),
+                              onTap: () => copyToClipboard(app.packageName),
+                              child: Text(
+                                app.packageName,
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              localizations.versionCode,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap:
+                                  () => copyToClipboard('${app.versionCode}'),
+                              child: Text(
+                                '${app.versionCode}',
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              localizations.fileSize,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap:
+                                  () => copyToClipboard(
+                                    '${(app.packageSize / (1024 * 1024)).toStringAsFixed(2)}M',
+                                  ),
+                              child: Text(
+                                '${(app.packageSize / (1024 * 1024)).toStringAsFixed(2)}M',
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              "Signature",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap:
+                                  () => copyToClipboard(
+                                    signatureSchemes!.join(" + "),
+                                  ),
+                              child: Text(
+                                signatureSchemes != null
+                                    ? signatureSchemes!.join(" + ")
+                                    : "...",
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              localizations.dataDirectory,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap: () => copyToClipboard(app.dataDir),
+                              child: Text(
+                                app.dataDir,
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Table(
-                    columnWidths: const {0: FixedColumnWidth(120)},
-                    children: [
-                      TableRow(
-                        children: [
-                          Text(
-                            localizations.packageName,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap: () => copyToClipboard(app.packageName),
-                            child: Text(
-                              app.packageName,
-                              style: TextStyle(color: Colors.grey[600]),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              localizations.dataDirectory2,
+                              style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const SizedBox(height: 8),
-                          const SizedBox(height: 8),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Text(
-                            localizations.versionCode,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap: () => copyToClipboard('${app.versionCode}'),
-                            child: Text(
-                              '${app.versionCode}',
-                              style: TextStyle(color: Colors.grey[600]),
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const SizedBox(height: 8),
-                          const SizedBox(height: 8),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Text(
-                            localizations.fileSize,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap:
-                                () => copyToClipboard(
-                                  '${(app.packageSize / (1024 * 1024)).toStringAsFixed(2)}M',
+                            InkWell(
+                              onTap:
+                                  () => copyToClipboard(
+                                    '/storage/emulated/0/Android/data/${app.packageName}',
+                                  ),
+                              child: Text(
+                                '/storage/emulated/0/Android/data/${app.packageName}',
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                            child: Text(
-                              '${(app.packageSize / (1024 * 1024)).toStringAsFixed(2)}M',
-                              style: TextStyle(color: Colors.grey[600]),
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const SizedBox(height: 8),
-                          const SizedBox(height: 8),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Text(
-                            localizations.dataDirectory,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap: () => copyToClipboard(app.dataDir),
-                            child: Text(
-                              app.dataDir,
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const SizedBox(height: 8),
-                          const SizedBox(height: 8),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Text(
-                            localizations.dataDirectory2,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap:
-                                () => copyToClipboard(
-                                  '/storage/emulated/0/Android/data/${app.packageName}',
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              localizations.apkPath,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap: () => copyToClipboard(app.apkPath),
+                              child: Text(
+                                app.apkPath,
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                            child: Text(
-                              '/storage/emulated/0/Android/data/${app.packageName}',
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              localizations.firstInstall,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap:
+                                  () => copyToClipboard(
+                                    DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                                      DateTime.fromMillisecondsSinceEpoch(
+                                        app.installedTimestamp,
+                                      ),
+                                    ),
+                                  ),
+                              child: Text(
+                                DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                                  DateTime.fromMillisecondsSinceEpoch(
+                                    app.installedTimestamp,
+                                  ),
+                                ),
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              localizations.lastUpdate,
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap:
+                                  () => copyToClipboard(
+                                    DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                                      DateTime.fromMillisecondsSinceEpoch(
+                                        app.lastUpdatedTimestamp,
+                                      ),
+                                    ),
+                                  ),
+                              child: Text(
+                                DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                                  DateTime.fromMillisecondsSinceEpoch(
+                                    app.lastUpdatedTimestamp,
+                                  ),
+                                ),
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const Text(
+                              'UID',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap:
+                                  () => copyToClipboard(app.appUid.toString()),
+                              child: Text(
+                                "${app.appUid}",
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          key: menuKey,
+                          onPressed: () async {
+                            final RenderBox button =
+                                menuKey.currentContext!.findRenderObject()
+                                    as RenderBox;
+                            final RenderBox overlay =
+                                Overlay.of(context).context.findRenderObject()
+                                    as RenderBox;
+                            final Offset position = button.localToGlobal(
+                              Offset.zero,
+                              ancestor: overlay,
+                            );
+                            final RelativeRect rect = RelativeRect.fromLTRB(
+                              position.dx,
+                              position.dy + button.size.height,
+                              position.dx + button.size.width,
+                              position.dy,
+                            );
+                            await showMenu<String>(
+                              context: context,
+                              position: rect,
+                              items: [
+                                PopupMenuItem(
+                                  onTap:
+                                      () => InstalledApps.startApp(
+                                        app.packageName,
+                                      ),
+                                  child: Text(
+                                    localizations.launch,
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                ),
+                                PopupMenuItem(
+                                  onTap:
+                                      () => InstalledApps.openSettings(
+                                        app.packageName,
+                                      ),
+                                  child: Text(
+                                    localizations.details,
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                ),
+                                PopupMenuItem(
+                                  onTap: () {
+                                    InstalledApps.uninstallApp(app.packageName);
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text(
+                                    localizations.uninstall,
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                          child: Text(
+                            localizations.more.toUpperCase(),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
                           ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const SizedBox(height: 8),
-                          const SizedBox(height: 8),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Text(
-                            localizations.apkPath,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap: () => copyToClipboard(app.apkPath),
-                            child: Text(
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            _extractApk(
                               app.apkPath,
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const SizedBox(height: 8),
-                          const SizedBox(height: 8),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Text(
-                            localizations.firstInstall,
+                              app.splitSourceDirs,
+                              app.name,
+                              app.versionName,
+                            );
+                          },
+                          child: Text(
+                            localizations.extractApk.toUpperCase(),
                             style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap:
-                                () => copyToClipboard(
-                                  DateFormat('yyyy-MM-dd HH:mm:ss').format(
-                                    DateTime.fromMillisecondsSinceEpoch(
-                                      app.installedTimestamp,
-                                    ),
-                                  ),
-                                ),
-                            child: Text(
-                              DateFormat('yyyy-MM-dd HH:mm:ss').format(
-                                DateTime.fromMillisecondsSinceEpoch(
-                                  app.installedTimestamp,
-                                ),
-                              ),
-                              style: TextStyle(color: Colors.grey[600]),
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const SizedBox(height: 8),
-                          const SizedBox(height: 8),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          Text(
-                            localizations.lastUpdate,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap:
-                                () => copyToClipboard(
-                                  DateFormat('yyyy-MM-dd HH:mm:ss').format(
-                                    DateTime.fromMillisecondsSinceEpoch(
-                                      app.lastUpdatedTimestamp,
-                                    ),
-                                  ),
-                                ),
-                            child: Text(
-                              DateFormat('yyyy-MM-dd HH:mm:ss').format(
-                                DateTime.fromMillisecondsSinceEpoch(
-                                  app.lastUpdatedTimestamp,
-                                ),
-                              ),
-                              style: TextStyle(color: Colors.grey[600]),
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const SizedBox(height: 8),
-                          const SizedBox(height: 8),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const Text(
-                            'UID',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          InkWell(
-                            onTap: () => copyToClipboard(app.appUid.toString()),
-                            child: Text(
-                              "${app.appUid}",
-                              style: TextStyle(color: Colors.grey[600]),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        key: menuKey,
-                        onPressed: () async {
-                          final RenderBox button =
-                              menuKey.currentContext!.findRenderObject()
-                                  as RenderBox;
-                          final RenderBox overlay =
-                              Overlay.of(context).context.findRenderObject()
-                                  as RenderBox;
-                          final Offset position = button.localToGlobal(
-                            Offset.zero,
-                            ancestor: overlay,
-                          );
-                          final RelativeRect rect = RelativeRect.fromLTRB(
-                            position.dx,
-                            position.dy + button.size.height,
-                            position.dx + button.size.width,
-                            position.dy,
-                          );
-                          await showMenu<String>(
-                            context: context,
-                            position: rect,
-                            items: [
-                              PopupMenuItem(
-                                onTap:
-                                    () =>
-                                        InstalledApps.startApp(app.packageName),
-                                child: Text(
-                                  localizations.launch,
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              PopupMenuItem(
-                                onTap:
-                                    () => InstalledApps.openSettings(
-                                      app.packageName,
-                                    ),
-                                child: Text(
-                                  localizations.details,
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              PopupMenuItem(
-                                onTap: () {
-                                  InstalledApps.uninstallApp(app.packageName);
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text(
-                                  localizations.uninstall,
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                        child: Text(
-                          localizations.more.toUpperCase(),
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
                           ),
                         ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                          _extractApk(
-                            app.apkPath,
-                            app.splitSourceDirs,
-                            app.name,
-                            app.versionName,
-                          );
-                        },
-                        child: Text(
-                          localizations.extractApk.toUpperCase(),
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ),
+            );
+          },
+        );
+      },
     );
   }
 
