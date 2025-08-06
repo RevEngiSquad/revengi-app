@@ -26,7 +26,7 @@
   "appDescription": "Een verzameling omgekeerde engineering gereedschappen.",
   "appTitle": "RevEngi",
   "batteryOptimization": "Batterij optimalisatie",
-  "batteryOptimizationMessage": "Voor Android 13 en hoger, moeten we batterij optimalisatie uitschakelen om deze app goed te laten werken op de achtergrond.",
+  "batteryOptimizationMessage": "Voor Android 11 en hoger, moeten we batterij optimalisatie uitschakelen om deze app goed te laten werken op de achtergrond.",
   "blutter": "Blutter",
   "blutterDesc": "Flutter binaire analyse tool",
   "blutterNote": "\nAPK: De app zal APK bestanden direct afhandelen.\n\r\nZIP: zorg ervoor dat ZIP bestanden alleen de `libapp bevatten. O` for arm64 architectuur. Als je dit niet doet, kan dit fouten veroorzaken.",

@@ -26,7 +26,7 @@
   "appDescription": "Tersine mühendislik araçlar koleksiyonu",
   "appTitle": "RevEngi",
   "batteryOptimization": "Batarya Optimizasyonu",
-  "batteryOptimizationMessage": "Android 13 ve üzeri sürümlerde, bu uygulamanın arka planda düzgün çalışması için pil optimizasyonunu devre dışı bırakmanız gerekiyor.",
+  "batteryOptimizationMessage": "Android 11 ve üzeri sürümlerde, bu uygulamanın arka planda düzgün çalışması için pil optimizasyonunu devre dışı bırakmanız gerekiyor.",
   "blutter": "Blutter",
   "blutterDesc": "Flutter ikili analiz aracı",
   "blutterNote": "\nAPK: APK dosyalarını doğrudan işleyecektir.\n\r\nZIP: dosyalarının yalnızca arm64 mimarisi için `libapp.so` dosyasını içerdiğinden emin olun. Buna uyulmaması hatalara neden olabilir.",

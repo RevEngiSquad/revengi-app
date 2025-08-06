@@ -26,7 +26,7 @@
   "appDescription": "Eine Sammlung von Reverse Engineering Tools.",
   "appTitle": "RevEngi",
   "batteryOptimization": "Akku-Optimierung",
-  "batteryOptimizationMessage": "Für Android 13 und höher müssen wir die Batterieoptimierung deaktivieren, damit diese App im Hintergrund korrekt funktioniert.",
+  "batteryOptimizationMessage": "Für Android 11 und höher müssen wir die Batterieoptimierung deaktivieren, damit diese App im Hintergrund korrekt funktioniert.",
   "blutter": "Blutter",
   "blutterDesc": "Flutter Binäranalyse-Tool",
   "blutterNote": "\nAPK: Die App verarbeitet direkt APK-Dateien.\n\r\nZIP: Stellen Sie sicher, dass ZIP-Dateien nur die `libapp' enthalten. o` für die arm64-Architektur. Bei Nichteinhaltung kann es zu Fehlern kommen.",

@@ -26,7 +26,7 @@
   "appDescription": "En samling av omvendt ingeniørverktøy.",
   "appTitle": "RevEngi",
   "batteryOptimization": "Batterioptimalisering",
-  "batteryOptimizationMessage": "Vi må deaktivere batterioptimalisering for Android 13 og eldre for at denne appen skal fungere ordentlig i bakgrunnen.",
+  "batteryOptimizationMessage": "Vi må deaktivere batterioptimalisering for Android 11 og eldre for at denne appen skal fungere ordentlig i bakgrunnen.",
   "blutter": "Blutter",
   "blutterDesc": "Verktøy for binær analyse",
   "blutterNote": "\nAPK: Appen vil håndtere APK filer direkte.\n\r\nZIP: Forsikre deg om at ZIP filer bare inneholder `libapp. o` for Anarm64-arkitektur. Manglende overholdelse kan føre til feil.",

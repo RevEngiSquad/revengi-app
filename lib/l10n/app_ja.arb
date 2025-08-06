@@ -26,7 +26,7 @@
   "appDescription": "リバースエンジニアリングツールのコレクション。",
   "appTitle": "RevEngi",
   "batteryOptimization": "バッテリー最適化",
-  "batteryOptimizationMessage": "Android 13 以降では、バックグラウンドで正常に動作するよう、このアプリのバッテリー最適化を無効にする必要があります。",
+  "batteryOptimizationMessage": "Android 11 以降では、バックグラウンドで正常に動作するよう、このアプリのバッテリー最適化を無効にする必要があります。",
   "blutter": "Blutter",
   "blutterDesc": "Flutter バイナリ解析ツール",
   "blutterNote": "\nAPK: アプリは直接APKファイルを処理します。\n\r\nZIP: ZIPファイルに`libappのみが含まれていることを確認します。 arm64 アーキテクチャ向けの o` 。適合しないとエラーが発生する可能性があります。",

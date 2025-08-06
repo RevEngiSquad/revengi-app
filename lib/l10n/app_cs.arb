@@ -26,7 +26,7 @@
   "appDescription": "Kolekce reverzních inženýrských nástrojů.",
   "appTitle": "Revengi",
   "batteryOptimization": "Optimalizace baterie",
-  "batteryOptimizationMessage": "Pro Android 13 a výše je třeba zakázat optimalizaci baterie, aby tato aplikace fungovala správně na pozadí.",
+  "batteryOptimizationMessage": "Pro Android 11 a výše je třeba zakázat optimalizaci baterie, aby tato aplikace fungovala správně na pozadí.",
   "blutter": "Blutter",
   "blutterDesc": "Binární analytický nástroj Flutter",
   "blutterNote": "\nAPK: Aplikace bude pracovat přímo s APK soubory.\n\r\nZIP: ujistěte se, že ZIP soubory obsahují pouze `libapp. o` pro architekturu arm64. Nesplnění požadavků může mít za následek chyby.",

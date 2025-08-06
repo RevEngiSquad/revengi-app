@@ -26,7 +26,7 @@
   "appDescription": "O colecție de instrumente de inginerie inversată.",
   "appTitle": "Revendică",
   "batteryOptimization": "Optimizare baterie",
-  "batteryOptimizationMessage": "Pentru Android 13 și mai mare, trebuie să dezactivăm optimizarea bateriei pentru ca această aplicație să funcționeze corespunzător în fundal.",
+  "batteryOptimizationMessage": "Pentru Android 11 și mai mare, trebuie să dezactivăm optimizarea bateriei pentru ca această aplicație să funcționeze corespunzător în fundal.",
   "blutter": "Blutter",
   "blutterDesc": "Instrument de analiză binară Flutter",
   "blutterNote": "\nAPK: Aplicația se va ocupa direct de fișiere APK.\n\r\nZIP: Asigurați-vă că fișierele ZIP conțin doar `libapp. o` pentru arhitectura arm64. Nerespectarea conformităţii poate duce la erori.",

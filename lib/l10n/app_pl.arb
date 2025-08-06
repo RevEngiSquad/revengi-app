@@ -26,7 +26,7 @@
   "appDescription": "Zbiór narzędzi inżynierii odwrotnej.",
   "appTitle": "Odwołanie Engi",
   "batteryOptimization": "Optymalizacja baterii",
-  "batteryOptimizationMessage": "W przypadku Android 13 i powyżej musimy wyłączyć optymalizację baterii, aby aplikacja działała poprawnie w tle.",
+  "batteryOptimizationMessage": "W przypadku Android 11 i powyżej musimy wyłączyć optymalizację baterii, aby aplikacja działała poprawnie w tle.",
   "blutter": "Blutter",
   "blutterDesc": "Narzędzie analizy binarnej Flutter",
   "blutterNote": "\nAPK: Aplikacja będzie bezpośrednio obsługiwać pliki APK.\n\r\nZIP: Upewnij się, że pliki ZIP zawierają tylko `libapp. o` dla architektury arm64. Niespełnienie wymagań może spowodować błędy.",

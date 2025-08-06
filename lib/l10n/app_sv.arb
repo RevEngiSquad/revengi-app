@@ -26,7 +26,7 @@
   "appDescription": "En samling av verktyg för omvänd konstruktion.",
   "appTitle": "RevEngi",
   "batteryOptimization": "Batterioptimering",
-  "batteryOptimizationMessage": "För Android 13 och ovan, Vi måste inaktivera batterioptimering för att denna app ska fungera korrekt i bakgrunden.",
+  "batteryOptimizationMessage": "För Android 11 och ovan, Vi måste inaktivera batterioptimering för att denna app ska fungera korrekt i bakgrunden.",
   "blutter": "Blutter",
   "blutterDesc": "Flutter binära analysverktyg",
   "blutterNote": "\nAPK: Appen kommer direkt att hantera APK-filer.\n\r\nZIP: Se till att ZIP-filer endast innehåller `libappen. o` för arm64-arkitektur. Underlåtenhet att följa kan resultera i fel.",

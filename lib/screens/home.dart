@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart'
     show LicenseRegistry, LicenseEntryWithLineBreaks;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show rootBundle, SystemNavigator;
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/screens/about.dart';
 import 'package:revengi/screens/extract_apk.dart';
@@ -37,6 +37,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   bool checkUpdate = false;
   String currentVersion = "1.2.2";
   bool isUpdateAvailable = false;
+  DateTime? _lastPressedAt;
 
   @override
   void initState() {
@@ -285,348 +286,376 @@ class _DashboardScreenState extends State<DashboardScreen> {
     }
   }
 
+  void _onPopInvokedWithResult(bool didPop, dynamic result) {
+    if (didPop) return;
+    final now = DateTime.now();
+    if (_lastPressedAt == null ||
+        now.difference(_lastPressedAt!) > const Duration(seconds: 2)) {
+      _lastPressedAt = now;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Press back again to exit"),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    } else {
+      SystemNavigator.pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
     final languageCode =
         context.watch<LanguageProvider>().locale.languageCode.toUpperCase();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(localizations.appTitle),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () => _handleLogout(context),
-          ),
-        ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color:
-                    Brightness.dark == Theme.of(context).brightness
-                        ? Colors.black
-                        : Colors.white,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    Theme.of(context).brightness == Brightness.dark
-                        ? 'assets/dark_splash.png'
-                        : 'assets/light_splash.png',
-                    height: 90,
-                  ),
-                  const SizedBox(height: 8),
-                  Builder(
-                    builder: (context) {
-                      final brightness = Theme.of(context).brightness;
-                      return Text(
-                        localizations.appTitle,
-                        style: TextStyle(
-                          color:
-                              brightness == Brightness.dark
-                                  ? Colors.white
-                                  : Colors.black,
-                          fontSize: 24,
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
-            ExpansionTile(
-              leading: const Icon(Icons.settings),
-              title: Text(localizations.preferences),
-              children: [
-                ListTile(
-                  leading: Icon(
-                    context.watch<ThemeProvider>().themeMode == ThemeMode.system
-                        ? Icons.brightness_auto
-                        : context.watch<ThemeProvider>().themeMode ==
-                            ThemeMode.light
-                        ? Icons.light_mode
-                        : Icons.dark_mode,
-                  ),
-                  title: Text(
-                    '${localizations.theme}: ${context.watch<ThemeProvider>().themeMode == ThemeMode.system
-                        ? 'System'
-                        : context.watch<ThemeProvider>().themeMode == ThemeMode.light
-                        ? 'Light'
-                        : 'Dark'}',
-                  ),
-                  onTap: () {
-                    context.read<ThemeProvider>().toggleTheme();
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.language),
-                  title: Text(localizations.language(languageCode)),
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder:
-                          (context) => AlertDialog(
-                            title: Text(localizations.selectLanguage),
-                            content: SingleChildScrollView(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children:
-                                    AppLocalizations.supportedLocales.map((
-                                      locale,
-                                    ) {
-                                      return ListTile(
-                                        title: Text(
-                                          _getLanguageName(locale.languageCode),
-                                        ),
-                                        onTap: () {
-                                          context
-                                              .read<LanguageProvider>()
-                                              .setLocale(locale);
-                                          Navigator.pop(context);
-                                        },
-                                      );
-                                    }).toList(),
-                              ),
-                            ),
-                          ),
-                    );
-                  },
-                ),
-                ListTile(
-                  leading: const Icon(Icons.link),
-                  title: Text(localizations.ollama_api_url),
-                  onTap: () async {
-                    final prefs = await SharedPreferences.getInstance();
-                    if (!context.mounted) return;
-                    showDialog(
-                      context: context,
-                      builder:
-                          (context) => AlertDialog(
-                            title: Text(localizations.ollama_api_url),
-                            content: TextField(
-                              controller: TextEditingController(
-                                text:
-                                    prefs.getString('ollamaBaseUrl') ??
-                                    'http://localhost:11434/api',
-                              ),
-                              decoration: const InputDecoration(
-                                hintText: 'Enter API URL',
-                              ),
-                              onSubmitted: (value) async {
-                                await prefs.setString('ollamaBaseUrl', value);
-                                if (context.mounted) Navigator.pop(context);
-                              },
-                            ),
-                            actions: [
-                              TextButton(
-                                onPressed: () => Navigator.pop(context),
-                                child: Text(localizations.cancel),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  prefs.remove('ollamaBaseUrl');
-                                  Navigator.pop(context);
-                                },
-                                child: Text(localizations.reset),
-                              ),
-                            ],
-                          ),
-                    );
-                  },
-                ),
-                ...(!isWeb()
-                    ? [
-                      SwitchListTile.adaptive(
-                        secondary: const Icon(Icons.update),
-                        value: checkUpdate,
-                        title: Text(localizations.checkForUpdate),
-                        onChanged: (value) {
-                          setState(() {
-                            checkUpdate = value;
-                          });
-                          _saveUpdatePrefs();
-                        },
-                      ),
-                    ]
-                    : []),
-              ],
-            ),
-            const Divider(),
-            ListTile(
-              leading: const Icon(Icons.code),
-              title: Text(localizations.smaliGrammar),
-              onTap: () {
-                Navigator.pop(context);
-                _showSmaliGrammarDialog(context);
-              },
-            ),
-            (!isWeb() && isAndroid())
-                ? ListTile(
-                  leading: const Icon(Icons.layers),
-                  title: Text("Extract APK"),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ExtractApkScreen(),
-                      ),
-                    );
-                  },
-                )
-                : const SizedBox.shrink(),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: Text(localizations.profile),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfileScreen(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: Text(localizations.about),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) =>
-                            AboutScreen(currentVersion: currentVersion),
-                  ),
-                );
-              },
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: _onPopInvokedWithResult,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(localizations.appTitle),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: () => _handleLogout(context),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const OllamaChatScreen()),
-          );
-        },
-        backgroundColor:
-            Brightness.dark == Theme.of(context).brightness
-                ? Colors.black
-                : Colors.white,
-        child: Icon(Icons.chat, color: Theme.of(context).colorScheme.primary),
-      ),
-      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return GridView.builder(
-            padding: const EdgeInsets.all(24),
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 320,
-              mainAxisSpacing: 16,
-              crossAxisSpacing: 16,
-              childAspectRatio: 1.2,
-              mainAxisExtent: 170,
-            ),
-            itemCount: 6,
-            itemBuilder: (context, index) {
-              switch (index) {
-                case 0:
-                  return AnalysisCard(
-                    title: localizations.jniAnalysis,
-                    icon: Icons.android,
-                    description: localizations.jniAnalysisDesc,
-                    onTap:
-                        () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const JniAnalysisScreen(),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color:
+                      Brightness.dark == Theme.of(context).brightness
+                          ? Colors.black
+                          : Colors.white,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      Theme.of(context).brightness == Brightness.dark
+                          ? 'assets/dark_splash.png'
+                          : 'assets/light_splash.png',
+                      height: 90,
+                    ),
+                    const SizedBox(height: 8),
+                    Builder(
+                      builder: (context) {
+                        final brightness = Theme.of(context).brightness;
+                        return Text(
+                          localizations.appTitle,
+                          style: TextStyle(
+                            color:
+                                brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Colors.black,
+                            fontSize: 24,
                           ),
-                        ),
-                  );
-                case 1:
-                  return AnalysisCard(
-                    title: localizations.flutterAnalysis,
-                    icon: Icons.flutter_dash,
-                    description: localizations.flutterAnalysisDesc,
-                    onTap:
-                        () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const FlutterAnalysisScreen(),
-                          ),
-                        ),
-                  );
-                case 2:
-                  return AnalysisCard(
-                    title: localizations.blutter,
-                    icon: Icons.build,
-                    description: localizations.blutterDesc,
-                    onTap:
-                        () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const BlutterAnalysisScreen(),
-                          ),
-                        ),
-                  );
-                case 3:
-                  return AnalysisCard(
-                    title: localizations.mtHook,
-                    icon: Icons.book,
-                    description: localizations.mtHookDesc,
-                    onTap:
-                        () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MTHookAnalysisScreen(),
-                          ),
-                        ),
-                  );
-                case 4:
-                  return AnalysisCard(
-                    title: localizations.dexRepair,
-                    icon: Icons.auto_fix_high,
-                    description: localizations.dexRepairDesc,
-                    onTap:
-                        () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const DexRepairScreen(),
-                          ),
-                        ),
-                  );
-                case 5:
-                  return (isWeb() || !isIOS())
-                      ? AnalysisCard(
-                        title: localizations.apksToApk,
-                        icon: Icons.merge_type,
-                        description: localizations.mergeSplitApks,
-                        onTap:
-                            () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder:
-                                    (context) => const SplitApksMergerScreen(),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              ExpansionTile(
+                leading: const Icon(Icons.settings),
+                title: Text(localizations.preferences),
+                children: [
+                  ListTile(
+                    leading: Icon(
+                      context.watch<ThemeProvider>().themeMode ==
+                              ThemeMode.system
+                          ? Icons.brightness_auto
+                          : context.watch<ThemeProvider>().themeMode ==
+                              ThemeMode.light
+                          ? Icons.light_mode
+                          : Icons.dark_mode,
+                    ),
+                    title: Text(
+                      '${localizations.theme}: ${context.watch<ThemeProvider>().themeMode == ThemeMode.system
+                          ? 'System'
+                          : context.watch<ThemeProvider>().themeMode == ThemeMode.light
+                          ? 'Light'
+                          : 'Dark'}',
+                    ),
+                    onTap: () {
+                      context.read<ThemeProvider>().toggleTheme();
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.language),
+                    title: Text(localizations.language(languageCode)),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder:
+                            (context) => AlertDialog(
+                              title: Text(localizations.selectLanguage),
+                              content: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children:
+                                      AppLocalizations.supportedLocales.map((
+                                        locale,
+                                      ) {
+                                        return ListTile(
+                                          title: Text(
+                                            _getLanguageName(
+                                              locale.languageCode,
+                                            ),
+                                          ),
+                                          onTap: () {
+                                            context
+                                                .read<LanguageProvider>()
+                                                .setLocale(locale);
+                                            Navigator.pop(context);
+                                          },
+                                        );
+                                      }).toList(),
+                                ),
                               ),
                             ),
-                      )
-                      : const SizedBox.shrink();
-                default:
-                  return const SizedBox.shrink();
-              }
-            },
-          );
-        },
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.link),
+                    title: Text(localizations.ollama_api_url),
+                    onTap: () async {
+                      final prefs = await SharedPreferences.getInstance();
+                      if (!context.mounted) return;
+                      showDialog(
+                        context: context,
+                        builder:
+                            (context) => AlertDialog(
+                              title: Text(localizations.ollama_api_url),
+                              content: TextField(
+                                controller: TextEditingController(
+                                  text:
+                                      prefs.getString('ollamaBaseUrl') ??
+                                      'http://localhost:11434/api',
+                                ),
+                                decoration: const InputDecoration(
+                                  hintText: 'Enter API URL',
+                                ),
+                                onSubmitted: (value) async {
+                                  await prefs.setString('ollamaBaseUrl', value);
+                                  if (context.mounted) Navigator.pop(context);
+                                },
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text(localizations.cancel),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    prefs.remove('ollamaBaseUrl');
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(localizations.reset),
+                                ),
+                              ],
+                            ),
+                      );
+                    },
+                  ),
+                  ...(!isWeb()
+                      ? [
+                        SwitchListTile.adaptive(
+                          secondary: const Icon(Icons.update),
+                          value: checkUpdate,
+                          title: Text(localizations.checkForUpdate),
+                          onChanged: (value) {
+                            setState(() {
+                              checkUpdate = value;
+                            });
+                            _saveUpdatePrefs();
+                          },
+                        ),
+                      ]
+                      : []),
+                ],
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.code),
+                title: Text(localizations.smaliGrammar),
+                onTap: () {
+                  Navigator.pop(context);
+                  _showSmaliGrammarDialog(context);
+                },
+              ),
+              (!isWeb() && isAndroid())
+                  ? ListTile(
+                    leading: const Icon(Icons.layers),
+                    title: Text("Extract APK"),
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ExtractApkScreen(),
+                        ),
+                      );
+                    },
+                  )
+                  : const SizedBox.shrink(),
+              ListTile(
+                leading: const Icon(Icons.person),
+                title: Text(localizations.profile),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.info),
+                title: Text(localizations.about),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              AboutScreen(currentVersion: currentVersion),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const OllamaChatScreen()),
+            );
+          },
+          backgroundColor:
+              Brightness.dark == Theme.of(context).brightness
+                  ? Colors.black
+                  : Colors.white,
+          child: Icon(Icons.chat, color: Theme.of(context).colorScheme.primary),
+        ),
+        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+            return GridView.builder(
+              padding: const EdgeInsets.all(24),
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 320,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 1.2,
+                mainAxisExtent: 170,
+              ),
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                switch (index) {
+                  case 0:
+                    return AnalysisCard(
+                      title: localizations.jniAnalysis,
+                      icon: Icons.android,
+                      description: localizations.jniAnalysisDesc,
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const JniAnalysisScreen(),
+                            ),
+                          ),
+                    );
+                  case 1:
+                    return AnalysisCard(
+                      title: localizations.flutterAnalysis,
+                      icon: Icons.flutter_dash,
+                      description: localizations.flutterAnalysisDesc,
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => const FlutterAnalysisScreen(),
+                            ),
+                          ),
+                    );
+                  case 2:
+                    return AnalysisCard(
+                      title: localizations.blutter,
+                      icon: Icons.build,
+                      description: localizations.blutterDesc,
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => const BlutterAnalysisScreen(),
+                            ),
+                          ),
+                    );
+                  case 3:
+                    return AnalysisCard(
+                      title: localizations.mtHook,
+                      icon: Icons.book,
+                      description: localizations.mtHookDesc,
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => const MTHookAnalysisScreen(),
+                            ),
+                          ),
+                    );
+                  case 4:
+                    return AnalysisCard(
+                      title: localizations.dexRepair,
+                      icon: Icons.auto_fix_high,
+                      description: localizations.dexRepairDesc,
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const DexRepairScreen(),
+                            ),
+                          ),
+                    );
+                  case 5:
+                    return (isWeb() || !isIOS())
+                        ? AnalysisCard(
+                          title: localizations.apksToApk,
+                          icon: Icons.merge_type,
+                          description: localizations.mergeSplitApks,
+                          onTap:
+                              () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) =>
+                                          const SplitApksMergerScreen(),
+                                ),
+                              ),
+                        )
+                        : const SizedBox.shrink();
+                  default:
+                    return const SizedBox.shrink();
+                }
+              },
+            );
+          },
+        ),
       ),
     );
   }

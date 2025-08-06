@@ -26,7 +26,7 @@
   "appDescription": "Une collection d'outils d'ingénierie inversée.",
   "appTitle": "RevEngi",
   "batteryOptimization": "Optimisation de la batterie",
-  "batteryOptimizationMessage": "Pour Android 13 et plus, nous devons désactiver l'optimisation de la batterie pour que cette application fonctionne correctement en arrière-plan.",
+  "batteryOptimizationMessage": "Pour Android 11 et plus, nous devons désactiver l'optimisation de la batterie pour que cette application fonctionne correctement en arrière-plan.",
   "blutter": "Blutter",
   "blutterDesc": "Outil d'analyse binaire Flutter",
   "blutterNote": "\nAPK: L'application gérera directement les fichiers APK.\n\nZIP: Assurez-vous que les fichiers ZIP ne contiennent que la « libapp.so » pour l'architecture arm64. Sinon, des erreurs peuvent intervenir.",
