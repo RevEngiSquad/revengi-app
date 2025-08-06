@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:installed_apps/app_info.dart';
@@ -8,6 +9,7 @@ import 'package:installed_apps/sign_info.dart';
 import 'package:intl/intl.dart';
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/utils/platform.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExtractApkScreen extends StatefulWidget {
   const ExtractApkScreen({super.key});
@@ -47,6 +49,31 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     if (state == AppLifecycleState.resumed) {
       _loadApps();
     }
+  }
+
+  Future<(String?, String?)> checkAppOnStore(String packageName) async {
+    var url = 'https://play.google.com/store/apps/details?id=$packageName';
+    final Dio dio = Dio();
+    dio.options.validateStatus = (status) {
+      return status! < 500;
+    };
+    var res = await dio.head(url);
+    if (res.statusCode == 200) {
+      return ("Google Play", url);
+    } else {
+      url = 'https://f-droid.org/en/packages/$packageName';
+      res = await dio.get(url);
+      if (res.statusCode == 200) {
+        return ("F-Droid", url);
+      } else {
+        url = 'https://apt.izzysoft.de/fdroid/index/apk/$packageName';
+        res = await dio.get(url);
+        if (res.statusCode == 200) {
+          return ("Izzydroid", url);
+        }
+      }
+    }
+    return (null, null);
   }
 
   Future<void> _loadApps() async {
@@ -865,6 +892,9 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
 
     List<String>? signatureSchemes;
     SignInfo? signInfo;
+    String appStore = "";
+    String appStoreUrl = "";
+    String installer = "";
 
     showDialog(
       context: context,
@@ -881,6 +911,28 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                   setState(() {
                     signatureSchemes = result.schemes;
                     signInfo = result;
+                  });
+                }
+                var (appStor, appStoreUr) = await checkAppOnStore(
+                  app.packageName,
+                );
+                if (mounted) {
+                  setState(() {
+                    if (appStor != null && appStoreUr != null) {
+                      appStore = appStor;
+                      appStoreUrl = appStoreUr;
+                    }
+                  });
+                }
+                final installerResult = await InstalledApps.getAppInfo(
+                  app.installer,
+                  BuiltWith.flutter,
+                );
+                if (mounted) {
+                  setState(() {
+                    if (installerResult != null) {
+                      installer = installerResult.name;
+                    }
                   });
                 }
               });
@@ -1166,6 +1218,58 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                                     app.lastUpdatedTimestamp,
                                   ),
                                 ),
+                                style: TextStyle(color: Colors.grey[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Text(
+                              "Open in",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap: () async {
+                                final url = Uri.parse(
+                                  appStoreUrl != "" ? appStoreUrl : "",
+                                );
+                                if (await canLaunchUrl(url)) {
+                                  await launchUrl(url);
+                                }
+                              },
+                              child: Text(
+                                appStore != "" ? appStore : "...",
+                                style: TextStyle(color: Colors.green[600]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const SizedBox(height: 8),
+                            const SizedBox(height: 8),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const Text(
+                              'Installer',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            InkWell(
+                              onTap:
+                                  () => copyToClipboard(
+                                    installer != "" ? installer : "...",
+                                  ),
+                              child: Text(
+                                installer != "" ? installer : "...",
                                 style: TextStyle(color: Colors.grey[600]),
                               ),
                             ),
