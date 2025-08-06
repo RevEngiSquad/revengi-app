@@ -294,7 +294,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       _lastPressedAt = now;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Press back again to exit"),
+          content: Text(AppLocalizations.of(context)!.pressBackAgainToExit),
           duration: const Duration(seconds: 2),
         ),
       );
