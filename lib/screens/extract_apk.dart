@@ -62,12 +62,12 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
       return ("Google Play", url);
     } else {
       url = 'https://f-droid.org/en/packages/$packageName';
-      res = await dio.get(url);
+      res = await dio.head(url);
       if (res.statusCode == 200) {
         return ("F-Droid", url);
       } else {
         url = 'https://apt.izzysoft.de/fdroid/index/apk/$packageName';
-        res = await dio.get(url);
+        res = await dio.head(url);
         if (res.statusCode == 200) {
           return ("Izzydroid", url);
         }
