@@ -5,7 +5,7 @@
   "analyzing": "Analizare...",
   "apiKey": "Cheie API",
   "apiRateLimits": "Limitele ratei de finalizare API",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK extras cu succes la {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Eroare extragere APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "Calea APK",
   "apksToApk": "APKS pentru APK",
   "appDescription": "O colecție de instrumente de inginerie inversată.",
   "appTitle": "Revendică",
-  "availableIn": "Available in",
+  "availableIn": "Disponibil în",
   "batteryOptimization": "Optimizare baterie",
   "batteryOptimizationMessage": "Pentru Android 11 și mai mare, trebuie să dezactivăm optimizarea bateriei pentru ca această aplicație să funcționeze corespunzător în fundal.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Continuă ca Vizitator",
   "copiedToClipboard": "Copiat în clipboard",
   "createAccount": "Creare cont",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Director de date",
+  "dataDirectory2": "Dosar de date 2",
+  "details": "Detalii",
   "developer": "Dezvoltator",
   "dexRepair": "Reparație Dex",
   "dexRepairDesc": "Repară fişierele DEX",
@@ -65,9 +65,9 @@
   "enterPassword": "Vă rugăm să introduceţi parola",
   "enterUsername": "Introdu numele de utilizator",
   "errorDuringAnalysis": "A apărut o eroare în timpul analizei",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Exclude aplicațiile de sistem",
+  "extractApk": "Extrage APK",
+  "extractingApk": "Extragere APK",
   "failedToExtractFiles": "Nu s-a reușit extragerea fișierelor din ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Te rugăm să folosești aplicația desktop sau pentru mobil pentru această funcție.",
   "fetchingModelInfo": "Preluare informații model...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Fișierul există",
+  "fileExistsMsg": "Fișierul există deja. Doriți să îl suprascrieți?",
+  "fileSize": "Dimensiune fişier",
+  "firstInstall": "Prima instalare",
   "flutterAnalysis": "Analiză Flutter",
   "flutterAnalysisDesc": "Analizează frezele Flutter",
   "generate": "Genereaza",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Utilizatorii oaspeţi nu pot utiliza această funcţie",
   "iDonTLoveThisApp": "Nu-mi pasă, regret",
   "iLoveThisApp": "Îmi pare rău, iubesc această aplicație",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Include aplicațiile de sistem",
+  "installer": "Instalare",
   "jniAnalysis": "Analiza JNI",
   "jniAnalysisDesc": "Găsește semnăturile JNI în APK",
   "language": "Limbă: {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "Avertizare model mare",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Ultima actualizare",
   "later": "Mai târziu",
-  "launch": "Launch",
+  "launch": "Lansare",
   "licenses": "Licențe",
   "login": "Autentificare",
   "mail": "E-mail",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "Sterge manual fisierul/directorul de la {outputfile} si incearca din nou",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Îmbinare APK-uri",
   "mergeUnsupportedOnWeb": "Fuzionarea Split APK nu este posibilă în versiunea web.",
   "models": "Modele",
-  "more": "More",
+  "more": "Mai",
   "mtHook": "Cârlig MT",
   "mtHookDesc": "Genereaza Cârlige Imbunatite MT",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Nicio aplicație găsită",
   "noFileSelected": "Niciun fișier selectat",
-  "notFound": "Not Found",
+  "notFound": "Nu s-a găsit",
   "ok": "Ok",
   "ollama_api_url": "URL bază OLLAMA",
   "ollamaInitializeError": "Eșuare inițializare client Ollama: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Deschide Biblioteca Ollama",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Suprascrie",
+  "packageName": "Numele pachetului",
   "passLen": "Parola trebuie să conțină cel puțin 8 caractere",
   "passMisMatch": "Parolele nu corespund",
   "password": "Parolă",
   "pathToApkeditorJar": "Calea către apkeditor jar",
   "pleaseConfirmPassword": "Vă rugăm să confirmați parola",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Vă rugăm așteptați...",
   "preferences": "Preferințe",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Apăsați înapoi din nou pentru a ieși",
   "proceed": "Continuă",
   "profile": "Profil",
   "register": "Inregistrare",
@@ -180,7 +180,7 @@
   "repairing": "Reparați...",
   "reset": "Reset",
   "save": "Salvează",
-  "searchApps": "Search apps...",
+  "searchApps": "Căutare aplicații...",
   "selectAModel": "Selectați un model pentru a discuta",
   "selectFiles": "Selectați {type} Fișier",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "Mesaj de sistem",
   "theme": "Tema",
   "typeMessage": "Introduceți mesajul…",
-  "uninstall": "Uninstall",
+  "uninstall": "Dezinstalează",
   "uninstallWarning": "Ai fost pe cale să dezinstalezi aplicația nu-i așa?",
-  "unknown": "Unknown",
+  "unknown": "Necunoscut",
   "unsupportedDartVersion": "În prezent, RevEngi suportă doar canalul stabil dart\n\nVersiunea actuală Dart : {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Numele de utilizator poate conține doar litere, numere și underscore",
   "usernameLimit": "Numele de utilizator trebuie să aibă între 5 și 15 caractere",
   "validateModules": "Validați versiunea de base.apk cu APK-uri împărțite",
-  "versionCode": "Version code",
+  "versionCode": "Cod versiune",
   "vrd": "Validare nume resurse dir",
   "welcomeBack": "Bine ai revenit!"
 }
