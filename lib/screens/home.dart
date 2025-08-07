@@ -38,6 +38,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   String currentVersion = "1.2.2";
   bool isUpdateAvailable = false;
   DateTime? _lastPressedAt;
+  bool isDrawerOpen = false;
 
   @override
   void initState() {
@@ -288,6 +289,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   void _onPopInvokedWithResult(bool didPop, dynamic result) {
     if (didPop) return;
+    if (isDrawerOpen) {
+      Navigator.of(context).pop();
+      return;
+    }
     final now = DateTime.now();
     if (_lastPressedAt == null ||
         now.difference(_lastPressedAt!) > const Duration(seconds: 2)) {
@@ -322,6 +327,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           ],
         ),
+        onDrawerChanged: (isOpened) => setState(() => isDrawerOpen = isOpened),
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
