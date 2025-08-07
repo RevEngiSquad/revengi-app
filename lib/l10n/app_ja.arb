@@ -5,7 +5,7 @@
   "analyzing": "分析中...",
   "apiKey": "API キー",
   "apiRateLimits": "APIエンドポイントレート制限",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APKを {outputfile}に正常に抽出しました",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "APKの抽出中にエラーが発生しました: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "APKパス",
   "apksToApk": "APKS to APK",
   "appDescription": "リバースエンジニアリングツールのコレクション。",
   "appTitle": "RevEngi",
-  "availableIn": "Available in",
+  "availableIn": "利用可能な言語",
   "batteryOptimization": "バッテリー最適化",
   "batteryOptimizationMessage": "Android 11 以降では、バックグラウンドで正常に動作するよう、このアプリのバッテリー最適化を無効にする必要があります。",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "ゲストとして続ける",
   "copiedToClipboard": "クリップボードにコピーしました",
   "createAccount": "アカウントを作成",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "データディレクトリ",
+  "dataDirectory2": "データディレクトリ 2",
+  "details": "詳細",
   "developer": "開発者",
   "dexRepair": "デックス修理",
   "dexRepairDesc": "DEXファイルの修復",
@@ -65,9 +65,9 @@
   "enterPassword": "パスワードを入力してください",
   "enterUsername": "ユーザー名を入力してください",
   "errorDuringAnalysis": "分析中にエラーが発生しました",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "システムアプリを除外",
+  "extractApk": "APKを抽出",
+  "extractingApk": "APK を抽出中",
   "failedToExtractFiles": "ZIPからファイルを抽出できませんでした: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "この機能にはデスクトップまたはモバイルアプリを使用してください。",
   "fetchingModelInfo": "モデル情報を取得しています...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "ファイルが存在します",
+  "fileExistsMsg": "ファイルは既に存在します。上書きしますか？",
+  "fileSize": "ファイルのサイズ",
+  "firstInstall": "最初にインストールする",
   "flutterAnalysis": "Flutter Analysis",
   "flutterAnalysisDesc": "Flutter libs を分析する",
   "generate": "生成",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "ゲストユーザーはこの機能を使用できません",
   "iDonTLoveThisApp": "気にしない、後悔する",
   "iLoveThisApp": "申し訳ありませんが、私はこのアプリが大好きです",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "システムアプリを含める",
+  "installer": "インストーラー",
   "jniAnalysis": "JNI分析",
   "jniAnalysisDesc": "APKでJNI署名を検索",
   "language": "言語: {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "大型モデルの警告",
-  "lastUpdate": "Last update",
+  "lastUpdate": "最終更新",
   "later": "後で",
-  "launch": "Launch",
+  "launch": "起動",
   "licenses": "ライセンス",
   "login": "ログイン",
   "mail": "メール",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "手動で {outputfile} のファイル/ディレクトリを削除してもう一度やり直してください",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "分割APKを統合",
   "mergeUnsupportedOnWeb": "Web版ではスプリットAPKマージはできません。",
   "models": "モデル",
-  "more": "More",
+  "more": "もっと見る",
   "mtHook": "MTフック",
   "mtHookDesc": "MT拡張フックを生成",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "アプリが見つかりません",
   "noFileSelected": "ファイルが選択されていません",
-  "notFound": "Not Found",
+  "notFound": "見つかりませんでした",
   "ok": "OK",
   "ollama_api_url": "OLLAMAベースURL",
   "ollamaInitializeError": "Orlama クライアントの初期化に失敗しました: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Ollama図書館を開く",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "上書き",
+  "packageName": "パッケージ名",
   "passLen": "パスワードは8文字以上でなければなりません",
   "passMisMatch": "パスワードが一致しません",
   "password": "パスワード",
   "pathToApkeditorJar": "apkeditor.jarへのパス",
   "pleaseConfirmPassword": "パスワードを確認してください",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "しばらくお待ちください...",
   "preferences": "設定",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "もう一度押すと終了します",
   "proceed": "続行する",
   "profile": "プロフィール",
   "register": "登録",
@@ -180,7 +180,7 @@
   "repairing": "修理中...",
   "reset": "Reset",
   "save": "保存",
-  "searchApps": "Search apps...",
+  "searchApps": "アプリを検索...",
   "selectAModel": "チャットするモデルを選択",
   "selectFiles": "{type} ファイルを選択",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "システムメッセージ",
   "theme": "テーマ",
   "typeMessage": "Type your message…",
-  "uninstall": "Uninstall",
+  "uninstall": "アンインストール",
   "uninstallWarning": "あなたはちょうどアプリをアンインストールしようとしていましたね。",
-  "unknown": "Unknown",
+  "unknown": "不明",
   "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "ユーザー名には、文字、数字、およびアンダースコアのみを含めることができます",
   "usernameLimit": "ユーザー名は5文字以上15文字以下で入力してください",
   "validateModules": "base.apkのバージョンを分割APKで検証する",
-  "versionCode": "Version code",
+  "versionCode": "バージョンコード",
   "vrd": "リソースのディレクトリ名を検証する",
   "welcomeBack": "おかえりなさい！"
 }
