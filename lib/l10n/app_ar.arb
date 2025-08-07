@@ -1,6 +1,6 @@
 {
   "about": "من نحن",
-  "addColon": "إضافة كولون",
+  "addColon": "إضافة فواصل",
   "aiChat": "تحدث مع AI",
   "algorithm": "خوارزمية",
   "analyze": "تحليل",
@@ -32,12 +32,12 @@
   "batteryOptimizationMessage": "بالنسبة إلى Android 11 وما فوق ، نحتاج إلى تعطيل تحسين البطارية لهذا التطبيق للعمل بشكل صحيح في الخلفية.",
   "blutter": "أداة بلاتر",
   "blutterDesc": "تحليل بنية كود تطبيقات الفلاتر",
-  "blutterNote": "\nAPK: سيتعامل التطبيق مباشرة مع ملفات APK.\n\nZIP: تأكد من أن ملفات ZIP تحتوي فقط على \"libapp.so\" لهيكل arm64. قد يؤدي عدم الامتثال إلى أخطاء.",
-  "cancel": "يلغي",
+  "blutterNote": "\nملف APK: سيتم معالجة الملفات داخل الملف مباشرة\n\nملف ZIP: يجب عليك التأكد بأن الملف يحوى ملف libapp.so بمعمارية 64 بت (arm64-v8a) \nإذا لم يوجد سيفسد التحليل وستضيع وقتنا عبثاً.",
+  "cancel": "إلغاء",
   "chat": "المحادثة",
   "checkForUpdate": "عرض التحديثات",
   "checkingDeviceRam": "التحقق من ذاكرة الجهاز...",
-  "chooseFile": "اختر {type}",
+  "chooseFile": "ملف {type}",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -98,7 +98,7 @@
   "firstInstall": "أول تثبيت",
   "flutterAnalysis": "تحليل تطبيقات الفلاتر",
   "flutterAnalysisDesc": "عرض معلومات ملفات الفلاتر",
-  "format": "التنسيق",
+  "format": "الصيغة",
   "generate": "توليد",
   "generating": "توليد ...",
   "guestNotAllowed": "لا يمكن للمستخدمين الضيوف استخدام هذه الميزة",
@@ -236,13 +236,13 @@
   "updateAvailable": "التحديث المتاح",
   "updateAvailableMessage": "يتوفر إصدار جديد من التطبيق.هل ترغب في التحديث الآن؟",
   "uploading": "جارى الرفع ...",
-  "upperCase": "حالة كبيرة",
+  "upperCase": "تفخيم الحروف",
   "username": "اسم المستخدم",
   "usernameCond": "يمكن أن يحتوي اسم المستخدم فقط على أحرف وأرقام وتسطير سطر",
   "usernameLimit": "اسم المستخدم يجب أن يكون بين 5 و 15 حرفا",
   "validateModules": "التحقق من إصدار base.apk مع تقسيم APK",
   "versionCode": "ترميز الإصدار",
-  "viewData": "عرض البيانات",
+  "viewData": "أظهر البيانات",
   "vrd": "التحقق من اسم لوحة الموارد",
   "welcomeBack": "مرحبا بعودتك!"
 }
