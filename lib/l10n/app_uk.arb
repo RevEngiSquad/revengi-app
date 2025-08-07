@@ -5,7 +5,7 @@
   "analyzing": "Аналізуємо...",
   "apiKey": "API ключ",
   "apiRateLimits": "Ліміт кількості кінцевих точок API",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK успішно видобутий до {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Помилка розпакування APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "Шлях до APK",
   "apksToApk": "APKS до APK",
   "appDescription": "Колекція альтернативних інструментів.",
   "appTitle": "Ревенґі",
-  "availableIn": "Available in",
+  "availableIn": "Доступно за",
   "batteryOptimization": "Оптимізація батареї",
   "batteryOptimizationMessage": "Для Android 11 і вище необхідно вимкнути оптимізацію заряду акумулятора для коректної роботи у фоновому режимі.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Продовжити як гість",
   "copiedToClipboard": "Скопійовано до буферу обміну",
   "createAccount": "Створити обл. запис",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Каталог даних",
+  "dataDirectory2": "Каталог даних 2",
+  "details": "Подробиці",
   "developer": "Розробник",
   "dexRepair": "Відновити",
   "dexRepairDesc": "Відновлення файлів DEX",
@@ -65,9 +65,9 @@
   "enterPassword": "Будь ласка, введіть пароль",
   "enterUsername": "Будь ласка, введіть ім'я користувача",
   "errorDuringAnalysis": "Сталася помилка під час аналізу",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Вимкнути системні програми",
+  "extractApk": "Розпакувати APK-файл",
+  "extractingApk": "Розпакування APK-файлу",
   "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Будь ласка, використовуйте настільний або мобільний додаток для цієї функції.",
   "fetchingModelInfo": "Отримання інформації про модель...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Файл існує",
+  "fileExistsMsg": "Файл вже існує. Ви хочете перезаписати його?",
+  "fileSize": "Розмір файлу",
+  "firstInstall": "Перше встановлення",
   "flutterAnalysis": "Пробний аналіз",
   "flutterAnalysisDesc": "Аналізувати очищання",
   "generate": "Генерувати",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Користувачі не можуть використовувати цю функцію",
   "iDonTLoveThisApp": "Мені байдуже, я пошкодую",
   "iLoveThisApp": "Перепрошую, я люблю цю програму",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Включити системні додатки",
+  "installer": "Встановлювач",
   "jniAnalysis": "Аналіз JNI",
   "jniAnalysisDesc": "Знайти JNI підписи в APK",
   "language": "Language: {languageCode}",
@@ -112,9 +112,9 @@
     }
   },
   "largeModelWarning": "Попередження про довгу модель",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Останнє оновлення",
   "later": "Пізніше",
-  "launch": "Launch",
+  "launch": "Запустити",
   "licenses": "Ліцензії",
   "login": "Логін",
   "mail": "Пошта",
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Об'єднати розділені APK",
   "mergeUnsupportedOnWeb": "Розділення злиття APK неможливе у веб-версії.",
   "models": "Моделі",
-  "more": "More",
+  "more": "Більше",
   "mtHook": "МТ Хук",
   "mtHookDesc": "Створити MT посилені хуки",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Додатки не знайдені",
   "noFileSelected": "Файл не вибрано",
-  "notFound": "Not Found",
+  "notFound": "Не знайдено",
   "ok": "Гаразд",
   "ollama_api_url": "Основний URL OLAMA",
   "ollamaInitializeError": "Не вдалося ініціалізувати клієнт Оллами: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Відкрити бібліотеку Оллама",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Перезаписати",
+  "packageName": "Назва пакету",
   "passLen": "Пароль має складатися хоча б з 8 символів",
   "passMisMatch": "Паролі не збігаються",
   "password": "Пароль",
   "pathToApkeditorJar": "Шлях до apkeditor jar",
   "pleaseConfirmPassword": "Будь ласка, підтвердіть пароль",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Зачекайте будь ласка...",
   "preferences": "Властивості",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Натисніть ще раз, щоб вийти",
   "proceed": "Далі",
   "profile": "Анкета",
   "register": "Зареєструватися",
@@ -180,7 +180,7 @@
   "repairing": "Відновлення...",
   "reset": "Reset",
   "save": "Зберегти",
-  "searchApps": "Search apps...",
+  "searchApps": "Пошук додатків...",
   "selectAModel": "Виберіть модель для чату",
   "selectFiles": "Виберіть {type} файл",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "Системне повідомлення",
   "theme": "Тема",
   "typeMessage": "Type your message…",
-  "uninstall": "Uninstall",
+  "uninstall": "Видалити",
   "uninstallWarning": "Ви були лише біля деінсталяції, чи не так?",
-  "unknown": "Unknown",
+  "unknown": "Не вказано",
   "unsupportedDartVersion": "В даний час RevEngi тільки підтримує нестабільний канал Dart\n\nПоточна версія Dart {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Ім'я користувача може містити лише літери, цифри та підкреслення",
   "usernameLimit": "Ім'я користувача повинно бути від 5 до 15 символів",
   "validateModules": "Перевірити версію base.apk з розділом APK",
-  "versionCode": "Version code",
+  "versionCode": "Версія коду",
   "vrd": "Перевірити ім'я ресурсів dir",
   "welcomeBack": "З поверненням!"
 }
