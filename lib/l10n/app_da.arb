@@ -5,7 +5,7 @@
   "analyzing": "Analyserer...",
   "apiKey": "API Nøgle",
   "apiRateLimits": "API Endepunkter Rate Grænser",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK udpakket succesfuldt til {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Fejl ved udpakning af APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "APK sti",
   "apksToApk": "APKS til APK",
   "appDescription": "En samling af reverse engineering værktøjer.",
   "appTitle": "RevEngi",
-  "availableIn": "Available in",
+  "availableIn": "Tilgængelig i",
   "batteryOptimization": "Batteri Optimering",
   "batteryOptimizationMessage": "For Android 11 og derover, Vi er nødt til at deaktivere batterioptimering for denne app for at fungere korrekt i baggrunden.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Fortsæt som gæst",
   "copiedToClipboard": "Kopieret til udklipsholder",
   "createAccount": "Opret Konto",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Data mappe",
+  "dataDirectory2": "Datamappe 2",
+  "details": "Detaljer",
   "developer": "Udvikler",
   "dexRepair": "Dex Reparation",
   "dexRepairDesc": "Reparer DEX filer",
@@ -65,9 +65,9 @@
   "enterPassword": "Indtast venligst adgangskode",
   "enterUsername": "Indtast venligst brugernavn",
   "errorDuringAnalysis": "Der opstod en fejl under analyse",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Udeluk Systemapps",
+  "extractApk": "Udpak APK",
+  "extractingApk": "Udpakker APK",
   "failedToExtractFiles": "Kunne ikke udpakke filer fra ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Brug venligst skrivebordet eller mobilappen til denne funktion.",
   "fetchingModelInfo": "Henter modelinfo...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Filen Findes",
+  "fileExistsMsg": "Filen findes allerede. Vil du overskrive den?",
+  "fileSize": "Fil størrelse",
+  "firstInstall": "Første installation",
   "flutterAnalysis": "Analyse Af Flutter",
   "flutterAnalysisDesc": "Analyser Flutter libs",
   "generate": "Generer",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Gæstebrugere kan ikke bruge denne funktion",
   "iDonTLoveThisApp": "Jeg er ligeglad med, jeg vil fortryde",
   "iLoveThisApp": "Beklager, jeg elsker denne app",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Inkludér Systemapps",
+  "installer": "Installationsprogram",
   "jniAnalysis": "JNI Analyse",
   "jniAnalysisDesc": "Find JNI signaturer i APK",
   "language": "Sprog: {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "Stor Model Advarsel",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Sidst opdateret",
   "later": "Senere",
-  "launch": "Launch",
+  "launch": "Start",
   "licenses": "Licenser",
   "login": "Login",
   "mail": "Mail",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "Slet venligst filen / mappen manuelt på {outputfile} og prøv igen",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Flet Split APKs",
   "mergeUnsupportedOnWeb": "Split APK sammenlægning er ikke muligt i web-versionen.",
   "models": "Modeller",
-  "more": "More",
+  "more": "Mere",
   "mtHook": "MT Hook",
   "mtHookDesc": "Generere MT Forbedrede Kroge",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Ingen apps fundet",
   "noFileSelected": "Ingen fil valgt",
-  "notFound": "Not Found",
+  "notFound": "Ikke Fundet",
   "ok": "OK",
   "ollama_api_url": "OLLAMA base URL",
   "ollamaInitializeError": "Kunne ikke initialisere Ollama-klient: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Åbn Ollama Bibliotek",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Overskriv",
+  "packageName": "Pakke navn",
   "passLen": "Adgangskoden skal være på mindst 8 tegn",
   "passMisMatch": "Adgangskoder stemmer ikke overens",
   "password": "Adgangskode",
   "pathToApkeditorJar": "Sti til apkeditor krukke",
   "pleaseConfirmPassword": "Bekræft venligst adgangskode",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Vent venligst...",
   "preferences": "Præferencer",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Tryk tilbage igen for at afslutte",
   "proceed": "Fortsæt",
   "profile": "Profil",
   "register": "Registrer",
@@ -180,7 +180,7 @@
   "repairing": "Reparerer...",
   "reset": "Reset",
   "save": "Gem",
-  "searchApps": "Search apps...",
+  "searchApps": "Søg i apps...",
   "selectAModel": "Vælg en model at chatte",
   "selectFiles": "Vælg {type} Fil",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "System Besked",
   "theme": "Tema",
   "typeMessage": "Skriv din besked…",
-  "uninstall": "Uninstall",
+  "uninstall": "Afinstaller",
   "uninstallWarning": "Du var lige ved at afinstallere app'en var ikke dig?",
-  "unknown": "Unknown",
+  "unknown": "Ukendt",
   "unsupportedDartVersion": "I øjeblikket understøtter RevEngi kun dart stabil kanal\n\nAktuel Dart version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Brugernavn kan kun indeholde bogstaver, tal og understregning",
   "usernameLimit": "Brugernavn skal være mellem 5 og 15 tegn",
   "validateModules": "Validér version af base.apk med delte APK'er",
-  "versionCode": "Version code",
+  "versionCode": "Versionskode",
   "vrd": "Validér ressourcens dir navn",
   "welcomeBack": "Velkommen Tilbage!"
 }
