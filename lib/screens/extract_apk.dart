@@ -59,7 +59,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
       "Google Play":
           'https://play.google.com/store/apps/details?id=$packageName',
       "F-Droid": 'https://f-droid.org/en/packages/$packageName',
-      "Izzydroid": 'https://apt.izzysoft.de/fdroid/index/apk/$packageName',
+      "IzzyOnDroid": 'https://apt.izzysoft.de/fdroid/index/apk/$packageName',
     };
 
     final Dio dio = Dio();
