@@ -5,7 +5,7 @@
   "analyzing": "Analizzando...",
   "apiKey": "Chiave API",
   "apiRateLimits": "Limiti Di Tasso Endpoint Api",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK estratto con successo in {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Errore nell'estrarre APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "Percorso APK",
   "apksToApk": "APKS a APK",
   "appDescription": "Una collezione di strumenti di reverse engineering.",
   "appTitle": "RevEngi",
-  "availableIn": "Available in",
+  "availableIn": "Disponibile in",
   "batteryOptimization": "Ottimizzazione Batteria",
   "batteryOptimizationMessage": "Per Android 11 e versioni successive, dobbiamo disabilitare l'ottimizzazione della batteria per consentire a questa app di funzionare correttamente in background.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Continua come ospite",
   "copiedToClipboard": "Copiato negli appunti",
   "createAccount": "Crea Account",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Cartella dati",
+  "dataDirectory2": "Cartella dati 2",
+  "details": "Dettagli",
   "developer": "Sviluppatore",
   "dexRepair": "Riparazione Dex",
   "dexRepairDesc": "Ripara file DEX",
@@ -65,9 +65,9 @@
   "enterPassword": "Inserisci la password",
   "enterUsername": "Inserisci il nome utente",
   "errorDuringAnalysis": "Si è verificato un errore durante l'analisi",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Escludi App Di Sistema",
+  "extractApk": "Estrai APK",
+  "extractingApk": "Estrazione APK",
   "failedToExtractFiles": "Impossibile estrarre i file da ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Si prega di utilizzare l'app desktop o mobile per questa funzionalità.",
   "fetchingModelInfo": "Recupero informazioni modello...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Il File Esiste",
+  "fileExistsMsg": "Il file esiste già. Vuoi sovrascriverlo?",
+  "fileSize": "Dimensione file",
+  "firstInstall": "Prima installazione",
   "flutterAnalysis": "Analisi Flutter",
   "flutterAnalysisDesc": "Analizza libs Flutter",
   "generate": "Genera",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Gli utenti ospiti non possono utilizzare questa funzione",
   "iDonTLoveThisApp": "Non mi importa, rimpiangerò",
   "iLoveThisApp": "Mi dispiace, amo questa app",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Includi App Di Sistema",
+  "installer": "Installatore",
   "jniAnalysis": "Analisi JNI",
   "jniAnalysisDesc": "Trova firme JNI nell'APK",
   "language": "Lingua: {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "Avviso Modello Grande",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Ultimo aggiornamento",
   "later": "Dopo",
-  "launch": "Launch",
+  "launch": "Avvia",
   "licenses": "Licenze",
   "login": "Accedi",
   "mail": "Posta",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "Elimina manualmente il file/directory in {outputfile} e riprova",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Unisci APK Divisi",
   "mergeUnsupportedOnWeb": "Dividere l'unione APK non è possibile nella versione web.",
   "models": "Modelli",
-  "more": "More",
+  "more": "Altro",
   "mtHook": "MT Hook",
   "mtHookDesc": "Genera MT Enhanced Hooks",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Nessuna app trovata",
   "noFileSelected": "Nessun file selezionato",
-  "notFound": "Not Found",
+  "notFound": "Non Trovato",
   "ok": "Ok",
   "ollama_api_url": "Url base OLLAMA",
   "ollamaInitializeError": "Impossibile inizializzare il client Ollama: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Apri Libreria Ollama",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Sovrascrivere",
+  "packageName": "Nome pacchetto",
   "passLen": "La password deve contenere almeno 8 caratteri",
   "passMisMatch": "Le password non corrispondono",
   "password": "Password",
   "pathToApkeditorJar": "Percorso al jar apkeditor",
   "pleaseConfirmPassword": "Conferma la password",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Attendere prego...",
   "preferences": "Preferenze",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Premi di nuovo indietro per uscire",
   "proceed": "Procedere",
   "profile": "Profilo",
   "register": "Registrati",
@@ -180,7 +180,7 @@
   "repairing": "Riparazione...",
   "reset": "Reset",
   "save": "Salva",
-  "searchApps": "Search apps...",
+  "searchApps": "Cerca app...",
   "selectAModel": "Seleziona un modello da chattare",
   "selectFiles": "Seleziona File {type}",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "Messaggio Di Sistema",
   "theme": "Tema",
   "typeMessage": "Digita il tuo messaggio…",
-  "uninstall": "Uninstall",
+  "uninstall": "Disinstalla",
   "uninstallWarning": "Stavate giusto per disinstallare l'app non era?",
-  "unknown": "Unknown",
+  "unknown": "Sconosciuto",
   "unsupportedDartVersion": "Attualmente RevEngi supporta solo il canale dart stabile\n\nVersione Dart corrente: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Il nome utente può contenere solo lettere, numeri e underscore",
   "usernameLimit": "Il nome utente deve essere compreso tra 5 e 15 caratteri",
   "validateModules": "Convalida la versione di base.apk con APK divisi",
-  "versionCode": "Version code",
+  "versionCode": "Codice versione",
   "vrd": "Convalida nome dir risorse",
   "welcomeBack": "Bentornato!"
 }
