@@ -213,6 +213,14 @@
   "scheme": "Scheme",
   "searchApps": "Search apps...",
   "selectAModel": "Sohbet için bir model seç",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "{type} Dosyası Seç",
   "@selectFiles": {
     "placeholders": {

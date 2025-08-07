@@ -128,6 +128,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   }
 
   void _toggleMultiSelect() {
+    if (!mounted) return;
     setState(() {
       _isMultiSelect = !_isMultiSelect;
       if (!_isMultiSelect) {
@@ -189,15 +190,18 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
           context: context,
           barrierDismissible: false,
           builder:
-              (context) => AlertDialog(
-                title: Text(localizations.extractingApk),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    LinearProgressIndicator(),
-                    SizedBox(height: 16),
-                    Text(localizations.pleaseWait),
-                  ],
+              (context) => PopScope(
+                canPop: extracted,
+                child: AlertDialog(
+                  title: Text(localizations.extractingApk),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      LinearProgressIndicator(),
+                      SizedBox(height: 16),
+                      Text(localizations.pleaseWait),
+                    ],
+                  ),
                 ),
               ),
         );
@@ -948,6 +952,19 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     return buffer.toString();
   }
 
+  void _invertSelect() {
+    setState(() {
+      final allIndices = List.generate(_filteredApps.length, (index) => index);
+      final selectedIndices = _selectedApps.toList();
+      _selectedApps.clear();
+      for (final index in allIndices) {
+        if (!selectedIndices.contains(index)) {
+          _selectedApps.add(index);
+        }
+      }
+    });
+  }
+
   Future<void> _showAppDetails(AppInfo app) async {
     final localizations = AppLocalizations.of(context)!;
     final GlobalKey menuKey = GlobalKey();
@@ -1487,6 +1504,10 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                               : Colors.black,
                     ),
                   )
+                  : _isMultiSelect
+                  ? Text(
+                    localizations.selected(_selectedApps.length.toString()),
+                  )
                   : Text(localizations.extractApk),
           actions: [
             IconButton(
@@ -1604,15 +1625,43 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                     ),
                   ),
                 ),
-        floatingActionButton:
-            _isMultiSelect
-                ? FloatingActionButton(
-                  onPressed: () {
-                    _extractSelectedApps();
-                  },
-                  child: const Icon(Icons.eject_outlined),
-                )
-                : null,
+        floatingActionButton: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 200),
+          transitionBuilder: (Widget child, Animation<double> animation) {
+            final offsetAnimation = Tween<Offset>(
+              begin: const Offset(0, 1),
+              end: Offset.zero,
+            ).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOut),
+            );
+            return SlideTransition(position: offsetAnimation, child: child);
+          },
+          child:
+              _isMultiSelect
+                  ? Align(
+                    alignment: Alignment.bottomRight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 16.0, right: 16.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          FloatingActionButton(
+                            onPressed: _invertSelect,
+                            heroTag: 'invertFAB',
+                            child: const Icon(Icons.flip_to_back),
+                          ),
+                          const SizedBox(height: 12),
+                          FloatingActionButton(
+                            onPressed: _extractSelectedApps,
+                            heroTag: 'extractFAB',
+                            child: const Icon(Icons.eject_outlined),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                  : const SizedBox.shrink(),
+        ),
       ),
     );
   }

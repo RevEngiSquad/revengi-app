@@ -213,6 +213,14 @@
   "scheme": "Scheme",
   "searchApps": "アプリを検索...",
   "selectAModel": "チャットするモデルを選択",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "{type} ファイルを選択",
   "@selectFiles": {
     "placeholders": {

@@ -213,6 +213,14 @@
   "scheme": "Schemă",
   "searchApps": "Căutare aplicații...",
   "selectAModel": "Selectați un model pentru a discuta",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Selectați {type} Fișier",
   "@selectFiles": {
     "placeholders": {

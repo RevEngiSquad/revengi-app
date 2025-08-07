@@ -213,6 +213,14 @@
   "scheme": "مخطط",
   "searchApps": "البحث في التطبيقات...",
   "selectAModel": "أختر محركا كى تبدأ المحادثة",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "حدد ملف {type}",
   "@selectFiles": {
     "placeholders": {

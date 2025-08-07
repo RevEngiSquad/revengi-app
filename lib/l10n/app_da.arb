@@ -213,6 +213,14 @@
   "scheme": "Skema",
   "searchApps": "Søg i apps...",
   "selectAModel": "Vælg en model at chatte",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Vælg {type} Fil",
   "@selectFiles": {
     "placeholders": {

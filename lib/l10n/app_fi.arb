@@ -213,6 +213,14 @@
   "scheme": "Kaavio",
   "searchApps": "Hae sovelluksia...",
   "selectAModel": "Valitse malli keskustellaksesi",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Valitse {type} Tiedosto",
   "@selectFiles": {
     "placeholders": {

@@ -213,6 +213,14 @@
   "scheme": "Scheme",
   "searchApps": "Search apps...",
   "selectAModel": "Select a model to chat",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Select {type} File",
   "@selectFiles": {
     "placeholders": {

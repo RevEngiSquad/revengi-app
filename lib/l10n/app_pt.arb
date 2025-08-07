@@ -213,6 +213,14 @@
   "scheme": "Esquema",
   "searchApps": "Pesquisar aplicativos...",
   "selectAModel": "Selecione um modelo para bater papo",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Selecionar Arquivo {type}",
   "@selectFiles": {
     "placeholders": {

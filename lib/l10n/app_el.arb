@@ -213,6 +213,14 @@
   "scheme": "Σχήμα",
   "searchApps": "Αναζήτηση εφαρμογών...",
   "selectAModel": "Επιλέξτε ένα μοντέλο για συνομιλία",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Επιλογή Αρχείου {type}",
   "@selectFiles": {
     "placeholders": {

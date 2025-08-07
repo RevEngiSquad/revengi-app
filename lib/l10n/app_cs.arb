@@ -213,6 +213,14 @@
   "scheme": "Schéma",
   "searchApps": "Hledat aplikace...",
   "selectAModel": "Vyberte model pro chatování",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Vybrat soubor {type}",
   "@selectFiles": {
     "placeholders": {

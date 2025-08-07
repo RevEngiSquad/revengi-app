@@ -213,6 +213,14 @@
   "scheme": "Schemat",
   "searchApps": "Szukaj aplikacji...",
   "selectAModel": "Wybierz model do czatu",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Wybierz plik {type}",
   "@selectFiles": {
     "placeholders": {

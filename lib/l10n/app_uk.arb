@@ -213,6 +213,14 @@
   "scheme": "Схема",
   "searchApps": "Пошук додатків...",
   "selectAModel": "Виберіть модель для чату",
+  "selected": "Selected: {value}",
+  "@selected": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
   "selectFiles": "Виберіть {type} файл",
   "@selectFiles": {
     "placeholders": {
