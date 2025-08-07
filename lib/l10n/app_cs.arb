@@ -5,7 +5,7 @@
   "analyzing": "Analyzuji...",
   "apiKey": "API klíč",
   "apiRateLimits": "Limity API koncových bodů",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK byla úspěšně extrahována do {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Chyba při extrahování APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "APK cesta",
   "apksToApk": "APKS do APK",
   "appDescription": "Kolekce reverzních inženýrských nástrojů.",
   "appTitle": "Revengi",
-  "availableIn": "Available in",
+  "availableIn": "Dostupné v",
   "batteryOptimization": "Optimalizace baterie",
   "batteryOptimizationMessage": "Pro Android 11 a výše je třeba zakázat optimalizaci baterie, aby tato aplikace fungovala správně na pozadí.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Pokračovat jako hosta",
   "copiedToClipboard": "Zkopírováno do schránky",
   "createAccount": "Vytvořit účet",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Datový adresář",
+  "dataDirectory2": "Datový adresář 2",
+  "details": "Detaily",
   "developer": "Vývojář",
   "dexRepair": "Dex oprava",
   "dexRepairDesc": "Opravit soubory DEX",
@@ -65,9 +65,9 @@
   "enterPassword": "Zadejte prosím heslo",
   "enterUsername": "Zadejte prosím uživatelské jméno",
   "errorDuringAnalysis": "Došlo k chybě během analýzy",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Vyloučit systémové aplikace",
+  "extractApk": "Extrahovat APK",
+  "extractingApk": "Extrahování APK",
   "failedToExtractFiles": "Nepodařilo se extrahovat soubory ze ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Pro tuto funkci prosím použijte stolní nebo mobilní aplikaci.",
   "fetchingModelInfo": "Načítání informací o modelu...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Soubor existuje",
+  "fileExistsMsg": "Soubor již existuje. Chcete jej přepsat?",
+  "fileSize": "Velikost souboru",
+  "firstInstall": "První instalace",
   "flutterAnalysis": "Analýza znečišťujících látek",
   "flutterAnalysisDesc": "Analyzovat liby pro znečišťovatel",
   "generate": "Generovat",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Tato funkce nemůže použít hosté",
   "iDonTLoveThisApp": "Je mi to líto, budu litovat",
   "iLoveThisApp": "Omlouvám se, tuto aplikaci miluji",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Zahrnout systémové aplikace",
+  "installer": "Instalátor",
   "jniAnalysis": "Analýza JNI",
   "jniAnalysisDesc": "Najít podpisy JNI v APK",
   "language": "Jazyk: {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "Varování velkého modelu",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Poslední aktualizace",
   "later": "Později",
-  "launch": "Launch",
+  "launch": "Spustit",
   "licenses": "Licence",
   "login": "Přihlásit se",
   "mail": "Pošta",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "Ručně odstranit soubor/adresář z {outputfile} a zkuste to znovu",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Sloučit rozdělené APK",
   "mergeUnsupportedOnWeb": "Sloučení APK není možné rozdělit ve webové verzi.",
   "models": "Vzory",
-  "more": "More",
+  "more": "Více",
   "mtHook": "MT háček",
   "mtHookDesc": "Generovat MT vylepšené háčky",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Nebyly nalezeny žádné aplikace",
   "noFileSelected": "Nebyl vybrán žádný soubor",
-  "notFound": "Not Found",
+  "notFound": "Nenalezeno",
   "ok": "Ok",
   "ollama_api_url": "Základní URL OLLAMA",
   "ollamaInitializeError": "Nepodařilo se inicializovat Ollama klienta: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Otevřít knihovnu Ollama",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Přepsat",
+  "packageName": "Název balíčku",
   "passLen": "Heslo musí mít alespoň 8 znaků",
   "passMisMatch": "Hesla se neshodují",
   "password": "Heslo",
   "pathToApkeditorJar": "Cesta k apkeditoru",
   "pleaseConfirmPassword": "Potvrďte prosím heslo",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Počkejte prosím...",
   "preferences": "Předvolby",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Stiskněte znovu pro ukončení",
   "proceed": "Pokračovat",
   "profile": "Profil",
   "register": "Registrovat se",
@@ -180,7 +180,7 @@
   "repairing": "Oprava...",
   "reset": "Reset",
   "save": "Uložit",
-  "searchApps": "Search apps...",
+  "searchApps": "Hledat aplikace...",
   "selectAModel": "Vyberte model pro chatování",
   "selectFiles": "Vybrat soubor {type}",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "Systémová zpráva",
   "theme": "Téma",
   "typeMessage": "Napište svou zprávu…",
-  "uninstall": "Uninstall",
+  "uninstall": "Odinstalovat",
   "uninstallWarning": "Chystáte se právě odinstalovat aplikaci?",
-  "unknown": "Unknown",
+  "unknown": "Neznámý",
   "unsupportedDartVersion": "Aktuálně RevEngi podporuje pouze stabilní kanál\n\nSoučasná verze grafu: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Uživatelské jméno může obsahovat pouze písmena, čísla a podtržítko",
   "usernameLimit": "Uživatelské jméno musí být v rozmezí 5 až 15 znaků",
   "validateModules": "Ověřit verzi base.apk pomocí rozdělených APK",
-  "versionCode": "Version code",
+  "versionCode": "Kód verze",
   "vrd": "Ověřit název dir zdrojů",
   "welcomeBack": "Vítejte zpátky!"
 }
