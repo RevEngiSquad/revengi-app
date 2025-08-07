@@ -29,7 +29,7 @@
   "appTitle": "RevEngi",
   "availableIn": "Disponível em",
   "batteryOptimization": "Otimização de bateria",
-  "batteryOptimizationMessage": "Para o Android 11 e superior, precisamos desativar a otimização de bateria para que este aplicativo funcione corretamente em segundo plano.",
+  "batteryOptimizationMessage": "Para o Android 11 e superior, precisamos desativar a otimização de bateria para que esse aplicativo funcione corretamente em segundo plano.",
   "blutter": "Blutter",
   "blutterDesc": "Ferramenta de análise binária flamejante",
   "blutterNote": "\nAPK: O aplicativo irá lidar diretamente com arquivos APK.\n\r\nZIP: Certifique-se de que arquivos ZIP contenham apenas o `libapp. o` para arquitetura arm64. Não cumprir pode resultar em erros.",
