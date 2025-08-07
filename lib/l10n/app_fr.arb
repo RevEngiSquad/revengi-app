@@ -5,7 +5,7 @@
   "analyzing": "Analyse en cours...",
   "apiKey": "Clé API",
   "apiRateLimits": "Limite de débit des points de terminaison de l'API",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK extrait avec succès vers {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Erreur lors de l'extraction de l'APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "Chemin de l'APK",
   "apksToApk": "APKS à APK",
   "appDescription": "Une collection d'outils d'ingénierie inversée.",
   "appTitle": "RevEngi",
-  "availableIn": "Available in",
+  "availableIn": "Disponible dans",
   "batteryOptimization": "Optimisation de la batterie",
   "batteryOptimizationMessage": "Pour Android 11 et plus, nous devons désactiver l'optimisation de la batterie pour que cette application fonctionne correctement en arrière-plan.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Continuer en tant qu'invité",
   "copiedToClipboard": "Copié dans le presse-papiers",
   "createAccount": "Créer un compte",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Répertoire des données",
+  "dataDirectory2": "Répertoire de données 2",
+  "details": "Détails du produit",
   "developer": "Développeur",
   "dexRepair": "Réparation de Dex",
   "dexRepairDesc": "Réparer les fichiers DEX",
@@ -65,9 +65,9 @@
   "enterPassword": "Veuillez entrer le mot de passe",
   "enterUsername": "Veuillez entrer le nom d'utilisateur",
   "errorDuringAnalysis": "Une erreur s'est produite lors de l'analyse",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Exclure les applications système",
+  "extractApk": "Extraire l'APK",
+  "extractingApk": "Extraction de l'APK",
   "failedToExtractFiles": "Impossible d'extraire les fichiers depuis le ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Veuillez utiliser l'application de bureau ou mobile pour cette fonctionnalité.",
   "fetchingModelInfo": "Récupération des informations du modèle...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Le fichier existe",
+  "fileExistsMsg": "Le fichier existe déjà. Voulez-vous l'écraser ?",
+  "fileSize": "Taille du fichier",
+  "firstInstall": "Première installation",
   "flutterAnalysis": "Analyse de Flutter",
   "flutterAnalysisDesc": "Analyser les libs de Flutter",
   "generate": "Générer",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Les utilisateurs invités ne peuvent pas utiliser cette fonctionnalité",
   "iDonTLoveThisApp": "« Je m'en fiche, je vais regretter",
   "iLoveThisApp": "Je suis désolé, j'adore cette application",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Inclure les applications système",
+  "installer": "Installateur",
   "jniAnalysis": "Analyse JNI",
   "jniAnalysisDesc": "Trouver les signatures JNI dans l'APK",
   "language": "Langue : {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "Avertissement de grand modèle",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Dernière mise à jour",
   "later": "Plus tard",
-  "launch": "Launch",
+  "launch": "Lancer",
   "licenses": "Licences",
   "login": "Se connecter",
   "mail": "Courrier",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "Veuillez supprimer manuellement le fichier/répertoire à {outputfile} et réessayer",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Fusionner les APKs séparés",
   "mergeUnsupportedOnWeb": "La fusion des APKs séparés n'est pas possible dans la version web.",
   "models": "Modèles",
-  "more": "More",
+  "more": "En savoir plus",
   "mtHook": "Crochet MT",
   "mtHookDesc": "Générer des crochets MT avancée",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Aucune application trouvée",
   "noFileSelected": "Aucun fichier sélectionné",
-  "notFound": "Not Found",
+  "notFound": "Non Trouvé",
   "ok": "Ok",
   "ollama_api_url": "URL de base OLLAMA",
   "ollamaInitializeError": "Impossible d'initialiser le client Ollama : {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Ouvrir la bibliothèque Ollama",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Écraser",
+  "packageName": "Nom du paquet",
   "passLen": "Le mot de passe doit comporter au moins 8 caractères",
   "passMisMatch": "Les mots de passe ne correspondent pas",
   "password": "Mot de passe",
   "pathToApkeditorJar": "Chemin vers le jar apkeditor",
   "pleaseConfirmPassword": "Veuillez confirmer le mot de passe",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Veuillez patienter...",
   "preferences": "Préférences",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Appuyez à nouveau sur Retour pour quitter",
   "proceed": "Procéder",
   "profile": "Profil",
   "register": "Inscription",
@@ -180,7 +180,7 @@
   "repairing": "Réparation en cours...",
   "reset": "Réinitialiser",
   "save": "Enregistrer",
-  "searchApps": "Search apps...",
+  "searchApps": "Rechercher des applications...",
   "selectAModel": "Sélectionnez un modèle pour discuter",
   "selectFiles": "Sélectionner un fichier {type}",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "Message système",
   "theme": "Thème",
   "typeMessage": "Tapez votre message…",
-  "uninstall": "Uninstall",
+  "uninstall": "Désinstaller",
   "uninstallWarning": "Vous étiez sur le point de désinstaller l'application ?",
-  "unknown": "Unknown",
+  "unknown": "Inconnu",
   "unsupportedDartVersion": "Actuellement, RevEngi ne prend en charge que le canal stable Dart\n\nVersion actuelle de Dart : {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Le nom d'utilisateur ne peut contenir que des lettres, des chiffres et des tirets bas",
   "usernameLimit": "Le nom d'utilisateur doit contenir entre 5 et 15 caractères",
   "validateModules": "Valider la version de base.apk avec des APKs séparés",
-  "versionCode": "Version code",
+  "versionCode": "Code de la version",
   "vrd": "Valider le nom du répertoire des ressources",
   "welcomeBack": "Bienvenue!"
 }
