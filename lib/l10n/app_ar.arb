@@ -143,7 +143,7 @@
   "noAppsFound": "لم يتم العثور على تطبيقات",
   "noFileSelected": "لم يتم تحديد ملف",
   "notFound": "غير موجود",
-  "ok": "نعم",
+  "ok": "حسنا",
   "ollama_api_url": "إعداد نقطة إتصال ollama",
   "ollamaInitializeError": "فشل في تهيئة عميل أولاما: {e}",
   "@ollamaInitializeError": {
