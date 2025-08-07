@@ -135,6 +135,7 @@
   "mtHookDesc": "Generera MT-förbättrade krokar",
   "noAppsFound": "No apps found",
   "noFileSelected": "Ingen fil vald",
+  "notFound": "Not Found",
   "ok": "OK",
   "ollama_api_url": "OLLAMA bas-URL",
   "ollamaInitializeError": "Det gick inte att initiera Ollama-klient: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "Skriv ditt meddelande…",
   "uninstall": "Uninstall",
   "uninstallWarning": "Du höll just på att avinstallera appen var inte du?",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "För närvarande stöder RevEngi endast dartstabila kanal\n\nNuvarande Dartversion: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

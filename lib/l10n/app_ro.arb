@@ -135,6 +135,7 @@
   "mtHookDesc": "Genereaza Cârlige Imbunatite MT",
   "noAppsFound": "No apps found",
   "noFileSelected": "Niciun fișier selectat",
+  "notFound": "Not Found",
   "ok": "Ok",
   "ollama_api_url": "URL bază OLLAMA",
   "ollamaInitializeError": "Eșuare inițializare client Ollama: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "Introduceți mesajul…",
   "uninstall": "Uninstall",
   "uninstallWarning": "Ai fost pe cale să dezinstalezi aplicația nu-i așa?",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "În prezent, RevEngi suportă doar canalul stabil dart\n\nVersiunea actuală Dart : {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

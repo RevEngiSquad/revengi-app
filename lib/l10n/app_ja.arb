@@ -135,6 +135,7 @@
   "mtHookDesc": "MT拡張フックを生成",
   "noAppsFound": "No apps found",
   "noFileSelected": "ファイルが選択されていません",
+  "notFound": "Not Found",
   "ok": "OK",
   "ollama_api_url": "OLLAMAベースURL",
   "ollamaInitializeError": "Orlama クライアントの初期化に失敗しました: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "Type your message…",
   "uninstall": "Uninstall",
   "uninstallWarning": "あなたはちょうどアプリをアンインストールしようとしていましたね。",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

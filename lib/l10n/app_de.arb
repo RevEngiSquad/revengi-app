@@ -135,6 +135,7 @@
   "mtHookDesc": "MT Verbesserte Hooks generieren",
   "noAppsFound": "No apps found",
   "noFileSelected": "Keine Datei ausgewählt",
+  "notFound": "Not Found",
   "ok": "Ok",
   "ollama_api_url": "OLLAMA Basis-URL",
   "ollamaInitializeError": "Fehler beim Initialisieren des Ollama Clients: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "Geben Sie Ihre Nachricht… ein",
   "uninstall": "Uninstall",
   "uninstallWarning": "Sie waren gerade dabei, die App zu deinstallieren, nicht wahr?",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "Derzeit unterstützt RevEngi nur den stabilen Kanal\n\nAktuelle Dart Version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

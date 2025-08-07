@@ -135,6 +135,7 @@
   "mtHookDesc": "Luo Mt Enhanced Koukut",
   "noAppsFound": "No apps found",
   "noFileSelected": "Ei valittua tiedostoa",
+  "notFound": "Not Found",
   "ok": "OK",
   "ollama_api_url": "OLLAMAn perusosoite",
   "ollamaInitializeError": "Ollama asiakasohjelman alustus epäonnistui: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "Type your message…",
   "uninstall": "Uninstall",
   "uninstallWarning": "Oletko juuri aikeissa poistaa sovelluksen oletko sinä?",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

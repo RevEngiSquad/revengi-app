@@ -135,6 +135,7 @@
   "mtHookDesc": "Güçlendirilmiş MT Kancaları oluştur",
   "noAppsFound": "No apps found",
   "noFileSelected": "Seçili dosya yok",
+  "notFound": "Not Found",
   "ok": "Ok",
   "ollama_api_url": "OLLAMA temel URL adresi",
   "ollamaInitializeError": "Ollama istemcisi başlatılamadı: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "Mesajınızı yazın…",
   "uninstall": "Uninstall",
   "uninstallWarning": "Uygulamayı kaldırmak üzeresin, değil mi?",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "Şu anda RevEngi yalnızca dart kararlı versiyonu destekliyor\n\nMevcut Dart Versiyonu: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

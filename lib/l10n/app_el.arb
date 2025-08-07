@@ -135,6 +135,7 @@
   "mtHookDesc": "Δημιουργία MT Ενισχυμένη Αγκίστρια",
   "noAppsFound": "No apps found",
   "noFileSelected": "Δεν επιλέχθηκε αρχείο",
+  "notFound": "Not Found",
   "ok": "Εντάξει",
   "ollama_api_url": "URL βάσης OLLAMA",
   "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "Type your message…",
   "uninstall": "Uninstall",
   "uninstallWarning": "Ήσασταν απλά για να απεγκαταστήσετε την εφαρμογή δεν εσείς?",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "Επί του παρόντος RevEngi υποστηρίζει μόνο dart σταθερό κανάλι\n\nΤρέχουσα Dart Έκδοση: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

@@ -135,6 +135,7 @@
   "mtHookDesc": "Generovat MT vylepšené háčky",
   "noAppsFound": "No apps found",
   "noFileSelected": "Nebyl vybrán žádný soubor",
+  "notFound": "Not Found",
   "ok": "Ok",
   "ollama_api_url": "Základní URL OLLAMA",
   "ollamaInitializeError": "Nepodařilo se inicializovat Ollama klienta: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "Napište svou zprávu…",
   "uninstall": "Uninstall",
   "uninstallWarning": "Chystáte se právě odinstalovat aplikaci?",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "Aktuálně RevEngi podporuje pouze stabilní kanál\n\nSoučasná verze grafu: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

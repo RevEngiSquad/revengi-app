@@ -135,6 +135,7 @@
   "mtHookDesc": "حقن كود قتل التوقيع مثل MT",
   "noAppsFound": "No apps found",
   "noFileSelected": "لم يتم تحديد ملف",
+  "notFound": "Not Found",
   "ok": "نعم",
   "ollama_api_url": "عنوان ULLAMA BASE URL",
   "ollamaInitializeError": "فشل في تهيئة عميل أولاما: {e}",
@@ -209,6 +210,7 @@
   "typeMessage": "اكتب رسالتك…",
   "uninstall": "Uninstall",
   "uninstallWarning": "كنت على وشك إلغاء تثبيت التطبيق أليس كذلك؟",
+  "unknown": "Unknown",
   "unsupportedDartVersion": "حاليا RevEngi يدعم فقط قناة مستقرة\n\nالإصدار الحالي لدارت: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {

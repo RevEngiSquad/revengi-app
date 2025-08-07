@@ -921,6 +921,8 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                   setState(() {
                     if (installerResult != null) {
                       installer = installerResult.name;
+                    } else {
+                      installer = localizations.unknown;
                     }
                   });
                 }
@@ -932,6 +934,9 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                     if (appStor != null && appStoreUr != null) {
                       appStore = appStor;
                       appStoreUrl = appStoreUr;
+                    } else {
+                      appStore = localizations.notFound;
+                      appStoreUrl = "";
                     }
                   });
                 }
