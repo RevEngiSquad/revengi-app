@@ -76,6 +76,14 @@
   "expireDate": "Utløpt",
   "extractApk": "Pakk ut APK",
   "extractingApk": "Trekker ut APK",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "Kan ikke pakke ut filer fra ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "Bruk skrivebordet eller mobilappen for denne funksjonen.",
   "fetchingModelInfo": "Henter modellinformasjon...",
   "fileExists": "Fil eksisterer",
-  "fileExistsMsg": "Filen finnes allerede. Vil du overskrive den?",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "Fil Størrelse",
   "firstInstall": "Første installasjon",
   "flutterAnalysis": "Flutter analyse",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "Jeg bryr meg ikke, jeg vil angre",
   "iLoveThisApp": "Beklager, jeg elsker denne appen",
   "includeSystemApps": "Inkluder systemapper",
+  "info": "Info",
   "installer": "Installasjon",
   "jniAnalysis": "JNI Analyse",
   "jniAnalysisDesc": "Finn JNI signaturer i APK",
@@ -250,5 +266,6 @@
   "versionCode": "Versjonskode",
   "viewData": "Vis data",
   "vrd": "Valider ressurs dir navn",
-  "welcomeBack": "Velkommen tilbake!"
+  "welcomeBack": "Velkommen tilbake!",
+  "yes": "Yes"
 }

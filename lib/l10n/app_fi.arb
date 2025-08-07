@@ -76,6 +76,14 @@
   "expireDate": "Vanhentunut",
   "extractApk": "Pura APK",
   "extractingApk": "Puretaan APK",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "Ei voitu poimia tiedostoja ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "Ole hyvä ja käytä työpöytä- tai mobiilisovellusta tähän ominaisuuteen.",
   "fetchingModelInfo": "Haetaan mallin tietoja...",
   "fileExists": "Tiedosto On Olemassa",
-  "fileExistsMsg": "Tiedosto on jo olemassa. Haluatko korvata sen?",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "Tiedoston koko",
   "firstInstall": "Asenna ensin",
   "flutterAnalysis": "Flutterin Analyysi",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "En välitä, minä olen pahoillani",
   "iLoveThisApp": "Anteeksi, rakastan tätä sovellusta",
   "includeSystemApps": "Sisällytä Järjestelmäsovellukset",
+  "info": "Info",
   "installer": "Asentaja",
   "jniAnalysis": "JNI- Analyysi",
   "jniAnalysisDesc": "Etsi JNI allekirjoituksia APK",
@@ -250,5 +266,6 @@
   "versionCode": "Version koodi",
   "viewData": "Näytä Tiedot",
   "vrd": "Vahvista resurssien dir nimi",
-  "welcomeBack": "Tervetuloa Takaisin!"
+  "welcomeBack": "Tervetuloa Takaisin!",
+  "yes": "Yes"
 }

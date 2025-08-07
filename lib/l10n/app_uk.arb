@@ -76,6 +76,14 @@
   "expireDate": "Термін дії закінчився",
   "extractApk": "Розпакувати APK-файл",
   "extractingApk": "Розпакування APK-файлу",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "Будь ласка, використовуйте настільний або мобільний додаток для цієї функції.",
   "fetchingModelInfo": "Отримання інформації про модель...",
   "fileExists": "Файл існує",
-  "fileExistsMsg": "Файл вже існує. Ви хочете перезаписати його?",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "Розмір файлу",
   "firstInstall": "Перше встановлення",
   "flutterAnalysis": "Пробний аналіз",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "Мені байдуже, я пошкодую",
   "iLoveThisApp": "Перепрошую, я люблю цю програму",
   "includeSystemApps": "Включити системні додатки",
+  "info": "Info",
   "installer": "Встановлювач",
   "jniAnalysis": "Аналіз JNI",
   "jniAnalysisDesc": "Знайти JNI підписи в APK",
@@ -250,5 +266,6 @@
   "versionCode": "Версія коду",
   "viewData": "Перегляд даних",
   "vrd": "Перевірити ім'я ресурсів dir",
-  "welcomeBack": "З поверненням!"
+  "welcomeBack": "З поверненням!",
+  "yes": "Yes"
 }

@@ -27,6 +27,8 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   bool _isSearching = false;
   bool upperCase = true;
   bool addColon = false;
+  final Set<int> _selectedApps = {};
+  bool _isMultiSelect = false;
   final TextEditingController _searchController = TextEditingController();
 
   @override
@@ -125,27 +127,64 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     });
   }
 
+  void _toggleMultiSelect() {
+    setState(() {
+      _isMultiSelect = !_isMultiSelect;
+      if (!_isMultiSelect) {
+        _selectedApps.clear();
+      }
+    });
+  }
+
   void _onPopInvokedWithResult(bool didPop, dynamic result) {
     if (didPop) return;
     if (_isSearching) {
       _toggleSearch();
+    } else if (_isMultiSelect) {
+      _toggleMultiSelect();
     }
   }
 
-  Future<void> _extractApk(
-    String apkPath,
-    List<dynamic> splitSourceDirs,
-    String apkName,
-    String apkVersion,
-  ) async {
+  Future<void> _extractApk(List<AppInfo> appsToExtract) async {
     var isExtracting = true;
     var extracted = false;
     final localizations = AppLocalizations.of(context)!;
-    final isSplitApp = splitSourceDirs.isNotEmpty;
     File? outputFile;
+    final dir = Directory(
+      await getDownloadsDirectory().then((dir) => "$dir/apks"),
+    );
+
+    if (appsToExtract.length > 1) {
+      if (!mounted) return;
+      final confirm = await showDialog<bool>(
+        context: context,
+        builder:
+            (context) => AlertDialog(
+              title: Text(localizations.info),
+              content: Text(
+                localizations.extractMultiApkConfirm(appsToExtract.length),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: Text(localizations.cancel),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: Text(localizations.yes),
+                ),
+              ],
+            ),
+      );
+      if (confirm != true) {
+        isExtracting = false;
+        return;
+      }
+    }
 
     try {
       if (isExtracting) {
+        if (!mounted) return;
         showDialog(
           context: context,
           barrierDismissible: false,
@@ -164,60 +203,60 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
         );
       }
 
-      final dir = Directory(
-        await getDownloadsDirectory().then((dir) => "$dir/apks"),
-      );
       if (!dir.existsSync()) {
         await dir.create(recursive: true);
       }
 
-      outputFile =
-          isSplitApp
-              ? File('${dir.path}/${apkName}_$apkVersion.apks')
-              : File('${dir.path}/${apkName}_$apkVersion.apk');
+      for (final app in appsToExtract) {
+        final isSplitApp = app.splitSourceDirs.isNotEmpty;
+        outputFile =
+            isSplitApp
+                ? File('${dir.path}/${app.name}_${app.versionName}.apks')
+                : File('${dir.path}/${app.name}_${app.versionName}.apk');
 
-      if (outputFile.existsSync()) {
-        if (!mounted) return;
-        final shouldOverwrite = await showDialog<bool>(
-          context: context,
-          builder:
-              (context) => AlertDialog(
-                title: Text(localizations.fileExists),
-                content: Text(localizations.fileExistsMsg),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(false),
-                    child: Text(localizations.cancel),
-                  ),
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(true),
-                    child: Text(localizations.overwrite),
-                  ),
-                ],
-              ),
-        );
-        if (shouldOverwrite != true) {
-          return;
-        } else {
-          outputFile.delete(recursive: true);
+        if (outputFile.existsSync()) {
+          if (!mounted) return;
+          final shouldOverwrite = await showDialog<bool>(
+            context: context,
+            builder:
+                (context) => AlertDialog(
+                  title: Text(localizations.fileExists),
+                  content: Text(localizations.fileExistsMsg(outputFile!.path)),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(false),
+                      child: Text(localizations.cancel),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(true),
+                      child: Text(localizations.overwrite),
+                    ),
+                  ],
+                ),
+          );
+          if (shouldOverwrite != true) {
+            continue;
+          } else {
+            outputFile.delete(recursive: true);
+          }
         }
-      }
 
-      if (isSplitApp) {
-        final methodChannel = MethodChannel('flutter.native/helper');
-        final apkPaths = [apkPath, ...splitSourceDirs];
-        extracted =
-            (await methodChannel.invokeMethod<bool>('zipApks', {
-              'apkPaths': apkPaths,
-              'outputPath': outputFile.path,
-            }))!;
-      } else {
-        final apkFile = File(apkPath);
-        await apkFile.copy(outputFile.path);
-        if (!outputFile.existsSync()) {
-          extracted = false;
+        if (isSplitApp) {
+          final methodChannel = MethodChannel('flutter.native/helper');
+          final apkPaths = [app.apkPath, ...app.splitSourceDirs];
+          extracted =
+              (await methodChannel.invokeMethod<bool>('zipApks', {
+                'apkPaths': apkPaths,
+                'outputPath': outputFile.path,
+              }))!;
         } else {
-          extracted = true;
+          final apkFile = File(app.apkPath);
+          await apkFile.copy(outputFile.path);
+          if (!outputFile.existsSync()) {
+            extracted = false;
+          } else {
+            extracted = true;
+          }
         }
       }
     } catch (e) {
@@ -259,16 +298,35 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
         });
         Navigator.of(context).pop();
         if (outputFile != null && extracted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(localizations.apkExtractedMsg(outputFile.path)),
-              backgroundColor: Colors.green,
-              duration: const Duration(seconds: 5),
-            ),
-          );
+          if (appsToExtract.length == 1) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(localizations.apkExtractedMsg(outputFile.path)),
+                backgroundColor: Colors.green,
+                duration: const Duration(seconds: 5),
+              ),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  "${appsToExtract.length} ${localizations.apkExtractedMsg(dir.path)}",
+                ),
+                backgroundColor: Colors.green,
+                duration: const Duration(seconds: 5),
+              ),
+            );
+          }
         }
       }
     }
+  }
+
+  Future<void> _extractSelectedApps() async {
+    final selectedApps =
+        _selectedApps.map((index) => _filteredApps[index]).toList();
+    await _extractApk(selectedApps);
+    _toggleMultiSelect();
   }
 
   void copyToClipboard(String text) {
@@ -1379,12 +1437,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                         TextButton(
                           onPressed: () {
                             Navigator.of(context).pop();
-                            _extractApk(
-                              app.apkPath,
-                              app.splitSourceDirs,
-                              app.name,
-                              app.versionName,
-                            );
+                            _extractApk([app]);
                           },
                           child: Text(
                             localizations.extractApk.toUpperCase(),
@@ -1408,7 +1461,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     final brightness = Theme.of(context).brightness;
     final localizations = AppLocalizations.of(context)!;
     return PopScope(
-      canPop: !_isSearching,
+      canPop: !_isSearching && !_isMultiSelect,
       onPopInvokedWithResult: _onPopInvokedWithResult,
       child: Scaffold(
         appBar: AppBar(
@@ -1512,13 +1565,54 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                                 ),
                               ],
                             ),
-                            onTap: () => _showAppDetails(app),
+                            selected:
+                                _isMultiSelect && _selectedApps.contains(index),
+                            selectedTileColor: Theme.of(
+                              context,
+                            ).colorScheme.primary.withValues(alpha: 0.2),
+                            onTap: () {
+                              if (_isMultiSelect) {
+                                setState(() {
+                                  if (_selectedApps.contains(index)) {
+                                    _selectedApps.remove(index);
+                                    if (_selectedApps.isEmpty) {
+                                      _isMultiSelect = false;
+                                    }
+                                  } else {
+                                    _selectedApps.add(index);
+                                  }
+                                });
+                              } else {
+                                _showAppDetails(app);
+                              }
+                            },
+                            onLongPress: () {
+                              if (!_isMultiSelect) {
+                                _toggleMultiSelect();
+                              }
+                              setState(() {
+                                if (_selectedApps.contains(index)) {
+                                  _selectedApps.remove(index);
+                                } else {
+                                  _selectedApps.add(index);
+                                }
+                              });
+                            },
                           ),
                         );
                       },
                     ),
                   ),
                 ),
+        floatingActionButton:
+            _isMultiSelect
+                ? FloatingActionButton(
+                  onPressed: () {
+                    _extractSelectedApps();
+                  },
+                  child: const Icon(Icons.eject_outlined),
+                )
+                : null,
       ),
     );
   }

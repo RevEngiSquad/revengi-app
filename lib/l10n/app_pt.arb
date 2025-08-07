@@ -76,6 +76,14 @@
   "expireDate": "Expirado",
   "extractApk": "Extrair APK",
   "extractingApk": "Extraindo o APK",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "Falha ao extrair arquivos do ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "Por favor, use o aplicativo desktop ou móvel para este recurso.",
   "fetchingModelInfo": "Buscando informações do modelo...",
   "fileExists": "O arquivo existe",
-  "fileExistsMsg": "Arquivo já existe. Você quer substituí-lo?",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "Tamanho do arquivo",
   "firstInstall": "Primeira instalação",
   "flutterAnalysis": "Análise de Flauta",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "Não me importo, arrepender-me-ei",
   "iLoveThisApp": "Sinto muito, adoro este app",
   "includeSystemApps": "Incluir Aplicativos do Sistema",
+  "info": "Info",
   "installer": "Instalador",
   "jniAnalysis": "Análise JNI",
   "jniAnalysisDesc": "Encontre assinaturas do JNI no APK",
@@ -250,5 +266,6 @@
   "versionCode": "Código da versão",
   "viewData": "Visualizar dados",
   "vrd": "Validar nome do diretório de recursos",
-  "welcomeBack": "Bem-vindo(a) de volta!"
+  "welcomeBack": "Bem-vindo(a) de volta!",
+  "yes": "Yes"
 }

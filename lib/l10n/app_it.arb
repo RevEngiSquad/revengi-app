@@ -76,6 +76,14 @@
   "expireDate": "Scaduto",
   "extractApk": "Estrai APK",
   "extractingApk": "Estrazione APK",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "Impossibile estrarre i file da ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "Si prega di utilizzare l'app desktop o mobile per questa funzionalità.",
   "fetchingModelInfo": "Recupero informazioni modello...",
   "fileExists": "Il File Esiste",
-  "fileExistsMsg": "Il file esiste già. Vuoi sovrascriverlo?",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "Dimensione file",
   "firstInstall": "Prima installazione",
   "flutterAnalysis": "Analisi Flutter",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "Non mi importa, rimpiangerò",
   "iLoveThisApp": "Mi dispiace, amo questa app",
   "includeSystemApps": "Includi App Di Sistema",
+  "info": "Info",
   "installer": "Installatore",
   "jniAnalysis": "Analisi JNI",
   "jniAnalysisDesc": "Trova firme JNI nell'APK",
@@ -250,5 +266,6 @@
   "versionCode": "Codice versione",
   "viewData": "Visualizza Dati",
   "vrd": "Convalida nome dir risorse",
-  "welcomeBack": "Bentornato!"
+  "welcomeBack": "Bentornato!",
+  "yes": "Yes"
 }

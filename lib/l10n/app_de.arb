@@ -76,6 +76,14 @@
   "expireDate": "Abgelaufen",
   "extractApk": "APK entpacken",
   "extractingApk": "APK wird extrahiert",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "Fehler beim Entpacken von Dateien aus ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "Bitte verwenden Sie den Desktop oder die mobile App für diese Funktion.",
   "fetchingModelInfo": "Modelinformationen werden abgerufen...",
   "fileExists": "Datei existiert",
-  "fileExistsMsg": "Datei existiert bereits. Möchten Sie sie überschreiben?",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "Größe der Datei",
   "firstInstall": "Erste Installation",
   "flutterAnalysis": "Flutter-Analyse",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "Es ist mir egal, ich bereue",
   "iLoveThisApp": "Tut mir leid, ich liebe diese App",
   "includeSystemApps": "Systemanwendungen einbeziehen",
+  "info": "Info",
   "installer": "Installer",
   "jniAnalysis": "JNI Analyse",
   "jniAnalysisDesc": "JNI-Signaturen in APK finden",
@@ -250,5 +266,6 @@
   "versionCode": "Versionscode",
   "viewData": "Daten anzeigen",
   "vrd": "Überprüfe Ressourcen-Verzeichnisname",
-  "welcomeBack": "Willkommen zurück!"
+  "welcomeBack": "Willkommen zurück!",
+  "yes": "Yes"
 }

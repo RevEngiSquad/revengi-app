@@ -76,6 +76,14 @@
   "expireDate": "منتهية",
   "extractApk": "مستخرج التطبيقات",
   "extractingApk": "استخراج APK",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "فشل في استخراج الملفات من ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "الرجاء استخدام تطبيق سطح المكتب أو الجوال لهذه الميزة.",
   "fetchingModelInfo": "جلب معلومات النموذج...",
   "fileExists": "الملف موجود",
-  "fileExistsMsg": "الملف موجود بالفعل. هل تريد الكتابة فوقه؟",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "حجم الملف",
   "firstInstall": "أول تثبيت",
   "flutterAnalysis": "تحليل تطبيقات الفلاتر",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "أنا لا أهتم ، سأندم",
   "iLoveThisApp": "أنا آسف، أحب هذا التطبيق",
   "includeSystemApps": "تضمين تطبيقات النظام",
+  "info": "Info",
   "installer": "ثبت بواسطة",
   "jniAnalysis": "تحليل ملفات lib",
   "jniAnalysisDesc": "تحليل هيكل ملفات ال\".so\" داخل التطبيق",
@@ -250,5 +266,6 @@
   "versionCode": "ترميز الإصدار",
   "viewData": "أظهر البيانات",
   "vrd": "التحقق من اسم لوحة الموارد",
-  "welcomeBack": "مرحبا بعودتك!"
+  "welcomeBack": "مرحبا بعودتك!",
+  "yes": "نعم"
 }

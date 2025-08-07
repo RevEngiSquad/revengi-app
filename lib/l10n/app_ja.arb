@@ -76,6 +76,14 @@
   "expireDate": "期限切れ",
   "extractApk": "APKを抽出",
   "extractingApk": "APK を抽出中",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "ZIPからファイルを抽出できませんでした: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "この機能にはデスクトップまたはモバイルアプリを使用してください。",
   "fetchingModelInfo": "モデル情報を取得しています...",
   "fileExists": "ファイルが存在します",
-  "fileExistsMsg": "ファイルは既に存在します。上書きしますか？",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "ファイルのサイズ",
   "firstInstall": "最初にインストールする",
   "flutterAnalysis": "Flutter Analysis",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "気にしない、後悔する",
   "iLoveThisApp": "申し訳ありませんが、私はこのアプリが大好きです",
   "includeSystemApps": "システムアプリを含める",
+  "info": "Info",
   "installer": "インストーラー",
   "jniAnalysis": "JNI分析",
   "jniAnalysisDesc": "APKでJNI署名を検索",
@@ -250,5 +266,6 @@
   "versionCode": "バージョンコード",
   "viewData": "データを表示",
   "vrd": "リソースのディレクトリ名を検証する",
-  "welcomeBack": "おかえりなさい！"
+  "welcomeBack": "おかえりなさい！",
+  "yes": "Yes"
 }

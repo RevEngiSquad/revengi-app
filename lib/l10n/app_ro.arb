@@ -76,6 +76,14 @@
   "expireDate": "Expirat",
   "extractApk": "Extrage APK",
   "extractingApk": "Extragere APK",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "Nu s-a reușit extragerea fișierelor din ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "Te rugăm să folosești aplicația desktop sau pentru mobil pentru această funcție.",
   "fetchingModelInfo": "Preluare informații model...",
   "fileExists": "Fișierul există",
-  "fileExistsMsg": "Fișierul există deja. Doriți să îl suprascrieți?",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "Dimensiune fişier",
   "firstInstall": "Prima instalare",
   "flutterAnalysis": "Analiză Flutter",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "Nu-mi pasă, regret",
   "iLoveThisApp": "Îmi pare rău, iubesc această aplicație",
   "includeSystemApps": "Include aplicațiile de sistem",
+  "info": "Info",
   "installer": "Instalare",
   "jniAnalysis": "Analiza JNI",
   "jniAnalysisDesc": "Găsește semnăturile JNI în APK",
@@ -250,5 +266,6 @@
   "versionCode": "Cod versiune",
   "viewData": "Vizualizați datele",
   "vrd": "Validare nume resurse dir",
-  "welcomeBack": "Bine ai revenit!"
+  "welcomeBack": "Bine ai revenit!",
+  "yes": "Yes"
 }

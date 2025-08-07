@@ -76,6 +76,14 @@
   "expireDate": "Wygasły",
   "extractApk": "Wyodrębnij APK",
   "extractingApk": "Rozpakowywanie APK",
+  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "@extractMultiApkConfirm": {
+    "placeholders": {
+      "len": {
+        "type": "int"
+      }
+    }
+  },
   "failedToExtractFiles": "Nie udało się wyodrębnić plików z ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -95,7 +103,14 @@
   "featureNeedsApp": "Użyj tej funkcji na pulpicie lub aplikacji mobilnej.",
   "fetchingModelInfo": "Pobieranie informacji o modelu...",
   "fileExists": "Plik istnieje",
-  "fileExistsMsg": "Plik już istnieje. Czy chcesz go nadpisać?",
+  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "@fileExistsMsg": {
+    "placeholders": {
+      "outputfilePath": {
+        "type": "String"
+      }
+    }
+  },
   "fileSize": "Rozmiar pliku",
   "firstInstall": "Pierwsza instalacja",
   "flutterAnalysis": "Analiza strumienia powietrza",
@@ -107,6 +122,7 @@
   "iDonTLoveThisApp": "Nie podoba mi się, żałuję",
   "iLoveThisApp": "Przepraszam, kocham tę aplikację",
   "includeSystemApps": "Dołącz aplikacje systemowe",
+  "info": "Info",
   "installer": "Instalator",
   "jniAnalysis": "Analiza JNI",
   "jniAnalysisDesc": "Znajdź podpisy JNI w APK",
@@ -250,5 +266,6 @@
   "versionCode": "Kod wersji",
   "viewData": "Zobacz dane",
   "vrd": "Potwierdź nazwę katalogu zasobów",
-  "welcomeBack": "Witaj ponownie!"
+  "welcomeBack": "Witaj ponownie!",
+  "yes": "Yes"
 }
