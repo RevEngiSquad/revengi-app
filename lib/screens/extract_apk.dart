@@ -52,6 +52,9 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   }
 
   Future<(String?, String?)> checkAppOnStore(String packageName) async {
+    if (packageName.startsWith("com.termux")) {
+      return ("F-Droid", 'https://f-droid.org/en/packages/$packageName');
+    }
     final stores = {
       "Google Play":
           'https://play.google.com/store/apps/details?id=$packageName',
