@@ -5,7 +5,7 @@
   "analyzing": "Analyserar...",
   "apiKey": "API nyckel",
   "apiRateLimits": "Gränser för API-slutpunkter",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK har extraherats till {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Fel vid extrahering av APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "APK sökväg",
   "apksToApk": "APKS till APK",
   "appDescription": "En samling av verktyg för omvänd konstruktion.",
   "appTitle": "RevEngi",
-  "availableIn": "Available in",
+  "availableIn": "Tillgänglig i",
   "batteryOptimization": "Batterioptimering",
   "batteryOptimizationMessage": "För Android 11 och ovan, Vi måste inaktivera batterioptimering för att denna app ska fungera korrekt i bakgrunden.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Fortsätt som gäst",
   "copiedToClipboard": "Kopierad till urklipp",
   "createAccount": "Skapa konto",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Datakatalog",
+  "dataDirectory2": "Datakatalog 2",
+  "details": "Detaljer",
   "developer": "Utvecklare",
   "dexRepair": "Dex Reparation",
   "dexRepairDesc": "Reparera DEX-filer",
@@ -65,9 +65,9 @@
   "enterPassword": "Ange lösenord",
   "enterUsername": "Ange användarnamn",
   "errorDuringAnalysis": "Ett fel inträffade under analysen",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Exkludera systemappar",
+  "extractApk": "Extrahera APK",
+  "extractingApk": "Extraherar APK",
   "failedToExtractFiles": "Det gick inte att extrahera filer från ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Använd skrivbordet eller mobilappen för den här funktionen.",
   "fetchingModelInfo": "Hämtar modellinformation...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Fil finns",
+  "fileExistsMsg": "Filen finns redan. Vill du skriva över den?",
+  "fileSize": "Filens storlek",
+  "firstInstall": "Första installationen",
   "flutterAnalysis": "Flutter Analys",
   "flutterAnalysisDesc": "Analysera Flutter libs",
   "generate": "Generera",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Gästanvändare kan inte använda denna funktion",
   "iDonTLoveThisApp": "Jag bryr mig inte, jag ångrar",
   "iLoveThisApp": "Jag är ledsen, jag älskar den här appen",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Inkludera systemappar",
+  "installer": "Installatör",
   "jniAnalysis": "JNI Analys",
   "jniAnalysisDesc": "Hitta JNI-signaturer i APK",
   "language": "Språk: {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "Stor modell varning",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Senast uppdaterad",
   "later": "Senare",
-  "launch": "Launch",
+  "launch": "Starta",
   "licenses": "Licenser",
   "login": "Inloggning",
   "mail": "E-post",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "Vänligen manuellt ta bort filen/katalogen på {outputfile} och försök igen",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Slå ihop delade APK:er",
   "mergeUnsupportedOnWeb": "Delad APK-sammanslagning är inte möjligt i webbversionen.",
   "models": "Modeller",
-  "more": "More",
+  "more": "Mer",
   "mtHook": "MT krok",
   "mtHookDesc": "Generera MT-förbättrade krokar",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Inga appar hittades",
   "noFileSelected": "Ingen fil vald",
-  "notFound": "Not Found",
+  "notFound": "Hittades inte",
   "ok": "OK",
   "ollama_api_url": "OLLAMA bas-URL",
   "ollamaInitializeError": "Det gick inte att initiera Ollama-klient: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Öppna Ollama-biblioteket",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Skriv över",
+  "packageName": "Paketets namn",
   "passLen": "Lösenordet måste vara minst 8 tecken",
   "passMisMatch": "Lösenorden matchar inte",
   "password": "Lösenord",
   "pathToApkeditorJar": "Sökväg till apkeditor burk",
   "pleaseConfirmPassword": "Bekräfta lösenordet",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Vänligen vänta...",
   "preferences": "Inställningar",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Tryck tillbaka igen för att avsluta",
   "proceed": "Fortsätt",
   "profile": "Profil",
   "register": "Registrera",
@@ -180,7 +180,7 @@
   "repairing": "Reparerar...",
   "reset": "Reset",
   "save": "Spara",
-  "searchApps": "Search apps...",
+  "searchApps": "Sök appar...",
   "selectAModel": "Välj en modell att chatta",
   "selectFiles": "Välj {type} fil",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "System meddelande",
   "theme": "Tema",
   "typeMessage": "Skriv ditt meddelande…",
-  "uninstall": "Uninstall",
+  "uninstall": "Avinstallera",
   "uninstallWarning": "Du höll just på att avinstallera appen var inte du?",
-  "unknown": "Unknown",
+  "unknown": "Okänd",
   "unsupportedDartVersion": "För närvarande stöder RevEngi endast dartstabila kanal\n\nNuvarande Dartversion: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Användarnamnet kan endast innehålla bokstäver, siffror och understreck",
   "usernameLimit": "Användarnamnet måste vara mellan 5 och 15 tecken",
   "validateModules": "Validera version av base.apk med delade APK:er",
-  "versionCode": "Version code",
+  "versionCode": "Versionskod",
   "vrd": "Validera resursnamn",
   "welcomeBack": "Välkommen tillbaka!"
 }
