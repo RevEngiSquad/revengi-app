@@ -9,6 +9,7 @@ import 'package:installed_apps/sign_info.dart';
 import 'package:intl/intl.dart';
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/utils/platform.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ExtractApkScreen extends StatefulWidget {
@@ -30,11 +31,14 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   final Set<int> _selectedApps = {};
   bool _isMultiSelect = false;
   final TextEditingController _searchController = TextEditingController();
+  String? _uniPkgName;
+  bool _autoRefresh = false;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    _loadPrefs();
     _loadApps();
     _searchController.addListener(_filterApps);
   }
@@ -49,11 +53,44 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      _loadApps();
+      if (_autoRefresh) {
+        _loadApps();
+      } else if (_uniPkgName != null) {
+        _checkUninstalledApp(_uniPkgName!);
+        _uniPkgName = null;
+      }
     }
   }
 
-  Future<(String?, String?)> checkAppOnStore(String packageName) async {
+  Future<void> _loadPrefs() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _autoRefresh = prefs.getBool('autoRefresh') ?? true;
+    });
+  }
+
+  Future<void> _savePrefs(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('autoRefresh', value);
+    setState(() {
+      _autoRefresh = value;
+    });
+  }
+
+  Future<void> _checkUninstalledApp(String packageName) async {
+    final appInfo = await InstalledApps.getAppInfo(
+      packageName,
+      BuiltWith.flutter,
+    );
+    if (appInfo == null) {
+      setState(() {
+        _apps.removeWhere((app) => app.packageName == packageName);
+        _filteredApps.removeWhere((app) => app.packageName == packageName);
+      });
+    }
+  }
+
+  Future<(String?, String?)> _checkAppOnStore(String packageName) async {
     if (packageName.startsWith("com.termux")) {
       return ("F-Droid", 'https://f-droid.org/en/packages/$packageName');
     }
@@ -1005,7 +1042,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                     }
                   });
                 }
-                var (appStor, appStoreUr) = await checkAppOnStore(
+                var (appStor, appStoreUr) = await _checkAppOnStore(
                   app.packageName,
                 );
                 if (mounted) {
@@ -1432,6 +1469,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                                 ),
                                 PopupMenuItem(
                                   onTap: () {
+                                    _uniPkgName = app.packageName;
                                     InstalledApps.uninstallApp(app.packageName);
                                     Navigator.of(context).pop();
                                   },
@@ -1514,27 +1552,36 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
               icon: Icon(_isSearching ? Icons.close : Icons.search),
               onPressed: _toggleSearch,
             ),
-            PopupMenuButton<bool>(
-              icon: const Icon(Icons.filter_list),
+            PopupMenuButton<int>(
+              icon: const Icon(Icons.more_vert),
               onSelected: (value) {
-                setState(() {
-                  _excludeSystemApps = value;
-                  _isSearching = false;
-                  _searchController.clear();
-                });
-                _loadApps();
+                if (value == 0 || value == 1) {
+                  setState(() {
+                    _excludeSystemApps = value == 0;
+                    _isSearching = false;
+                    _searchController.clear();
+                  });
+                  _loadApps();
+                } else if (value == 2) {
+                  _savePrefs(!_autoRefresh);
+                }
               },
               itemBuilder:
                   (context) => [
                     CheckedPopupMenuItem(
-                      value: true,
+                      value: 0,
                       checked: _excludeSystemApps,
                       child: Text(localizations.excludeSystemApps),
                     ),
                     CheckedPopupMenuItem(
-                      value: false,
+                      value: 1,
                       checked: !_excludeSystemApps,
                       child: Text(localizations.includeSystemApps),
+                    ),
+                    CheckedPopupMenuItem(
+                      value: 2,
+                      checked: _autoRefresh,
+                      child: Text("Auto refresh"),
                     ),
                   ],
             ),
