@@ -5,7 +5,7 @@
   "analyzing": "تحليل...",
   "apiKey": "مفتاح API",
   "apiRateLimits": "حدود معدل نقاط نهاية API",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "تم استخراج APK بنجاح إلى {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "خطأ في استخراج APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "مسار APK",
   "apksToApk": "مجمع APKS",
   "appDescription": "مجموعة من أدوات الهندسة العكسية.",
   "appTitle": "Revengi",
-  "availableIn": "Available in",
+  "availableIn": "متوفر في",
   "batteryOptimization": "تحسين البطارية",
   "batteryOptimizationMessage": "بالنسبة إلى Android 11 وما فوق ، نحتاج إلى تعطيل تحسين البطارية لهذا التطبيق للعمل بشكل صحيح في الخلفية.",
   "blutter": "أداة بلاتر",
@@ -48,9 +48,9 @@
   "continueAsGuest": "الاستمرار كضيف",
   "copiedToClipboard": "نسخ إلى الحافظة",
   "createAccount": "إنشاء حساب",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "دليل البيانات",
+  "dataDirectory2": "دليل البيانات 2",
+  "details": "التفاصيل",
   "developer": "المطور",
   "dexRepair": "إصلاح الديكس",
   "dexRepairDesc": "تصحيح بنية ملفات. dex",
@@ -65,9 +65,9 @@
   "enterPassword": "الرجاء إدخال كلمة المرور",
   "enterUsername": "الرجاء إدخال اسم المستخدم",
   "errorDuringAnalysis": "حدث خطأ أثناء التحليل",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "استبعاد تطبيقات النظام",
+  "extractApk": "استخراج APK",
+  "extractingApk": "استخراج APK",
   "failedToExtractFiles": "فشل في استخراج الملفات من ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "الرجاء استخدام تطبيق سطح المكتب أو الجوال لهذه الميزة.",
   "fetchingModelInfo": "جلب معلومات النموذج...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "الملف موجود",
+  "fileExistsMsg": "الملف موجود بالفعل. هل تريد الكتابة فوقه؟",
+  "fileSize": "حجم الملف",
+  "firstInstall": "أول تثبيت",
   "flutterAnalysis": "تحليل تطبيقات الفلاتر",
   "flutterAnalysisDesc": "عرض معلومات ملفات الفلاتر",
   "generate": "توليد",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "لا يمكن للمستخدمين الضيوف استخدام هذه الميزة",
   "iDonTLoveThisApp": "أنا لا أهتم ، سأندم",
   "iLoveThisApp": "أنا آسف، أحب هذا التطبيق",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "تضمين تطبيقات النظام",
+  "installer": "المثبت",
   "jniAnalysis": "تحليل ملفات lib",
   "jniAnalysisDesc": "تحليل هيكل ملفات ال\".so\" داخل التطبيق",
   "language": "لغة التطبيق : {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "نموذج تحذير كبير",
-  "lastUpdate": "Last update",
+  "lastUpdate": "آخر تحديث",
   "later": "لاحقاً",
-  "launch": "Launch",
+  "launch": "تشغيل",
   "licenses": "التراخيص",
   "login": "تسجيل الدخول",
   "mail": "البريد",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "الرجاء حذف الملف/الدليل يدويا في {outputfile} وحاول مرة أخرى",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "دمج التطبيق المقسم لملف واحد",
   "mergeUnsupportedOnWeb": "تقسيم دمج APK غير ممكن في إصدار الويب.",
   "models": "المحركات",
-  "more": "More",
+  "more": "المزيد",
   "mtHook": "قتل توقيع MT",
   "mtHookDesc": "حقن كود قتل التوقيع مثل MT",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "لم يتم العثور على تطبيقات",
   "noFileSelected": "لم يتم تحديد ملف",
-  "notFound": "Not Found",
+  "notFound": "غير موجود",
   "ok": "نعم",
   "ollama_api_url": "إعداد نقطة إتصال ollama",
   "ollamaInitializeError": "فشل في تهيئة عميل أولاما: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "فتح مكتبة أولاما",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "الكتابة",
+  "packageName": "اسم الحزمة",
   "passLen": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
   "passMisMatch": "كلمتا المرور غير متطابقتين",
   "password": "كلمة المرور",
   "pathToApkeditorJar": "المسار إلى جرس المحرر",
   "pleaseConfirmPassword": "الرجاء تأكيد كلمة المرور",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "الرجاء الانتظار...",
   "preferences": "الإعدادات",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "اضغط مرة أخرى للخروج",
   "proceed": "المتابعة",
   "profile": "حساب تعريفي",
   "register": "تسجيل",
@@ -180,7 +180,7 @@
   "repairing": "إصلاح...",
   "reset": "إعادة ضبط",
   "save": "حفظ",
-  "searchApps": "Search apps...",
+  "searchApps": "البحث في التطبيقات...",
   "selectAModel": "أختر محركا كى تبدأ المحادثة",
   "selectFiles": "حدد ملف {type}",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "رسالة النظام",
   "theme": "المظهر",
   "typeMessage": "اكتب رسالتك…",
-  "uninstall": "Uninstall",
+  "uninstall": "إلغاء",
   "uninstallWarning": "كنت على وشك إلغاء تثبيت التطبيق أليس كذلك؟",
-  "unknown": "Unknown",
+  "unknown": "غير معروف",
   "unsupportedDartVersion": "حاليا RevEngi يدعم فقط قناة مستقرة\n\nالإصدار الحالي لدارت: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "يمكن أن يحتوي اسم المستخدم فقط على أحرف وأرقام وتسطير سطر",
   "usernameLimit": "اسم المستخدم يجب أن يكون بين 5 و 15 حرفا",
   "validateModules": "التحقق من إصدار base.apk مع تقسيم APK",
-  "versionCode": "Version code",
+  "versionCode": "رمز الإصدار",
   "vrd": "التحقق من اسم لوحة الموارد",
   "welcomeBack": "مرحبا بعودتك!"
 }
