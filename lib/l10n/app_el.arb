@@ -5,7 +5,7 @@
   "analyzing": "Ανάλυση...",
   "apiKey": "Κλειδί API",
   "apiRateLimits": "Όρια Ρυθμού Τελικών Σημείων Api",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "Το APK εξήχθη επιτυχώς στο {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Σφάλμα κατά την εξαγωγή APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "Διαδρομή APK",
   "apksToApk": "APKS στο APK",
   "appDescription": "Συλλογή εργαλείων αντίστροφης μηχανικής.",
   "appTitle": "RevEngi",
-  "availableIn": "Available in",
+  "availableIn": "Διαθέσιμο σε",
   "batteryOptimization": "Βελτιστοποίηση Μπαταρίας",
   "batteryOptimizationMessage": "Για Android 11 και παραπάνω, Πρέπει να απενεργοποιήσετε τη βελτιστοποίηση της μπαταρίας για να λειτουργήσει σωστά αυτή η εφαρμογή στο παρασκήνιο.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Συνέχεια ως επισκέπτης",
   "copiedToClipboard": "Αντιγράφηκε στο πρόχειρο",
   "createAccount": "Δημιουργία Λογαριασμού",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Κατάλογος δεδομένων",
+  "dataDirectory2": "Κατάλογος δεδομένων 2",
+  "details": "Λεπτομέρειες",
   "developer": "Προγραμματιστής",
   "dexRepair": "Επισκευή Dex",
   "dexRepairDesc": "Επισκευή αρχείων DEX",
@@ -65,9 +65,9 @@
   "enterPassword": "Παρακαλώ εισάγετε κωδικό πρόσβασης",
   "enterUsername": "Παρακαλώ εισάγετε όνομα χρήστη",
   "errorDuringAnalysis": "Παρουσιάστηκε σφάλμα κατά την ανάλυση",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Εξαίρεση Εφαρμογών Συστήματος",
+  "extractApk": "Εξαγωγή APK",
+  "extractingApk": "Εξαγωγή APK",
   "failedToExtractFiles": "Αποτυχία εξαγωγής αρχείων από το ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Παρακαλώ χρησιμοποιήστε την επιφάνεια εργασίας ή την εφαρμογή για κινητά για αυτή τη δυνατότητα.",
   "fetchingModelInfo": "Λήψη πληροφοριών μοντέλου...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Το Αρχείο Υπάρχει",
+  "fileExistsMsg": "Το αρχείο υπάρχει ήδη. Θέλετε να το αντικαταστήσετε?",
+  "fileSize": "Μέγεθος αρχείου",
+  "firstInstall": "Πρώτη εγκατάσταση",
   "flutterAnalysis": "Ανάλυση Flutter",
   "flutterAnalysisDesc": "Αναλύστε τα χείλη Flutter",
   "generate": "Δημιουργία",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Οι χρήστες δεν μπορούν να χρησιμοποιήσουν αυτή τη δυνατότητα",
   "iDonTLoveThisApp": "Δεν με νοιάζει, Θα μετανιώσω",
   "iLoveThisApp": "Λυπάμαι, μου αρέσει αυτή η εφαρμογή",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Συμπερίληψη Εφαρμογών Συστήματος",
+  "installer": "Εγκαταστάτης",
   "jniAnalysis": "Ανάλυση JNI",
   "jniAnalysisDesc": "Βρείτε JNI υπογραφές στο APK",
   "language": "Language: {languageCode}",
@@ -112,9 +112,9 @@
     }
   },
   "largeModelWarning": "Προειδοποίηση Μεγάλου Μοντέλου",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Τελευταία ενημέρωση",
   "later": "Αργότερα",
-  "launch": "Launch",
+  "launch": "Εκκίνηση",
   "licenses": "Άδειες",
   "login": "Είσοδος",
   "mail": "Αλληλογραφία",
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Συγχώνευση Διαχωρισμού Apk",
   "mergeUnsupportedOnWeb": "Ο διαχωρισμός της συγχώνευσης APK δεν είναι δυνατός στην έκδοση web.",
   "models": "Μοντέλα",
-  "more": "More",
+  "more": "Περισσότερα",
   "mtHook": "MT Γάντζος",
   "mtHookDesc": "Δημιουργία MT Ενισχυμένη Αγκίστρια",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Δεν βρέθηκαν εφαρμογές",
   "noFileSelected": "Δεν επιλέχθηκε αρχείο",
-  "notFound": "Not Found",
+  "notFound": "Δεν Βρέθηκε",
   "ok": "Εντάξει",
   "ollama_api_url": "URL βάσης OLLAMA",
   "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Άνοιγμα Της Βιβλιοθήκης Ollama",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Αντικατάσταση",
+  "packageName": "Όνομα πακέτου",
   "passLen": "Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον 8 χαρακτήρες",
   "passMisMatch": "Οι κωδικοί πρόσβασης δεν ταιριάζουν",
   "password": "Κωδικός",
   "pathToApkeditorJar": "Διαδρομή προς το βάζο apkeditor",
   "pleaseConfirmPassword": "Παρακαλώ επιβεβαιώστε τον κωδικό πρόσβασης",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Παρακαλώ περιμένετε...",
   "preferences": "Ρυθμίσεις",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Πατήστε πίσω ξανά για έξοδο",
   "proceed": "Συνέχεια",
   "profile": "Προφίλ",
   "register": "Εγγραφή",
@@ -180,7 +180,7 @@
   "repairing": "Επιδιόρθωση...",
   "reset": "Reset",
   "save": "Αποθήκευση",
-  "searchApps": "Search apps...",
+  "searchApps": "Αναζήτηση εφαρμογών...",
   "selectAModel": "Επιλέξτε ένα μοντέλο για συνομιλία",
   "selectFiles": "Επιλογή Αρχείου {type}",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "Μήνυμα Συστήματος",
   "theme": "Θέμα",
   "typeMessage": "Type your message…",
-  "uninstall": "Uninstall",
+  "uninstall": "Απεγκατάσταση",
   "uninstallWarning": "Ήσασταν απλά για να απεγκαταστήσετε την εφαρμογή δεν εσείς?",
-  "unknown": "Unknown",
+  "unknown": "Άγνωστο",
   "unsupportedDartVersion": "Επί του παρόντος RevEngi υποστηρίζει μόνο dart σταθερό κανάλι\n\nΤρέχουσα Dart Έκδοση: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Το όνομα χρήστη μπορεί να περιέχει μόνο γράμματα, αριθμούς και κάτω παύλα",
   "usernameLimit": "Το όνομα χρήστη πρέπει να είναι μεταξύ 5 και 15 χαρακτήρων",
   "validateModules": "Επικύρωση έκδοσης του base.apk με split APKs",
-  "versionCode": "Version code",
+  "versionCode": "Κώδικας έκδοσης",
   "vrd": "Επικύρωση ονόματος dir πόρων",
   "welcomeBack": "Καλώς Ήρθατε!"
 }
