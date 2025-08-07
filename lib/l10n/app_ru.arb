@@ -5,7 +5,7 @@
   "analyzing": "Анализ...",
   "apiKey": "Ключ API",
   "apiRateLimits": "Пределы конечной ставки API",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK успешно распакован в {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Ошибка распаковки APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "Путь APK",
   "apksToApk": "APKS в АПК",
   "appDescription": "Сбор обратных инженерных инструментов.",
   "appTitle": "RevEngi",
-  "availableIn": "Available in",
+  "availableIn": "Доступно в",
   "batteryOptimization": "Оптимизация батареи",
   "batteryOptimizationMessage": "Для Android 11 и выше нам нужно отключить оптимизацию батареи, чтобы это приложение работало правильно в фоновом режиме.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Продолжить как гость",
   "copiedToClipboard": "Скопировано в буфер обмена",
   "createAccount": "Создать Аккаунт",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Каталог данных",
+  "dataDirectory2": "Каталог данных 2",
+  "details": "Детали",
   "developer": "Разработчик",
   "dexRepair": "Ремонт",
   "dexRepairDesc": "Восстановление DEX файлов",
@@ -65,9 +65,9 @@
   "enterPassword": "Введите пароль",
   "enterUsername": "Пожалуйста, введите имя пользователя",
   "errorDuringAnalysis": "Произошла ошибка во время анализа",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Исключить системные приложения",
+  "extractApk": "Извлечь APK",
+  "extractingApk": "Извлечение APK",
   "failedToExtractFiles": "Не удалось извлечь файлы из ZIP: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Пожалуйста, используйте настольное или мобильное приложение для этой функции.",
   "fetchingModelInfo": "Получение информации о модели...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Файл существует",
+  "fileExistsMsg": "Файл уже существует. Хотите перезаписать его?",
+  "fileSize": "Размер файла",
+  "firstInstall": "Первая установка",
   "flutterAnalysis": "Анализ Flutter",
   "flutterAnalysisDesc": "Анализ библиотек Flutter",
   "generate": "Сгенерировать",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Гостевые пользователи не могут использовать эту функцию",
   "iDonTLoveThisApp": "Не волнуйтесь, пожалею",
   "iLoveThisApp": "Извините, я люблю это приложение",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Включить системные приложения",
+  "installer": "Установщик",
   "jniAnalysis": "JNI Анализ",
   "jniAnalysisDesc": "Поиск JNI подписей в APK",
   "language": "Язык: {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "Большое предупреждение модели",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Последнее обновление",
   "later": "Позже",
-  "launch": "Launch",
+  "launch": "Запуск",
   "licenses": "Лицензии",
   "login": "Логин",
   "mail": "Почта",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "Пожалуйста, вручную удалите файл/каталог {outputfile} и попробуйте снова",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Объединить API",
   "mergeUnsupportedOnWeb": "Слияние Split APK в веб-версии невозможно.",
   "models": "Модели",
-  "more": "More",
+  "more": "Ещё",
   "mtHook": "MT Hook",
   "mtHookDesc": "Генерировать улучшенные хуки MT",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Не найдено приложений",
   "noFileSelected": "Файл не выбран",
-  "notFound": "Not Found",
+  "notFound": "Не найдено",
   "ok": "Ок",
   "ollama_api_url": "OLLAMA базовый URL",
   "ollamaInitializeError": "Не удалось инициализировать Ollama клиент: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Открыть библиотеку Ollama",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Перезаписать",
+  "packageName": "Имя пакета",
   "passLen": "Пароль должен содержать не менее 8 символов",
   "passMisMatch": "Пароли не совпадают",
   "password": "Пароль",
   "pathToApkeditorJar": "Путь к apkeditor jar",
   "pleaseConfirmPassword": "Подтвердите пароль",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Подождите...",
   "preferences": "Настройки",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Нажмите Назад еще раз для выхода",
   "proceed": "Продолжить",
   "profile": "Профиль",
   "register": "Регистрация",
@@ -180,7 +180,7 @@
   "repairing": "Починка...",
   "reset": "Reset",
   "save": "Сохранить",
-  "searchApps": "Search apps...",
+  "searchApps": "Поиск приложений...",
   "selectAModel": "Выберите модель для чата",
   "selectFiles": "Выберите файл {type}",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "Системное сообщение",
   "theme": "Тема",
   "typeMessage": "Введите ваше сообщение…",
-  "uninstall": "Uninstall",
+  "uninstall": "Удалить",
   "uninstallWarning": "Вы только собирались удалить приложение?",
-  "unknown": "Unknown",
+  "unknown": "Неизвестен",
   "unsupportedDartVersion": "В настоящее время RevEngi поддерживает только стабильный канал dart\n\nТекущая версия Dart версии: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Имя пользователя может содержать только буквы, цифры и подчеркивание",
   "usernameLimit": "Имя пользователя должно быть от 5 до 15 символов",
   "validateModules": "Проверить версию base.apk с помощью разделенного APK",
-  "versionCode": "Version code",
+  "versionCode": "Код версии",
   "vrd": "Проверить имя каталога ресурсов",
   "welcomeBack": "С возвращением!"
 }
