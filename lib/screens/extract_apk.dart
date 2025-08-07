@@ -52,27 +52,28 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   }
 
   Future<(String?, String?)> checkAppOnStore(String packageName) async {
-    var url = 'https://play.google.com/store/apps/details?id=$packageName';
-    final Dio dio = Dio();
-    dio.options.validateStatus = (status) {
-      return status! < 500;
+    final stores = {
+      "Google Play":
+          'https://play.google.com/store/apps/details?id=$packageName',
+      "F-Droid": 'https://f-droid.org/en/packages/$packageName',
+      "Izzydroid": 'https://apt.izzysoft.de/fdroid/index/apk/$packageName',
     };
-    var res = await dio.head(url);
-    if (res.statusCode == 200) {
-      return ("Google Play", url);
-    } else {
-      url = 'https://f-droid.org/en/packages/$packageName';
-      res = await dio.head(url);
-      if (res.statusCode == 200) {
-        return ("F-Droid", url);
-      } else {
-        url = 'https://apt.izzysoft.de/fdroid/index/apk/$packageName';
-        res = await dio.head(url);
+
+    final Dio dio = Dio();
+    dio.options.validateStatus = (status) => status! < 500;
+
+    for (var entry in stores.entries) {
+      try {
+        var res = await dio.head(entry.value);
         if (res.statusCode == 200) {
-          return ("Izzydroid", url);
+          return (entry.key, entry.value);
         }
-      }
+      } catch (
+        _
+      ) {} // Currently there's no logger library in app, i plan to add one soon
+      // [TODO] Implement Talker logger
     }
+
     return (null, null);
   }
 
