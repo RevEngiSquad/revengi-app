@@ -5,7 +5,7 @@
   "analyzing": "Analyseren...",
   "apiKey": "API Sleutel",
   "apiRateLimits": "API Eindpunten Limieten",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "apkExtractedMsg": "APK succesvol uitgepakt naar {outputfile}",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -13,7 +13,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "Fout uitpakken APK: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -21,11 +21,11 @@
       }
     }
   },
-  "apkPath": "APK path",
+  "apkPath": "APK pad",
   "apksToApk": "APKS naar APK",
   "appDescription": "Een verzameling omgekeerde engineering gereedschappen.",
   "appTitle": "RevEngi",
-  "availableIn": "Available in",
+  "availableIn": "Beschikbaar in",
   "batteryOptimization": "Batterij optimalisatie",
   "batteryOptimizationMessage": "Voor Android 11 en hoger, moeten we batterij optimalisatie uitschakelen om deze app goed te laten werken op de achtergrond.",
   "blutter": "Blutter",
@@ -48,9 +48,9 @@
   "continueAsGuest": "Doorgaan als gast",
   "copiedToClipboard": "Gekopieerd naar klembord",
   "createAccount": "Account Aanmaken",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
+  "dataDirectory": "Data map",
+  "dataDirectory2": "Gegevensmap 2",
+  "details": "Beschrijving",
   "developer": "Ontwikkelaar",
   "dexRepair": "Dex Reparatie",
   "dexRepairDesc": "Repareer DEX bestanden",
@@ -65,9 +65,9 @@
   "enterPassword": "Voer wachtwoord in",
   "enterUsername": "Voer gebruikersnaam in",
   "errorDuringAnalysis": "Er is een fout opgetreden tijdens de analyse",
-  "excludeSystemApps": "Exclude System Apps",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
+  "excludeSystemApps": "Uitsluiten van systeem apps",
+  "extractApk": "APK uitpakken",
+  "extractingApk": "APK uitpakken",
   "failedToExtractFiles": "Uitpakken van bestanden van ZIP: {e} mislukt",
   "@failedToExtractFiles": {
     "placeholders": {
@@ -86,10 +86,10 @@
   },
   "featureNeedsApp": "Gebruik de desktop of mobiele app voor deze functie.",
   "fetchingModelInfo": "Ophalen van modelinformatie...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File already exists. Do you want to overwrite it?",
-  "fileSize": "File size",
-  "firstInstall": "First install",
+  "fileExists": "Bestand bestaat",
+  "fileExistsMsg": "Bestand bestaat al. Wil je het overschrijven?",
+  "fileSize": "Bestands grootte",
+  "firstInstall": "Eerste installatie",
   "flutterAnalysis": "Flutter analyse",
   "flutterAnalysisDesc": "Flutter libs analyseren",
   "generate": "Genereren",
@@ -97,8 +97,8 @@
   "guestNotAllowed": "Gastgebruikers kunnen deze functie niet gebruiken",
   "iDonTLoveThisApp": "Het kan me niet schelen, ik zal spijt",
   "iLoveThisApp": "Het spijt me, ik hou van deze app",
-  "includeSystemApps": "Include System Apps",
-  "installer": "Installer",
+  "includeSystemApps": "Inclusief Systeem Apps",
+  "installer": "Installatie",
   "jniAnalysis": "JNI analyse",
   "jniAnalysisDesc": "Zoek JNI handtekeningen in APK",
   "language": "Taal: {languageCode}",
@@ -112,13 +112,13 @@
     }
   },
   "largeModelWarning": "Waarschuwing groot model",
-  "lastUpdate": "Last update",
+  "lastUpdate": "Laatste update",
   "later": "Later",
-  "launch": "Launch",
+  "launch": "Starten",
   "licenses": "Licenties",
   "login": "Aanmelden",
   "mail": "E-mailen",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "manualDeleteRequired": "Verwijder de bestands/map handmatig bij {outputfile} en probeer het opnieuw",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -130,12 +130,12 @@
   "mergeSplitApks": "Split-APK's samenvoegen",
   "mergeUnsupportedOnWeb": "Samenvoegen van de APK is niet mogelijk in de webversie.",
   "models": "Model",
-  "more": "More",
+  "more": "Meer",
   "mtHook": "MT Haak",
   "mtHookDesc": "Genereer MT versterkte hooks",
-  "noAppsFound": "No apps found",
+  "noAppsFound": "Geen apps gevonden",
   "noFileSelected": "Geen bestand geselecteerd",
-  "notFound": "Not Found",
+  "notFound": "Niet gevonden",
   "ok": "OK",
   "ollama_api_url": "OLLAMA basis-URL",
   "ollamaInitializeError": "Kan Ollama-client niet initialiseren: {e}",
@@ -147,16 +147,16 @@
     }
   },
   "openOllamaLibrary": "Open Ollama Bibliotheek",
-  "overwrite": "Overwrite",
-  "packageName": "Package name",
+  "overwrite": "Overschrijf",
+  "packageName": "Pakket naam",
   "passLen": "Wachtwoord moet ten minste 8 tekens bevatten",
   "passMisMatch": "Wachtwoorden komen niet overeen",
   "password": "Wachtwoord",
   "pathToApkeditorJar": "Pad naar apkeditor jar",
   "pleaseConfirmPassword": "Bevestig het wachtwoord",
-  "pleaseWait": "Please wait...",
+  "pleaseWait": "Een ogenblik geduld...",
   "preferences": "named@@0",
-  "pressBackAgainToExit": "Press back again to exit",
+  "pressBackAgainToExit": "Druk nogmaals op terug om af te sluiten",
   "proceed": "Doorgaan",
   "profile": "Profiel",
   "register": "Registreren",
@@ -180,7 +180,7 @@
   "repairing": "Herstellen...",
   "reset": "Reset",
   "save": "Opslaan",
-  "searchApps": "Search apps...",
+  "searchApps": "Apps zoeken...",
   "selectAModel": "Selecteer een model om te chatten",
   "selectFiles": "Selecteer {type} bestand",
   "@selectFiles": {
@@ -208,9 +208,9 @@
   "systemMessage": "Systeem bericht",
   "theme": "Thema",
   "typeMessage": "Typ je bericht…",
-  "uninstall": "Uninstall",
+  "uninstall": "De-installeer",
   "uninstallWarning": "U staat op het punt de app te deïnstalleren?",
-  "unknown": "Unknown",
+  "unknown": "onbekend",
   "unsupportedDartVersion": "Momenteel ondersteunt RevEngi alleen dart stable channel\n\nCurrent Dart Version: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
@@ -227,7 +227,7 @@
   "usernameCond": "Gebruikersnaam mag alleen letters, cijfers en onderstrepingstekens bevatten",
   "usernameLimit": "Gebruikersnaam moet tussen 5 en 15 tekens lang zijn",
   "validateModules": "Valideer de versie van de base.apk met gesplitste APK's",
-  "versionCode": "Version code",
+  "versionCode": "Versie code",
   "vrd": "Valideer resources map naam",
   "welcomeBack": "Welkom terug!"
 }
