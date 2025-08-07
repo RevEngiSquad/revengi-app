@@ -1232,7 +1232,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                         TableRow(
                           children: [
                             Text(
-                              "Open in",
+                              localizations.availableIn,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             InkWell(
@@ -1259,8 +1259,8 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                         ),
                         TableRow(
                           children: [
-                            const Text(
-                              'Installer',
+                            Text(
+                              localizations.installer,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                             InkWell(
