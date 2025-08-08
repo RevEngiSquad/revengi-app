@@ -28,7 +28,7 @@
   "appDescription": "Сбор обратных инженерных инструментов.",
   "appTitle": "RevEngi",
   "arguments": "Аргументы",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Автообновление",
   "availableIn": "Доступно в",
   "batteryOptimization": "Оптимизация батареи",
   "batteryOptimizationMessage": "Для Android 11 и выше нам нужно отключить оптимизацию батареи, чтобы это приложение работало правильно в фоновом режиме.",
@@ -76,7 +76,7 @@
   "expireDate": "Истёк",
   "extractApk": "Извлечь APK",
   "extractingApk": "Извлечение APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Вы хотите извлечь выбранные {len} файлы apk?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Пожалуйста, используйте настольное или мобильное приложение для этой функции.",
   "fetchingModelInfo": "Получение информации о модели...",
   "fileExists": "Файл существует",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Файл {outputfilePath} уже существует. Хотите перезаписать его?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "Не волнуйтесь, пожалею",
   "iLoveThisApp": "Извините, я люблю это приложение",
   "includeSystemApps": "Включить системные приложения",
-  "info": "Info",
+  "info": "Инфо",
   "installer": "Установщик",
   "jniAnalysis": "JNI Анализ",
   "jniAnalysisDesc": "Поиск JNI подписей в APK",
@@ -213,7 +213,7 @@
   "scheme": "Схема",
   "searchApps": "Поиск приложений...",
   "selectAModel": "Выберите модель для чата",
-  "selected": "Selected: {value}",
+  "selected": "Выбрано: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Просмотр данных",
   "vrd": "Проверить имя каталога ресурсов",
   "welcomeBack": "С возвращением!",
-  "yes": "Yes"
+  "yes": "Да"
 }
