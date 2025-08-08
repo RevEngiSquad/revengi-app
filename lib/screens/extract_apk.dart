@@ -1555,14 +1555,14 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
             PopupMenuButton<int>(
               icon: const Icon(Icons.more_vert),
               onSelected: (value) {
-                if (value == 0 || value == 1) {
+                if (value == 0) {
                   setState(() {
-                    _excludeSystemApps = value == 0;
+                    _excludeSystemApps = !_excludeSystemApps;
                     _isSearching = false;
                     _searchController.clear();
                   });
                   _loadApps();
-                } else if (value == 2) {
+                } else if (value == 1) {
                   _savePrefs(!_autoRefresh);
                 }
               },
@@ -1571,15 +1571,14 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                     CheckedPopupMenuItem(
                       value: 0,
                       checked: _excludeSystemApps,
-                      child: Text(localizations.excludeSystemApps),
+                      child: Text(
+                        _excludeSystemApps
+                            ? localizations.includeSystemApps
+                            : localizations.excludeSystemApps,
+                      ),
                     ),
                     CheckedPopupMenuItem(
                       value: 1,
-                      checked: !_excludeSystemApps,
-                      child: Text(localizations.includeSystemApps),
-                    ),
-                    CheckedPopupMenuItem(
-                      value: 2,
                       checked: _autoRefresh,
                       child: Text("Auto refresh"),
                     ),
