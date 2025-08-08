@@ -28,7 +28,7 @@
   "appDescription": "Una colección de herramientas de ingeniería inversa.",
   "appTitle": "RevEngi",
   "arguments": "Argumentos",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Actualización automática",
   "availableIn": "Disponible en",
   "batteryOptimization": "Optimización de la batería",
   "batteryOptimizationMessage": "Para Android 11 y versiones posteriores, necesitamos deshabilitar la optimización de batería para que esta aplicación funcione correctamente en segundo plano.",
@@ -76,7 +76,7 @@
   "expireDate": "Caducó",
   "extractApk": "Extraer APK",
   "extractingApk": "Extrayendo APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "¿Quieres extraer los archivos apk {len} seleccionados?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Utilice la aplicación de escritorio o móvil para esta función.",
   "fetchingModelInfo": "Obteniendo información del modelo...",
   "fileExists": "El archivo existe",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "El archivo {outputfilePath} ya existe. ¿Desea sobrescribirlo?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -213,7 +213,7 @@
   "scheme": "Esquema",
   "searchApps": "Buscar aplicaciones...",
   "selectAModel": "Seleccione un modelo para chatear",
-  "selected": "Selected: {value}",
+  "selected": "Seleccionado: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Ver datos",
   "vrd": "Validar el nombre del directorio de recursos",
   "welcomeBack": "¡Bienvenido de nuevo!",
-  "yes": "Yes"
+  "yes": "Sí"
 }
