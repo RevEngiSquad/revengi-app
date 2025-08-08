@@ -28,7 +28,7 @@
   "appDescription": "Een verzameling omgekeerde engineering gereedschappen.",
   "appTitle": "RevEngi",
   "arguments": "Argumenten",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Automatisch vernieuwen",
   "availableIn": "Beschikbaar in",
   "batteryOptimization": "Batterij optimalisatie",
   "batteryOptimizationMessage": "Voor Android 11 en hoger, moeten we batterij optimalisatie uitschakelen om deze app goed te laten werken op de achtergrond.",
@@ -76,7 +76,7 @@
   "expireDate": "Verlopen",
   "extractApk": "APK uitpakken",
   "extractingApk": "APK uitpakken",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Wil je de {len} apk-bestanden die je hebt geselecteerd uitpakken?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Gebruik de desktop of mobiele app voor deze functie.",
   "fetchingModelInfo": "Ophalen van modelinformatie...",
   "fileExists": "Bestand bestaat",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Bestand {outputfilePath} bestaat al. Wil je het overschrijven?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "Het kan me niet schelen, ik zal spijt",
   "iLoveThisApp": "Het spijt me, ik hou van deze app",
   "includeSystemApps": "Inclusief Systeem Apps",
-  "info": "Info",
+  "info": "Informatie",
   "installer": "Installatie",
   "jniAnalysis": "JNI analyse",
   "jniAnalysisDesc": "Zoek JNI handtekeningen in APK",
@@ -213,7 +213,7 @@
   "scheme": "Schema",
   "searchApps": "Apps zoeken...",
   "selectAModel": "Selecteer een model om te chatten",
-  "selected": "Selected: {value}",
+  "selected": "Geselecteerd: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Gegevens bekijken",
   "vrd": "Valideer resources map naam",
   "welcomeBack": "Welkom terug!",
-  "yes": "Yes"
+  "yes": "ja"
 }
