@@ -1,13 +1,13 @@
 {
-  "about": "About",
-  "addColon": "Add colon",
-  "aiChat": "AI Chat",
-  "algorithm": "Algorithm",
-  "analyze": "Analyze",
-  "analyzing": "Analyzing...",
-  "apiKey": "API Key",
-  "apiRateLimits": "API Endpoints Rate Limits",
-  "apkExtractedMsg": "APK extracted successfully to {outputfile}",
+  "about": "के बारे में",
+  "addColon": "कोलन जोड़ें",
+  "aiChat": "एआई चैट",
+  "algorithm": "एल्गोरिदम",
+  "analyze": "विश्लेषण करें",
+  "analyzing": "विश्लेषण हो रहा है...",
+  "apiKey": "एपीआई कुंजी",
+  "apiRateLimits": "एपीआई एंडपॉइंट्स दर सीमाएं",
+  "apkExtractedMsg": "APK सफलतापूर्वक {outputfile} में निकाला गया",
   "@apkExtractedMsg": {
     "placeholders": {
       "outputfile": {
@@ -15,7 +15,7 @@
       }
     }
   },
-  "apkExtractError": "Error extracting APK: {e}",
+  "apkExtractError": "APK निकालने में त्रुटि: {e}",
   "@apkExtractError": {
     "placeholders": {
       "e": {
@@ -23,24 +23,24 @@
       }
     }
   },
-  "apkPath": "APK path",
-  "apksToApk": "APKS to APK",
-  "appDescription": "A collection of reverse engineering tools.",
+  "apkPath": "APK पथ",
+  "apksToApk": "APKS से APK",
+  "appDescription": "रिवर्स इंजीनियरिंग टूल्स का संग्रह।",
   "appTitle": "RevEngi",
-  "arguments": "Arguments",
-  "autoRefresh": "Auto refresh",
-  "availableIn": "Available in",
-  "batteryOptimization": "Battery Optimization",
-  "batteryOptimizationMessage": "For Android 11 and above, We need to disable battery optimization for this app to work properly in the background.",
-  "blutter": "Blutter",
-  "blutterDesc": "Flutter binary analysis tool",
-  "blutterNote": "\nAPK: The app will directly handle APK files.\n\r\nZIP: Ensure ZIP files contain only the `libapp.so` for arm64 architecture. Failure to comply may result in errors.",
-  "briefSummary": "Brief Summary",
-  "cancel": "Cancel",
-  "chat": "Chat",
-  "checkForUpdate": "Check for Updates",
-  "checkingDeviceRam": "Checking device RAM...",
-  "chooseFile": "Choose {type}",
+  "arguments": "तर्क",
+  "autoRefresh": "स्वचालित रीफ़्रेश",
+  "availableIn": "में उपलब्ध",
+  "batteryOptimization": "बैटरी अनुकूलन",
+  "batteryOptimizationMessage": "एंड्रॉइड 11 और उससे ऊपर के लिए, बैकग्राउंड में ऐप को सही से चलाने के लिए हमें बैटरी अनुकूलन अक्षम करना होगा।",
+  "blutter": "ब्लटर",
+  "blutterDesc": "फ्लटर बाइनरी विश्लेषण उपकरण",
+  "blutterNote": "\nAPK: ऐप सीधे APK फ़ाइलों को संभालेगा।\n\r\nZIP: सुनिश्चित करें कि ZIP फ़ाइलों में केवल arm64 आर्किटेक्चर के लिए `libapp.so` हो। अनुपालन में विफलता त्रुटियों का कारण बन सकती है।",
+  "briefSummary": "संक्षिप्त सारांश",
+  "cancel": "रद्द करें",
+  "chat": "चैट",
+  "checkForUpdate": "अपडेट जांचें",
+  "checkingDeviceRam": "डिवाइस RAM की जांच हो रही है...",
+  "chooseFile": "{type} चुनें",
   "@chooseFile": {
     "placeholders": {
       "type": {
@@ -48,35 +48,35 @@
       }
     }
   },
-  "cleanMeta": "Clean META-INF directory",
-  "confirmPassword": "Confirm Password",
-  "continueAsGuest": "Continue as Guest",
-  "copiedToClipboard": "Copied to clipboard",
-  "copy": "Copy",
-  "copyBase64": "Copy Base64",
-  "createAccount": "Create Account",
-  "createDate": "Created",
-  "dataDirectory": "Data directory",
-  "dataDirectory2": "Data directory 2",
-  "details": "Details",
-  "developer": "Developer",
-  "dexRepair": "Dex Repair",
-  "dexRepairDesc": "Repair DEX files",
-  "donate": "Donate",
-  "downloadedModels": "Downloaded Models:",
-  "downloading": "Downloading...",
-  "downloadModel": "Download a model:",
-  "email": "Email",
-  "emailCond": "Please enter a valid Gmail address",
-  "enterEmail": "Please enter email",
-  "enterModelName": "Enter a model name",
-  "enterPassword": "Please enter password",
-  "enterUsername": "Please enter username",
-  "errorDuringAnalysis": "An error occurred during analysis",
-  "expireDate": "Expired",
-  "extractApk": "Extract APK",
-  "extractingApk": "Extracting APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "cleanMeta": "META-INF निर्देशिका साफ़ करें",
+  "confirmPassword": "पासवर्ड की पुष्टि करें",
+  "continueAsGuest": "अतिथि के रूप में जारी रखें",
+  "copiedToClipboard": "क्लिपबोर्ड पर कॉपी किया गया",
+  "copy": "कॉपी करें",
+  "copyBase64": "Base64 कॉपी करें",
+  "createAccount": "खाता बनाएँ",
+  "createDate": "बनाया गया",
+  "dataDirectory": "डेटा निर्देशिका",
+  "dataDirectory2": "डेटा निर्देशिका 2",
+  "details": "विवरण",
+  "developer": "डेवलपर",
+  "dexRepair": "DEX मरम्मत",
+  "dexRepairDesc": "DEX फ़ाइलों की मरम्मत करें",
+  "donate": "दान करें",
+  "downloadedModels": "डाउनलोड किए गए मॉडल:",
+  "downloading": "डाउनलोड हो रहा है...",
+  "downloadModel": "एक मॉडल डाउनलोड करें:",
+  "email": "ईमेल",
+  "emailCond": "कृपया मान्य Gmail पता दर्ज करें",
+  "enterEmail": "कृपया ईमेल दर्ज करें",
+  "enterModelName": "मॉडल का नाम दर्ज करें",
+  "enterPassword": "कृपया पासवर्ड दर्ज करें",
+  "enterUsername": "कृपया उपयोगकर्ता नाम दर्ज करें",
+  "errorDuringAnalysis": "विश्लेषण के दौरान एक त्रुटि हुई",
+  "expireDate": "समाप्त",
+  "extractApk": "APK निकालें",
+  "extractingApk": "APK निकाला जा रहा है",
+  "extractMultiApkConfirm": "क्या आप चयनित {len} APK फ़ाइलें निकालना चाहते हैं?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -84,7 +84,7 @@
       }
     }
   },
-  "failedToExtractFiles": "Failed to extract files from ZIP: {e}",
+  "failedToExtractFiles": "ZIP से फ़ाइलें निकालने में विफल: {e}",
   "@failedToExtractFiles": {
     "placeholders": {
       "e": {
@@ -92,7 +92,7 @@
       }
     }
   },
-  "failedToPullModel": "Failed to pull model: {error}",
+  "failedToPullModel": "मॉडल लाने में विफल: {error}",
   "@failedToPullModel": {
     "placeholders": {
       "error": {
@@ -100,10 +100,10 @@
       }
     }
   },
-  "featureNeedsApp": "Please use the desktop or mobile app for this feature.",
-  "fetchingModelInfo": "Fetching model info...",
-  "fileExists": "File Exists",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "featureNeedsApp": "कृपया इस सुविधा के लिए डेस्कटॉप या मोबाइल ऐप का उपयोग करें।",
+  "fetchingModelInfo": "मॉडल जानकारी प्राप्त की जा रही है...",
+  "fileExists": "फ़ाइल मौजूद है",
+  "fileExistsMsg": "फ़ाइल {outputfilePath} पहले से मौजूद है। क्या आप इसे अधिलेखित करना चाहते हैं?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -111,23 +111,23 @@
       }
     }
   },
-  "fileSize": "File size",
-  "firstInstall": "First install",
-  "flutterAnalysis": "Flutter Analysis",
-  "flutterAnalysisDesc": "Analyze Flutter libs",
-  "format": "Format",
-  "generate": "Generate",
-  "generating": "Generating...",
-  "guestNotAllowed": "Guest users cannot use this feature",
-  "iDonTLoveThisApp": "I don't care, I'll regret",
-  "iLoveThisApp": "I'm sorry, I love this app",
-  "includeSystemApps": "Include System Apps",
-  "info": "Info",
-  "installer": "Installer",
-  "jniAnalysis": "JNI Analysis",
-  "jniAnalysisDesc": "Find JNI signatures in APK",
-  "keyComponents": "Key components",
-  "language": "Language: {languageCode}",
+  "fileSize": "फ़ाइल का आकार",
+  "firstInstall": "पहली स्थापना",
+  "flutterAnalysis": "फ्लटर विश्लेषण",
+  "flutterAnalysisDesc": "फ्लटर लाइब्स का विश्लेषण करें",
+  "format": "प्रारूप",
+  "generate": "उत्पन्न करें",
+  "generating": "उत्पन्न किया जा रहा है...",
+  "guestNotAllowed": "अतिथि उपयोगकर्ता इस सुविधा का उपयोग नहीं कर सकते",
+  "iDonTLoveThisApp": "मुझे परवाह नहीं, मुझे पछतावा होगा",
+  "iLoveThisApp": "माफ़ करना, मुझे यह ऐप पसंद है",
+  "includeSystemApps": "सिस्टम ऐप्स शामिल करें",
+  "info": "जानकारी",
+  "installer": "इंस्टॉलर",
+  "jniAnalysis": "JNI विश्लेषण",
+  "jniAnalysisDesc": "APK में JNI हस्ताक्षर खोजें",
+  "keyComponents": "मुख्य घटक",
+  "language": "भाषा: {languageCode}",
   "@language": {
     "description": "Language code",
     "placeholders": {
@@ -137,14 +137,14 @@
       }
     }
   },
-  "largeModelWarning": "Large Model Warning",
-  "lastUpdate": "Last update",
-  "later": "Later",
-  "launch": "Launch",
-  "licenses": "Licenses",
-  "login": "Login",
-  "mail": "Mail",
-  "manualDeleteRequired": "Kindly manually delete the file/directory at {outputfile} and try again",
+  "largeModelWarning": "बड़ा मॉडल चेतावनी",
+  "lastUpdate": "अंतिम अपडेट",
+  "later": "बाद में",
+  "launch": "प्रारंभ करें",
+  "licenses": "लाइसेंस",
+  "login": "लॉगिन",
+  "mail": "मेल",
+  "manualDeleteRequired": "कृपया {outputfile} पर फ़ाइल/निर्देशिका को मैन्युअल रूप से हटाएं और पुनः प्रयास करें",
   "@manualDeleteRequired": {
     "placeholders": {
       "outputfile": {
@@ -152,20 +152,20 @@
       }
     }
   },
-  "merge": "Merge",
-  "mergeSplitApks": "Merge Split APKs",
-  "mergeUnsupportedOnWeb": "Split APK merging is not possible in the web version.",
-  "models": "Models",
-  "more": "More",
-  "mtHook": "MT Hook",
-  "mtHookDesc": "Generate MT Enhanced Hooks",
-  "neverShowAgain": "Never show again",
-  "noAppsFound": "No apps found",
-  "noFileSelected": "No file selected",
-  "notFound": "Not Found",
-  "ok": "Ok",
-  "ollama_api_url": "OLLAMA base URL",
-  "ollamaInitializeError": "Failed to initialize Ollama client: {e}",
+  "merge": "मर्ज करें",
+  "mergeSplitApks": "स्प्लिट APKs मर्ज करें",
+  "mergeUnsupportedOnWeb": "वेब संस्करण में स्प्लिट APK मर्ज करना संभव नहीं है।",
+  "models": "मॉडल",
+  "more": "और",
+  "mtHook": "MT हुक",
+  "mtHookDesc": "MT एन्हांस्ड हुक उत्पन्न करें",
+  "neverShowAgain": "फिर कभी न दिखाएं",
+  "noAppsFound": "कोई ऐप नहीं मिला",
+  "noFileSelected": "कोई फ़ाइल चयनित नहीं है",
+  "notFound": "नहीं मिला",
+  "ok": "ठीक",
+  "ollama_api_url": "OLLAMA बेस URL",
+  "ollamaInitializeError": "Ollama क्लाइंट प्रारंभ करने में विफल: {e}",
   "@ollamaInitializeError": {
     "placeholders": {
       "e": {
@@ -173,25 +173,25 @@
       }
     }
   },
-  "openOllamaLibrary": "Open Ollama Library",
-  "overwrite": "Overwrite",
-  "owner": "Owner",
-  "packageName": "Package name",
-  "passLen": "Password must be at least 8 characters",
-  "passMisMatch": "Passwords do not match",
-  "password": "Password",
-  "pathToApkeditorJar": "Path to apkeditor jar",
-  "pleaseConfirmPassword": "Please confirm password",
-  "pleaseWait": "Please wait...",
-  "preferences": "Preferences",
-  "pressBackAgainToExit": "Press back again to exit",
-  "proceed": "Proceed",
-  "profile": "Profile",
-  "rawData": "Raw data",
-  "register": "Register",
-  "registerInformation": "Register information",
-  "repair": "Repair",
-  "repairDexError": "Error repairing DEX file: {e}",
+  "openOllamaLibrary": "Ollama लाइब्रेरी खोलें",
+  "overwrite": "अधिलेखित करें",
+  "owner": "मालिक",
+  "packageName": "पैकेज का नाम",
+  "passLen": "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए",
+  "passMisMatch": "पासवर्ड मेल नहीं खाते",
+  "password": "पासवर्ड",
+  "pathToApkeditorJar": "apkeditor jar का पथ",
+  "pleaseConfirmPassword": "कृपया पासवर्ड की पुष्टि करें",
+  "pleaseWait": "कृपया प्रतीक्षा करें...",
+  "preferences": "प्राथमिकताएं",
+  "pressBackAgainToExit": "बाहर निकलने के लिए फिर से बैक दबाएं",
+  "proceed": "आगे बढ़ें",
+  "profile": "प्रोफ़ाइल",
+  "rawData": "कच्चा डेटा",
+  "register": "पंजीकरण करें",
+  "registerInformation": "पंजीकरण जानकारी",
+  "repair": "मरम्मत करें",
+  "repairDexError": "DEX फ़ाइल की मरम्मत में त्रुटि: {e}",
   "@repairDexError": {
     "placeholders": {
       "e": {
@@ -199,7 +199,7 @@
       }
     }
   },
-  "repairDexSuccess": "DEX file repaired successfully. Saved to: {outputpath}",
+  "repairDexSuccess": "DEX फ़ाइल सफलतापूर्वक मरम्मत की गई। यहाँ सहेजा गया: {outputpath}",
   "@repairDexSuccess": {
     "placeholders": {
       "outputpath": {
@@ -207,13 +207,13 @@
       }
     }
   },
-  "repairing": "Repairing...",
-  "reset": "Reset",
-  "save": "Save",
-  "scheme": "Scheme",
-  "searchApps": "Search apps...",
-  "selectAModel": "Select a model to chat",
-  "selected": "Selected: {value}",
+  "repairing": "मरम्मत हो रही है...",
+  "reset": "रीसेट करें",
+  "save": "सहेजें",
+  "scheme": "योजना",
+  "searchApps": "ऐप्स खोजें...",
+  "selectAModel": "चैट के लिए एक मॉडल चुनें",
+  "selected": "चयनित: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -221,7 +221,7 @@
       }
     }
   },
-  "selectFiles": "Select {type} File",
+  "selectFiles": "{type} फ़ाइल चुनें",
   "@selectFiles": {
     "placeholders": {
       "type": {
@@ -229,9 +229,9 @@
       }
     }
   },
-  "selectLanguage": "Select Language",
-  "selectOrDownloadModel": "Please select or download a model in the “Models” tab.",
-  "selectValidFile": "Please select a valid {type} file",
+  "selectLanguage": "भाषा चुनें",
+  "selectOrDownloadModel": "कृपया “मॉडल” टैब में एक मॉडल चुनें या डाउनलोड करें।",
+  "selectValidFile": "कृपया मान्य {type} फ़ाइल चुनें",
   "@selectValidFile": {
     "placeholders": {
       "type": {
@@ -239,22 +239,22 @@
       }
     }
   },
-  "setJarPath": "Set apkeditor jar path",
-  "setSystemMessage": "Set System Message",
-  "signature": "Signature",
-  "signInfo": "Signature Information",
-  "smaligInfo2": "This view contains the grammar for the Smali language (Dalvik Bytecode Opcodes).",
-  "smaliGrammar": "Smali Grammar",
-  "status": "Status",
-  "suggestLogin": "Have an account? Login",
-  "suggestRegister": "Need an account? Register",
-  "systemMessage": "System Message",
-  "theme": "Theme",
-  "typeMessage": "Type your message…",
-  "uninstall": "Uninstall",
-  "uninstallWarning": "You were just about to uninstall the app weren't you?",
-  "unknown": "Unknown",
-  "unsupportedDartVersion": "Currently RevEngi only supports dart stable channel\n\nCurrent Dart Version: {dartversion}",
+  "setJarPath": "apkeditor jar पथ सेट करें",
+  "setSystemMessage": "सिस्टम संदेश सेट करें",
+  "signature": "हस्ताक्षर",
+  "signInfo": "हस्ताक्षर जानकारी",
+  "smaligInfo2": "यह दृश्य स्माली भाषा (Dalvik बाइटकोड ओपकोड्स) के लिए व्याकरण को शामिल करता है।",
+  "smaliGrammar": "स्माली व्याकरण",
+  "status": "स्थिति",
+  "suggestLogin": "खाता है? लॉगिन करें",
+  "suggestRegister": "खाता चाहिए? पंजीकरण करें",
+  "systemMessage": "सिस्टम संदेश",
+  "theme": "थीम",
+  "typeMessage": "अपना संदेश लिखें…",
+  "uninstall": "अनइंस्टॉल करें",
+  "uninstallWarning": "आप अभी ऐप अनइंस्टॉल करने वाले थे, है ना?",
+  "unknown": "अज्ञात",
+  "unsupportedDartVersion": "वर्तमान में RevEngi केवल dart स्थिर चैनल का समर्थन करता है\n\nवर्तमान Dart संस्करण: {dartversion}",
   "@unsupportedDartVersion": {
     "placeholders": {
       "dartversion": {
@@ -262,18 +262,18 @@
       }
     }
   },
-  "update": "Update",
-  "updateAvailable": "Update Available",
-  "updateAvailableMessage": "A new version of the app is available. Would you like to update now?",
-  "uploading": "Uploading...",
-  "upperCase": "Upper case",
-  "username": "Username",
-  "usernameCond": "Username can only contain letters, numbers, and underscore",
-  "usernameLimit": "Username must be between 5 and 15 characters",
-  "validateModules": "Validate version of base.apk with split APKs",
-  "versionCode": "Version code",
-  "viewData": "View Data",
-  "vrd": "Validate resources dir name",
-  "welcomeBack": "Welcome Back!",
-  "yes": "Yes"
+  "update": "अपडेट करें",
+  "updateAvailable": "अपडेट उपलब्ध है",
+  "updateAvailableMessage": "ऐप का नया संस्करण उपलब्ध है। क्या आप अभी अपडेट करना चाहेंगे?",
+  "uploading": "अपलोड हो रहा है...",
+  "upperCase": "बड़े अक्षर",
+  "username": "उपयोगकर्ता नाम",
+  "usernameCond": "उपयोगकर्ता नाम में केवल अक्षर, अंक और अंडरस्कोर हो सकते हैं",
+  "usernameLimit": "उपयोगकर्ता नाम 5 से 15 अक्षरों के बीच होना चाहिए",
+  "validateModules": "base.apk के संस्करण को स्प्लिट APKs के साथ सत्यापित करें",
+  "versionCode": "संस्करण कोड",
+  "viewData": "डेटा देखें",
+  "vrd": "resources निर्देशिका नाम सत्यापित करें",
+  "welcomeBack": "वापसी पर स्वागत है!",
+  "yes": "हाँ"
 }
