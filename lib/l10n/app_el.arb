@@ -28,7 +28,7 @@
   "appDescription": "Συλλογή εργαλείων αντίστροφης μηχανικής.",
   "appTitle": "RevEngi",
   "arguments": "Παράμετροι",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Αυτόματη ανανέωση",
   "availableIn": "Διαθέσιμο σε",
   "batteryOptimization": "Βελτιστοποίηση Μπαταρίας",
   "batteryOptimizationMessage": "Για Android 11 και παραπάνω, Πρέπει να απενεργοποιήσετε τη βελτιστοποίηση της μπαταρίας για να λειτουργήσει σωστά αυτή η εφαρμογή στο παρασκήνιο.",
@@ -76,7 +76,7 @@
   "expireDate": "Έληξε",
   "extractApk": "Εξαγωγή APK",
   "extractingApk": "Εξαγωγή APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Θέλετε να εξαγάγετε τα αρχεία {len} apk που επιλέξατε?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Παρακαλώ χρησιμοποιήστε την επιφάνεια εργασίας ή την εφαρμογή για κινητά για αυτή τη δυνατότητα.",
   "fetchingModelInfo": "Λήψη πληροφοριών μοντέλου...",
   "fileExists": "Το Αρχείο Υπάρχει",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Αρχείο {outputfilePath} υπάρχει ήδη. Θέλετε να το αντικαταστήσετε?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "Δεν με νοιάζει, Θα μετανιώσω",
   "iLoveThisApp": "Λυπάμαι, μου αρέσει αυτή η εφαρμογή",
   "includeSystemApps": "Συμπερίληψη Εφαρμογών Συστήματος",
-  "info": "Info",
+  "info": "Πληροφορίες",
   "installer": "Εγκαταστάτης",
   "jniAnalysis": "Ανάλυση JNI",
   "jniAnalysisDesc": "Βρείτε JNI υπογραφές στο APK",
@@ -275,5 +275,5 @@
   "viewData": "Προβολή Δεδομένων",
   "vrd": "Επικύρωση ονόματος dir πόρων",
   "welcomeBack": "Καλώς Ήρθατε!",
-  "yes": "Yes"
+  "yes": "Ναι"
 }
