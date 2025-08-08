@@ -28,7 +28,7 @@
   "appDescription": "Une collection d'outils d'ingénierie inversée.",
   "appTitle": "RevEngi",
   "arguments": "Arguments",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Rafraîchissement automatique",
   "availableIn": "Disponible dans",
   "batteryOptimization": "Optimisation de la batterie",
   "batteryOptimizationMessage": "Pour Android 11 et plus, nous devons désactiver l'optimisation de la batterie pour que cette application fonctionne correctement en arrière-plan.",
@@ -76,7 +76,7 @@
   "expireDate": "Expiré",
   "extractApk": "Extraire l'APK",
   "extractingApk": "Extraction de l'APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Voulez-vous extraire les fichiers apk {len} que vous avez sélectionnés ?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Veuillez utiliser l'application de bureau ou mobile pour cette fonctionnalité.",
   "fetchingModelInfo": "Récupération des informations du modèle...",
   "fileExists": "Le fichier existe",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Le fichier {outputfilePath} existe déjà. Voulez-vous l'écraser ?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "« Je m'en fiche, je vais regretter",
   "iLoveThisApp": "Je suis désolé, j'adore cette application",
   "includeSystemApps": "Inclure les applications système",
-  "info": "Info",
+  "info": "Infos",
   "installer": "Installateur",
   "jniAnalysis": "Analyse JNI",
   "jniAnalysisDesc": "Trouver les signatures JNI dans l'APK",
@@ -213,7 +213,7 @@
   "scheme": "Schéma",
   "searchApps": "Rechercher des applications...",
   "selectAModel": "Sélectionnez un modèle pour discuter",
-  "selected": "Selected: {value}",
+  "selected": "Sélectionné: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Voir les données",
   "vrd": "Valider le nom du répertoire des ressources",
   "welcomeBack": "Bienvenue!",
-  "yes": "Yes"
+  "yes": "Oui"
 }
