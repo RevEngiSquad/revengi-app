@@ -28,7 +28,7 @@
   "appDescription": "Колекція альтернативних інструментів.",
   "appTitle": "Ревенґі",
   "arguments": "Аргументи",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Автоматичне оновлення",
   "availableIn": "Доступно за",
   "batteryOptimization": "Оптимізація батареї",
   "batteryOptimizationMessage": "Для Android 11 і вище необхідно вимкнути оптимізацію заряду акумулятора для коректної роботи у фоновому режимі.",
@@ -76,7 +76,7 @@
   "expireDate": "Термін дії закінчився",
   "extractApk": "Розпакувати APK-файл",
   "extractingApk": "Розпакування APK-файлу",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Бажаєте видобути вибрані вами файли apk {len}?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Будь ласка, використовуйте настільний або мобільний додаток для цієї функції.",
   "fetchingModelInfo": "Отримання інформації про модель...",
   "fileExists": "Файл існує",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Файл {outputfilePath} вже існує. Ви хочете перезаписати його?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "Мені байдуже, я пошкодую",
   "iLoveThisApp": "Перепрошую, я люблю цю програму",
   "includeSystemApps": "Включити системні додатки",
-  "info": "Info",
+  "info": "Інформація",
   "installer": "Встановлювач",
   "jniAnalysis": "Аналіз JNI",
   "jniAnalysisDesc": "Знайти JNI підписи в APK",
@@ -275,5 +275,5 @@
   "viewData": "Перегляд даних",
   "vrd": "Перевірити ім'я ресурсів dir",
   "welcomeBack": "З поверненням!",
-  "yes": "Yes"
+  "yes": "Так"
 }
