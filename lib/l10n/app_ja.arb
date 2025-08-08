@@ -28,7 +28,7 @@
   "appDescription": "リバースエンジニアリングツールのコレクション。",
   "appTitle": "RevEngi",
   "arguments": "引数",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "自動更新",
   "availableIn": "利用可能な言語",
   "batteryOptimization": "バッテリー最適化",
   "batteryOptimizationMessage": "Android 11 以降では、バックグラウンドで正常に動作するよう、このアプリのバッテリー最適化を無効にする必要があります。",
@@ -76,7 +76,7 @@
   "expireDate": "期限切れ",
   "extractApk": "APKを抽出",
   "extractingApk": "APK を抽出中",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "選択した {len} APKファイルを抽出しますか？",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "この機能にはデスクトップまたはモバイルアプリを使用してください。",
   "fetchingModelInfo": "モデル情報を取得しています...",
   "fileExists": "ファイルが存在します",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "ファイル {outputfilePath} は既に存在します。上書きしますか？",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "気にしない、後悔する",
   "iLoveThisApp": "申し訳ありませんが、私はこのアプリが大好きです",
   "includeSystemApps": "システムアプリを含める",
-  "info": "Info",
+  "info": "情報",
   "installer": "インストーラー",
   "jniAnalysis": "JNI分析",
   "jniAnalysisDesc": "APKでJNI署名を検索",
@@ -213,7 +213,7 @@
   "scheme": "Scheme",
   "searchApps": "アプリを検索...",
   "selectAModel": "チャットするモデルを選択",
-  "selected": "Selected: {value}",
+  "selected": "選択済: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "データを表示",
   "vrd": "リソースのディレクトリ名を検証する",
   "welcomeBack": "おかえりなさい！",
-  "yes": "Yes"
+  "yes": "はい"
 }
