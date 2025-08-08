@@ -28,7 +28,7 @@
   "appDescription": "En samling av omvendt ingeniørverktøy.",
   "appTitle": "RevEngi",
   "arguments": "Argumenter",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Oppdater automatisk",
   "availableIn": "Tilgjengelig i",
   "batteryOptimization": "Batterioptimalisering",
   "batteryOptimizationMessage": "Vi må deaktivere batterioptimalisering for Android 11 og eldre for at denne appen skal fungere ordentlig i bakgrunnen.",
@@ -76,7 +76,7 @@
   "expireDate": "Utløpt",
   "extractApk": "Pakk ut APK",
   "extractingApk": "Trekker ut APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Vil du hente ut {len} apk-filene du valgte?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Bruk skrivebordet eller mobilappen for denne funksjonen.",
   "fetchingModelInfo": "Henter modellinformasjon...",
   "fileExists": "Fil eksisterer",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Filen {outputfilePath} finnes allerede. Vil du overskrive den?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "Jeg bryr meg ikke, jeg vil angre",
   "iLoveThisApp": "Beklager, jeg elsker denne appen",
   "includeSystemApps": "Inkluder systemapper",
-  "info": "Info",
+  "info": "Informasjon",
   "installer": "Installasjon",
   "jniAnalysis": "JNI Analyse",
   "jniAnalysisDesc": "Finn JNI signaturer i APK",
@@ -213,7 +213,7 @@
   "scheme": "Ordning",
   "searchApps": "Søk etter apper...",
   "selectAModel": "Velg en modell å chatte",
-  "selected": "Selected: {value}",
+  "selected": "Valgt: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Vis data",
   "vrd": "Valider ressurs dir navn",
   "welcomeBack": "Velkommen tilbake!",
-  "yes": "Yes"
+  "yes": "Ja"
 }
