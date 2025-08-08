@@ -28,7 +28,7 @@
   "appDescription": "Eine Sammlung von Reverse Engineering Tools.",
   "appTitle": "RevEngi",
   "arguments": "Argumente",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Automatisch aktualisieren",
   "availableIn": "Verfügbar in",
   "batteryOptimization": "Akku-Optimierung",
   "batteryOptimizationMessage": "Für Android 11 und höher müssen wir die Batterieoptimierung deaktivieren, damit diese App im Hintergrund korrekt funktioniert.",
@@ -76,7 +76,7 @@
   "expireDate": "Abgelaufen",
   "extractApk": "APK entpacken",
   "extractingApk": "APK wird extrahiert",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Möchten Sie die ausgewählten {len} apk Dateien extrahieren?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Bitte verwenden Sie den Desktop oder die mobile App für diese Funktion.",
   "fetchingModelInfo": "Modelinformationen werden abgerufen...",
   "fileExists": "Datei existiert",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Datei {outputfilePath} existiert bereits. Möchten Sie sie überschreiben?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -213,7 +213,7 @@
   "scheme": "Schema",
   "searchApps": "Apps suchen...",
   "selectAModel": "Wählen Sie ein Modell zum chatten",
-  "selected": "Selected: {value}",
+  "selected": "Ausgewählt: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Daten anzeigen",
   "vrd": "Überprüfe Ressourcen-Verzeichnisname",
   "welcomeBack": "Willkommen zurück!",
-  "yes": "Yes"
+  "yes": "Ja"
 }
