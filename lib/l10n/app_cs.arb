@@ -28,7 +28,7 @@
   "appDescription": "Kolekce reverzních inženýrských nástrojů.",
   "appTitle": "Revengi",
   "arguments": "Argumenty",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Automatické obnovení",
   "availableIn": "Dostupné v",
   "batteryOptimization": "Optimalizace baterie",
   "batteryOptimizationMessage": "Pro Android 11 a výše je třeba zakázat optimalizaci baterie, aby tato aplikace fungovala správně na pozadí.",
@@ -76,7 +76,7 @@
   "expireDate": "Vypršela platnost",
   "extractApk": "Extrahovat APK",
   "extractingApk": "Extrahování APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Chcete rozbalit vybrané soubory {len} apk?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Pro tuto funkci prosím použijte stolní nebo mobilní aplikaci.",
   "fetchingModelInfo": "Načítání informací o modelu...",
   "fileExists": "Soubor existuje",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Soubor {outputfilePath} již existuje. Chcete jej přepsat?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -213,7 +213,7 @@
   "scheme": "Schéma",
   "searchApps": "Hledat aplikace...",
   "selectAModel": "Vyberte model pro chatování",
-  "selected": "Selected: {value}",
+  "selected": "Vybráno: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Zobrazit data",
   "vrd": "Ověřit název dir zdrojů",
   "welcomeBack": "Vítejte zpátky!",
-  "yes": "Yes"
+  "yes": "Ano"
 }
