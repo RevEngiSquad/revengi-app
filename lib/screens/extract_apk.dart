@@ -1570,17 +1570,13 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                   (context) => [
                     CheckedPopupMenuItem(
                       value: 0,
-                      checked: _excludeSystemApps,
-                      child: Text(
-                        _excludeSystemApps
-                            ? localizations.includeSystemApps
-                            : localizations.excludeSystemApps,
-                      ),
+                      checked: !_excludeSystemApps,
+                      child: Text(localizations.includeSystemApps),
                     ),
                     CheckedPopupMenuItem(
                       value: 1,
                       checked: _autoRefresh,
-                      child: Text("Auto refresh"),
+                      child: Text(localizations.autoRefresh),
                     ),
                   ],
             ),
