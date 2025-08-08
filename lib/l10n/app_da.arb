@@ -28,7 +28,7 @@
   "appDescription": "En samling af reverse engineering værktøjer.",
   "appTitle": "RevEngi",
   "arguments": "Argumenter",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Opdater automatisk",
   "availableIn": "Tilgængelig i",
   "batteryOptimization": "Batteri Optimering",
   "batteryOptimizationMessage": "For Android 11 og derover, Vi er nødt til at deaktivere batterioptimering for denne app for at fungere korrekt i baggrunden.",
@@ -76,7 +76,7 @@
   "expireDate": "Udløbet",
   "extractApk": "Udpak APK",
   "extractingApk": "Udpakker APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Vil du udtrække {len} apk-filerne du valgte?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Brug venligst skrivebordet eller mobilappen til denne funktion.",
   "fetchingModelInfo": "Henter modelinfo...",
   "fileExists": "Filen Findes",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Filen {outputfilePath} findes allerede. Vil du overskrive den?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -213,7 +213,7 @@
   "scheme": "Skema",
   "searchApps": "Søg i apps...",
   "selectAModel": "Vælg en model at chatte",
-  "selected": "Selected: {value}",
+  "selected": "Valgt: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Vis Data",
   "vrd": "Validér ressourcens dir navn",
   "welcomeBack": "Velkommen Tilbage!",
-  "yes": "Yes"
+  "yes": "Ja"
 }
