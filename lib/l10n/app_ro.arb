@@ -28,7 +28,7 @@
   "appDescription": "O colecție de instrumente de inginerie inversată.",
   "appTitle": "Revendică",
   "arguments": "Argumente",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Împrospătare automată",
   "availableIn": "Disponibil în",
   "batteryOptimization": "Optimizare baterie",
   "batteryOptimizationMessage": "Pentru Android 11 și mai mare, trebuie să dezactivăm optimizarea bateriei pentru ca această aplicație să funcționeze corespunzător în fundal.",
@@ -76,7 +76,7 @@
   "expireDate": "Expirat",
   "extractApk": "Extrage APK",
   "extractingApk": "Extragere APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Doriți să extrageți fișierele {len} apk pe care le-ați selectat?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Te rugăm să folosești aplicația desktop sau pentru mobil pentru această funcție.",
   "fetchingModelInfo": "Preluare informații model...",
   "fileExists": "Fișierul există",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Fișierul {outputfilePath} există deja. Doriți să îl suprascrieți?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -213,7 +213,7 @@
   "scheme": "Schemă",
   "searchApps": "Căutare aplicații...",
   "selectAModel": "Selectați un model pentru a discuta",
-  "selected": "Selected: {value}",
+  "selected": "Selectat: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Vizualizați datele",
   "vrd": "Validare nume resurse dir",
   "welcomeBack": "Bine ai revenit!",
-  "yes": "Yes"
+  "yes": "Da"
 }
