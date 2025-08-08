@@ -1023,7 +1023,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                   app.apkPath,
                 );
 
-                if (mounted) {
+                if (context.mounted) {
                   setState(() {
                     signatureSchemes = result.schemes;
                     signInfo = result;
@@ -1033,7 +1033,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                   app.installer,
                   BuiltWith.flutter,
                 );
-                if (mounted) {
+                if (context.mounted) {
                   setState(() {
                     if (installerResult != null) {
                       installer = installerResult.name;
@@ -1045,7 +1045,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                 var (appStor, appStoreUr) = await _checkAppOnStore(
                   app.packageName,
                 );
-                if (mounted) {
+                if (context.mounted) {
                   setState(() {
                     if (appStor != null && appStoreUr != null) {
                       appStore = appStor;
