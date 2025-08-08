@@ -28,7 +28,7 @@
   "appDescription": "مجموعة من أدوات الهندسة العكسية.",
   "appTitle": "Revengi",
   "arguments": "حجج",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "تحديث تلقائي",
   "availableIn": "متاح لدى",
   "batteryOptimization": "تحسين البطارية",
   "batteryOptimizationMessage": "بالنسبة إلى Android 11 وما فوق ، نحتاج إلى تعطيل تحسين البطارية لهذا التطبيق للعمل بشكل صحيح في الخلفية.",
@@ -76,7 +76,7 @@
   "expireDate": "منتهية",
   "extractApk": "مستخرج التطبيقات",
   "extractingApk": "استخراج APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "هل تريد استخراج ملفات apk {len} التي قمت باختيارها؟",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "الرجاء استخدام تطبيق سطح المكتب أو الجوال لهذه الميزة.",
   "fetchingModelInfo": "جلب معلومات النموذج...",
   "fileExists": "الملف موجود",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "الملف {outputfilePath} موجود بالفعل. هل تريد الكتابة فوقه؟",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "أنا لا أهتم ، سأندم",
   "iLoveThisApp": "أنا آسف، أحب هذا التطبيق",
   "includeSystemApps": "تضمين تطبيقات النظام",
-  "info": "Info",
+  "info": "معلومات",
   "installer": "ثبت بواسطة",
   "jniAnalysis": "تحليل ملفات lib",
   "jniAnalysisDesc": "تحليل هيكل ملفات ال\".so\" داخل التطبيق",
@@ -213,7 +213,7 @@
   "scheme": "مخطط",
   "searchApps": "البحث في التطبيقات...",
   "selectAModel": "أختر محركا كى تبدأ المحادثة",
-  "selected": "Selected: {value}",
+  "selected": "مختار: {value}",
   "@selected": {
     "placeholders": {
       "value": {
