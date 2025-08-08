@@ -28,7 +28,7 @@
   "appDescription": "Zbiór narzędzi inżynierii odwrotnej.",
   "appTitle": "Odwołanie Engi",
   "arguments": "Argumenty",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Automatyczne odświeżanie",
   "availableIn": "Dostępne w",
   "batteryOptimization": "Optymalizacja baterii",
   "batteryOptimizationMessage": "W przypadku Android 11 i powyżej musimy wyłączyć optymalizację baterii, aby aplikacja działała poprawnie w tle.",
@@ -76,7 +76,7 @@
   "expireDate": "Wygasły",
   "extractApk": "Wyodrębnij APK",
   "extractingApk": "Rozpakowywanie APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Czy chcesz wyodrębnić wybrane pliki apk {len}?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Użyj tej funkcji na pulpicie lub aplikacji mobilnej.",
   "fetchingModelInfo": "Pobieranie informacji o modelu...",
   "fileExists": "Plik istnieje",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Plik {outputfilePath} już istnieje. Czy chcesz go nadpisać?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "Nie podoba mi się, żałuję",
   "iLoveThisApp": "Przepraszam, kocham tę aplikację",
   "includeSystemApps": "Dołącz aplikacje systemowe",
-  "info": "Info",
+  "info": "Informacje",
   "installer": "Instalator",
   "jniAnalysis": "Analiza JNI",
   "jniAnalysisDesc": "Znajdź podpisy JNI w APK",
@@ -213,7 +213,7 @@
   "scheme": "Schemat",
   "searchApps": "Szukaj aplikacji...",
   "selectAModel": "Wybierz model do czatu",
-  "selected": "Selected: {value}",
+  "selected": "Wybrane: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Zobacz dane",
   "vrd": "Potwierdź nazwę katalogu zasobów",
   "welcomeBack": "Witaj ponownie!",
-  "yes": "Yes"
+  "yes": "Tak"
 }
