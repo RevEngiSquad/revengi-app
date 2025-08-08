@@ -28,7 +28,7 @@
   "appDescription": "En samling av verktyg för omvänd konstruktion.",
   "appTitle": "RevEngi",
   "arguments": "Argument",
-  "autoRefresh": "Auto refresh",
+  "autoRefresh": "Uppdatera automatiskt",
   "availableIn": "Tillgänglig i",
   "batteryOptimization": "Batterioptimering",
   "batteryOptimizationMessage": "För Android 11 och ovan, Vi måste inaktivera batterioptimering för att denna app ska fungera korrekt i bakgrunden.",
@@ -76,7 +76,7 @@
   "expireDate": "Förfallen",
   "extractApk": "Extrahera APK",
   "extractingApk": "Extraherar APK",
-  "extractMultiApkConfirm": "Do you want to extract the {len} apk files you selected?",
+  "extractMultiApkConfirm": "Vill du extrahera de {len} apk filer du valde?",
   "@extractMultiApkConfirm": {
     "placeholders": {
       "len": {
@@ -103,7 +103,7 @@
   "featureNeedsApp": "Använd skrivbordet eller mobilappen för den här funktionen.",
   "fetchingModelInfo": "Hämtar modellinformation...",
   "fileExists": "Fil finns",
-  "fileExistsMsg": "File {outputfilePath} already exists. Do you want to overwrite it?",
+  "fileExistsMsg": "Filen {outputfilePath} finns redan. Vill du skriva över den?",
   "@fileExistsMsg": {
     "placeholders": {
       "outputfilePath": {
@@ -122,7 +122,7 @@
   "iDonTLoveThisApp": "Jag bryr mig inte, jag ångrar",
   "iLoveThisApp": "Jag är ledsen, jag älskar den här appen",
   "includeSystemApps": "Inkludera systemappar",
-  "info": "Info",
+  "info": "Information",
   "installer": "Installatör",
   "jniAnalysis": "JNI Analys",
   "jniAnalysisDesc": "Hitta JNI-signaturer i APK",
@@ -213,7 +213,7 @@
   "scheme": "Schema",
   "searchApps": "Sök appar...",
   "selectAModel": "Välj en modell att chatta",
-  "selected": "Selected: {value}",
+  "selected": "Vald: {value}",
   "@selected": {
     "placeholders": {
       "value": {
@@ -275,5 +275,5 @@
   "viewData": "Visa data",
   "vrd": "Validera resursnamn",
   "welcomeBack": "Välkommen tillbaka!",
-  "yes": "Yes"
+  "yes": "Ja"
 }
