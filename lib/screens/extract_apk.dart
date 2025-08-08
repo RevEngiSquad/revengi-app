@@ -191,6 +191,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     final dir = Directory(
       await getDownloadsDirectory().then((dir) => "$dir/apks"),
     );
+    int extractedApps = 0;
 
     if (appsToExtract.length > 1) {
       if (!mounted) return;
@@ -217,6 +218,8 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
       if (confirm != true) {
         isExtracting = false;
         return;
+      } else {
+        _toggleMultiSelect();
       }
     }
 
@@ -249,88 +252,98 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
       }
 
       for (final app in appsToExtract) {
-        final isSplitApp = app.splitSourceDirs.isNotEmpty;
-        outputFile =
-            isSplitApp
-                ? File('${dir.path}/${app.name}_${app.versionName}.apks')
-                : File('${dir.path}/${app.name}_${app.versionName}.apk');
+        try {
+          final isSplitApp = app.splitSourceDirs.isNotEmpty;
+          outputFile =
+              isSplitApp
+                  ? File('${dir.path}/${app.name}_${app.versionName}.apks')
+                  : File('${dir.path}/${app.name}_${app.versionName}.apk');
 
-        if (outputFile.existsSync()) {
-          if (!mounted) return;
-          final shouldOverwrite = await showDialog<bool>(
-            context: context,
-            builder:
-                (context) => AlertDialog(
-                  title: Text(localizations.fileExists),
-                  content: Text(localizations.fileExistsMsg(outputFile!.path)),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(false),
-                      child: Text(localizations.cancel),
+          if (outputFile.existsSync()) {
+            if (!mounted) return;
+            final shouldOverwrite = await showDialog<bool>(
+              context: context,
+              builder:
+                  (context) => AlertDialog(
+                    title: Text(localizations.fileExists),
+                    content: Text(
+                      localizations.fileExistsMsg(outputFile!.path),
                     ),
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(true),
-                      child: Text(localizations.overwrite),
-                    ),
-                  ],
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: Text(localizations.cancel),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(true),
+                        child: Text(localizations.overwrite),
+                      ),
+                    ],
+                  ),
+            );
+            if (shouldOverwrite != true) {
+              continue;
+            } else {
+              outputFile.delete(recursive: true);
+            }
+          }
+
+          if (isSplitApp) {
+            final methodChannel = MethodChannel('flutter.native/helper');
+            final apkPaths = [app.apkPath, ...app.splitSourceDirs];
+            extracted =
+                (await methodChannel.invokeMethod<bool>('zipApks', {
+                  'apkPaths': apkPaths,
+                  'outputPath': outputFile.path,
+                }))!;
+            extractedApps++;
+          } else {
+            final apkFile = File(app.apkPath);
+            await apkFile.copy(outputFile.path);
+            if (!outputFile.existsSync()) {
+              extracted = false;
+            } else {
+              extracted = true;
+              extractedApps++;
+            }
+          }
+        } catch (e) {
+          // Check if error is of PathAccessException type
+          if (e is PathAccessException) {
+            // It looks like that file/directory wasn't made by RevEngi
+            // It needs manual deletion by the user because we're not requesting manageExternalStorage permission
+            // This is a limitation of Android 11 and above
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    localizations.manualDeleteRequired(outputFile!.path),
+                  ),
+                  backgroundColor: Colors.yellow,
+                  duration: const Duration(seconds: 5),
                 ),
-          );
-          if (shouldOverwrite != true) {
-            continue;
-          } else {
-            outputFile.delete(recursive: true);
+              );
+              if (appsToExtract.length == 1) {
+                return;
+              } else {
+                continue;
+              }
+            }
           }
-        }
-
-        if (isSplitApp) {
-          final methodChannel = MethodChannel('flutter.native/helper');
-          final apkPaths = [app.apkPath, ...app.splitSourceDirs];
-          extracted =
-              (await methodChannel.invokeMethod<bool>('zipApks', {
-                'apkPaths': apkPaths,
-                'outputPath': outputFile.path,
-              }))!;
-        } else {
-          final apkFile = File(app.apkPath);
-          await apkFile.copy(outputFile.path);
-          if (!outputFile.existsSync()) {
+          setState(() {
+            isExtracting = false;
             extracted = false;
-          } else {
-            extracted = true;
+          });
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(localizations.apkExtractError(e.toString())),
+                backgroundColor: Colors.red,
+                duration: const Duration(seconds: 5),
+              ),
+            );
           }
         }
-      }
-    } catch (e) {
-      // Check if error is of PathAccessException type
-      if (e is PathAccessException) {
-        // It looks like that file/directory wasn't made by RevEngi
-        // It needs manual deletion by the user because we're not requesting manageExternalStorage permission
-        // This is a limitation of Android 11 and above
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                localizations.manualDeleteRequired(outputFile!.path),
-              ),
-              backgroundColor: Colors.yellow,
-              duration: const Duration(seconds: 5),
-            ),
-          );
-          return;
-        }
-      }
-      setState(() {
-        isExtracting = false;
-        extracted = false;
-      });
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(localizations.apkExtractError(e.toString())),
-            backgroundColor: Colors.red,
-            duration: const Duration(seconds: 5),
-          ),
-        );
       }
     } finally {
       if (mounted) {
@@ -339,7 +352,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
         });
         Navigator.of(context).pop();
         if (outputFile != null && extracted) {
-          if (appsToExtract.length == 1) {
+          if (extractedApps == 1) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(localizations.apkExtractedMsg(outputFile.path)),
@@ -351,7 +364,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  "${appsToExtract.length} ${localizations.apkExtractedMsg(dir.path)}",
+                  "$extractedApps ${localizations.apkExtractedMsg(dir.path)}",
                 ),
                 backgroundColor: Colors.green,
                 duration: const Duration(seconds: 5),
@@ -367,7 +380,6 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     final selectedApps =
         _selectedApps.map((index) => _filteredApps[index]).toList();
     await _extractApk(selectedApps);
-    _toggleMultiSelect();
   }
 
   void copyToClipboard(String text) {
