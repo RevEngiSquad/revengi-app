@@ -47,7 +47,6 @@ class _LoginPageState extends State<LoginPage> {
           // Save user session data
           final prefs = await SharedPreferences.getInstance();
           await prefs.setBool('isLoggedIn', true);
-          await prefs.setBool('isGuestUser', false);
           await prefs.setString('username', _usernameController.text);
 
           final apiKey = response.data['api_key'];
@@ -304,7 +303,6 @@ class _LoginPageState extends State<LoginPage> {
                           final prefs = await SharedPreferences.getInstance();
                           await prefs.setBool('isLoggedIn', true);
                           await prefs.setString('username', 'guest');
-                          await prefs.setBool('isGuestUser', true);
 
                           if (mounted) {
                             navigator.pushReplacement(
