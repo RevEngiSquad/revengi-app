@@ -53,8 +53,8 @@ class _JniAnalysisScreenState extends State<JniAnalysisScreen> {
     final localizations = AppLocalizations.of(context)!;
 
     final prefs = await SharedPreferences.getInstance();
-    final username = prefs.getString('username');
-    if (username == "guest") {
+    final isGuestUser = prefs.getBool('isGuestUser') ?? false;
+    if (isGuestUser) {
       setState(() {
         _error = localizations.guestNotAllowed;
       });
