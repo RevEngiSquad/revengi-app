@@ -51,6 +51,16 @@ class _JniAnalysisScreenState extends State<JniAnalysisScreen> {
 
   Future<void> _analyzeFile() async {
     final localizations = AppLocalizations.of(context)!;
+
+    final prefs = await SharedPreferences.getInstance();
+    final username = prefs.getString('username');
+    if (username == "guest") {
+      setState(() {
+        _error = localizations.guestNotAllowed;
+      });
+      return;
+    }
+
     if ((isWeb() && _fileBytes.isEmpty) ||
         (!isWeb() && _selectedFile == null)) {
       return;
