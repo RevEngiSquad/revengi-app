@@ -151,6 +151,9 @@ class _LoginPageState extends State<LoginPage> {
                     );
                     return ' ';
                   }
+                  if (value.toLowerCase() == 'guest') {
+                    return "Can't use 'guest' as username.";
+                  }
                   return null;
                 },
               ),

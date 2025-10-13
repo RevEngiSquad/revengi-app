@@ -30,6 +30,27 @@ class _JniAnalysisScreenState extends State<JniAnalysisScreen> {
     );
 
     if (result != null) {
+      int fileSizeBytes;
+
+      if (isWeb()) {
+        fileSizeBytes = result.files.first.bytes!.length;
+      } else {
+        fileSizeBytes = File(result.files.single.path!).lengthSync();
+      }
+
+      if (fileSizeBytes > 80 * 1024 * 1024) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'File size exceeds 80 MB limit. Please choose a smaller file.',
+            ),
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 3),
+          ),
+        );
+        return;
+      }
+
       if (isWeb()) {
         setState(() {
           _selectedFile = null;
@@ -91,19 +112,12 @@ class _JniAnalysisScreenState extends State<JniAnalysisScreen> {
         _result = response.data.toString();
       });
     } on DioException catch (e) {
-      final prefs = await SharedPreferences.getInstance();
-      final username = prefs.getString('username');
       setState(() {
-        if (username == "guest") {
-          _error = localizations.guestNotAllowed;
-        } else {
-          if (e.response?.data != null &&
-              e.response?.data is Map &&
-              e.response?.data['detail'] != null) {
-            _error =
-                e.response?.data?['detail'] ??
-                localizations.errorDuringAnalysis;
-          }
+        if (e.response?.data != null &&
+            e.response?.data is Map &&
+            e.response?.data['detail'] != null) {
+          _error =
+              e.response?.data?['detail'] ?? localizations.errorDuringAnalysis;
         }
       });
     } finally {
