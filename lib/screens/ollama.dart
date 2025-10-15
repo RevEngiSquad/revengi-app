@@ -26,6 +26,7 @@ class OllamaChatScreenState extends State<OllamaChatScreen>
   double pullProgress = 0.0;
   String? pullStatusText;
   bool chatInputEnabled = true;
+
   String systemMessage =
       "You are an AI coding & helpful assistant. Your main goal is to follow the USER's instructions at each message. If you are unsure about the answer to the USER's request or how to satiate their request, you should gather more information. This can be done by asking the USER for more information. Bias towards not asking the user for help if you can find the answer yourself. You MUST reply in markdown format. You MUST use code blocks for code. Don't use emojis un-necessarily.";
 
@@ -841,15 +842,29 @@ class OllamaChatScreenState extends State<OllamaChatScreen>
                   ),
                 ),
                 const SizedBox(width: 8),
-                ElevatedButton(
-                  onPressed:
-                      modelSelected && chatInputEnabled ? _sendMessage : null,
-                  style: ElevatedButton.styleFrom(
-                    shape: const CircleBorder(),
-                    padding: const EdgeInsets.all(12),
+                if (!chatInputEnabled)
+                  ElevatedButton(
+                    onPressed: () {
+                      _chatStreamSub?.cancel();
+                      setState(() => chatInputEnabled = true);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: const CircleBorder(),
+                      padding: const EdgeInsets.all(12),
+                    ),
+                    child: const Icon(Icons.stop),
+                  )
+                else
+                  ElevatedButton(
+                    onPressed:
+                        modelSelected && chatInputEnabled ? _sendMessage : null,
+                    style: ElevatedButton.styleFrom(
+                      shape: const CircleBorder(),
+                      padding: const EdgeInsets.all(12),
+                    ),
+                    child: const Icon(Icons.send),
                   ),
-                  child: const Icon(Icons.send),
-                ),
               ],
             ),
           ),

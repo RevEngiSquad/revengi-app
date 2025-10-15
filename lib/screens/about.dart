@@ -211,6 +211,9 @@ class _AboutScreenState extends State<AboutScreen> {
                     ElevatedButton.icon(
                       icon: const Icon(Icons.email),
                       label: Text(localizations.mail),
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                      ),
                       onPressed: () async {
                         final url = Uri.parse('mailto:support@revengi.in');
                         if (await canLaunchUrl(url)) {
