@@ -225,9 +225,41 @@ jobs:
             RevEngi-Linux.deb
             RevEngi-Linux.rpm
             RevEngi-Linux.AppImage
+  
+  build-ios:
+    runs-on: macos-15
+    outputs:
+      ios-artifacts: ${{ steps.export.outputs.artifacts }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+          flutter-version-file: pubspec.yaml
+          architecture: x64
+      - name: Select Xcode 16.4
+        run: sudo xcode-select --switch /Applications/Xcode_16.4.app
+      - run: flutter pub get
+
+      - name: Build iOS
+        run: flutter build ios --release --no-codesign
+
+      - name: Package IPA
+        run: |
+          mkdir -p Payload
+          mv build/ios/iphoneos/Runner.app Payload/
+          zip -r9 --symlinks RevEngi-iOS.ipa Payload
+          mkdir -p result
+          mv RevEngi-iOS.ipa result/RevEngi-iOS.ipa
+
+      - name: Upload iOS Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-artifacts
+          path: result/RevEngi-iOS.ipa
 
   release:
-    needs: [build-android, build-windows, build-linux]
+    needs: [build-android, build-windows, build-linux, build-ios]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -251,6 +283,12 @@ jobs:
           name: linux-artifacts
           path: artifacts/
 
+      - name: Download iOS Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ios-artifacts
+          path: artifacts/
+
       - name: List downloaded artifacts
         run: ls -l artifacts
 
@@ -272,5 +310,6 @@ jobs:
             artifacts/RevEngi-Linux.deb
             artifacts/RevEngi-Linux.rpm
             artifacts/RevEngi-Linux.AppImage
+            artifacts/RevEngi-iOS.ipa
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
