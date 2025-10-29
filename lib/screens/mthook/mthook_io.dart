@@ -47,6 +47,15 @@ class _MTHookAnalysisScreenState extends State<MTHookAnalysisScreen> {
     if (_selectedFile == null) return;
     final localizations = AppLocalizations.of(context)!;
 
+    final prefs = await SharedPreferences.getInstance();
+    final username = prefs.getString('username');
+    if (username == "guest") {
+      setState(() {
+        _error = localizations.guestNotAllowed;
+      });
+      return;
+    }
+
     setState(() {
       _isAnalyzing = true;
       _error = null;
@@ -116,19 +125,12 @@ class _MTHookAnalysisScreenState extends State<MTHookAnalysisScreen> {
         _successMessage = 'Saved to: ${outputFile.path}';
       });
     } on DioException catch (e) {
-      final prefs = await SharedPreferences.getInstance();
-      final username = prefs.getString('username');
       setState(() {
-        if (username == "guest") {
-          _error = localizations.guestNotAllowed;
-        } else {
-          if (e.response?.data != null &&
-              e.response?.data is Map &&
-              e.response?.data['detail'] != null) {
-            _error =
-                e.response?.data?['detail'] ??
-                localizations.errorDuringAnalysis;
-          }
+        if (e.response?.data != null &&
+            e.response?.data is Map &&
+            e.response?.data['detail'] != null) {
+          _error =
+              e.response?.data?['detail'] ?? localizations.errorDuringAnalysis;
         }
       });
     } finally {
