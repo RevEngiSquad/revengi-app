@@ -39,6 +39,7 @@ class _JniAnalysisScreenState extends State<JniAnalysisScreen> {
       }
 
       if (fileSizeBytes > 80 * 1024 * 1024) {
+        if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
@@ -130,96 +131,214 @@ class _JniAnalysisScreenState extends State<JniAnalysisScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final borderColor = theme.dividerColor;
+
     return Scaffold(
-      appBar: AppBar(title: Text(localizations.jniAnalysis)),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      localizations.selectFiles("APK"),
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 180,
+            pinned: true,
+            stretch: true,
+            backgroundColor: theme.scaffoldBackgroundColor,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                localizations.jniAnalysis,
+                style: TextStyle(
+                  color: theme.textTheme.titleLarge?.color,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              centerTitle: true,
+              titlePadding: const EdgeInsets.only(bottom: 16),
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          theme.colorScheme.primary.withValues(alpha: 0.15),
+                          theme.scaffoldBackgroundColor,
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    if (_selectedFile != null || _fileBytes.isNotEmpty)
-                      isWeb()
-                          ? Text(
-                            'Selected: $_fileName',
-                            style: const TextStyle(color: Colors.green),
-                          )
-                          : Text(
-                            'Selected: ${_fileName ?? _selectedFile!.path.split(Platform.pathSeparator).last}',
-                            style: const TextStyle(color: Colors.green),
-                          ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton.icon(
-                            onPressed: _isAnalyzing ? null : _pickFile,
-                            icon: const Icon(Icons.file_upload),
-                            label: Text(localizations.chooseFile("APK")),
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: ElevatedButton.icon(
-                            onPressed:
-                                (isWeb()
-                                            ? _fileBytes.isEmpty
-                                            : _selectedFile == null) ||
-                                        _isAnalyzing
-                                    ? null
-                                    : _analyzeFile,
-                            icon: const Icon(Icons.analytics),
-                            label: Text(
-                              _isAnalyzing
-                                  ? localizations.analyzing
-                                  : localizations.analyze,
-                            ),
-                          ),
+                  ),
+                  Positioned(
+                    right: -20,
+                    top: -20,
+                    child: Opacity(
+                      opacity: 0.1,
+                      child: Icon(
+                        Icons.code,
+                        size: 200,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: borderColor),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.05),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
                         ),
                       ],
                     ),
-                  ],
-                ),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.android,
+                          size: 48,
+                          color: theme.colorScheme.primary,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          _fileName ?? localizations.selectFiles("APK"),
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color:
+                                _fileName != null
+                                    ? Colors.green
+                                    : theme.textTheme.bodyMedium?.color,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed: _isAnalyzing ? null : _pickFile,
+                                icon: const Icon(Icons.file_upload),
+                                label: Text(localizations.chooseFile("APK")),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      theme.colorScheme.surfaceContainerHighest,
+                                  foregroundColor:
+                                      theme.colorScheme.onSurfaceVariant,
+                                  elevation: 0,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed:
+                                    (isWeb()
+                                                ? _fileBytes.isEmpty
+                                                : _selectedFile == null) ||
+                                            _isAnalyzing
+                                        ? null
+                                        : _analyzeFile,
+                                icon: const Icon(Icons.analytics),
+                                label: Text(
+                                  _isAnalyzing
+                                      ? localizations.analyzing
+                                      : localizations.analyze,
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: theme.colorScheme.primary,
+                                  foregroundColor: theme.colorScheme.onPrimary,
+                                  elevation: 0,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  if (_isAnalyzing)
+                    const Center(child: CircularProgressIndicator())
+                  else if (_error != null)
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.errorContainer,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: theme.colorScheme.error),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.error_outline,
+                            color: theme.colorScheme.error,
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              _error!,
+                              style: TextStyle(
+                                color: theme.colorScheme.onErrorContainer,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  else if (_result != null)
+                    Container(
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.surface,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: borderColor),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.surfaceContainerHighest,
+                              borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(15),
+                              ),
+                            ),
+                            child: const Text(
+                              "Analysis Result",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: SelectableText(_result!),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
               ),
             ),
-            const SizedBox(height: 16),
-            if (_isAnalyzing)
-              const Center(child: CircularProgressIndicator())
-            else if (_error != null)
-              Card(
-                color: Colors.red[100],
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    _error!,
-                    style: TextStyle(color: Colors.red[900]),
-                  ),
-                ),
-              )
-            else if (_result != null)
-              Expanded(
-                child: Card(
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.all(16),
-                    child: SelectableText(_result!),
-                  ),
-                ),
-              ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

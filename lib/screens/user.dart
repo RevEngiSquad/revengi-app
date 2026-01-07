@@ -4,7 +4,7 @@ import 'package:revengi/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:revengi/utils/dio.dart';
 import 'package:revengi/screens/home.dart';
-import 'package:revengi/utils/platform.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         );
 
         if (mounted) {
-          // Save user session data
+
           final prefs = await SharedPreferences.getInstance();
           await prefs.setBool('isLoggedIn', true);
           await prefs.setString('username', _usernameController.text);
@@ -94,192 +94,229 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
-    final card = Card(
-      color:
-          Theme.of(context).brightness == Brightness.dark
-              ? const Color.fromARGB(87, 18, 18, 18)
-              : const Color.fromARGB(177, 245, 245, 245),
-      elevation: 8,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+    final content = Form(
+      key: _formKey,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+
+          const SizedBox(height: 16),
+          Center(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: theme.colorScheme.primary.withValues(alpha: 0.1),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.lock_person_outlined,
+                size: 48,
+                color: theme.colorScheme.primary,
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          Text(
+            _isLogin ? localizations.welcomeBack : localizations.createAccount,
+            style: theme.textTheme.headlineSmall?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.onSurface,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            _isLogin ? 'Sign in to continue' : 'Sign up to get started',
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 32),
+
+
+          TextFormField(
+            controller: _usernameController,
+            decoration: InputDecoration(
+              labelText: localizations.username,
+              prefixIcon: const Icon(Icons.person_outline),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(color: theme.dividerColor),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(color: theme.dividerColor),
+              ),
+              filled: true,
+              fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return localizations.enterUsername;
+              }
+              if (value.length < 5 || value.length > 15) {
+                return localizations.usernameLimit;
+              }
+              if (!RegExp(
+                r'^[a-zA-Z0-9]([_]?[a-zA-Z0-9]){4,14}$',
+              ).hasMatch(value)) {
+                return localizations.usernameCond;
+              }
+              if (value.toLowerCase() == 'guest') {
+                return "Can't use 'guest' as username.";
+              }
+              return null;
+            },
+          ),
+          if (!_isLogin) ...[
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _emailController,
+              decoration: InputDecoration(
+                labelText: localizations.email,
+                prefixIcon: const Icon(Icons.email_outlined),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                 enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: theme.dividerColor),
+                ),
+                filled: true,
+                 fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return localizations.enterEmail;
+                }
+                if (!RegExp(
+                  r'^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@gmail\.com$',
+                ).hasMatch(value)) {
+                  return localizations.emailCond;
+                }
+                return null;
+              },
+            ),
+          ],
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: _passwordController,
+            decoration: InputDecoration(
+              labelText: localizations.password,
+              prefixIcon: const Icon(Icons.lock_outline),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                ),
+                onPressed:
+                    () => setState(() => _obscurePassword = !_obscurePassword),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+               enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: theme.dividerColor),
+                ),
+              filled: true,
+               fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+            ),
+            obscureText: _obscurePassword,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return localizations.enterPassword;
+              }
+              if (value.length < 8) {
+                return localizations.passLen;
+              }
+              if (!_isLogin) {
+                if (!RegExp(
+                  r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\.])[A-Za-z\d@$!%*?&\.]{8,}$',
+                ).hasMatch(value)) {
+                  return 'Password too weak (8+ chars, upper, lower, digit, special)';
+                }
+              }
+              return null;
+            },
+          ),
+          if (!_isLogin) ...[
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _confirmPasswordController,
+              decoration: InputDecoration(
+                labelText: localizations.confirmPassword,
+                prefixIcon: const Icon(Icons.lock_outline),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                 enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: theme.dividerColor),
+                ),
+                filled: true,
+                 fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+              ),
+              obscureText: true,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return localizations.pleaseConfirmPassword;
+                }
+                if (value != _passwordController.text) {
+                  return localizations.passMisMatch;
+                }
+                return null;
+              },
+            ),
+          ],
+          const SizedBox(height: 32),
+
+
+          SizedBox(
+            height: 52,
+            child: ElevatedButton(
+              onPressed: _isLoading ? null : _submitForm,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: theme.colorScheme.primary,
+                foregroundColor: theme.colorScheme.onPrimary,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+              child: _isLoading
+                  ? SizedBox(
+                    height: 24,
+                    width: 24,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: theme.colorScheme.onPrimary,
+                    ),
+                  )
+                  : Text(
+                    _isLogin ? localizations.login : localizations.register,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+            ),
+          ),
+          const SizedBox(height: 16),
+
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 _isLogin
-                    ? localizations.welcomeBack
-                    : localizations.createAccount,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                    ? "Don't have an account? "
+                    : "Already have an account? ",
+                 style: theme.textTheme.bodyMedium,
               ),
-              const SizedBox(height: 32),
-              TextFormField(
-                controller: _usernameController,
-                decoration: InputDecoration(
-                  labelText: localizations.username,
-                  prefixIcon: const Icon(Icons.person),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return localizations.enterUsername;
-                  }
-                  if (value.length < 5 || value.length > 15) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(localizations.usernameLimit),
-                        duration: Duration(seconds: 3),
-                      ),
-                    );
-                    return ' ';
-                  }
-                  if (!RegExp(
-                    r'^[a-zA-Z0-9]([_]?[a-zA-Z0-9]){4,14}$',
-                  ).hasMatch(value)) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(localizations.usernameCond),
-                        duration: Duration(seconds: 3),
-                      ),
-                    );
-                    return ' ';
-                  }
-                  if (value.toLowerCase() == 'guest') {
-                    return "Can't use 'guest' as username.";
-                  }
-                  return null;
-                },
-              ),
-              if (!_isLogin) const SizedBox(height: 16),
-              if (!_isLogin)
-                TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    labelText: localizations.email,
-                    prefixIcon: const Icon(Icons.email),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return localizations.enterEmail;
-                    }
-                    if (!RegExp(
-                      r'^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@gmail\.com$',
-                    ).hasMatch(value)) {
-                      return localizations.emailCond;
-                    }
-                    return null;
-                  },
-                ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _passwordController,
-                decoration: InputDecoration(
-                  labelText: localizations.password,
-                  prefixIcon: const Icon(Icons.lock),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscurePassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                    ),
-                    onPressed:
-                        () => setState(
-                          () => _obscurePassword = !_obscurePassword,
-                        ),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                obscureText: _obscurePassword,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return localizations.enterPassword;
-                  }
-                  if (value.length < 8) {
-                    return localizations.passLen;
-                  }
-                  if (!_isLogin) {
-                    if (!RegExp(
-                      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\.])[A-Za-z\d@$!%*?&\.]{8,}$',
-                    ).hasMatch(value)) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Password must include a lowercase, uppercase, number, special character (@\$!%*?&), and be 8+ chars.',
-                          ),
-                          duration: Duration(seconds: 3),
-                        ),
-                      );
-                      return ' ';
-                    }
-                  }
-                  return null;
-                },
-              ),
-              if (!_isLogin) const SizedBox(height: 16),
-              if (!_isLogin)
-                TextFormField(
-                  controller: _confirmPasswordController,
-                  decoration: InputDecoration(
-                    labelText: localizations.confirmPassword,
-                    prefixIcon: const Icon(Icons.lock_outline),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  obscureText: true,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return localizations.pleaseConfirmPassword;
-                    }
-                    if (value != _passwordController.text) {
-                      return localizations.passMisMatch;
-                    }
-                    return null;
-                  },
-                ),
-              const SizedBox(height: 32),
-              SizedBox(
-                width: double.infinity,
-                height: 48,
-                child: ElevatedButton(
-                  onPressed: _isLoading ? null : _submitForm,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        Theme.of(context).brightness == Brightness.dark
-                            ? const Color.fromARGB(37, 18, 18, 18)
-                            : const Color.fromARGB(177, 245, 245, 245),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child:
-                      _isLoading
-                          ? const SizedBox(
-                            height: 24,
-                            width: 24,
-                            child: CircularProgressIndicator(strokeWidth: 2),
-                          )
-                          : Text(
-                            _isLogin
-                                ? localizations.login
-                                : localizations.register,
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                ),
-              ),
-              const SizedBox(height: 16),
               TextButton(
                 onPressed:
                     _isLoading
@@ -287,70 +324,105 @@ class _LoginPageState extends State<LoginPage> {
                         : () {
                           setState(() {
                             _isLogin = !_isLogin;
+                            _formKey.currentState?.reset();
                           });
                         },
                 child: Text(
-                  _isLogin
-                      ? localizations.suggestRegister
-                      : localizations.suggestLogin,
-                  style: TextStyle(fontSize: 15),
-                ),
-              ),
-              const SizedBox(height: 8),
-              TextButton(
-                onPressed:
-                    _isLoading
-                        ? null
-                        : () async {
-                          final navigator = Navigator.of(context);
-                          final prefs = await SharedPreferences.getInstance();
-                          await prefs.setBool('isLoggedIn', true);
-                          await prefs.setString('username', 'guest');
-
-                          if (mounted) {
-                            navigator.pushReplacement(
-                              MaterialPageRoute(
-                                builder: (context) => const DashboardScreen(),
-                              ),
-                            );
-                          }
-                        },
-                child: Text(
-                  localizations.continueAsGuest,
-                  style: TextStyle(fontSize: 15),
+                  _isLogin ? 'Sign up' : 'Sign in',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
+                  ),
                 ),
               ),
             ],
           ),
-        ),
+          
+
+          TextButton(
+             onPressed:
+                _isLoading
+                    ? null
+                    : () async {
+                      final navigator = Navigator.of(context);
+                      final prefs = await SharedPreferences.getInstance();
+                      await prefs.setBool('isLoggedIn', true);
+                      await prefs.setString('username', 'guest');
+
+                      if (mounted) {
+                        navigator.pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => const DashboardScreen(),
+                          ),
+                        );
+                      }
+                    },
+            child: Text(
+              localizations.continueAsGuest,
+               style: theme.textTheme.bodyMedium?.copyWith(
+                 color: theme.colorScheme.outline,
+               ),
+            ),
+          ),
+        ],
       ),
     );
+
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.black, Colors.white],
+      backgroundColor: theme.scaffoldBackgroundColor,
+      body: Stack(
+        children: [
+
+          Positioned(
+            top: -100,
+            right: -100,
+             child: Container(
+              width: 300,
+              height: 300,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: theme.colorScheme.primary.withValues(alpha: 0.1),
+                boxShadow: [
+                  BoxShadow(
+                    color: theme.colorScheme.primary.withValues(alpha: 0.2),
+                    blurRadius: 100,
+                    spreadRadius: 50,
+                  ),
+                ],
+              ),
+             ),
           ),
-        ),
-        child: SafeArea(
-          child: Center(
+          Positioned(
+            bottom: -50,
+            left: -50,
+             child: Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: theme.colorScheme.secondary.withValues(alpha: 0.1),
+                boxShadow: [
+                  BoxShadow(
+                    color: theme.colorScheme.secondary.withValues(alpha: 0.2),
+                    blurRadius: 80,
+                    spreadRadius: 40,
+                  ),
+                ],
+              ),
+             ),
+          ),
+          
+
+          Center(
             child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child:
-                    isWeb()
-                        ? Center(child: SizedBox(width: 400, child: card))
-                        : isWindows()
-                        ? Center(child: SizedBox(width: 400, child: card))
-                        : isLinux()
-                        ? Center(child: SizedBox(width: 400, child: card))
-                        : card,
+              padding: const EdgeInsets.all(24.0),
+              child: ConstrainedBox(
+                 constraints: const BoxConstraints(maxWidth: 450),
+                 child: content,
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

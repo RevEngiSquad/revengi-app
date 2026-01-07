@@ -32,7 +32,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  // Nah, that's users choice, not ours
+
   bool checkUpdate = false;
   String currentVersion = "1.2.5-bugfix";
   bool isUpdateAvailable = false;
@@ -59,16 +59,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Future<void> checkForUpdate() async {
     if (!checkUpdate) return;
-    final response = await dio.get(
-      'https://api.github.com/repos/RevEngiSquad/revengi-app/releases/latest',
-    );
-    if (response.statusCode == 200) {
-      final latestVersion = response.data['tag_name'].replaceAll('v', '');
-      if (latestVersion != currentVersion) {
-        setState(() {
-          isUpdateAvailable = true;
-        });
+    try {
+      final response = await dio.get(
+        'https://api.github.com/repos/RevEngiSquad/revengi-app/releases/latest',
+      );
+      if (response.statusCode == 200) {
+        final latestVersion = response.data['tag_name'].replaceAll('v', '');
+        if (latestVersion != currentVersion) {
+          setState(() {
+            isUpdateAvailable = true;
+          });
+        }
       }
+    } catch (_) {
     }
   }
 
@@ -80,7 +83,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         return AlertDialog.adaptive(
           title: Text(AppLocalizations.of(context)!.updateAvailable),
           content: Text(AppLocalizations.of(context)!.updateAvailableMessage),
-          actionsPadding: EdgeInsets.all(8),
+          actionsPadding: const EdgeInsets.all(8),
           actions: <Widget>[
             TextButton(
               child: Text(AppLocalizations.of(context)!.later),
@@ -112,30 +115,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     });
   }
 
-  Future<void> _showSmaliGrammarDialog(BuildContext context) async {
-    if (context.mounted) {
-      await showDialog(
-        context: context,
-        builder:
-            (context) => AlertDialog(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18),
-              ),
-              contentPadding: EdgeInsets.all(5),
-              titlePadding: EdgeInsets.only(top: 12, left: 12, right: 12),
-              title: Text(
-                AppLocalizations.of(context)!.smaliGrammar,
-                textAlign: TextAlign.center,
-              ),
-              content: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: MediaQuery.of(context).size.height * 0.8,
-                child: const SmaliInstructionDialog(),
-              ),
-            ),
-      );
-    }
-  }
+
 
   void addLicenses() {
     final licenses = {
@@ -184,7 +164,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               content: Text(
                 AppLocalizations.of(context)!.batteryOptimizationMessage,
               ),
-              actionsPadding: EdgeInsets.all(8),
+              actionsPadding: const EdgeInsets.all(8),
               actions: <Widget>[
                 TextButton(
                   child: Text(AppLocalizations.of(context)!.cancel),
@@ -196,7 +176,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: Text(AppLocalizations.of(context)!.ok),
                   onPressed: () async {
                     Navigator.of(context).pop();
-                    // Navigate to the battery optimization settings
+
                     await Permission.ignoreBatteryOptimizations.request();
                   },
                 ),
@@ -299,48 +279,136 @@ class _DashboardScreenState extends State<DashboardScreen> {
     final localizations = AppLocalizations.of(context)!;
     final languageCode =
         context.watch<LanguageProvider>().locale.languageCode.toUpperCase();
+    final theme = Theme.of(context);
+
+
+    final analysisTools = [
+      ModernFeatureCard(
+        title: localizations.jniAnalysis,
+        subtitle: localizations.jniAnalysisDesc,
+        icon: Icons.android,
+        color: const Color(0xFF10B981),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const JniAnalysisScreen()),
+        ),
+      ),
+      ModernFeatureCard(
+        title: localizations.flutterAnalysis,
+        subtitle: localizations.flutterAnalysisDesc,
+        icon: Icons.flutter_dash,
+        color: const Color(0xFF3B82F6),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const FlutterAnalysisScreen(),
+          ),
+        ),
+      ),
+      ModernFeatureCard(
+        title: localizations.blutter,
+        subtitle: localizations.blutterDesc,
+        icon: Icons.build,
+        color: const Color(0xFFF59E0B),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const BlutterAnalysisScreen(),
+          ),
+        ),
+      ),
+      ModernFeatureCard(
+        title: localizations.mtHook,
+        subtitle: localizations.mtHookDesc,
+        icon: Icons.book,
+        color: const Color(0xFF8B5CF6),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MTHookAnalysisScreen(),
+          ),
+        ),
+      ),
+    ];
+
+    final utilityTools = [
+      ModernToolTile(
+        title: localizations.dexRepair,
+        icon: Icons.auto_fix_high,
+        color: const Color(0xFFEC4899),
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const DexRepairScreen()),
+        ),
+      ),
+      if (isWeb() || !isIOS())
+        ModernToolTile(
+          title: localizations.apksToApk,
+          icon: Icons.merge_type,
+          color: const Color(0xFF6366F1),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const SplitApksMergerScreen()),
+          ),
+        ),
+      if (!isWeb() && isAndroid())
+        ModernToolTile(
+          title: localizations.extractApk,
+          icon: Icons.layers,
+          color: const Color(0xFF14B8A6),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ExtractApkScreen()),
+          ),
+        ),
+    ];
 
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: _onPopInvokedWithResult,
       child: Scaffold(
-        appBar: AppBar(title: Text(localizations.appTitle)),
         onDrawerChanged: (isOpened) => setState(() => isDrawerOpen = isOpened),
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              DrawerHeader(
+              Container(
+                height: 180,
+                width: double.infinity,
                 decoration: BoxDecoration(
-                  color:
-                      Brightness.dark == Theme.of(context).brightness
-                          ? Colors.black
-                          : Colors.white,
+                  gradient: LinearGradient(
+                    colors: [
+                      theme.colorScheme.primary,
+                      theme.colorScheme.primaryContainer,
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      Theme.of(context).brightness == Brightness.dark
-                          ? 'assets/dark_splash.png'
-                          : 'assets/light_splash.png',
-                      height: 90,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.2),
+                        shape: BoxShape.circle,
+                      ),
+                      padding: const EdgeInsets.all(12),
+                       child: Image.asset(
+                        'assets/${theme.brightness == Brightness.dark ? "dark" : "light"}_splash.png',
+                        height: 60,
+                        color: Colors.white,
+                       ),
                     ),
-                    const SizedBox(height: 8),
-                    Builder(
-                      builder: (context) {
-                        final brightness = Theme.of(context).brightness;
-                        return Text(
-                          localizations.appTitle,
-                          style: TextStyle(
-                            color:
-                                brightness == Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black,
-                            fontSize: 24,
-                          ),
-                        );
-                      },
+                    const SizedBox(height: 12),
+                    Text(
+                      localizations.appTitle,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
@@ -355,20 +423,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ThemeMode.system
                           ? Icons.brightness_auto
                           : context.watch<ThemeProvider>().themeMode ==
-                              ThemeMode.light
-                          ? Icons.light_mode
-                          : Icons.dark_mode,
+                                  ThemeMode.light
+                              ? Icons.light_mode
+                              : Icons.dark_mode,
                     ),
                     title: Text(
-                      '${localizations.theme}: ${context.watch<ThemeProvider>().themeMode == ThemeMode.system
-                          ? 'System'
-                          : context.watch<ThemeProvider>().themeMode == ThemeMode.light
-                          ? 'Light'
-                          : 'Dark'}',
+                      '${localizations.theme}: ${context.watch<ThemeProvider>().themeMode == ThemeMode.system ? 'System' : context.watch<ThemeProvider>().themeMode == ThemeMode.light ? 'Light' : 'Dark'}',
                     ),
-                    onTap: () {
-                      context.read<ThemeProvider>().toggleTheme();
-                    },
+                    onTap: () => context.read<ThemeProvider>().toggleTheme(),
                   ),
                   ListTile(
                     leading: const Icon(Icons.language),
@@ -382,15 +444,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               content: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
-                                  children:
-                                      AppLocalizations.supportedLocales.map((
-                                        locale,
-                                      ) {
+                                  children: AppLocalizations.supportedLocales
+                                      .map((locale) {
                                         return ListTile(
                                           title: Text(
-                                            _getLanguageName(
-                                              locale.languageCode,
-                                            ),
+                                            _getLanguageName(locale.languageCode),
                                           ),
                                           onTap: () {
                                             context
@@ -399,14 +457,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                             Navigator.pop(context);
                                           },
                                         );
-                                      }).toList(),
+                                      })
+                                      .toList(),
                                 ),
                               ),
                             ),
                       );
                     },
                   ),
-                  ListTile(
+                   ListTile(
                     leading: const Icon(Icons.link),
                     title: Text(localizations.ollama_api_url),
                     onTap: () async {
@@ -464,21 +523,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ]
                       : []),
                   ListTile(
-                    leading: Icon(Icons.bug_report),
+                    leading: const Icon(Icons.bug_report),
                     title: FutureBuilder<bool>(
                       future: SharedPreferences.getInstance().then((prefs) {
                         return prefs.getBool('logEnabled') ?? false;
                       }),
-                      builder: (
-                        BuildContext context,
-                        AsyncSnapshot<bool> snapshot,
-                      ) {
+                      builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           return Text(
                             snapshot.data! ? 'Disable Logs' : 'Enable Logs',
                           );
                         } else {
-                          return Text('Enable Logs');
+                          return const Text('Enable Logs');
                         }
                       },
                     ),
@@ -490,7 +546,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         if (!context.mounted) return;
                         Navigator.of(context).pop();
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Restart the app to apply changes'),
                           ),
                         );
@@ -499,30 +555,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ],
               ),
-              const Divider(),
+
               ListTile(
                 leading: const Icon(Icons.code),
                 title: Text(localizations.smaliGrammar),
                 onTap: () {
                   Navigator.pop(context);
-                  _showSmaliGrammarDialog(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                       builder: (context) => const SmaliGrammarScreen(),
+                    ),
+                  );
                 },
               ),
-              (!isWeb() && isAndroid())
-                  ? ListTile(
-                    leading: const Icon(Icons.layers),
-                    title: Text(localizations.extractApk),
-                    onTap: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ExtractApkScreen(),
-                        ),
-                      );
-                    },
-                  )
-                  : const SizedBox.shrink(),
               ListTile(
                 leading: const Icon(Icons.person),
                 title: Text(localizations.profile),
@@ -554,112 +600,116 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const OllamaChatScreen()),
             );
           },
-          backgroundColor:
-              Brightness.dark == Theme.of(context).brightness
-                  ? Colors.black
-                  : Colors.white,
-          child: Icon(Icons.chat, color: Theme.of(context).colorScheme.primary),
+          icon: const Icon(Icons.chat_bubble_outline),
+          label: const Text('AI Chat'),
+          backgroundColor: theme.colorScheme.primary,
+          foregroundColor: theme.colorScheme.onPrimary,
         ),
-        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            final List<AnalysisCard> analysisItems = [
-              AnalysisCard(
-                title: localizations.jniAnalysis,
-                icon: Icons.android,
-                description: localizations.jniAnalysisDesc,
-                onTap:
-                    () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const JniAnalysisScreen(),
-                      ),
-                    ),
-              ),
-              AnalysisCard(
-                title: localizations.flutterAnalysis,
-                icon: Icons.flutter_dash,
-                description: localizations.flutterAnalysisDesc,
-                onTap:
-                    () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const FlutterAnalysisScreen(),
-                      ),
-                    ),
-              ),
-              AnalysisCard(
-                title: localizations.blutter,
-                icon: Icons.build,
-                description: localizations.blutterDesc,
-                onTap:
-                    () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const BlutterAnalysisScreen(),
-                      ),
-                    ),
-              ),
-              AnalysisCard(
-                title: localizations.mtHook,
-                icon: Icons.book,
-                description: localizations.mtHookDesc,
-                onTap:
-                    () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MTHookAnalysisScreen(),
-                      ),
-                    ),
-              ),
-              AnalysisCard(
-                title: localizations.dexRepair,
-                icon: Icons.auto_fix_high,
-                description: localizations.dexRepairDesc,
-                onTap:
-                    () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const DexRepairScreen(),
-                      ),
-                    ),
-              ),
-              if (isWeb() || !isIOS())
-                AnalysisCard(
-                  title: localizations.apksToApk,
-                  icon: Icons.merge_type,
-                  description: localizations.mergeSplitApks,
-                  onTap:
-                      () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SplitApksMergerScreen(),
+        body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            SliverAppBar(
+              expandedHeight: 180,
+              pinned: true,
+              stretch: true,
+              backgroundColor: theme.scaffoldBackgroundColor,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  localizations.appTitle,
+                  style: TextStyle(
+                    color: theme.textTheme.titleLarge?.color,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                centerTitle: true,
+                titlePadding: const EdgeInsets.only(bottom: 16),
+                background: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                           colors: [
+                              theme.colorScheme.primary.withValues(alpha: 0.15),
+                              theme.scaffoldBackgroundColor,
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
                         ),
                       ),
+                    ),
+                    Positioned(
+                      right: -20,
+                      top: -20,
+                      child: Opacity(
+                        opacity: 0.1,
+                        child: Icon(
+                          Icons.build_circle_outlined,
+                          size: 200,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-            ];
-            return GridView.builder(
-              padding: const EdgeInsets.all(24),
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 320,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 16,
-                childAspectRatio: 1.2,
-                mainAxisExtent: 170,
               ),
-              itemCount: analysisItems.length,
-              itemBuilder: (context, index) {
-                return analysisItems[index];
-              },
-            );
-          },
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 24, 16, 12),
+                child: Text(
+                  'Analysis Tools',
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.textTheme.titleMedium?.color?.withValues(alpha: 0.6),
+                  ),
+                ),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              sliver: SliverGrid(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 300,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                  childAspectRatio: 1.0,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => analysisTools[index],
+                  childCount: analysisTools.length,
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 32, 16, 12),
+                child: Text(
+                  'Utilities',
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.textTheme.titleMedium?.color?.withValues(alpha: 0.6),
+                  ),
+                ),
+              ),
+            ),
+             SliverPadding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 80),
+              sliver: SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => utilityTools[index],
+                  childCount: utilityTools.length,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

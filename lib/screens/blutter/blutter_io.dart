@@ -147,7 +147,6 @@ class _BlutterAnalysisScreenState extends State<BlutterAnalysisScreen> {
         },
       );
 
-      // Save response bytes to file
       final Directory dir = Directory(await getDownloadsDirectory());
       if (!dir.existsSync()) {
         await dir.create(recursive: true);
@@ -211,130 +210,265 @@ class _BlutterAnalysisScreenState extends State<BlutterAnalysisScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final borderColor = theme.dividerColor;
+
     return Scaffold(
-      appBar: AppBar(title: Text(localizations.blutter)),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      localizations.selectFiles("APK/Zip"),
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 180,
+            pinned: true,
+            stretch: true,
+            backgroundColor: theme.scaffoldBackgroundColor,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                localizations.blutter,
+                style: TextStyle(
+                  color: theme.textTheme.titleLarge?.color,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              centerTitle: true,
+              titlePadding: const EdgeInsets.only(bottom: 16),
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          theme.colorScheme.primary.withValues(alpha: 0.15),
+                          theme.scaffoldBackgroundColor,
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    ListTile(
-                      leading: const Icon(Icons.android),
-                      title: const Text('APK/Zip File'),
-                      subtitle:
+                  ),
+                  Positioned(
+                    right: -20,
+                    top: -20,
+                    child: Opacity(
+                      opacity: 0.1,
+                      child: Icon(
+                        Icons.build,
+                        size: 200,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 24, 16, 80),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: borderColor),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.05),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.android,
+                          size: 48,
+                          color: theme.colorScheme.primary,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
                           _apkFile != null
-                              ? Text(
-                                _apkFile!.path
-                                    .split(Platform.pathSeparator)
-                                    .last,
-                                style: const TextStyle(color: Colors.green),
-                              )
-                              : Text(localizations.noFileSelected),
-                      trailing: ElevatedButton(
-                        onPressed: _isAnalyzing ? null : _pickApkFile,
-                        child: Text(localizations.chooseFile("File")),
+                              ? _apkFile!.path.split(Platform.pathSeparator).last
+                              : localizations.selectFiles("APK/Zip"),
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color:
+                                _apkFile != null
+                                    ? Colors.green
+                                    : theme.textTheme.bodyMedium?.color,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed: _isAnalyzing ? null : _pickApkFile,
+                                icon: const Icon(Icons.file_upload),
+                                label: Text(localizations.chooseFile("File")),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      theme.colorScheme.surfaceContainerHighest,
+                                  foregroundColor:
+                                      theme.colorScheme.onSurfaceVariant,
+                                  elevation: 0,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed:
+                                    (_apkFile == null || _isAnalyzing)
+                                        ? null
+                                        : _analyzeFiles,
+                                icon: const Icon(Icons.analytics),
+                                label: Text(
+                                  _isAnalyzing
+                                      ? localizations.analyzing
+                                      : localizations.analyze,
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: theme.colorScheme.primary,
+                                  foregroundColor: theme.colorScheme.onPrimary,
+                                  elevation: 0,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color:
+                          theme.brightness == Brightness.dark
+                              ? Colors.orange.withValues(alpha: 0.1)
+                              : Colors.orange.shade50,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: Colors.orange.withValues(alpha: 0.3),
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Note: ',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Colors.orange,
-                              fontWeight: FontWeight.bold,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.warning_amber_rounded,
+                          color: Colors.orange,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            localizations.blutterNote,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.textTheme.bodySmall?.color,
                             ),
                           ),
-                          TextSpan(
-                            text: localizations.blutterNote,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  if (_isAnalyzing) ...[
+                    if (_uploadProgress > 0 && _uploadProgress < 1)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(localizations.uploading),
+                          const SizedBox(height: 8),
+                          LinearProgressIndicator(
+                            value: _uploadProgress,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          const SizedBox(height: 16),
+                        ],
+                      ),
+                    if (_downloadProgress > 0 && _downloadProgress < 1)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(localizations.downloading),
+                          const SizedBox(height: 8),
+                          LinearProgressIndicator(
+                            value: _downloadProgress,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          const SizedBox(height: 16),
+                        ],
+                      ),
+                    if (_uploadProgress == 0 && _downloadProgress == 0)
+                      const Center(child: CircularProgressIndicator()),
+                  ] else if (_error != null)
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.errorContainer,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: theme.colorScheme.error),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.error_outline,
+                            color: theme.colorScheme.error,
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              _error!,
+                              style: TextStyle(
+                                color: theme.colorScheme.onErrorContainer,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  else if (_successMessage != null)
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.green.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.green),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.check_circle_outline, color: Colors.green),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              _successMessage!,
+                              style: const TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        onPressed:
-                            (_apkFile == null || _isAnalyzing)
-                                ? null
-                                : _analyzeFiles,
-                        icon: const Icon(Icons.analytics),
-                        label: Text(
-                          _isAnalyzing
-                              ? localizations.analyzing
-                              : localizations.analyze,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                ],
               ),
             ),
-            const SizedBox(height: 16),
-            if (_isAnalyzing) ...[
-              if (_uploadProgress > 0 && _uploadProgress < 1)
-                Column(
-                  children: [
-                    Text(localizations.uploading),
-                    LinearProgressIndicator(value: _uploadProgress),
-                    const SizedBox(height: 8),
-                  ],
-                ),
-              if (_downloadProgress > 0 && _downloadProgress < 1)
-                Column(
-                  children: [
-                    Text(localizations.downloading),
-                    LinearProgressIndicator(value: _downloadProgress),
-                    const SizedBox(height: 8),
-                  ],
-                ),
-              if (_uploadProgress == 0 && _downloadProgress == 0)
-                const Center(child: CircularProgressIndicator()),
-            ] else if (_error != null)
-              Card(
-                color: Colors.red[100],
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    _error!,
-                    style: TextStyle(color: Colors.red[900]),
-                  ),
-                ),
-              )
-            else if (_successMessage != null)
-              Card(
-                color: Colors.green[100],
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    _successMessage!,
-                    style: TextStyle(color: Colors.green[900]),
-                  ),
-                ),
-              ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
