@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:revengi/utils/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:revengi/screens/ollama.dart';
@@ -84,8 +85,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       navigatorKey: navigatorKey,
       title: 'RevEngi App',
-      theme: ThemeData.light(useMaterial3: true),
-      darkTheme: ThemeData.dark(useMaterial3: true),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       themeMode: context.watch<ThemeProvider>().themeMode,
       home: const SplashScreen(),
       locale: languageProvider.locale,

@@ -168,149 +168,303 @@ class _FlutterAnalysisScreenState extends State<FlutterAnalysisScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final borderColor = theme.dividerColor;
 
     return Scaffold(
-      appBar: AppBar(title: Text(localizations.flutterAnalysis)),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      localizations.selectFiles('Library'),
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    ListTile(
-                      leading: const Icon(Icons.library_books),
-                      title: const Text('libapp'),
-                      subtitle:
-                          (_libappFile != null || _libappBytes.isNotEmpty)
-                              ? isWeb()
-                                  ? Text('libapp.so')
-                                  : Text(
-                                    _libappFile!.path
-                                        .split(Platform.pathSeparator)
-                                        .last,
-                                    style: const TextStyle(color: Colors.green),
-                                  )
-                              : Text(localizations.noFileSelected),
-                      trailing: ElevatedButton(
-                        onPressed: _isAnalyzing ? null : _pickLibappFile,
-                        child: Text(localizations.chooseFile("File")),
-                      ),
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.library_books),
-                      title: const Text('libflutter'),
-                      subtitle:
-                          (_libflutterFile != null ||
-                                  _libflutterBytes.isNotEmpty)
-                              ? isWeb()
-                                  ? const Text('libflutter.so')
-                                  : Text(
-                                    _libflutterFile!.path
-                                        .split(Platform.pathSeparator)
-                                        .last,
-                                    style: const TextStyle(color: Colors.green),
-                                  )
-                              : Text(localizations.noFileSelected),
-                      trailing: ElevatedButton(
-                        onPressed: _isAnalyzing ? null : _pickLibflutterFile,
-                        child: Text(localizations.chooseFile("File")),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        onPressed:
-                            (isWeb()
-                                        ? (_libappBytes.isEmpty ||
-                                            _libflutterBytes.isEmpty)
-                                        : (_libappFile == null ||
-                                            _libflutterFile == null)) ||
-                                    _isAnalyzing
-                                ? null
-                                : _analyzeFiles,
-                        icon: const Icon(Icons.analytics),
-                        label: Text(
-                          _isAnalyzing
-                              ? localizations.analyzing
-                              : localizations.analyze,
-                        ),
-                      ),
-                    ),
-                  ],
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 180,
+            pinned: true,
+            stretch: true,
+            backgroundColor: theme.scaffoldBackgroundColor,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                localizations.flutterAnalysis,
+                style: TextStyle(
+                  color: theme.textTheme.titleLarge?.color,
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
+              centerTitle: true,
+              titlePadding: const EdgeInsets.only(bottom: 16),
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          theme.colorScheme.primary.withValues(alpha: 0.15),
+                          theme.scaffoldBackgroundColor,
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    right: -20,
+                    top: -20,
+                    child: Opacity(
+                      opacity: 0.1,
+                      child: Icon(
+                        Icons.flutter_dash,
+                        size: 200,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 16),
-            if (_isAnalyzing)
-              const Center(child: CircularProgressIndicator())
-            else if (_error != null)
-              Card(
-                color: Colors.red[100],
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    _error!,
-                    style: TextStyle(color: Colors.red[900]),
-                  ),
-                ),
-              )
-            else if (_result != null)
-              Expanded(
-                child: Card(
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.all(16),
-                    child: SelectableText.rich(
-                      TextSpan(
-                        style: const TextStyle(fontSize: 14),
-                        children:
-                            _result!.split('\n').map((line) {
-                              if (line.isEmpty) {
-                                return const TextSpan(text: '\n');
-                              }
-                              final parts = line.split(': ');
-                              if (parts.length == 2) {
-                                return TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '${parts[0]}: ',
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: parts[1],
-                                      style: const TextStyle(
-                                        fontFamily: 'monospace',
-                                      ),
-                                    ),
-                                    const TextSpan(text: '\n'),
-                                  ],
-                                );
-                              }
-                              return TextSpan(text: '$line\n');
-                            }).toList(),
-                      ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 24, 16, 80),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: borderColor),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.05),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.library_books,
+                          size: 48,
+                          color: theme.colorScheme.primary,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          localizations.selectFiles('Library'),
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 20),
+                        _buildFileTile(
+                          theme: theme,
+                          title: 'libapp',
+                          subtitle:
+                              (_libappFile != null || _libappBytes.isNotEmpty)
+                                  ? isWeb()
+                                      ? 'libapp.so'
+                                      : _libappFile!.path
+                                          .split(Platform.pathSeparator)
+                                          .last
+                                  : localizations.noFileSelected,
+                          isFileSelected:
+                              _libappFile != null || _libappBytes.isNotEmpty,
+                          onPressed: _isAnalyzing ? null : _pickLibappFile,
+                          buttonText: localizations.chooseFile("File"),
+                        ),
+                        Divider(height: 24, color: borderColor),
+                        _buildFileTile(
+                          theme: theme,
+                          title: 'libflutter',
+                          subtitle:
+                              (_libflutterFile != null ||
+                                      _libflutterBytes.isNotEmpty)
+                                  ? isWeb()
+                                      ? 'libflutter.so'
+                                      : _libflutterFile!.path
+                                          .split(Platform.pathSeparator)
+                                          .last
+                                  : localizations.noFileSelected,
+                          isFileSelected:
+                              _libflutterFile != null ||
+                              _libflutterBytes.isNotEmpty,
+                          onPressed: _isAnalyzing ? null : _pickLibflutterFile,
+                          buttonText: localizations.chooseFile("File"),
+                        ),
+                        const SizedBox(height: 24),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            onPressed:
+                                (isWeb()
+                                            ? (_libappBytes.isEmpty ||
+                                                _libflutterBytes.isEmpty)
+                                            : (_libappFile == null ||
+                                                _libflutterFile == null)) ||
+                                        _isAnalyzing
+                                    ? null
+                                    : _analyzeFiles,
+                            icon: const Icon(Icons.analytics),
+                            label: Text(
+                              _isAnalyzing
+                                  ? localizations.analyzing
+                                  : localizations.analyze,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: theme.colorScheme.primary,
+                              foregroundColor: theme.colorScheme.onPrimary,
+                              elevation: 0,
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+                  const SizedBox(height: 24),
+                  if (_isAnalyzing)
+                    const Center(child: CircularProgressIndicator())
+                  else if (_error != null)
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.errorContainer,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: theme.colorScheme.error),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.error_outline,
+                            color: theme.colorScheme.error,
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              _error!,
+                              style: TextStyle(
+                                color: theme.colorScheme.onErrorContainer,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  else if (_result != null)
+                    Container(
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.surface,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: borderColor),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.surfaceContainerHighest,
+                              borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(15),
+                              ),
+                            ),
+                            child: const Text(
+                              "Analysis Result",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: SelectableText.rich(
+                              TextSpan(
+                                style: const TextStyle(fontSize: 14),
+                                children:
+                                    _result!.split('\n').map((line) {
+                                      if (line.isEmpty) {
+                                        return const TextSpan(text: '\n');
+                                      }
+                                      final parts = line.split(': ');
+                                      if (parts.length == 2) {
+                                        return TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: '${parts[0]}: ',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color:
+                                                    theme.colorScheme.primary,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: parts[1],
+                                              style: const TextStyle(
+                                                fontFamily: 'monospace',
+                                              ),
+                                            ),
+                                            const TextSpan(text: '\n'),
+                                          ],
+                                        );
+                                      }
+                                      return TextSpan(text: '$line\n');
+                                    }).toList(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFileTile({
+    required ThemeData theme,
+    required String title,
+    required String subtitle,
+    required bool isFileSelected,
+    required VoidCallback? onPressed,
+    required String buttonText,
+  }) {
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-          ],
+              const SizedBox(height: 4),
+              Text(
+                subtitle,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: isFileSelected ? Colors.green : null,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
-      ),
+        ElevatedButton(
+          onPressed: onPressed,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: theme.colorScheme.surfaceContainerHighest,
+            foregroundColor: theme.colorScheme.onSurfaceVariant,
+            elevation: 0,
+          ),
+          child: Text(buttonText),
+        ),
+      ],
     );
   }
 }

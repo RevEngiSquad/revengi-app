@@ -81,151 +81,258 @@ class _AboutScreenState extends State<AboutScreen> {
     final localizations = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
 
-    return SafeArea(
-      top: false,
-      child: Scaffold(
-        appBar: AppBar(title: Text(localizations.about)),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Center(
-                child: Column(
-                  children: [
-                    Image.asset(
-                      theme.brightness == Brightness.dark
-                          ? 'assets/dark_splash.png'
-                          : 'assets/light_splash.png',
-                      height: 100,
-                    ),
-                    const SizedBox(height: 16),
-                    Text(
-                      localizations.appTitle,
-                      style: theme.textTheme.headlineMedium,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Version ${widget.currentVersion}',
-                      style: theme.textTheme.bodyMedium,
-                    ),
-                    const SizedBox(height: 16),
-                    FutureBuilder<Release>(
-                      future: releaseFuture,
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (snapshot.hasError) {
-                          return const SizedBox.shrink();
-                        } else if (snapshot.hasData) {
-                          final release = snapshot.data!;
-                          return Card(
-                            elevation: 2,
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  GptMarkdown(
-                                    release.body,
-                                    style: const TextStyle(fontSize: 14),
-                                    onLinkTap: (url, title) async {
-                                      final uri = Uri.parse(url);
-                                      if (await canLaunchUrl(uri)) {
-                                        await launchUrl(uri);
-                                      }
-                                    },
-                                  ),
-                                ],
-                              ),
+    return Scaffold(
+      backgroundColor: theme.scaffoldBackgroundColor,
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 220,
+            pinned: true,
+            stretch: true,
+            backgroundColor: theme.colorScheme.surface,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      theme.colorScheme.primary.withValues(alpha: 0.1),
+                      theme.colorScheme.surface,
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 48),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: theme.colorScheme.surface,
+                          boxShadow: [
+                            BoxShadow(
+                              color: theme.colorScheme.primary.withValues(alpha: 0.2),
+                              blurRadius: 20,
+                              spreadRadius: 5,
                             ),
-                          );
-                        } else {
-                          return const SizedBox.shrink();
-                        }
-                      },
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 32),
-              Text(
-                localizations.developer,
-                style: theme.textTheme.headlineSmall,
-              ),
-              const SizedBox(height: 16),
-              PersonCard(
-                name: developer.name,
-                image: Image.asset(developer.iconUrl),
-                isDeveloper: true,
-              ),
-              const SizedBox(height: 32),
-
-              Center(
-                child: ElevatedButton.icon(
-                  icon: const Icon(Icons.attribution),
-                  label: Text(localizations.licenses),
-                  onPressed: () {
-                    showLicensePage(
-                      context: context,
-                      applicationName: localizations.appTitle,
-                      applicationVersion: widget.currentVersion,
-                      applicationLegalese: '© ${DateTime.now().year} RevEngi',
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(height: 32),
-
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  spacing: 16,
-                  children: [
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.attach_money),
-                      label: Text(localizations.donate),
-                      onPressed: () async {
-                        final url = Uri.parse('https://revengi.in/donate');
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        }
-                      },
-                    ),
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.star),
-                      label: const Text('GitHub'),
-                      onPressed: () async {
-                        final url = Uri.parse(
-                          'https://github.com/RevEngiSquad/revengi-app',
-                        );
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        }
-                      },
-                    ),
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.email),
-                      label: Text(localizations.mail),
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                          ],
+                        ),
+                        child: Image.asset(
+                          theme.brightness == Brightness.dark
+                              ? 'assets/dark_splash.png'
+                              : 'assets/light_splash.png',
+                          height: 80,
+                        ),
                       ),
-                      onPressed: () async {
-                        final url = Uri.parse('mailto:support@revengi.in');
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        }
-                      },
-                    ),
-                  ],
+                      const SizedBox(height: 16),
+                      Text(
+                        localizations.appTitle,
+                        style: theme.textTheme.headlineMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'Version ${widget.currentVersion}',
+                         style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.outline,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ],
+            ),
           ),
+          
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+
+                  Text(
+                    "What's New",
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  FutureBuilder<Release>(
+                    future: releaseFuture,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(24),
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      } else if (snapshot.hasError) {
+                         return Container(
+                           padding: const EdgeInsets.all(16),
+                           decoration: BoxDecoration(
+                             color: theme.colorScheme.errorContainer,
+                             borderRadius: BorderRadius.circular(16),
+                           ),
+                           child: Text('Could not load release notes.', style: TextStyle(color: theme.colorScheme.onErrorContainer)),
+                         );
+                      } else if (snapshot.hasData) {
+                        final release = snapshot.data!;
+                        return Container(
+                          padding: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surface,
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(color: theme.dividerColor),
+                          ),
+                          child: GptMarkdown(
+                            release.body,
+                            style: theme.textTheme.bodyMedium!,
+                            onLinkTap: (url, title) async {
+                              final uri = Uri.parse(url);
+                              if (await canLaunchUrl(uri)) {
+                                await launchUrl(uri);
+                              }
+                            },
+                          ),
+                        );
+                      } else {
+                        return const SizedBox.shrink();
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 32),
+
+
+                  Text(
+                    localizations.developer,
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                       color: theme.colorScheme.surface,
+                       borderRadius: BorderRadius.circular(16),
+                       border: Border.all(color: theme.dividerColor),
+                    ),
+                    child: Row(
+                      children: [
+                        ClipOval(
+                          child: Image.asset(
+                            developer.iconUrl,
+                             width: 60, height: 60,
+                             fit: BoxFit.cover,
+                          ),
+                        ),
+                         const SizedBox(width: 16),
+                         Expanded(
+                           child: Column(
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             children: [
+                               Text(developer.name, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+                               Text('Lead Developer', style: theme.textTheme.bodySmall),
+                             ],
+                           ),
+                         ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 32),
+
+
+                  Wrap(
+                    spacing: 12,
+                    runSpacing: 12,
+                    alignment: WrapAlignment.center,
+                    children: [
+                       _ActionButton(
+                         icon: Icons.attribution,
+                         label: localizations.licenses,
+                         onTap: () {
+                           showLicensePage(
+                              context: context,
+                              applicationName: localizations.appTitle,
+                              applicationVersion: widget.currentVersion,
+                              applicationLegalese: '© ${DateTime.now().year} RevEngi',
+                            );
+                         },
+                       ),
+                         _ActionButton(
+                         icon: Icons.attach_money,
+                         label: localizations.donate,
+                         onTap: () => _launch('https://revengi.in/donate'),
+                       ),
+                        _ActionButton(
+                         icon: Icons.star,
+                         label: 'GitHub',
+                         onTap: () => _launch('https://github.com/RevEngiSquad/revengi-app'),
+                       ),
+                        _ActionButton(
+                         icon: Icons.email,
+                         label: localizations.mail,
+                         onTap: () => _launch('mailto:support@revengi.in'),
+                       ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _launch(String urlString) async {
+    final url = Uri.parse(urlString);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    }
+  }
+}
+
+class _ActionButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const _ActionButton({required this.icon, required this.label, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return InkWell(
+      onTap: onTap,
+       borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 20, color: theme.colorScheme.primary),
+             const SizedBox(width: 8),
+             Text(
+               label,
+               style: theme.textTheme.labelLarge?.copyWith(
+                 fontWeight: FontWeight.bold,
+                 color: theme.colorScheme.primary,
+               ),
+             ),
+          ],
         ),
       ),
     );
@@ -253,42 +360,6 @@ class Contributor {
     return Contributor(
       name: json['name'] as String,
       iconUrl: json['icon'] as String,
-    );
-  }
-}
-
-class PersonCard extends StatelessWidget {
-  final String name;
-  final Widget image;
-  final bool isDeveloper;
-
-  const PersonCard({
-    super.key,
-    required this.name,
-    required this.image,
-    this.isDeveloper = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ClipOval(child: SizedBox(width: 60, height: 60, child: image)),
-          const SizedBox(height: 8),
-          Text(
-            name,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: isDeveloper ? 18 : 14),
-            maxLines: 1,
-            overflow: TextOverflow.visible,
-            softWrap: false,
-          ),
-        ],
-      ),
     );
   }
 }

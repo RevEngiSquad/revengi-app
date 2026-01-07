@@ -138,7 +138,6 @@ class SplitApksMergerScreenState extends State<SplitApksMergerScreen> {
           }
         }
       });
-      // We deliberatily do this here because dart's analyser nags about _logSubscription being unused
       _logSubscription?.onDone(() {});
     } else {
       _loadJarPath();
@@ -300,133 +299,347 @@ class SplitApksMergerScreenState extends State<SplitApksMergerScreen> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final borderColor = theme.dividerColor;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(localizations.mergeSplitApks),
-        actions: [
-          if (isWindows() || isLinux())
-            IconButton(
-              icon: Icon(Icons.settings),
-              tooltip: localizations.setJarPath,
-              onPressed: _setJarPathSettings,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 180,
+            pinned: true,
+            stretch: true,
+            backgroundColor: theme.scaffoldBackgroundColor,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                localizations.mergeSplitApks,
+                style: TextStyle(
+                  color: theme.textTheme.titleLarge?.color,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              centerTitle: true,
+              titlePadding: const EdgeInsets.only(bottom: 16),
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          theme.colorScheme.primary.withValues(alpha: 0.15),
+                          theme.scaffoldBackgroundColor,
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    right: -20,
+                    top: -20,
+                    child: Opacity(
+                      opacity: 0.1,
+                      child: Icon(
+                        Icons.merge_type,
+                        size: 200,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(localizations.selectFiles("APK")),
-              if (_selectedFile != null || _fileBytes.isNotEmpty)
-                Text(
-                  'Selected: $_fileName',
-                  style: TextStyle(color: Colors.green),
-                ),
-              SizedBox(height: 16),
-              ElevatedButton.icon(
-                onPressed: _pickFile,
-                icon: Icon(Icons.file_upload),
-                label: Text(localizations.chooseFile("APK")),
-              ),
-              SizedBox(height: 20),
-              Text('extractNativeLibs:'),
-              DropdownButton<String>(
-                value: extractNativeLibs,
-                items:
-                    extractNativeLibsOptions
-                        .map(
-                          (opt) =>
-                              DropdownMenuItem(value: opt, child: Text(opt)),
-                        )
-                        .toList(),
-                onChanged: (value) {
-                  setState(() {
-                    extractNativeLibs = value!;
-                  });
-                },
-              ),
-              SwitchListTile(
-                title: Text(localizations.vrd),
-                value: validateResDir,
-                onChanged: (val) {
-                  setState(() {
-                    validateResDir = val;
-                  });
-                },
-              ),
-              SwitchListTile(
-                title: Text(localizations.cleanMeta),
-                value: cleanMeta,
-                onChanged: (val) {
-                  setState(() {
-                    cleanMeta = val;
-                  });
-                },
-              ),
-              SwitchListTile(
-                title: Text(localizations.validateModules),
-                value: validateModules,
-                onChanged: (val) {
-                  setState(() {
-                    validateModules = val;
-                  });
-                },
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'res/'),
-                onChanged: (val) {
-                  setState(() {
-                    resDirName = val;
-                  });
-                },
-              ),
-              SizedBox(height: 24),
-              Center(
-                child: ElevatedButton.icon(
-                  icon: Icon(Icons.merge_type),
-                  label: Text(localizations.merge),
-                  onPressed:
-                      (_selectedFile != null || _fileBytes.isNotEmpty) &&
-                              !_isMerging
-                          ? _mergeFileTask
-                          : null,
-                  style: ElevatedButton.styleFrom(minimumSize: Size(160, 48)),
-                ),
-              ),
-              SizedBox(height: 32),
-              if (_showLogs)
-                Container(
-                  height: 240,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(8),
-                    // border: Border.all(color: Colors.greenAccent, width: 1),
-                  ),
-                  padding: EdgeInsets.all(12),
-                  child: ListView.builder(
-                    controller: _logsScrollController,
-                    itemCount: _logs.length,
-                    itemBuilder: (context, idx) {
-                      final log = _logs[idx];
-                      return Text(
-                        log['msg'] ?? '',
-                        style: TextStyle(
-                          color:
-                              log['type'] == 'error'
-                                  ? Colors.redAccent
-                                  : Colors.greenAccent,
-                          fontFamily: 'monospace',
-                          fontSize: 14,
-                        ),
-                      );
-                    },
-                  ),
+            actions: [
+              if (isWindows() || isLinux())
+                IconButton(
+                  icon: const Icon(Icons.settings),
+                  tooltip: localizations.setJarPath,
+                  onPressed: _setJarPathSettings,
                 ),
             ],
           ),
-        ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 24, 16, 80),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: borderColor),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.05),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.folder_zip,
+                          size: 48,
+                          color: theme.colorScheme.primary,
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          _selectedFile != null || _fileBytes.isNotEmpty
+                              ? '$_fileName'
+                              : localizations.selectFiles("APK"),
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color:
+                                _selectedFile != null || _fileBytes.isNotEmpty
+                                    ? Colors.green
+                                    : theme.textTheme.bodyMedium?.color,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 20),
+                        ElevatedButton.icon(
+                          onPressed: _pickFile,
+                          icon: const Icon(Icons.file_upload),
+                          label: Text(localizations.chooseFile("APK")),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: theme.colorScheme.primaryContainer,
+                            foregroundColor: theme.colorScheme.onPrimaryContainer,
+                            elevation: 0,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 24,
+                              vertical: 12,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: borderColor),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: const Text('Extract Native Libs'),
+                          trailing: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.surfaceContainerHighest,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: DropdownButtonHideUnderline(
+                              child: DropdownButton<String>(
+                                value: extractNativeLibs,
+                                icon: const Icon(Icons.arrow_drop_down),
+                                borderRadius: BorderRadius.circular(12),
+                                items:
+                                    extractNativeLibsOptions
+                                        .map(
+                                          (opt) => DropdownMenuItem(
+                                            value: opt,
+                                            child: Text(opt),
+                                          ),
+                                        )
+                                        .toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    extractNativeLibs = value!;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                        Divider(height: 1, color: borderColor),
+                        SwitchListTile(
+                          title: Text(localizations.vrd),
+                          value: validateResDir,
+                          activeColor: theme.colorScheme.primary,
+                          onChanged: (val) {
+                            setState(() {
+                              validateResDir = val;
+                            });
+                          },
+                        ),
+                        Divider(height: 1, color: borderColor),
+                        SwitchListTile(
+                          title: Text(localizations.cleanMeta),
+                          value: cleanMeta,
+                          activeColor: theme.colorScheme.primary,
+                          onChanged: (val) {
+                            setState(() {
+                              cleanMeta = val;
+                            });
+                          },
+                        ),
+                        Divider(height: 1, color: borderColor),
+                        SwitchListTile(
+                          title: Text(localizations.validateModules),
+                          value: validateModules,
+                          activeColor: theme.colorScheme.primary,
+                          onChanged: (val) {
+                            setState(() {
+                              validateModules = val;
+                            });
+                          },
+                        ),
+                        Divider(height: 1, color: borderColor),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              labelText: 'res/',
+                              filled: true,
+                              fillColor: theme.colorScheme.surfaceContainerHighest,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide.none,
+                              ),
+                              prefixIcon: const Icon(Icons.folder_open),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 14,
+                              ),
+                            ),
+                            onChanged: (val) {
+                              setState(() {
+                                resDirName = val;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                  SizedBox(
+                    height: 56,
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.merge_type),
+                      label: Text(
+                        localizations.merge.toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed:
+                          (_selectedFile != null || _fileBytes.isNotEmpty) &&
+                                  !_isMerging
+                              ? _mergeFileTask
+                              : null,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.colorScheme.primary,
+                        foregroundColor: theme.colorScheme.onPrimary,
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                  if (_showLogs)
+                    Container(
+                      height: 300,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF1E1E1E),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: theme.dividerColor.withValues(alpha: 0.1),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.3),
+                            blurRadius: 10,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 8,
+                            ),
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF2D2D2D),
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(12),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.terminal,
+                                  size: 16,
+                                  color: Colors.white70,
+                                ),
+                                const SizedBox(width: 8),
+                                const Text(
+                                  'Output Log',
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const Spacer(),
+                                GestureDetector(
+                                  onTap: () => setState(() => _logs.clear()),
+                                  child: const Icon(
+                                    Icons.delete_outline,
+                                    size: 16,
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                              controller: _logsScrollController,
+                              padding: const EdgeInsets.all(12),
+                              itemCount: _logs.length,
+                              itemBuilder: (context, idx) {
+                                final log = _logs[idx];
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 4),
+                                  child: Text(
+                                    '> ${log['msg']}',
+                                    style: TextStyle(
+                                      color:
+                                          log['type'] == 'error'
+                                              ? const Color(0xFFFF5252)
+                                              : const Color(0xFF69F0AE),
+                                      fontFamily: 'monospace',
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
