@@ -47,12 +47,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+    final secondaryTextColor = theme.textTheme.bodyMedium?.color;
+
     return Scaffold(
-      backgroundColor:
-          Brightness.dark == Theme.of(context).brightness
-              ? Colors.black
-              : Colors.white,
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -74,18 +74,14 @@ class _SplashScreenState extends State<SplashScreen> {
               'Reverse Engineering Tools',
               style: TextStyle(
                 fontSize: 16,
-                color:
-                    Brightness.dark == Theme.of(context).brightness
-                        ? Colors.white70
-                        : Colors.black54,
+                color: secondaryTextColor,
               ),
             ),
             const SizedBox(height: 48),
             CircularProgressIndicator.adaptive(
               valueColor: AlwaysStoppedAnimation<Color>(
-                Brightness.dark == Theme.of(context).brightness
-                    ? Colors.white70
-                    : Colors.black54,
+                secondaryTextColor ??
+                    (isDarkMode ? Colors.white70 : Colors.black54),
               ),
             ),
           ],
