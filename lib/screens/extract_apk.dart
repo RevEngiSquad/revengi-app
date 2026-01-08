@@ -1699,6 +1699,9 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                     onPressed: _toggleSearch,
                   ),
                   PopupMenuButton<int>(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     icon: const Icon(Icons.more_vert),
                     onSelected: (value) {
                       if (value == 0) {

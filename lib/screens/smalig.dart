@@ -24,7 +24,7 @@ class _SmaliGrammarScreenState extends State<SmaliGrammarScreen> {
     super.initState();
     _initialize();
   }
-  
+
   @override
   void dispose() {
     _searchController.dispose();
@@ -36,7 +36,6 @@ class _SmaliGrammarScreenState extends State<SmaliGrammarScreen> {
     final shouldShowDialog = prefs.getBool(_prefKey) ?? true;
 
     if (shouldShowDialog && mounted) {
-
       await _showInfoDialog();
     }
 
@@ -57,20 +56,29 @@ class _SmaliGrammarScreenState extends State<SmaliGrammarScreen> {
                 children: [
                   Text(localizations.smaligInfo2),
                   SizedBox(height: 16),
-                  Text("${localizations.keyComponents}:", style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                    "${localizations.keyComponents}:",
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text('• opcode: Hexadecimal representation'),
                   Text('• name: Opcode name'),
                   Text('• format: Opcode format'),
                   Text('• syntax: Usual syntax'),
                   Text('• args_info: Argument information'),
                   SizedBox(height: 16),
-                  Text("${localizations.registerInformation}:", style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                    "${localizations.registerInformation}:",
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text('• vA: Destination register (4-bit, registers 0-15)'),
                   Text('• vAA: 8-bit register (0-255)'),
                   Text('• vAAAA: 16-bit register (0-65535)'),
                   Text('• vB: Source register'),
                   SizedBox(height: 16),
-                  Text("${localizations.arguments}:", style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                    "${localizations.arguments}:",
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text('• #+X: Literal value'),
                   Text('• +X: Relative instruction address offset'),
                   Text('• kind@X: Literal constant pool index'),
@@ -156,22 +164,40 @@ class _SmaliGrammarScreenState extends State<SmaliGrammarScreen> {
 
   Widget _buildFormattedText(String text) {
     final List<InlineSpan> spans = [];
-    final regex = RegExp(r'`([^`]+)`');
+    final regex = RegExp(r'`([^`]+)`|\$([^\$]+)\$|\*([^\*]+)\*');
     int currentPosition = 0;
 
     for (final match in regex.allMatches(text)) {
       if (match.start > currentPosition) {
         spans.add(TextSpan(text: text.substring(currentPosition, match.start)));
       }
-      spans.add(
-        TextSpan(
-          text: match.group(1),
-          style: const TextStyle(
-             fontFamily: 'monospace',
-             backgroundColor: Color(0x20808080), 
+
+      if (match.group(1) != null) {
+        spans.add(
+          TextSpan(
+            text: match.group(1),
+            style: const TextStyle(
+              fontFamily: 'monospace',
+              backgroundColor: Color(0x20808080),
+            ),
           ),
-        ),
-      );
+        );
+      } else if (match.group(2) != null) {
+        spans.add(
+          TextSpan(
+            text: match.group(2),
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+        );
+      } else if (match.group(3) != null) {
+        spans.add(
+          TextSpan(
+            text: match.group(3),
+            style: const TextStyle(fontStyle: FontStyle.italic),
+          ),
+        );
+      }
+
       currentPosition = match.end;
     }
 
@@ -180,10 +206,7 @@ class _SmaliGrammarScreenState extends State<SmaliGrammarScreen> {
     }
 
     return SelectableText.rich(
-       TextSpan(
-          children: spans,
-          style: const TextStyle(height: 1.5), 
-       ),
+      TextSpan(children: spans, style: const TextStyle(height: 1.5)),
     );
   }
 
@@ -228,52 +251,56 @@ class _SmaliGrammarScreenState extends State<SmaliGrammarScreen> {
             backgroundColor: theme.colorScheme.surface,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                 localizations.smaliGrammar,
-                 style: TextStyle(color: theme.colorScheme.onSurface),
+                localizations.smaliGrammar,
+                style: TextStyle(color: theme.colorScheme.onSurface),
               ),
               centerTitle: true,
               background: Stack(
                 fit: StackFit.expand,
                 children: [
-                   Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                           colors: [
-                              theme.colorScheme.primary.withValues(alpha: 0.1),
-                              theme.colorScheme.surface,
-                           ],
-                           begin: Alignment.topCenter,
-                           end: Alignment.bottomCenter,
-                        ),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          theme.colorScheme.primary.withValues(alpha: 0.1),
+                          theme.colorScheme.surface,
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
                       ),
-                   ),
-                   Positioned(
-                      right: -20,
-                      top: -10,
-                      child: Opacity(
-                        opacity: 0.1,
-                        child: Icon(
-                           Icons.code,
-                           size: 150,
-                           color: theme.colorScheme.primary,
-                        ),
+                    ),
+                  ),
+                  Positioned(
+                    right: -20,
+                    top: -10,
+                    child: Opacity(
+                      opacity: 0.1,
+                      child: Icon(
+                        Icons.code,
+                        size: 150,
+                        color: theme.colorScheme.primary,
                       ),
-                   ),
+                    ),
+                  ),
                 ],
               ),
             ),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(80),
               child: Container(
-                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                 color: theme.colorScheme.surface,
-                 child: TextField(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+                color: theme.colorScheme.surface,
+                child: TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.search),
                     hintText: 'Search opcode, name...',
                     filled: true,
-                    fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+                    fillColor: theme.colorScheme.surfaceContainerHighest
+                        .withValues(alpha: 0.5),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
                       borderSide: BorderSide.none,
@@ -287,145 +314,197 @@ class _SmaliGrammarScreenState extends State<SmaliGrammarScreen> {
           ),
 
           if (_isLoading)
-             const SliverFillRemaining(
-                child: Center(child: CircularProgressIndicator()),
-             )
+            const SliverFillRemaining(
+              child: Center(child: CircularProgressIndicator()),
+            )
           else if (_error != null)
-             SliverFillRemaining(
-                child: Center(child: Text('Error: $_error', style: TextStyle(color: theme.colorScheme.error))),
-             )
+            SliverFillRemaining(
+              child: Center(
+                child: Text(
+                  'Error: $_error',
+                  style: TextStyle(color: theme.colorScheme.error),
+                ),
+              ),
+            )
           else
             SliverPadding(
               padding: const EdgeInsets.all(16),
               sliver: SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    final instruction = _filteredInstructions[index];
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.surface,
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: theme.dividerColor),
-                      ),
-                      child: Theme(
-                        data: theme.copyWith(dividerColor: Colors.transparent),
-                        child: ExpansionTile(
-                          shape: const Border(),
-                          collapsedShape: const Border(),
-                          textColor: theme.colorScheme.onSurface,
-                          iconColor: theme.colorScheme.primary,
-                          title: Row(
-                            children: [
-                              Container(
-                                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                 decoration: BoxDecoration(
-                                    color: theme.colorScheme.primary.withValues(alpha: 0.1),
-                                    borderRadius: BorderRadius.circular(8),
-                                 ),
-                                 child: Text(
-                                    instruction['opcode'],
-                                    style: TextStyle(
-                                       fontFamily: 'monospace',
-                                       fontWeight: FontWeight.bold,
-                                       color: theme.colorScheme.primary,
-                                    ),
-                                 ),
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  final instruction = _filteredInstructions[index];
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: 12),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: theme.dividerColor),
+                    ),
+                    child: Theme(
+                      data: theme.copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        shape: const Border(),
+                        collapsedShape: const Border(),
+                        textColor: theme.colorScheme.onSurface,
+                        iconColor: theme.colorScheme.primary,
+                        title: Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
                               ),
-                              const SizedBox(width: 12),
-                              Expanded(
-                                child: Text(
-                                   instruction['name'],
-                                   style: const TextStyle(fontWeight: FontWeight.bold),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.primary.withValues(
+                                  alpha: 0.1,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Text(
+                                instruction['opcode'],
+                                style: TextStyle(
+                                  fontFamily: 'monospace',
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
                                 ),
                               ),
-                            ],
-                          ),
-                          subtitle: Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text(
-                              instruction['short_desc'],
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: theme.textTheme.bodySmall?.copyWith(
-                                 color: theme.colorScheme.onSurfaceVariant,
-                              ),
                             ),
-                          ),
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Divider(color: theme.dividerColor.withValues(alpha: 0.5)),
-                                  const SizedBox(height: 16),
-                                  
-
-                                  GridView.count(
-                                    shrinkWrap: true,
-                                    physics: const NeverScrollableScrollPhysics(),
-                                    crossAxisCount: 2,
-                                    childAspectRatio: 2.5,
-                                    mainAxisSpacing: 8,
-                                    crossAxisSpacing: 8,
-                                    children: [
-                                       _buildLabeledText(context, 'Format', instruction['format'], useMonospace: false),
-                                       _buildLabeledText(context, 'Format ID', instruction['format_id'], useMonospace: false),
-                                       _buildLabeledText(context, 'Syntax', instruction['syntax'], useMonospace: false),
-                                    ],
-                                  ),
-                                  
-                                  const SizedBox(height: 16),
-                                  _buildLabeledText(context, 'Arguments', instruction['args_info']),
-                                  
-                                  const SizedBox(height: 16),
-                                  _buildLabeledText(context, 'Description', instruction['long_desc']),
-                                  
-                                  if (instruction['note'] != null && instruction['note'].isNotEmpty) ...[
-                                    const SizedBox(height: 16),
-                                    Container(
-                                      padding: const EdgeInsets.all(12),
-                                      decoration: BoxDecoration(
-                                         color: Colors.amber.withValues(alpha: 0.1),
-                                         borderRadius: BorderRadius.circular(12),
-                                         border: Border.all(color: Colors.amber.withValues(alpha: 0.3)),
-                                      ),
-                                      child: _buildLabeledText(context, 'Note', instruction['note']),
-                                    ),
-                                  ],
-                                  
-                                  if (instruction['example'] != null && instruction['example'].isNotEmpty) ...[
-                                    const SizedBox(height: 16),
-                                    Text('Example', style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold)),
-                                    const SizedBox(height: 8),
-                                    Container(
-                                      width: double.infinity,
-                                      padding: const EdgeInsets.all(12),
-                                      decoration: BoxDecoration(
-                                        color: theme.colorScheme.surfaceContainerHighest,
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: SelectableText(
-                                        instruction['example'],
-                                        style: const TextStyle(fontFamily: 'monospace'),
-                                      ),
-                                    ),
-                                    if (instruction['example_desc'] != null) ...[
-                                        const SizedBox(height: 8),
-                                        Text(instruction['example_desc'], style: theme.textTheme.bodySmall),
-                                    ],
-                                  ],
-                                ],
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                instruction['name'],
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],
                         ),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Text(
+                            instruction['short_desc'],
+                            maxLines: 2,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ),
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                GridView.count(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 4,
+                                  crossAxisSpacing: 10,
+                                  // mainAxisSpacing: 8,
+                                  children: [
+                                    _buildLabeledText(
+                                      context,
+                                      'Format',
+                                      instruction['format'],
+                                      useMonospace: false,
+                                    ),
+                                    _buildLabeledText(
+                                      context,
+                                      'Format ID',
+                                      instruction['format_id'],
+                                      useMonospace: false,
+                                    ),
+                                  ],
+                                ),
+                                _buildLabeledText(
+                                  context,
+                                  'Syntax',
+                                  instruction['syntax'],
+                                  useMonospace: false,
+                                ),
+                                const SizedBox(height: 16),
+                                _buildLabeledText(
+                                  context,
+                                  'Arguments',
+                                  instruction['args_info'],
+                                ),
+                                const SizedBox(height: 16),
+                                _buildLabeledText(
+                                  context,
+                                  'Description',
+                                  instruction['long_desc'],
+                                ),
+
+                                if (instruction['note'] != null &&
+                                    instruction['note'].isNotEmpty) ...[
+                                  const SizedBox(height: 16),
+                                  Container(
+                                    padding: const EdgeInsets.all(12),
+                                    decoration: BoxDecoration(
+                                      color: Colors.amber.withValues(
+                                        alpha: 0.1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(
+                                        color: Colors.amber.withValues(
+                                          alpha: 0.3,
+                                        ),
+                                      ),
+                                    ),
+                                    child: _buildLabeledText(
+                                      context,
+                                      'Note',
+                                      instruction['note'],
+                                    ),
+                                  ),
+                                ],
+
+                                if (instruction['example'] != null &&
+                                    instruction['example'].isNotEmpty) ...[
+                                  const SizedBox(height: 16),
+                                  Text(
+                                    'Example',
+                                    style: theme.textTheme.titleSmall?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Container(
+                                    width: double.infinity,
+                                    padding: const EdgeInsets.all(12),
+                                    decoration: BoxDecoration(
+                                      color:
+                                          theme
+                                              .colorScheme
+                                              .surfaceContainerHighest,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: SelectableText(
+                                      instruction['example'],
+                                      style: const TextStyle(
+                                        fontFamily: 'monospace',
+                                      ),
+                                    ),
+                                  ),
+                                  if (instruction['example_desc'] != null) ...[
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      instruction['example_desc'],
+                                      style: theme.textTheme.bodySmall,
+                                    ),
+                                  ],
+                                ],
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                    );
-                  },
-                  childCount: _filteredInstructions.length,
-                ),
+                    ),
+                  );
+                }, childCount: _filteredInstructions.length),
               ),
             ),
         ],
