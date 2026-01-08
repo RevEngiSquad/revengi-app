@@ -23,6 +23,7 @@ pkgs.mkShell {
     lerc.dev
     libxkbcommon
     libepoxy
+    libz
   ];
 
   LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
@@ -31,6 +32,7 @@ pkgs.mkShell {
     pkgs.gtk3
     pkgs.glib
     pkgs.libGL
+    pkgs.libz
   ];
 
 }
