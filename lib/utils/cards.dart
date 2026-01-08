@@ -19,7 +19,6 @@ class ModernFeatureCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
 
     final accentColor = color ?? theme.colorScheme.primary;
 
@@ -29,9 +28,7 @@ class ModernFeatureCard extends StatelessWidget {
       color: theme.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(24),
-        side: BorderSide(
-          color: theme.dividerColor,
-        ),
+        side: BorderSide(color: theme.dividerColor),
       ),
       child: InkWell(
         onTap: onTap,
@@ -47,11 +44,7 @@ class ModernFeatureCard extends StatelessWidget {
                   color: accentColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: Icon(
-                  icon,
-                  size: 24,
-                  color: accentColor,
-                ),
+                child: Icon(icon, size: 24, color: accentColor),
               ),
               const Spacer(),
               Text(
@@ -67,7 +60,9 @@ class ModernFeatureCard extends StatelessWidget {
               Text(
                 subtitle,
                 style: theme.textTheme.bodyMedium?.copyWith(
-                   color: theme.textTheme.bodyMedium?.color?.withValues(alpha: 0.7),
+                  color: theme.textTheme.bodyMedium?.color?.withValues(
+                    alpha: 0.7,
+                  ),
                 ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
@@ -103,11 +98,9 @@ class ModernToolTile extends StatelessWidget {
       elevation: 0,
       margin: EdgeInsets.symmetric(vertical: 4),
       color: theme.colorScheme.surface,
-        shape: RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: theme.dividerColor,
-        ),
+        side: BorderSide(color: theme.dividerColor),
       ),
       child: InkWell(
         onTap: onTap,
@@ -122,11 +115,7 @@ class ModernToolTile extends StatelessWidget {
                   color: accentColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(
-                  icon,
-                  size: 24,
-                  color: accentColor,
-                ),
+                child: Icon(icon, size: 24, color: accentColor),
               ),
               const SizedBox(width: 16),
               Expanded(

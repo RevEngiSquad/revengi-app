@@ -218,7 +218,8 @@ class _DexRepairScreenState extends State<DexRepairScreen> {
                           label: Text(localizations.chooseFile("File")),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: theme.colorScheme.primaryContainer,
-                            foregroundColor: theme.colorScheme.onPrimaryContainer,
+                            foregroundColor:
+                                theme.colorScheme.onPrimaryContainer,
                             elevation: 0,
                             padding: const EdgeInsets.symmetric(
                               horizontal: 24,
@@ -309,7 +310,10 @@ class _DexRepairScreenState extends State<DexRepairScreen> {
                       ),
                       child: Row(
                         children: [
-                          const Icon(Icons.check_circle_outline, color: Colors.green),
+                          const Icon(
+                            Icons.check_circle_outline,
+                            color: Colors.green,
+                          ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Text(

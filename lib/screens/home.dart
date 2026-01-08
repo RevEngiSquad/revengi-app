@@ -32,7 +32,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-
   bool checkUpdate = false;
   String currentVersion = "1.2.5-bugfix";
   bool isUpdateAvailable = false;
@@ -71,8 +70,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           });
         }
       }
-    } catch (_) {
-    }
+    } catch (_) {}
   }
 
   void _showUpdateDialog() {
@@ -114,8 +112,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       checkUpdate = prefs.getBool('checkUpdate') ?? false;
     });
   }
-
-
 
   void addLicenses() {
     final licenses = {
@@ -281,53 +277,58 @@ class _DashboardScreenState extends State<DashboardScreen> {
         context.watch<LanguageProvider>().locale.languageCode.toUpperCase();
     final theme = Theme.of(context);
 
-
     final analysisTools = [
       ModernFeatureCard(
         title: localizations.jniAnalysis,
         subtitle: localizations.jniAnalysisDesc,
         icon: Icons.android,
         color: const Color(0xFF10B981),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const JniAnalysisScreen()),
-        ),
+        onTap:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const JniAnalysisScreen(),
+              ),
+            ),
       ),
       ModernFeatureCard(
         title: localizations.flutterAnalysis,
         subtitle: localizations.flutterAnalysisDesc,
         icon: Icons.flutter_dash,
         color: const Color(0xFF3B82F6),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const FlutterAnalysisScreen(),
-          ),
-        ),
+        onTap:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const FlutterAnalysisScreen(),
+              ),
+            ),
       ),
       ModernFeatureCard(
         title: localizations.blutter,
         subtitle: localizations.blutterDesc,
         icon: Icons.build,
         color: const Color(0xFFF59E0B),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const BlutterAnalysisScreen(),
-          ),
-        ),
+        onTap:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const BlutterAnalysisScreen(),
+              ),
+            ),
       ),
       ModernFeatureCard(
         title: localizations.mtHook,
         subtitle: localizations.mtHookDesc,
         icon: Icons.book,
         color: const Color(0xFF8B5CF6),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MTHookAnalysisScreen(),
-          ),
-        ),
+        onTap:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MTHookAnalysisScreen(),
+              ),
+            ),
       ),
     ];
 
@@ -336,31 +337,37 @@ class _DashboardScreenState extends State<DashboardScreen> {
         title: localizations.dexRepair,
         icon: Icons.auto_fix_high,
         color: const Color(0xFFEC4899),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const DexRepairScreen()),
-        ),
+        onTap:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const DexRepairScreen()),
+            ),
       ),
       if (isWeb() || !isIOS())
         ModernToolTile(
           title: localizations.apksToApk,
           icon: Icons.merge_type,
           color: const Color(0xFF6366F1),
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const SplitApksMergerScreen()),
-          ),
+          onTap:
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SplitApksMergerScreen(),
+                ),
+              ),
         ),
       if (!isWeb() && isAndroid())
         ModernToolTile(
           title: localizations.extractApk,
           icon: Icons.layers,
           color: const Color(0xFF14B8A6),
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ExtractApkScreen()),
-          ),
+          onTap:
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ExtractApkScreen(),
+                ),
+              ),
         ),
     ];
 
@@ -395,11 +402,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         shape: BoxShape.circle,
                       ),
                       padding: const EdgeInsets.all(12),
-                       child: Image.asset(
+                      child: Image.asset(
                         'assets/${theme.brightness == Brightness.dark ? "dark" : "light"}_splash.png',
                         height: 60,
                         color: Colors.white,
-                       ),
+                      ),
                     ),
                     const SizedBox(height: 12),
                     Text(
@@ -423,12 +430,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ThemeMode.system
                           ? Icons.brightness_auto
                           : context.watch<ThemeProvider>().themeMode ==
-                                  ThemeMode.light
-                              ? Icons.light_mode
-                              : Icons.dark_mode,
+                              ThemeMode.light
+                          ? Icons.light_mode
+                          : Icons.dark_mode,
                     ),
                     title: Text(
-                      '${localizations.theme}: ${context.watch<ThemeProvider>().themeMode == ThemeMode.system ? 'System' : context.watch<ThemeProvider>().themeMode == ThemeMode.light ? 'Light' : 'Dark'}',
+                      '${localizations.theme}: ${context.watch<ThemeProvider>().themeMode == ThemeMode.system
+                          ? 'System'
+                          : context.watch<ThemeProvider>().themeMode == ThemeMode.light
+                          ? 'Light'
+                          : 'Dark'}',
                     ),
                     onTap: () => context.read<ThemeProvider>().toggleTheme(),
                   ),
@@ -444,11 +455,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               content: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
-                                  children: AppLocalizations.supportedLocales
-                                      .map((locale) {
+                                  children:
+                                      AppLocalizations.supportedLocales.map((
+                                        locale,
+                                      ) {
                                         return ListTile(
                                           title: Text(
-                                            _getLanguageName(locale.languageCode),
+                                            _getLanguageName(
+                                              locale.languageCode,
+                                            ),
                                           ),
                                           onTap: () {
                                             context
@@ -457,15 +472,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                             Navigator.pop(context);
                                           },
                                         );
-                                      })
-                                      .toList(),
+                                      }).toList(),
                                 ),
                               ),
                             ),
                       );
                     },
                   ),
-                   ListTile(
+                  ListTile(
                     leading: const Icon(Icons.link),
                     title: Text(localizations.ollama_api_url),
                     onTap: () async {
@@ -564,7 +578,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                       builder: (context) => const SmaliGrammarScreen(),
+                      builder: (context) => const SmaliGrammarScreen(),
                     ),
                   );
                 },
@@ -636,12 +650,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     Container(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                           colors: [
-                              theme.colorScheme.primary.withValues(alpha: 0.15),
-                              theme.scaffoldBackgroundColor,
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
+                          colors: [
+                            theme.colorScheme.primary.withValues(alpha: 0.15),
+                            theme.scaffoldBackgroundColor,
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
                         ),
                       ),
                     ),
@@ -668,7 +682,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   'Analysis Tools',
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: theme.textTheme.titleMedium?.color?.withValues(alpha: 0.6),
+                    color: theme.textTheme.titleMedium?.color?.withValues(
+                      alpha: 0.6,
+                    ),
                   ),
                 ),
               ),
@@ -695,12 +711,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   'Utilities',
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: theme.textTheme.titleMedium?.color?.withValues(alpha: 0.6),
+                    color: theme.textTheme.titleMedium?.color?.withValues(
+                      alpha: 0.6,
+                    ),
                   ),
                 ),
               ),
             ),
-             SliverPadding(
+            SliverPadding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 80),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(

@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AppTheme {
-
   static const Color primaryColor = Color(0xFF4F46E5);
   static const Color primaryVariant = Color(0xFF4338CA);
   static const Color secondaryColor = Color(0xFF0EA5E9);
-
 
   static const Color lightBackground = Color(0xFFF8FAFC);
   static const Color lightSurface = Colors.white;
   static const Color lightTextPrimary = Color(0xFF0F172A);
   static const Color lightTextSecondary = Color(0xFF475569);
-
 
   static const Color darkBackground = Color(0xFF0F172A);
   static const Color darkSurface = Color(0xFF1E293B);
@@ -30,9 +27,7 @@ class AppTheme {
         onSurface: lightTextPrimary,
 
         error: const Color(0xFFEF4444),
-      ).copyWith(
-          surface: lightSurface
-      ),
+      ).copyWith(surface: lightSurface),
       scaffoldBackgroundColor: lightBackground,
 
       appBarTheme: const AppBarTheme(
@@ -88,9 +83,7 @@ class AppTheme {
         onSurface: darkTextPrimary,
 
         error: const Color(0xFFEF4444),
-      ).copyWith(
-          surface: darkSurface
-      ),
+      ).copyWith(surface: darkSurface),
       scaffoldBackgroundColor: darkBackground,
 
       appBarTheme: const AppBarTheme(
