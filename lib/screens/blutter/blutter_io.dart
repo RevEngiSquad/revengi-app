@@ -3,6 +3,7 @@ import 'package:archive/archive.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:gpt_markdown/gpt_markdown.dart';
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/utils/dartinfo.dart';
 import 'package:revengi/utils/platform.dart';
@@ -292,7 +293,9 @@ class _BlutterAnalysisScreenState extends State<BlutterAnalysisScreen> {
                         const SizedBox(height: 16),
                         Text(
                           _apkFile != null
-                              ? _apkFile!.path.split(Platform.pathSeparator).last
+                              ? _apkFile!.path
+                                  .split(Platform.pathSeparator)
+                                  .last
                               : localizations.selectFiles("APK/Zip"),
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.bold,
@@ -373,7 +376,7 @@ class _BlutterAnalysisScreenState extends State<BlutterAnalysisScreen> {
                         ),
                         const SizedBox(width: 12),
                         Expanded(
-                          child: Text(
+                          child: GptMarkdown(
                             localizations.blutterNote,
                             style: theme.textTheme.bodyMedium?.copyWith(
                               color: theme.textTheme.bodySmall?.color,
@@ -450,7 +453,10 @@ class _BlutterAnalysisScreenState extends State<BlutterAnalysisScreen> {
                       ),
                       child: Row(
                         children: [
-                          const Icon(Icons.check_circle_outline, color: Colors.green),
+                          const Icon(
+                            Icons.check_circle_outline,
+                            color: Colors.green,
+                          ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Text(
