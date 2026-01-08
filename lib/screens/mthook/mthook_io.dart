@@ -184,7 +184,8 @@ class _MTHookAnalysisScreenState extends State<MTHookAnalysisScreen> {
                     child: Opacity(
                       opacity: 0.1,
                       child: Icon(
-                        Icons.book, // Matches Home Screen Icon (ToolType.mthook -> Icons.book)
+                        Icons
+                            .book, // Matches Home Screen Icon (ToolType.mthook -> Icons.book)
                         size: 200,
                         color: theme.colorScheme.primary,
                       ),
@@ -200,7 +201,7 @@ class _MTHookAnalysisScreenState extends State<MTHookAnalysisScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                   Container(
+                  Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: theme.colorScheme.surface,
@@ -348,7 +349,10 @@ class _MTHookAnalysisScreenState extends State<MTHookAnalysisScreen> {
                       ),
                       child: Row(
                         children: [
-                          const Icon(Icons.check_circle_outline, color: Colors.green),
+                          const Icon(
+                            Icons.check_circle_outline,
+                            color: Colors.green,
+                          ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Text(

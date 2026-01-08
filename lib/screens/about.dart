@@ -115,7 +115,9 @@ class _AboutScreenState extends State<AboutScreen> {
                           color: theme.colorScheme.surface,
                           boxShadow: [
                             BoxShadow(
-                              color: theme.colorScheme.primary.withValues(alpha: 0.2),
+                              color: theme.colorScheme.primary.withValues(
+                                alpha: 0.2,
+                              ),
                               blurRadius: 20,
                               spreadRadius: 5,
                             ),
@@ -137,7 +139,7 @@ class _AboutScreenState extends State<AboutScreen> {
                       ),
                       Text(
                         'Version ${widget.currentVersion}',
-                         style: theme.textTheme.bodyMedium?.copyWith(
+                        style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.outline,
                         ),
                       ),
@@ -147,14 +149,13 @@ class _AboutScreenState extends State<AboutScreen> {
               ),
             ),
           ),
-          
+
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-
                   Text(
                     "What's New",
                     style: theme.textTheme.titleLarge?.copyWith(
@@ -173,14 +174,19 @@ class _AboutScreenState extends State<AboutScreen> {
                           ),
                         );
                       } else if (snapshot.hasError) {
-                         return Container(
-                           padding: const EdgeInsets.all(16),
-                           decoration: BoxDecoration(
-                             color: theme.colorScheme.errorContainer,
-                             borderRadius: BorderRadius.circular(16),
-                           ),
-                           child: Text('Could not load release notes.', style: TextStyle(color: theme.colorScheme.onErrorContainer)),
-                         );
+                        return Container(
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.errorContainer,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Text(
+                            'Could not load release notes.',
+                            style: TextStyle(
+                              color: theme.colorScheme.onErrorContainer,
+                            ),
+                          ),
+                        );
                       } else if (snapshot.hasData) {
                         final release = snapshot.data!;
                         return Container(
@@ -208,7 +214,6 @@ class _AboutScreenState extends State<AboutScreen> {
                   ),
                   const SizedBox(height: 32),
 
-
                   Text(
                     localizations.developer,
                     style: theme.textTheme.titleLarge?.copyWith(
@@ -219,68 +224,80 @@ class _AboutScreenState extends State<AboutScreen> {
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                       color: theme.colorScheme.surface,
-                       borderRadius: BorderRadius.circular(16),
-                       border: Border.all(color: theme.dividerColor),
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: theme.dividerColor),
                     ),
                     child: Row(
                       children: [
                         ClipOval(
                           child: Image.asset(
                             developer.iconUrl,
-                             width: 60, height: 60,
-                             fit: BoxFit.cover,
+                            width: 60,
+                            height: 60,
+                            fit: BoxFit.cover,
                           ),
                         ),
-                         const SizedBox(width: 16),
-                         Expanded(
-                           child: Column(
-                             crossAxisAlignment: CrossAxisAlignment.start,
-                             children: [
-                               Text(developer.name, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
-                               Text('Lead Developer', style: theme.textTheme.bodySmall),
-                             ],
-                           ),
-                         ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                developer.name,
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'Lead Developer',
+                                style: theme.textTheme.bodySmall,
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
 
                   const SizedBox(height: 32),
 
-
                   Wrap(
                     spacing: 12,
                     runSpacing: 12,
                     alignment: WrapAlignment.center,
                     children: [
-                       _ActionButton(
-                         icon: Icons.attribution,
-                         label: localizations.licenses,
-                         onTap: () {
-                           showLicensePage(
-                              context: context,
-                              applicationName: localizations.appTitle,
-                              applicationVersion: widget.currentVersion,
-                              applicationLegalese: '© ${DateTime.now().year} RevEngi',
-                            );
-                         },
-                       ),
-                         _ActionButton(
-                         icon: Icons.attach_money,
-                         label: localizations.donate,
-                         onTap: () => _launch('https://revengi.in/donate'),
-                       ),
-                        _ActionButton(
-                         icon: Icons.star,
-                         label: 'GitHub',
-                         onTap: () => _launch('https://github.com/RevEngiSquad/revengi-app'),
-                       ),
-                        _ActionButton(
-                         icon: Icons.email,
-                         label: localizations.mail,
-                         onTap: () => _launch('mailto:support@revengi.in'),
-                       ),
+                      _ActionButton(
+                        icon: Icons.attribution,
+                        label: localizations.licenses,
+                        onTap: () {
+                          showLicensePage(
+                            context: context,
+                            applicationName: localizations.appTitle,
+                            applicationVersion: widget.currentVersion,
+                            applicationLegalese:
+                                '© ${DateTime.now().year} RevEngi',
+                          );
+                        },
+                      ),
+                      _ActionButton(
+                        icon: Icons.attach_money,
+                        label: localizations.donate,
+                        onTap: () => _launch('https://revengi.in/donate'),
+                      ),
+                      _ActionButton(
+                        icon: Icons.star,
+                        label: 'GitHub',
+                        onTap:
+                            () => _launch(
+                              'https://github.com/RevEngiSquad/revengi-app',
+                            ),
+                      ),
+                      _ActionButton(
+                        icon: Icons.email,
+                        label: localizations.mail,
+                        onTap: () => _launch('mailto:support@revengi.in'),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -306,32 +323,38 @@ class _ActionButton extends StatelessWidget {
   final String label;
   final VoidCallback onTap;
 
-  const _ActionButton({required this.icon, required this.label, required this.onTap});
+  const _ActionButton({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return InkWell(
       onTap: onTap,
-       borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(12),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+          color: theme.colorScheme.surfaceContainerHighest.withValues(
+            alpha: 0.5,
+          ),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(icon, size: 20, color: theme.colorScheme.primary),
-             const SizedBox(width: 8),
-             Text(
-               label,
-               style: theme.textTheme.labelLarge?.copyWith(
-                 fontWeight: FontWeight.bold,
-                 color: theme.colorScheme.primary,
-               ),
-             ),
+            const SizedBox(width: 8),
+            Text(
+              label,
+              style: theme.textTheme.labelLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.primary,
+              ),
+            ),
           ],
         ),
       ),

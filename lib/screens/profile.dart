@@ -43,7 +43,6 @@ class ProfileScreen extends StatelessWidget {
 
           return CustomScrollView(
             slivers: [
-
               SliverAppBar(
                 expandedHeight: 140.0,
                 pinned: true,
@@ -60,25 +59,29 @@ class ProfileScreen extends StatelessWidget {
                   centerTitle: true,
                   background: Stack(
                     children: [
-                       Positioned(
-                          top: -50,
-                          right: -50,
-                           child: Container(
-                            width: 150,
-                            height: 150,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: theme.colorScheme.primary.withValues(alpha: 0.1),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: theme.colorScheme.primary.withValues(alpha: 0.2),
-                                  blurRadius: 60,
-                                  spreadRadius: 20,
-                                ),
-                              ],
+                      Positioned(
+                        top: -50,
+                        right: -50,
+                        child: Container(
+                          width: 150,
+                          height: 150,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: theme.colorScheme.primary.withValues(
+                              alpha: 0.1,
                             ),
-                           ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: theme.colorScheme.primary.withValues(
+                                  alpha: 0.2,
+                                ),
+                                blurRadius: 60,
+                                spreadRadius: 20,
+                              ),
+                            ],
+                          ),
                         ),
+                      ),
                     ],
                   ),
                 ),
@@ -95,7 +98,6 @@ class ProfileScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
-
                       Container(
                         padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
@@ -107,9 +109,12 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         child: CircleAvatar(
                           radius: 50,
-                          backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                          backgroundColor:
+                              theme.colorScheme.surfaceContainerHighest,
                           child: Text(
-                            username.isNotEmpty ? username[0].toUpperCase() : '?',
+                            username.isNotEmpty
+                                ? username[0].toUpperCase()
+                                : '?',
                             style: theme.textTheme.displayMedium?.copyWith(
                               color: theme.colorScheme.primary,
                             ),
@@ -123,14 +128,13 @@ class ProfileScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                       Text(
+                      Text(
                         isGuest ? 'Guest User' : 'Standard User',
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.outline,
                         ),
                       ),
                       const SizedBox(height: 32),
-
 
                       Container(
                         decoration: BoxDecoration(
@@ -142,11 +146,13 @@ class ProfileScreen extends StatelessWidget {
                           leading: Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: theme.colorScheme.secondary.withValues(alpha: 0.1),
+                              color: theme.colorScheme.secondary.withValues(
+                                alpha: 0.1,
+                              ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Icon(
-                              Icons.key, 
+                              Icons.key,
                               color: theme.colorScheme.secondary,
                             ),
                           ),
@@ -161,7 +167,9 @@ class ProfileScreen extends StatelessWidget {
                             onPressed: () {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text(localizations.copiedToClipboard),
+                                  content: Text(
+                                    localizations.copiedToClipboard,
+                                  ),
                                 ),
                               );
                               Clipboard.setData(ClipboardData(text: apiKey));
@@ -170,7 +178,6 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 24),
-
 
                       if (!isGuest) ...[
                         Align(
@@ -184,14 +191,18 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 12),
                         Container(
-                           decoration: BoxDecoration(
+                          decoration: BoxDecoration(
                             color: theme.colorScheme.surface,
                             borderRadius: BorderRadius.circular(16),
-                             border: Border.all(color: theme.dividerColor),
+                            border: Border.all(color: theme.dividerColor),
                           ),
                           child: Column(
                             children: [
-                              _buildLimitTile(context, '/analyze/jni', '2 per min'),
+                              _buildLimitTile(
+                                context,
+                                '/analyze/jni',
+                                '2 per min',
+                              ),
                               Divider(height: 1, indent: 16),
                               _buildLimitTile(context, '/dex2c', '2 per min'),
                               Divider(height: 1, indent: 16),
@@ -199,7 +210,11 @@ class ProfileScreen extends StatelessWidget {
                               Divider(height: 1, indent: 16),
                               _buildLimitTile(context, '/blutter', '3 per min'),
                               Divider(height: 1, indent: 16),
-                              _buildLimitTile(context, '/analyze/flutter', '5 per min'),
+                              _buildLimitTile(
+                                context,
+                                '/analyze/flutter',
+                                '5 per min',
+                              ),
                             ],
                           ),
                         ),
@@ -219,8 +234,8 @@ class ProfileScreen extends StatelessWidget {
     return ListTile(
       visualDensity: VisualDensity.compact,
       title: Text(
-          endpoint,
-          style: const TextStyle(fontWeight: FontWeight.w500),
+        endpoint,
+        style: const TextStyle(fontWeight: FontWeight.w500),
       ),
       trailing: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -228,10 +243,7 @@ class ProfileScreen extends StatelessWidget {
           color: Theme.of(context).colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Text(
-          limit,
-          style: Theme.of(context).textTheme.labelSmall,
-        ),
+        child: Text(limit, style: Theme.of(context).textTheme.labelSmall),
       ),
     );
   }

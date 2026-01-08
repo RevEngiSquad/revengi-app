@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:revengi/utils/dio.dart';
 import 'package:revengi/screens/home.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -44,7 +43,6 @@ class _LoginPageState extends State<LoginPage> {
         );
 
         if (mounted) {
-
           final prefs = await SharedPreferences.getInstance();
           await prefs.setBool('isLoggedIn', true);
           await prefs.setString('username', _usernameController.text);
@@ -102,7 +100,6 @@ class _LoginPageState extends State<LoginPage> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-
           const SizedBox(height: 16),
           Center(
             child: Container(
@@ -137,7 +134,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 32),
 
-
           TextFormField(
             controller: _usernameController,
             decoration: InputDecoration(
@@ -152,7 +148,9 @@ class _LoginPageState extends State<LoginPage> {
                 borderSide: BorderSide(color: theme.dividerColor),
               ),
               filled: true,
-              fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+              fillColor: theme.colorScheme.surfaceContainerHighest.withValues(
+                alpha: 0.3,
+              ),
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -182,12 +180,14 @@ class _LoginPageState extends State<LoginPage> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
-                 enabledBorder: OutlineInputBorder(
+                enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide: BorderSide(color: theme.dividerColor),
                 ),
                 filled: true,
-                 fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+                fillColor: theme.colorScheme.surfaceContainerHighest.withValues(
+                  alpha: 0.3,
+                ),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -218,12 +218,14 @@ class _LoginPageState extends State<LoginPage> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
-               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: theme.dividerColor),
-                ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(color: theme.dividerColor),
+              ),
               filled: true,
-               fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+              fillColor: theme.colorScheme.surfaceContainerHighest.withValues(
+                alpha: 0.3,
+              ),
             ),
             obscureText: _obscurePassword,
             validator: (value) {
@@ -253,12 +255,14 @@ class _LoginPageState extends State<LoginPage> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
-                 enabledBorder: OutlineInputBorder(
+                enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide: BorderSide(color: theme.dividerColor),
                 ),
                 filled: true,
-                 fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+                fillColor: theme.colorScheme.surfaceContainerHighest.withValues(
+                  alpha: 0.3,
+                ),
               ),
               obscureText: true,
               validator: (value) {
@@ -274,7 +278,6 @@ class _LoginPageState extends State<LoginPage> {
           ],
           const SizedBox(height: 32),
 
-
           SizedBox(
             height: 52,
             child: ElevatedButton(
@@ -287,26 +290,26 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
-              child: _isLoading
-                  ? SizedBox(
-                    height: 24,
-                    width: 24,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: theme.colorScheme.onPrimary,
-                    ),
-                  )
-                  : Text(
-                    _isLogin ? localizations.login : localizations.register,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+              child:
+                  _isLoading
+                      ? SizedBox(
+                        height: 24,
+                        width: 24,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: theme.colorScheme.onPrimary,
+                        ),
+                      )
+                      : Text(
+                        _isLogin ? localizations.login : localizations.register,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
             ),
           ),
           const SizedBox(height: 16),
-
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -315,7 +318,7 @@ class _LoginPageState extends State<LoginPage> {
                 _isLogin
                     ? "Don't have an account? "
                     : "Already have an account? ",
-                 style: theme.textTheme.bodyMedium,
+                style: theme.textTheme.bodyMedium,
               ),
               TextButton(
                 onPressed:
@@ -337,10 +340,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ],
           ),
-          
 
           TextButton(
-             onPressed:
+            onPressed:
                 _isLoading
                     ? null
                     : () async {
@@ -359,9 +361,9 @@ class _LoginPageState extends State<LoginPage> {
                     },
             child: Text(
               localizations.continueAsGuest,
-               style: theme.textTheme.bodyMedium?.copyWith(
-                 color: theme.colorScheme.outline,
-               ),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.outline,
+              ),
             ),
           ),
         ],
@@ -372,11 +374,10 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: theme.scaffoldBackgroundColor,
       body: Stack(
         children: [
-
           Positioned(
             top: -100,
             right: -100,
-             child: Container(
+            child: Container(
               width: 300,
               height: 300,
               decoration: BoxDecoration(
@@ -390,12 +391,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-             ),
+            ),
           ),
           Positioned(
             bottom: -50,
             left: -50,
-             child: Container(
+            child: Container(
               width: 200,
               height: 200,
               decoration: BoxDecoration(
@@ -409,16 +410,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-             ),
+            ),
           ),
-          
 
           Center(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(24.0),
               child: ConstrainedBox(
-                 constraints: const BoxConstraints(maxWidth: 450),
-                 child: content,
+                constraints: const BoxConstraints(maxWidth: 450),
+                child: content,
               ),
             ),
           ),
