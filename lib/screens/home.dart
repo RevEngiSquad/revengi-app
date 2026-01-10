@@ -692,11 +692,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 300,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: _getCrossAxisCount(context),
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
                   childAspectRatio: 1.0,
+                  mainAxisExtent: _getMainAxisExtent(context),
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (context, index) => analysisTools[index],
@@ -731,5 +732,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
       ),
     );
+  }
+
+  double _getMainAxisExtent(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
+    if (width >= 1400) {
+      return 230;
+    } else if (width >= 1024) {
+      return 230;
+    } else if (width >= 600) {
+      return 190;
+    } else {
+      return 180;
+    }
+  }
+
+  int _getCrossAxisCount(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
+    if (width >= 1400) {
+      return 6;
+    } else if (width >= 1024) {
+      return 4;
+    } else if (width >= 600) {
+      return 3;
+    } else {
+      return 2;
+    }
   }
 }

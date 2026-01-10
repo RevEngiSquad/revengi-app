@@ -33,6 +33,11 @@ pkgs.mkShell {
     pkgs.glib
     pkgs.libGL
     pkgs.libz
+    pkgs.libdeflate
   ];
+
+  shellHook = ''
+    export CHROME_EXECUTABLE="${pkgs.ungoogled-chromium}/bin/chromium"
+  '';
 
 }
