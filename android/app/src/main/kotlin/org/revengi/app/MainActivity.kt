@@ -19,7 +19,6 @@ import java.io.IOException
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
-
 class MainActivity : FlutterActivity() {
     private val myChannel = "flutter.native/helper"
     private val logChannel = "flutter.native/logs"
@@ -61,7 +60,9 @@ class MainActivity : FlutterActivity() {
                     }.start()
                 }
 
-                else -> result.notImplemented()
+                else -> {
+                    result.notImplemented()
+                }
             }
         }
         EventChannel(flutterEngine.dartExecutor.binaryMessenger, logChannel)
@@ -103,12 +104,15 @@ class MainActivity : FlutterActivity() {
     }
 
     @Throws(IOException::class)
-    private fun zipApks(apkPaths: List<String>, outputPath: String): Boolean {
-        return try {
+    private fun zipApks(
+        apkPaths: List<String>,
+        outputPath: String,
+    ): Boolean =
+        try {
             ZipOutputStream(
                 BufferedOutputStream(
-                    FileOutputStream(outputPath)
-                )
+                    FileOutputStream(outputPath),
+                ),
             ).use { zipOutputStream ->
                 zipOutputStream.setLevel(3)
                 for (path in apkPaths) {
@@ -128,8 +132,6 @@ class MainActivity : FlutterActivity() {
             Log.e("ExtractAPK", "Error zipping APKs", e)
             false
         }
-    }
-
 
     companion object {
         var eventSinkStatic: EventChannel.EventSink? = null

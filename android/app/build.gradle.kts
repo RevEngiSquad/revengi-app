@@ -1,9 +1,10 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.util.Properties
 import java.io.FileInputStream
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    kotlin("android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
     // kt lint
@@ -44,10 +45,6 @@ android {
         }
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
-
     defaultConfig {
         applicationId = "org.revengi.app"
         minSdk = flutter.minSdkVersion
@@ -66,10 +63,16 @@ android {
     }
 }
 
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_11)
+    }
+}
+
 flutter {
     source = "../.."
 }
 
 dependencies {
-    implementation("io.github.reandroid:ARSCLib:1.3.8")
+    implementation("com.github.reandroid:ARSCLib:2664403")
 }
