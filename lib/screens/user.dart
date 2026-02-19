@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:revengi/utils/dio.dart';
 import 'package:revengi/screens/home.dart';
 
@@ -17,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   bool _isLogin = true;
   bool _isLoading = false;
   bool _obscurePassword = true;
+  bool _agreedToTerms = false;
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -24,6 +26,19 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _submitForm() async {
     if (_formKey.currentState!.validate()) {
+      if (!_isLogin && !_agreedToTerms) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text(
+                'You must agree to the Terms of Service and Privacy Policy to continue',
+              ),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+        return;
+      }
       setState(() => _isLoading = true);
 
       try {
@@ -274,6 +289,55 @@ class _LoginPageState extends State<LoginPage> {
                 }
                 return null;
               },
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Checkbox(
+                  value: _agreedToTerms,
+                  onChanged: (value) {
+                    setState(() {
+                      _agreedToTerms = value ?? false;
+                    });
+                  },
+                ),
+                Expanded(
+                  child: Wrap(
+                    children: [
+                      Text(
+                        'By signing up you agree to our ',
+                        style: theme.textTheme.bodyMedium,
+                      ),
+                      TextButton(
+                        onPressed:
+                            () => launchUrl(
+                              Uri.parse('https://revengi.in/terms'),
+                            ),
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: const Text('Terms of Service'),
+                      ),
+                      Text(' and ', style: theme.textTheme.bodyMedium),
+                      TextButton(
+                        onPressed:
+                            () => launchUrl(
+                              Uri.parse('https://revengi.in/privacy'),
+                            ),
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: const Text('Privacy Policy'),
+                      ),
+                      Text('.', style: theme.textTheme.bodyMedium),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
           const SizedBox(height: 32),
