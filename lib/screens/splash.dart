@@ -72,10 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(height: 16),
             Text(
               'Reverse Engineering Tools',
-              style: TextStyle(
-                fontSize: 16,
-                color: secondaryTextColor,
-              ),
+              style: TextStyle(fontSize: 16, color: secondaryTextColor),
             ),
             const SizedBox(height: 48),
             CircularProgressIndicator.adaptive(

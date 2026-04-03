@@ -35,6 +35,10 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   String? _uniPkgName;
   bool _autoRefresh = false;
 
+  static const MethodChannel _methodChannel = MethodChannel(
+    'flutter.native/helper',
+  );
+
   @override
   void initState() {
     super.initState();
@@ -292,14 +296,27 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
           }
 
           if (isSplitApp) {
-            final methodChannel = MethodChannel('flutter.native/helper');
             final apkPaths = [app.apkPath, ...app.splitSourceDirs];
-            if (await methodChannel.invokeMethod<bool>('zipApks', {
-                  'apkPaths': apkPaths,
-                  'outputPath': outputFile.path,
-                }) ??
-                false) {
-              extractedApps++;
+            try {
+              final success =
+                  await _methodChannel.invokeMethod<bool>('zipApks', {
+                    'apkPaths': apkPaths,
+                    'outputPath': outputFile.path,
+                  }) ??
+                  false;
+              if (success) {
+                extractedApps++;
+              }
+            } catch (e) {
+              if (mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Error extracting ${app.name}: $e'),
+                    backgroundColor: Colors.red,
+                    duration: const Duration(seconds: 3),
+                  ),
+                );
+              }
             }
           } else {
             final apkFile = File(app.apkPath);
