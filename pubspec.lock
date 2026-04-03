@@ -36,9 +36,11 @@ packages:
   catcher_2:
     dependency: "direct main"
     description:
-      path: "/home/abhi/catcher_2"
-      relative: false
-    source: path
+      path: "."
+      ref: master
+      resolved-ref: ceddad1d0bfe8ffa4958c19140809bc113c0c90e
+      url: "https://github.com/RevEngiSquad/catcher_2.git"
+    source: git
     version: "2.1.8"
   characters:
     dependency: transitive
