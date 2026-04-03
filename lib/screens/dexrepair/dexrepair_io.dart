@@ -62,11 +62,7 @@ class _DexRepairScreenState extends State<DexRepairScreen> {
       dexData.setAll(12, sha1Digest.bytes);
     }
 
-    Adler32 adler32 = Adler32();
-    adler32.add(dexData.sublist(12));
-
-    var checksum = adler32.hash;
-    adler32.close();
+    var checksum = getAdler32(dexData.sublist(12));
     dexData.buffer.asByteData().setUint32(8, checksum, Endian.little);
 
     return dexData;
