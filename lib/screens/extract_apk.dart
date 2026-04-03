@@ -7,7 +7,7 @@ import 'package:installed_apps/app_info.dart';
 import 'package:installed_apps/installed_apps.dart';
 import 'package:installed_apps/sign_info.dart';
 import 'package:intl/intl.dart';
-import 'package:l/l.dart';
+import 'package:revengi/utils/logger.dart';
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/utils/platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -111,7 +111,7 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
           return (entry.key, entry.value);
         }
       } catch (e) {
-        l.e("Error checking app on store: ${entry.key} $e");
+        Logger.reportError(e, StackTrace.current);
       }
     }
 

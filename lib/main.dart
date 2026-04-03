@@ -1,31 +1,45 @@
+import 'package:catcher_2/catcher_2.dart';
 import 'package:flutter/material.dart';
-import 'package:revengi/utils/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
+import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/screens/ollama.dart';
 import 'package:revengi/screens/profile.dart';
-import 'package:revengi/screens/uninstall.dart';
 import 'package:revengi/screens/splash.dart';
+import 'package:revengi/screens/uninstall.dart';
+import 'package:revengi/utils/app_theme.dart';
 import 'package:revengi/utils/dio.dart';
-import 'package:revengi/utils/logger/l.dart';
+import 'package:revengi/utils/language_provider.dart';
+import 'package:revengi/utils/logger.dart';
 import 'package:revengi/utils/platform.dart';
 import 'package:revengi/utils/theme_provider.dart';
-import 'package:revengi/utils/language_provider.dart';
-import 'package:revengi/l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDio();
-  await initLogger();
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => LanguageProvider()),
-      ],
-      child: const MyApp(),
-    ),
+
+  final prefs = await SharedPreferences.getInstance();
+  final logEnabled = prefs.getBool('logEnabled') ?? false;
+
+  final app = MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => ThemeProvider()),
+      ChangeNotifierProvider(create: (_) => LanguageProvider()),
+    ],
+    child: const MyApp(),
   );
+
+  if (logEnabled) {
+    final (debugConfig, releaseConfig) = await Logger.initialize();
+    Catcher2(
+      rootWidget: app,
+      debugConfig: debugConfig,
+      releaseConfig: releaseConfig,
+    );
+  } else {
+    runApp(app);
+  }
 }
 
 class MyApp extends StatefulWidget {
