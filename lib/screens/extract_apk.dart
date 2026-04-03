@@ -7,8 +7,8 @@ import 'package:installed_apps/app_info.dart';
 import 'package:installed_apps/installed_apps.dart';
 import 'package:installed_apps/sign_info.dart';
 import 'package:intl/intl.dart';
-import 'package:revengi/utils/logger.dart';
 import 'package:revengi/l10n/app_localizations.dart';
+import 'package:revengi/utils/logger.dart';
 import 'package:revengi/utils/platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,17 +21,21 @@ class ExtractApkScreen extends StatefulWidget {
 }
 
 class _ExtractApkScreenState extends State<ExtractApkScreen>
-    with WidgetsBindingObserver {
-  List<AppInfo> _apps = [];
-  List<AppInfo> _filteredApps = [];
-  bool _excludeSystemApps = true;
+    with WidgetsBindingObserver, TickerProviderStateMixin {
+  List<AppInfo> _userApps = [];
+  List<AppInfo> _systemApps = [];
+  List<AppInfo> _filteredUserApps = [];
+  List<AppInfo> _filteredSystemApps = [];
   bool _isLoading = false;
+  bool _isSystemLoading = false;
   bool _isSearching = false;
   bool upperCase = true;
   bool addColon = false;
-  final Set<int> _selectedApps = {};
+  final Set<String> _selectedApps = {};
   bool _isMultiSelect = false;
   final TextEditingController _searchController = TextEditingController();
+  late TabController _tabController;
+  int _currentTabIndex = 0;
   String? _uniPkgName;
   bool _autoRefresh = false;
 
@@ -43,15 +47,28 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(_onTabChange);
     _loadPrefs();
     _loadApps();
     _searchController.addListener(_filterApps);
+  }
+
+  void _onTabChange() {
+    if (_tabController.index != _currentTabIndex) {
+      setState(() {
+        _selectedApps.clear();
+        _currentTabIndex = _tabController.index;
+        _isMultiSelect = false;
+      });
+    }
   }
 
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     _searchController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -86,8 +103,12 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
     final appInfo = await InstalledApps.getAppInfo(packageName);
     if (appInfo == null) {
       setState(() {
-        _apps.removeWhere((app) => app.packageName == packageName);
-        _filteredApps.removeWhere((app) => app.packageName == packageName);
+        _userApps.removeWhere((app) => app.packageName == packageName);
+        _filteredUserApps.removeWhere((app) => app.packageName == packageName);
+        _systemApps.removeWhere((app) => app.packageName == packageName);
+        _filteredSystemApps.removeWhere(
+          (app) => app.packageName == packageName,
+        );
       });
     }
   }
@@ -123,24 +144,42 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   }
 
   Future<void> _loadApps() async {
-    setState(() => _isLoading = true);
+    setState(() {
+      _isLoading = true;
+      _isSystemLoading = true;
+    });
     try {
-      final apps = await InstalledApps.getInstalledApps(
-        _excludeSystemApps,
-        true,
-        "",
-      );
-      apps.sort(
+      final userApps = await InstalledApps.getInstalledApps(false, true, "");
+      userApps.sort(
         (a, b) => b.lastUpdatedTimestamp.compareTo(a.lastUpdatedTimestamp),
       );
-      setState(() {
-        _apps = apps;
-        _filteredApps = apps;
-        _isLoading = false;
-      });
-    } catch (e) {
-      setState(() => _isLoading = false);
       if (mounted) {
+        setState(() {
+          _userApps = userApps;
+          _filteredUserApps = userApps;
+          _isLoading = false;
+        });
+        if (_searchController.text.isNotEmpty) _filterApps();
+      }
+
+      final systemApps = await InstalledApps.getInstalledApps(true, true, "");
+      systemApps.sort(
+        (a, b) => b.lastUpdatedTimestamp.compareTo(a.lastUpdatedTimestamp),
+      );
+      if (mounted) {
+        setState(() {
+          _systemApps = systemApps;
+          _filteredSystemApps = systemApps;
+          _isSystemLoading = false;
+        });
+        if (_searchController.text.isNotEmpty) _filterApps();
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+          _isSystemLoading = false;
+        });
         ScaffoldMessenger.of(
           context,
         ).showSnackBar(SnackBar(content: Text('Error loading apps: $e')));
@@ -151,8 +190,13 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   void _filterApps() {
     final query = _searchController.text.toLowerCase();
     setState(() {
-      _filteredApps =
-          _apps.where((app) {
+      _filteredUserApps =
+          _userApps.where((app) {
+            return app.name.toLowerCase().contains(query) ||
+                app.packageName.toLowerCase().contains(query);
+          }).toList();
+      _filteredSystemApps =
+          _systemApps.where((app) {
             return app.name.toLowerCase().contains(query) ||
                 app.packageName.toLowerCase().contains(query);
           }).toList();
@@ -164,7 +208,8 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
       _isSearching = !_isSearching;
       if (!_isSearching) {
         _searchController.clear();
-        _filteredApps = _apps;
+        _filteredUserApps = _userApps;
+        _filteredSystemApps = _systemApps;
         FocusScope.of(context).unfocus();
       }
     });
@@ -388,8 +433,11 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   }
 
   Future<void> _extractSelectedApps() async {
+    final allApps = [..._userApps, ..._systemApps];
     final selectedApps =
-        _selectedApps.map((index) => _filteredApps[index]).toList();
+        allApps
+            .where((app) => _selectedApps.contains(app.packageName))
+            .toList();
     await _extractApk(selectedApps);
   }
 
@@ -1094,13 +1142,21 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
 
   void _invertSelect() {
     setState(() {
-      final allIndices = List.generate(_filteredApps.length, (index) => index);
-      final selectedIndices = _selectedApps.toList();
-      _selectedApps.clear();
-      for (final index in allIndices) {
-        if (!selectedIndices.contains(index)) {
-          _selectedApps.add(index);
+      final currentList =
+          _currentTabIndex == 0 ? _filteredUserApps : _filteredSystemApps;
+
+      final currentFilteredPkgs = currentList.map((a) => a.packageName).toSet();
+      final currentSelected = _selectedApps.intersection(currentFilteredPkgs);
+      for (final pkg in currentFilteredPkgs) {
+        if (currentSelected.contains(pkg)) {
+          _selectedApps.remove(pkg);
+        } else {
+          _selectedApps.add(pkg);
         }
+      }
+
+      if (_selectedApps.isEmpty) {
+        _isMultiSelect = false;
       }
     });
   }
@@ -1680,129 +1736,127 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final localizations = AppLocalizations.of(context)!;
+    final userApps = _filteredUserApps;
+    final systemApps = _filteredSystemApps;
 
     return PopScope(
       canPop: !_isSearching && !_isMultiSelect,
       onPopInvokedWithResult: _onPopInvokedWithResult,
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
-        body: RefreshIndicator(
-          onRefresh: _loadApps,
-          child: CustomScrollView(
-            physics: const AlwaysScrollableScrollPhysics(
-              parent: BouncingScrollPhysics(),
-            ),
-            slivers: [
-              SliverAppBar(
-                expandedHeight: 180,
-                pinned: true,
-                stretch: true,
-                backgroundColor: theme.colorScheme.surface,
-                leading: IconButton(
-                  icon: const Icon(Icons.arrow_back),
-                  onPressed: () {
-                    if (_isSearching) {
-                      _toggleSearch();
-                    } else if (_isMultiSelect) {
-                      _toggleMultiSelect();
-                    } else {
-                      Navigator.of(context).pop();
-                    }
-                  },
-                ),
-                actions: [
-                  IconButton(
-                    icon: Icon(_isSearching ? Icons.close : Icons.search),
-                    onPressed: _toggleSearch,
-                  ),
-                  PopupMenuButton<int>(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    icon: const Icon(Icons.more_vert),
-                    onSelected: (value) {
-                      if (value == 0) {
-                        setState(() {
-                          _excludeSystemApps = !_excludeSystemApps;
-                          _isSearching = false;
-                          _searchController.clear();
-                        });
-                        _loadApps();
-                      } else if (value == 1) {
-                        _savePrefs(!_autoRefresh);
+        body: NestedScrollView(
+          physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics(),
+          ),
+          headerSliverBuilder:
+              (context, innerBoxIsScrolled) => [
+                SliverAppBar(
+                  expandedHeight: 180,
+                  pinned: true,
+                  stretch: true,
+                  backgroundColor: theme.colorScheme.surface,
+                  leading: IconButton(
+                    icon: const Icon(Icons.arrow_back),
+                    onPressed: () {
+                      if (_isSearching) {
+                        _toggleSearch();
+                      } else if (_isMultiSelect) {
+                        _toggleMultiSelect();
+                      } else {
+                        Navigator.of(context).pop();
                       }
                     },
-                    itemBuilder:
-                        (context) => [
-                          CheckedPopupMenuItem(
-                            value: 0,
-                            checked: !_excludeSystemApps,
-                            child: Text(localizations.includeSystemApps),
-                          ),
-                          CheckedPopupMenuItem(
-                            value: 1,
-                            checked: _autoRefresh,
-                            child: Text(localizations.autoRefresh),
-                          ),
-                        ],
                   ),
-                ],
-                flexibleSpace: FlexibleSpaceBar(
-                  title:
-                      _isMultiSelect
-                          ? Text(
-                            localizations.selected(
-                              _selectedApps.length.toString(),
+                  actions: [
+                    IconButton(
+                      icon: Icon(_isSearching ? Icons.close : Icons.search),
+                      onPressed: _toggleSearch,
+                    ),
+                    PopupMenuButton<int>(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      icon: const Icon(Icons.more_vert),
+                      onSelected: (value) {
+                        if (value == 0) {
+                          _savePrefs(!_autoRefresh);
+                        }
+                      },
+                      itemBuilder:
+                          (context) => [
+                            CheckedPopupMenuItem(
+                              value: 0,
+                              checked: _autoRefresh,
+                              child: Text(localizations.autoRefresh),
                             ),
-                            style: TextStyle(
-                              color: theme.colorScheme.onSurface,
+                          ],
+                    ),
+                  ],
+                  flexibleSpace: FlexibleSpaceBar(
+                    titlePadding: EdgeInsets.only(
+                      bottom: (_isSearching ? 60.0 : 0.0) + 48.0 + 16.0,
+                    ),
+                    title:
+                        _isMultiSelect
+                            ? Text(
+                              localizations.selected(
+                                _selectedApps.length.toString(),
+                              ),
+                              style: TextStyle(
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            )
+                            : _isSearching
+                            ? null
+                            : Text(
+                              localizations.extractApk,
+                              style: TextStyle(
+                                color: theme.colorScheme.onSurface,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          )
-                          : _isSearching
-                          ? null
-                          : Text(
-                            localizations.extractApk,
-                            style: TextStyle(
-                              color: theme.colorScheme.onSurface,
-                              fontWeight: FontWeight.bold,
+                    centerTitle: true,
+                    background: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                theme.colorScheme.primary.withValues(
+                                  alpha: 0.1,
+                                ),
+                                theme.colorScheme.surface,
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
                             ),
-                          ),
-                  centerTitle: true,
-                  background: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              theme.colorScheme.primary.withValues(alpha: 0.1),
-                              theme.colorScheme.surface,
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
                           ),
                         ),
-                      ),
-                      Positioned(
-                        right: -20,
-                        top: -20,
-                        child: Opacity(
-                          opacity: 0.1,
-                          child: Icon(
-                            Icons.layers,
-                            size: 150,
-                            color: theme.colorScheme.primary,
+                        Positioned(
+                          right: -20,
+                          top: -20,
+                          child: Opacity(
+                            opacity: 0.1,
+                            child: Icon(
+                              Icons.layers,
+                              size: 150,
+                              color: theme.colorScheme.primary,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                bottom:
-                    _isSearching
-                        ? PreferredSize(
-                          preferredSize: const Size.fromHeight(60),
-                          child: Container(
+                  bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(
+                      (_isSearching ? 60.0 : 0.0) + 48.0,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (_isSearching)
+                          Container(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 16,
                               vertical: 8,
@@ -1829,170 +1883,44 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                               ),
                             ),
                           ),
-                        )
-                        : null,
-              ),
-              if (_isLoading)
-                const SliverFillRemaining(
-                  child: Center(child: CircularProgressIndicator()),
-                )
-              else if (_filteredApps.isEmpty)
-                SliverFillRemaining(
-                  child: Center(child: Text(localizations.noAppsFound)),
-                )
-              else
-                SliverPadding(
-                  padding: const EdgeInsets.all(16),
-                  sliver: SliverList(
-                    delegate: SliverChildBuilderDelegate((context, index) {
-                      final app = _filteredApps[index];
-                      bool isSplitApp = app.splitSourceDirs.isNotEmpty;
-                      final isSelected =
-                          _isMultiSelect && _selectedApps.contains(index);
-
-                      return Container(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        decoration: BoxDecoration(
-                          color:
-                              isSelected
-                                  ? theme.colorScheme.primary.withValues(
-                                    alpha: 0.1,
-                                  )
-                                  : theme.colorScheme.surface,
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(
-                            color:
-                                isSelected
-                                    ? theme.colorScheme.primary
-                                    : theme.dividerColor,
-                            width: isSelected ? 2 : 1,
-                          ),
+                        TabBar(
+                          controller: _tabController,
+                          tabs: [
+                            Tab(text: localizations.userApp),
+                            Tab(text: localizations.systemApp),
+                          ],
                         ),
-                        child: ListTile(
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 8,
-                          ),
-                          leading: Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.surfaceContainerHighest
-                                  .withValues(alpha: 0.5),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child:
-                                app.icon != null
-                                    ? Image.memory(
-                                      app.icon!,
-                                      width: 32,
-                                      height: 32,
-                                    )
-                                    : Icon(
-                                      Icons.android,
-                                      size: 32,
-                                      color: theme.colorScheme.primary,
-                                    ),
-                          ),
-                          title: Text(
-                            app.name,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(height: 4),
-                              Row(
-                                children: [
-                                  Flexible(
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 6,
-                                        vertical: 2,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: theme.colorScheme.secondary
-                                            .withValues(alpha: 0.1),
-                                        borderRadius: BorderRadius.circular(6),
-                                      ),
-                                      child: Text(
-                                        app.versionName,
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 1,
-                                        style: theme.textTheme.labelSmall
-                                            ?.copyWith(
-                                              color:
-                                                  theme.colorScheme.secondary,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Text(
-                                    formatSize(app.packageSize),
-                                    style: theme.textTheme.bodySmall?.copyWith(
-                                      color: theme.colorScheme.outline,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              if (isSplitApp) ...[
-                                const SizedBox(height: 4),
-                                Text(
-                                  "SPLIT APK",
-                                  style: theme.textTheme.labelSmall?.copyWith(
-                                    color: theme.colorScheme.tertiary,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                              const SizedBox(height: 4),
-                              Text(
-                                app.packageName,
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  fontFamily: 'monospace',
-                                  color: theme.colorScheme.outline,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
-                          ),
-                          onTap: () {
-                            if (_isMultiSelect) {
-                              setState(() {
-                                if (_selectedApps.contains(index)) {
-                                  _selectedApps.remove(index);
-                                  if (_selectedApps.isEmpty) {
-                                    _isMultiSelect = false;
-                                  }
-                                } else {
-                                  _selectedApps.add(index);
-                                }
-                              });
-                            } else {
-                              _showAppDetails(app);
-                            }
-                          },
-                          onLongPress: () {
-                            if (!_isMultiSelect) {
-                              _toggleMultiSelect();
-                            }
-                            setState(() {
-                              if (_selectedApps.contains(index)) {
-                                _selectedApps.remove(index);
-                              } else {
-                                _selectedApps.add(index);
-                              }
-                            });
-                          },
-                        ),
-                      );
-                    }, childCount: _filteredApps.length),
+                      ],
+                    ),
                   ),
                 ),
-            ],
-          ),
+              ],
+          body:
+              _isLoading && _isSystemLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : TabBarView(
+                    controller: _tabController,
+                    children: [
+                      RefreshIndicator(
+                        onRefresh: _loadApps,
+                        child: _buildAppList(
+                          userApps,
+                          theme,
+                          localizations,
+                          _isLoading,
+                        ),
+                      ),
+                      RefreshIndicator(
+                        onRefresh: _loadApps,
+                        child: _buildAppList(
+                          systemApps,
+                          theme,
+                          localizations,
+                          _isSystemLoading,
+                        ),
+                      ),
+                    ],
+                  ),
         ),
         floatingActionButton: AnimatedSwitcher(
           duration: const Duration(milliseconds: 200),
@@ -2036,6 +1964,173 @@ class _ExtractApkScreenState extends State<ExtractApkScreen>
                   : const SizedBox.shrink(),
         ),
       ),
+    );
+  }
+
+  Widget _buildAppList(
+    List<AppInfo> apps,
+    ThemeData theme,
+    AppLocalizations localizations,
+    bool isListLoading,
+  ) {
+    if (isListLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (apps.isEmpty) {
+      return CustomScrollView(
+        physics: const AlwaysScrollableScrollPhysics(
+          parent: BouncingScrollPhysics(),
+        ),
+        slivers: [
+          SliverFillRemaining(
+            child: Center(child: Text(localizations.noAppsFound)),
+          ),
+        ],
+      );
+    }
+    return ListView.builder(
+      physics: const AlwaysScrollableScrollPhysics(
+        parent: BouncingScrollPhysics(),
+      ),
+      padding: const EdgeInsets.all(16),
+      itemCount: apps.length,
+      itemBuilder: (context, index) {
+        final app = apps[index];
+        bool isSplitApp = app.splitSourceDirs.isNotEmpty;
+        final isSelected =
+            _isMultiSelect && _selectedApps.contains(app.packageName);
+
+        return Container(
+          margin: const EdgeInsets.only(bottom: 12),
+          decoration: BoxDecoration(
+            color:
+                isSelected
+                    ? theme.colorScheme.primary.withValues(alpha: 0.1)
+                    : theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color:
+                  isSelected ? theme.colorScheme.primary : theme.dividerColor,
+              width: isSelected ? 2 : 1,
+            ),
+          ),
+          child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 8,
+            ),
+            leading: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: theme.colorScheme.surfaceContainerHighest.withValues(
+                  alpha: 0.5,
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child:
+                  app.icon != null
+                      ? Image.memory(app.icon!, width: 32, height: 32)
+                      : Icon(
+                        Icons.android,
+                        size: 32,
+                        color: theme.colorScheme.primary,
+                      ),
+            ),
+            title: Text(
+              app.name,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.secondary.withValues(
+                            alpha: 0.1,
+                          ),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          app.versionName,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: theme.colorScheme.secondary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      formatSize(app.packageSize),
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.outline,
+                      ),
+                    ),
+                  ],
+                ),
+                if (isSplitApp) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    "SPLIT APK",
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: theme.colorScheme.tertiary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 4),
+                Text(
+                  app.packageName,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    fontFamily: 'monospace',
+                    color: theme.colorScheme.outline,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+            onTap: () {
+              if (_isMultiSelect) {
+                setState(() {
+                  if (_selectedApps.contains(app.packageName)) {
+                    _selectedApps.remove(app.packageName);
+                    if (_selectedApps.isEmpty) {
+                      _isMultiSelect = false;
+                    }
+                  } else {
+                    _selectedApps.add(app.packageName);
+                  }
+                });
+              } else {
+                _showAppDetails(app);
+              }
+            },
+            onLongPress: () {
+              if (!_isMultiSelect) {
+                _toggleMultiSelect();
+              }
+              setState(() {
+                if (_selectedApps.contains(app.packageName)) {
+                  _selectedApps.remove(app.packageName);
+                } else {
+                  _selectedApps.add(app.packageName);
+                }
+              });
+            },
+          ),
+        );
+      },
     );
   }
 
