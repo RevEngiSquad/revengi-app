@@ -2,30 +2,37 @@ import 'package:flutter/foundation.dart'
     show LicenseRegistry, LicenseEntryWithLineBreaks;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle, SystemNavigator;
+import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 import 'package:revengi/l10n/app_localizations.dart';
 import 'package:revengi/screens/about.dart';
-import 'package:revengi/screens/extract_apk.dart';
-import 'package:revengi/screens/ollama.dart';
-import 'package:revengi/utils/platform.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:provider/provider.dart';
-import 'package:revengi/utils/dio.dart';
-import 'package:revengi/utils/cards.dart';
-import 'package:revengi/screens/mthook/mthook.dart';
 import 'package:revengi/screens/blutter/blutter.dart';
 import 'package:revengi/screens/dexrepair/dexrepair.dart';
-import 'package:revengi/utils/theme_provider.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:revengi/screens/smalig.dart';
-import 'package:revengi/screens/profile.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:revengi/screens/jni_analysis.dart';
+import 'package:revengi/screens/extract_apk.dart';
 import 'package:revengi/screens/flutter_analysis.dart';
+import 'package:revengi/screens/jni_analysis.dart';
+import 'package:revengi/screens/mthook/mthook.dart';
+import 'package:revengi/screens/ollama.dart';
+import 'package:revengi/screens/profile.dart';
+import 'package:revengi/screens/smalig.dart';
 import 'package:revengi/screens/splitsmerger/splitsmerger.dart';
+import 'package:revengi/utils/cards.dart';
+import 'package:revengi/utils/dio.dart';
 import 'package:revengi/utils/language_provider.dart';
+import 'package:revengi/utils/platform.dart';
+import 'package:revengi/utils/theme_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+  const DashboardScreen({
+    super.key,
+    this.wasPasswordGenerated = false,
+    this.generatedPasswordPath,
+  });
+
+  final bool wasPasswordGenerated;
+  final String? generatedPasswordPath;
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -44,6 +51,49 @@ class _DashboardScreenState extends State<DashboardScreen> {
     addLicenses();
     if (!isWeb() && isAndroid()) _initializePrefs();
     if (!isWeb() && isAndroid()) _requestPermissions();
+
+    if (widget.wasPasswordGenerated) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _showPasswordExportDialog();
+      });
+    }
+  }
+
+  void _showPasswordExportDialog() {
+    showAdaptiveDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog.adaptive(
+          title: const Text('Password Saved'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Your generated password has been saved to:'),
+              const SizedBox(height: 8),
+              Text(
+                widget.generatedPasswordPath ??
+                    'Downloads/RevEngi/.temp_password.txt',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Please make sure to save it in a safer place (for e.g., your fav password manager) and delete the file afterwards.',
+              ),
+            ],
+          ),
+          actionsPadding: const EdgeInsets.all(8),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Future<void> _initializePrefs() async {

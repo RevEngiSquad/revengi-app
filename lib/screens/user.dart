@@ -1,10 +1,14 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
+import 'dart:math';
+
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:revengi/l10n/app_localizations.dart';
+import 'package:revengi/screens/home.dart';
+import 'package:revengi/utils/dio.dart';
+import 'package:revengi/utils/platform.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:revengi/utils/dio.dart';
-import 'package:revengi/screens/home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,10 +23,64 @@ class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
   bool _obscurePassword = true;
   bool _agreedToTerms = false;
+  bool _wasPasswordGenerated = false;
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+
+  String _generatePassword() {
+    final rng = Random.secure();
+
+    const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lower = 'abcdefghijklmnopqrstuvwxyz';
+    const digits = '0123456789';
+    const special = '@\$!%*?&.';
+    const all = upper + lower + digits + special;
+
+    final password = <String>[
+      upper[rng.nextInt(upper.length)],
+      lower[rng.nextInt(lower.length)],
+      digits[rng.nextInt(digits.length)],
+      special[rng.nextInt(special.length)],
+    ];
+
+    final length = rng.nextInt(9) + 8; // 8-16
+    for (int i = 4; i < length; i++) {
+      password.add(all[rng.nextInt(all.length)]);
+    }
+
+    // Fisher-Yates shuffle
+    for (int i = password.length - 1; i > 0; i--) {
+      final j = rng.nextInt(i + 1);
+      final temp = password[i];
+      password[i] = password[j];
+      password[j] = temp;
+    }
+
+    return password.join();
+  }
+
+  Future<String?> _savePasswordToFile(String password) async {
+    try {
+      final dir = Directory(await getDownloadsDirectory());
+      if (!dir.existsSync()) {
+        await dir.create(recursive: true);
+      }
+
+      var filePath = '${dir.path}/.temp_password.txt';
+      if (File(filePath).existsSync()) {
+        final timestamp = DateTime.now().millisecondsSinceEpoch;
+        filePath = '${dir.path}/.temp_password_$timestamp.txt';
+      }
+
+      final file = File(filePath);
+      await file.writeAsString(password);
+      return filePath;
+    } catch (e) {
+      return null;
+    }
+  }
 
   Future<void> _submitForm() async {
     if (_formKey.currentState!.validate()) {
@@ -76,9 +134,24 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             );
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const DashboardScreen()),
-            );
+
+            String? filePath;
+            if (!_isLogin && _wasPasswordGenerated) {
+              filePath = await _savePasswordToFile(_passwordController.text);
+            }
+
+            if (mounted) {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder:
+                      (context) => DashboardScreen(
+                        wasPasswordGenerated:
+                            _wasPasswordGenerated && !_isLogin,
+                        generatedPasswordPath: filePath,
+                      ),
+                ),
+              );
+            }
           }
         }
       } on DioException catch (e) {
@@ -261,7 +334,34 @@ class _LoginPageState extends State<LoginPage> {
             },
           ),
           if (!_isLogin) ...[
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () {
+                  final password = _generatePassword();
+                  _passwordController.text = password;
+                  _confirmPasswordController.text = password;
+                  _wasPasswordGenerated = true;
+                  setState(() => _obscurePassword = false);
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: Text(
+                  'Generate',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Theme.of(context).colorScheme.outline,
+                    decoration: TextDecoration.underline,
+                    decorationStyle: TextDecorationStyle.dotted,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
             TextFormField(
               controller: _confirmPasswordController,
               decoration: InputDecoration(
