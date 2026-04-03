@@ -64,11 +64,7 @@ class _DexRepairScreenState extends State<DexRepairScreen> {
       // print("Signature: ${sha1Digest}");
     }
 
-    Adler32 adler32 = Adler32();
-    adler32.add(dexData.sublist(12));
-
-    var checksum = adler32.hash;
-    adler32.close();
+    var checksum = getAdler32(dexData.sublist(12));
     // print("Checksum: ${checksum}");
     dexData.buffer.asByteData().setUint32(8, checksum, Endian.little);
 
