@@ -16,6 +16,7 @@ import 'package:revengi/screens/ollama.dart';
 import 'package:revengi/screens/profile.dart';
 import 'package:revengi/screens/smalig.dart';
 import 'package:revengi/screens/splitsmerger/splitsmerger.dart';
+import 'package:revengi/screens/yarax/yarax.dart';
 import 'package:revengi/utils/cards.dart';
 import 'package:revengi/utils/dio.dart';
 import 'package:revengi/utils/language_provider.dart';
@@ -170,6 +171,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       'smalig': 'assets/licenses/smalig.txt',
       'blutter': 'assets/licenses/blutter.txt',
       'arsclib': 'assets/licenses/arsclib.txt',
+      'yarax': 'assets/licenses/yarax.txt',
     };
 
     for (var entry in licenses.entries) {
@@ -416,6 +418,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const ExtractApkScreen(),
+                ),
+              ),
+        ),
+      if (isWeb() || isAndroid())
+        ModernToolTile(
+          title: localizations.yaraxScanner,
+          icon: Icons.shield_outlined,
+          color: const Color(0xFFEF4444),
+          onTap:
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const YaraxScannerScreen(),
                 ),
               ),
         ),

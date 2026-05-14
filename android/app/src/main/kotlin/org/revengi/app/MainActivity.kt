@@ -11,6 +11,7 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
 import org.revengi.app.arsclib.Merger
+import org.revengi.app.yarax.YaraxBridge
 import java.io.BufferedOutputStream
 import java.io.File
 import java.io.FileInputStream
@@ -23,6 +24,7 @@ class MainActivity : FlutterActivity() {
     private val myChannel = "flutter.native/helper"
     private val logChannel = "flutter.native/logs"
     private var eventSink: EventChannel.EventSink? = null
+    private val yaraxBridge = YaraxBridge()
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -57,6 +59,76 @@ class MainActivity : FlutterActivity() {
                     Thread {
                         val success = zipApks(apkPaths!!, outputPath!!)
                         result.success(success)
+                    }.start()
+                }
+
+                "yaraxScanWithSource" -> {
+                    val source = call.argument<String>("source") ?: ""
+                    val filePath = call.argument<String>("filePath") ?: ""
+                    Thread {
+                        val scanResult = yaraxBridge.scanWithSource(source, filePath)
+                        Handler(Looper.getMainLooper()).post {
+                            result.success(scanResult)
+                        }
+                    }.start()
+                }
+
+                "yaraxScanWithSourceBytes" -> {
+                    val source = call.argument<String>("source") ?: ""
+                    val data = call.argument<ByteArray>("data") ?: ByteArray(0)
+                    Thread {
+                        val scanResult = yaraxBridge.scanWithSourceBytes(source, data)
+                        Handler(Looper.getMainLooper()).post {
+                            result.success(scanResult)
+                        }
+                    }.start()
+                }
+
+                "yaraxCompileFromSource" -> {
+                    val source = call.argument<String>("source") ?: ""
+                    Thread {
+                        try {
+                            val compiled = yaraxBridge.compileFromSource(source)
+                            Handler(Looper.getMainLooper()).post {
+                                result.success(compiled)
+                            }
+                        } catch (e: Exception) {
+                            Handler(Looper.getMainLooper()).post {
+                                result.error("YARAX_ERROR", e.message, null)
+                            }
+                        }
+                    }.start()
+                }
+
+                "yaraxScanWithCompiledRules" -> {
+                    val serializedRules = call.argument<ByteArray>("serializedRules") ?: ByteArray(0)
+                    val filePath = call.argument<String>("filePath") ?: ""
+                    Thread {
+                        val scanResult = yaraxBridge.scanWithCompiledRules(serializedRules, filePath)
+                        Handler(Looper.getMainLooper()).post {
+                            result.success(scanResult)
+                        }
+                    }.start()
+                }
+
+                "yaraxScanWithCompiledRulesBytes" -> {
+                    val serializedRules = call.argument<ByteArray>("serializedRules") ?: ByteArray(0)
+                    val data = call.argument<ByteArray>("data") ?: ByteArray(0)
+                    Thread {
+                        val scanResult = yaraxBridge.scanWithCompiledRulesBytes(serializedRules, data)
+                        Handler(Looper.getMainLooper()).post {
+                            result.success(scanResult)
+                        }
+                    }.start()
+                }
+
+                "yaraxValidateSource" -> {
+                    val source = call.argument<String>("source") ?: ""
+                    Thread {
+                        val validateResult = yaraxBridge.validateSource(source)
+                        Handler(Looper.getMainLooper()).post {
+                            result.success(validateResult)
+                        }
                     }.start()
                 }
 

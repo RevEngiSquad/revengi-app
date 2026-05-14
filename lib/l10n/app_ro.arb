@@ -277,5 +277,32 @@
   "viewData": "Vizualizați datele",
   "vrd": "Validare nume resurse dir",
   "welcomeBack": "Bine ai revenit!",
-  "yes": "Da"
+  "yes": "Da",
+  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "@yaraxCompiledRulesSaved": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "yaraxLoadCompiled": "Load Compiled",
+  "yaraxLength": "Length",
+  "yaraxMatchingRules": "Matching Rules",
+  "yaraxNoMatches": "No matches found",
+  "yaraxNonMatchingRules": "Non-matching Rules",
+  "yaraxOffset": "Offset",
+  "yaraxPatterns": "Patterns",
+  "yaraxRulesValid": "Rules are valid",
+  "yaraxSaveCompiled": "Save as .yarac",
+  "yaraxScan": "Scan",
+  "yaraxScanInstalledApp": "Scan App",
+  "yaraxScanner": "YARA-X Scanner",
+  "yaraxScanning": "Scanning...",
+  "yaraxSelectFile": "Select file to scan",
+  "yaraxSelectYaracFile": "Select .yarac file",
+  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxValidate": "Validate",
+  "yaraxWriteRules": "Write Rules",
+  "yaraxScanResults": "Scan Results"
 }

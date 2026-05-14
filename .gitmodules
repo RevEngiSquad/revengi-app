@@ -1,0 +1,3 @@
+[submodule "android/yarax_android"]
+	path = android/yarax_android
+	url = https://github.com/RevEngiSquad/yarax_android.git

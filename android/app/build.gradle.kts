@@ -75,4 +75,5 @@ flutter {
 
 dependencies {
     implementation("com.github.reandroid:ARSCLib:2664403")
+    implementation(project(":yarax_android"))
 }
