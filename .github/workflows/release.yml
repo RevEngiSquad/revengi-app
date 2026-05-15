@@ -9,6 +9,8 @@ on:
 env:
   FLUTTER_VERSION: "3.41.9"
   APP_VERSION: ${{ github.ref_name }}
+  RUSTUP_VERSION: "1.29.0"
+  RUST_TOOLCHAIN_VERSION: "1.95.0"
 
 permissions:
   contents: write
@@ -19,10 +21,10 @@ jobs:
     outputs:
       android-artifacts: ${{ steps.export.outputs.artifacts }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           submodules: recursive
-      - uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: "stable"
@@ -38,7 +40,7 @@ jobs:
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@master
         with:
-          toolchain: stable
+          toolchain: ${{ env.RUST_TOOLCHAIN_VERSION }}
           targets: aarch64-linux-android,armv7-linux-androideabi,x86_64-linux-android
       - name: Setup Cargo NDK
         run: |
@@ -55,7 +57,7 @@ jobs:
           mv build/app/outputs/flutter-apk/app-x86_64-release.apk RevEngi-Android-x64.apk
           mv build/app/outputs/flutter-apk/app-release.apk RevEngi-Android-universal.apk
       - name: Upload Android Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: android-artifacts
           path: |
@@ -66,8 +68,8 @@ jobs:
     outputs:
       windows-artifacts: ${{ steps.export.outputs.artifacts }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: "stable"
@@ -120,7 +122,7 @@ jobs:
           iscc windows/installer.iss
           mv windows/Output/RevEngi-Setup.exe RevEngi-Windows-installer.exe
       - name: Upload Windows Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: windows-artifacts
           path: |
@@ -132,8 +134,8 @@ jobs:
     outputs:
       linux-artifacts: ${{ steps.export.outputs.artifacts }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: "stable"
@@ -230,7 +232,7 @@ jobs:
           cp assets/dark_splash.png AppDir/revengi.png
           ./appimagetool-x86_64.AppImage AppDir RevEngi-Linux.AppImage
       - name: Upload Linux Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: linux-artifacts
           path: |
@@ -243,8 +245,8 @@ jobs:
     outputs:
       ios-artifacts: ${{ steps.export.outputs.artifacts }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: "stable"
@@ -266,7 +268,7 @@ jobs:
           mv RevEngi-iOS.ipa result/RevEngi-iOS.ipa
 
       - name: Upload iOS Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: ios-artifacts
           path: result/RevEngi-iOS.ipa
@@ -275,29 +277,29 @@ jobs:
     needs: [build-android, build-windows, build-linux, build-ios]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
       # Download all workflow artifacts
       - name: Download Android Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: android-artifacts
           path: artifacts/
 
       - name: Download Windows Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: windows-artifacts
           path: artifacts/
 
       - name: Download Linux Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: linux-artifacts
           path: artifacts/
 
       - name: Download iOS Artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: ios-artifacts
           path: artifacts/
@@ -306,7 +308,7 @@ jobs:
         run: ls -l artifacts
 
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
         if: github.ref_type == 'tag'
         with:
           tag_name: ${{ env.APP_VERSION }}
