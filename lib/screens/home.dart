@@ -41,7 +41,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   bool checkUpdate = false;
-  String currentVersion = "1.2.5-bugfix";
+  String currentVersion = "1.3.0";
   bool isUpdateAvailable = false;
   DateTime? _lastPressedAt;
   bool isDrawerOpen = false;
