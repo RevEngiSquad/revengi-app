@@ -11,6 +11,7 @@ env:
   APP_VERSION: ${{ github.ref_name }}
   RUSTUP_VERSION: "1.29.0"
   RUST_TOOLCHAIN_VERSION: "1.95.0"
+  NDK_REVISION: "r27d" # 27.3.13750724
 
 permissions:
   contents: write
@@ -37,6 +38,16 @@ jobs:
           keyAlias=${{ secrets.KEY_ALIAS }}
           storeFile=../keystore.jks
           EOF
+      - name: Set up NDK
+        id: setup-ndk
+        uses: nttld/setup-ndk@ed92fe6cadad69be94a966a7ee3271275e62f779 # v1.6.0
+        with:
+          ndk-version: ${{ env.NDK_REVISION }}
+          add-to-path: false
+      - name: Add NDK to environment
+        run: |
+          echo "ANDROID_NDK_ROOT=${{ steps.setup-ndk.outputs.ndk-path }}" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=${{ steps.setup-ndk.outputs.ndk-path }}" >> $GITHUB_ENV
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@master
         with:
@@ -45,8 +56,13 @@ jobs:
       - name: Setup Cargo NDK
         run: |
           cargo install cargo-ndk
-          cd android/yarax_android/
+          pushd android/yarax_android/yarax_patches
+          make update-yarax
+          popd
+          pushd android/yarax_android/
           cargo ndk -t arm64-v8a -t armeabi-v7a -t x86_64 -o jniLibs/ build --release
+          popd
+      - run: flutter config --no-analytics
       - run: flutter pub get
       - run: flutter build apk --split-per-abi
       - run: flutter build apk
