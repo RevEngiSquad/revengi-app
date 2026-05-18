@@ -278,7 +278,7 @@
   "vrd": "Vahvista resurssien dir nimi",
   "welcomeBack": "Tervetuloa Takaisin!",
   "yes": "Kyllä",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Koostetut säännöt tallennettu {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,10 +286,10 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
+  "yaraxLoadCompiled": "Lataa Koottu",
+  "yaraxLength": "Pituus",
+  "yaraxMatchingRules": "Vastaavat Säännöt",
+  "yaraxNoMatches": "Vastaavuuksia ei löytynyt",
   "yaraxNonMatchingRules": "Non-matching Rules",
   "yaraxOffset": "Offset",
   "yaraxPatterns": "Patterns",
@@ -299,10 +299,10 @@
   "yaraxScanInstalledApp": "Scan App",
   "yaraxScanner": "YARA-X Scanner",
   "yaraxScanning": "Scanning...",
+  "yaraxScanResults": "Scan Results",
   "yaraxSelectFile": "Select file to scan",
   "yaraxSelectYaracFile": "Select .yarac file",
   "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Write Rules"
 }
