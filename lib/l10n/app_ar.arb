@@ -278,7 +278,7 @@
   "vrd": "التحقق من اسم لوحة الموارد",
   "welcomeBack": "مرحبا بعودتك!",
   "yes": "نعم",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "تم حفظ القواعد المجمعة إلى {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,10 +286,10 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
+  "yaraxLoadCompiled": "تحميل مجمع",
+  "yaraxLength": "طول",
+  "yaraxMatchingRules": "قواعد مطابقة",
+  "yaraxNoMatches": "لا توجد مطابقات",
   "yaraxNonMatchingRules": "Non-matching Rules",
   "yaraxOffset": "Offset",
   "yaraxPatterns": "Patterns",
@@ -299,10 +299,10 @@
   "yaraxScanInstalledApp": "Scan App",
   "yaraxScanner": "YARA-X Scanner",
   "yaraxScanning": "Scanning...",
+  "yaraxScanResults": "Scan Results",
   "yaraxSelectFile": "Select file to scan",
   "yaraxSelectYaracFile": "Select .yarac file",
   "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Write Rules"
 }
