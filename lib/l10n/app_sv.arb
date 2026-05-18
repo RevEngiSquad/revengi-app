@@ -278,7 +278,7 @@
   "vrd": "Validera resursnamn",
   "welcomeBack": "Välkommen tillbaka!",
   "yes": "Ja",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Kompilerade regler sparade till {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,23 +286,23 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
-  "yaraxNonMatchingRules": "Non-matching Rules",
-  "yaraxOffset": "Offset",
-  "yaraxPatterns": "Patterns",
-  "yaraxRulesValid": "Rules are valid",
-  "yaraxSaveCompiled": "Save as .yarac",
-  "yaraxScan": "Scan",
-  "yaraxScanInstalledApp": "Scan App",
-  "yaraxScanner": "YARA-X Scanner",
-  "yaraxScanning": "Scanning...",
-  "yaraxSelectFile": "Select file to scan",
-  "yaraxSelectYaracFile": "Select .yarac file",
-  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxLoadCompiled": "Ladda Kompilerad",
+  "yaraxLength": "Längd",
+  "yaraxMatchingRules": "Matchande regler",
+  "yaraxNoMatches": "Inga träffar hittades",
+  "yaraxNonMatchingRules": "Icke-matchande regler",
+  "yaraxOffset": "Förskjutning",
+  "yaraxPatterns": "Mönster",
+  "yaraxRulesValid": "Regler är giltiga",
+  "yaraxSaveCompiled": "Spara som .yarac",
+  "yaraxScan": "Skanna",
+  "yaraxScanInstalledApp": "Skanna app",
+  "yaraxScanner": "YARA-X skanner",
+  "yaraxScanning": "Skannar...",
+  "yaraxScanResults": "Skanna resultat",
+  "yaraxSelectFile": "Välj fil att skanna",
+  "yaraxSelectYaracFile": "Välj .yarac-fil",
+  "yaraxUnsupportedOnWeb": "YARA-X Scanner är inte tillgänglig på webben.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Skriv regler"
 }
