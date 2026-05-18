@@ -278,7 +278,7 @@
   "vrd": "Validar nome do diretório de recursos",
   "welcomeBack": "Bem-vindo(a) de volta!",
   "yes": "sim",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Regras compiladas salvas no {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,23 +286,23 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
-  "yaraxNonMatchingRules": "Non-matching Rules",
-  "yaraxOffset": "Offset",
-  "yaraxPatterns": "Patterns",
-  "yaraxRulesValid": "Rules are valid",
-  "yaraxSaveCompiled": "Save as .yarac",
-  "yaraxScan": "Scan",
-  "yaraxScanInstalledApp": "Scan App",
-  "yaraxScanner": "YARA-X Scanner",
-  "yaraxScanning": "Scanning...",
-  "yaraxSelectFile": "Select file to scan",
-  "yaraxSelectYaracFile": "Select .yarac file",
-  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxLoadCompiled": "Carga Compilada",
+  "yaraxLength": "Comprimento",
+  "yaraxMatchingRules": "Regras Correspondentes",
+  "yaraxNoMatches": "Nenhum resultado encontrado",
+  "yaraxNonMatchingRules": "Regras Não Correspondentes",
+  "yaraxOffset": "Deslocamento",
+  "yaraxPatterns": "Padrões",
+  "yaraxRulesValid": "As regras são válidas",
+  "yaraxSaveCompiled": "Salvar como .yarac",
+  "yaraxScan": "Escanear",
+  "yaraxScanInstalledApp": "Verificar aplicativo",
+  "yaraxScanner": "Scanner YARA-X",
+  "yaraxScanning": "Escaneando...",
+  "yaraxScanResults": "Resultados de pesquisa",
+  "yaraxSelectFile": "Selecione o arquivo para escanear",
+  "yaraxSelectYaracFile": "Selecione o arquivo .yarac",
+  "yaraxUnsupportedOnWeb": "O Leitor QR YARA-X não está disponível na web.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Escrever regras"
 }

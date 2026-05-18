@@ -278,7 +278,7 @@
   "vrd": "Validér ressourcens dir navn",
   "welcomeBack": "Velkommen Tilbage!",
   "yes": "Ja",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Kompilerede regler gemt til {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,23 +286,23 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
-  "yaraxNonMatchingRules": "Non-matching Rules",
-  "yaraxOffset": "Offset",
-  "yaraxPatterns": "Patterns",
-  "yaraxRulesValid": "Rules are valid",
-  "yaraxSaveCompiled": "Save as .yarac",
-  "yaraxScan": "Scan",
+  "yaraxLoadCompiled": "Indlæs Kompileret",
+  "yaraxLength": "Længde",
+  "yaraxMatchingRules": "Matchende Regler",
+  "yaraxNoMatches": "Ingen resultater fundet",
+  "yaraxNonMatchingRules": "Ikke-matchende Regler",
+  "yaraxOffset": "Forskydning",
+  "yaraxPatterns": "Mønstre",
+  "yaraxRulesValid": "Regler er gyldige",
+  "yaraxSaveCompiled": "Gem som .yarac",
+  "yaraxScan": "Skan",
   "yaraxScanInstalledApp": "Scan App",
-  "yaraxScanner": "YARA-X Scanner",
-  "yaraxScanning": "Scanning...",
-  "yaraxSelectFile": "Select file to scan",
-  "yaraxSelectYaracFile": "Select .yarac file",
-  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxScanner": "YARA-X-scanner",
+  "yaraxScanning": "Søger...",
+  "yaraxScanResults": "Skan Resultater",
+  "yaraxSelectFile": "Vælg fil at skanne",
+  "yaraxSelectYaracFile": "Vælg .yarac fil",
+  "yaraxUnsupportedOnWeb": "YARA-X-scanner er ikke tilgængelig på nettet.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Skriv Regler"
 }

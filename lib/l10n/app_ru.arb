@@ -278,7 +278,7 @@
   "vrd": "Проверить имя каталога ресурсов",
   "welcomeBack": "С возвращением!",
   "yes": "Да",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Скомпилированные правила сохранены в {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,23 +286,23 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
-  "yaraxNonMatchingRules": "Non-matching Rules",
-  "yaraxOffset": "Offset",
-  "yaraxPatterns": "Patterns",
-  "yaraxRulesValid": "Rules are valid",
-  "yaraxSaveCompiled": "Save as .yarac",
-  "yaraxScan": "Scan",
-  "yaraxScanInstalledApp": "Scan App",
-  "yaraxScanner": "YARA-X Scanner",
-  "yaraxScanning": "Scanning...",
-  "yaraxSelectFile": "Select file to scan",
-  "yaraxSelectYaracFile": "Select .yarac file",
-  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxLoadCompiled": "Загрузить Скомпилированные",
+  "yaraxLength": "Длина",
+  "yaraxMatchingRules": "Соответствующие правила",
+  "yaraxNoMatches": "Совпадений не найдено",
+  "yaraxNonMatchingRules": "Неподходящие правила",
+  "yaraxOffset": "Смещение",
+  "yaraxPatterns": "Шаблоны",
+  "yaraxRulesValid": "Правила действительны",
+  "yaraxSaveCompiled": "Сохранить как .yarac",
+  "yaraxScan": "Сканировать",
+  "yaraxScanInstalledApp": "Сканировать приложение",
+  "yaraxScanner": "Сканер YARA-X",
+  "yaraxScanning": "Сканирование...",
+  "yaraxScanResults": "Результаты сканирования",
+  "yaraxSelectFile": "Выберите файл для сканирования",
+  "yaraxSelectYaracFile": "Выберите файл .yarac",
+  "yaraxUnsupportedOnWeb": "Сканер YARA-X не доступен в Интернете.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Написать правила"
 }

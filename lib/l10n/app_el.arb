@@ -278,7 +278,7 @@
   "vrd": "Επικύρωση ονόματος dir πόρων",
   "welcomeBack": "Καλώς Ήρθατε!",
   "yes": "Ναι",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Οι μεταγλωττισμένοι κανόνες αποθηκεύτηκαν στο {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,23 +286,23 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
-  "yaraxNonMatchingRules": "Non-matching Rules",
-  "yaraxOffset": "Offset",
-  "yaraxPatterns": "Patterns",
-  "yaraxRulesValid": "Rules are valid",
-  "yaraxSaveCompiled": "Save as .yarac",
-  "yaraxScan": "Scan",
-  "yaraxScanInstalledApp": "Scan App",
+  "yaraxLoadCompiled": "Φόρτωση Μεταγλωττισμένου",
+  "yaraxLength": "Μήκος",
+  "yaraxMatchingRules": "Κανόνες Που Ταιριάζουν",
+  "yaraxNoMatches": "Δεν βρέθηκαν αντιστοιχίες",
+  "yaraxNonMatchingRules": "Κανόνες Μη Αντιστοίχισης",
+  "yaraxOffset": "Μετατόπιση",
+  "yaraxPatterns": "Μοτίβα",
+  "yaraxRulesValid": "Οι κανόνες είναι έγκυροι",
+  "yaraxSaveCompiled": "Αποθήκευση ως .yarac",
+  "yaraxScan": "Σάρωση",
+  "yaraxScanInstalledApp": "Σάρωση Εφαρμογής",
   "yaraxScanner": "YARA-X Scanner",
-  "yaraxScanning": "Scanning...",
-  "yaraxSelectFile": "Select file to scan",
-  "yaraxSelectYaracFile": "Select .yarac file",
-  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxScanning": "Σάρωση...",
+  "yaraxScanResults": "Αποτελέσματα Σάρωσης",
+  "yaraxSelectFile": "Επιλέξτε αρχείο για σάρωση",
+  "yaraxSelectYaracFile": "Επιλέξτε .yarac αρχείο",
+  "yaraxUnsupportedOnWeb": "Το YARA-X Scanner δεν είναι διαθέσιμο στο διαδίκτυο.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Εγγραφή Κανόνων"
 }

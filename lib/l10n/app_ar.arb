@@ -278,7 +278,7 @@
   "vrd": "التحقق من اسم لوحة الموارد",
   "welcomeBack": "مرحبا بعودتك!",
   "yes": "نعم",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "تم حفظ القواعد المجمعة إلى {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,23 +286,23 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
-  "yaraxNonMatchingRules": "Non-matching Rules",
-  "yaraxOffset": "Offset",
-  "yaraxPatterns": "Patterns",
-  "yaraxRulesValid": "Rules are valid",
-  "yaraxSaveCompiled": "Save as .yarac",
-  "yaraxScan": "Scan",
-  "yaraxScanInstalledApp": "Scan App",
-  "yaraxScanner": "YARA-X Scanner",
-  "yaraxScanning": "Scanning...",
-  "yaraxSelectFile": "Select file to scan",
-  "yaraxSelectYaracFile": "Select .yarac file",
-  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxLoadCompiled": "تحميل مجمع",
+  "yaraxLength": "طول",
+  "yaraxMatchingRules": "قواعد مطابقة",
+  "yaraxNoMatches": "لا توجد مطابقات",
+  "yaraxNonMatchingRules": "قواعد غير مطابقة",
+  "yaraxOffset": "إزاحة",
+  "yaraxPatterns": "أنماط",
+  "yaraxRulesValid": "القواعد صحيحة",
+  "yaraxSaveCompiled": "حفظ ك.yarac",
+  "yaraxScan": "فحص",
+  "yaraxScanInstalledApp": "فحص التطبيق",
+  "yaraxScanner": "ماسح YARA-X",
+  "yaraxScanning": "جارٍ الفحص...",
+  "yaraxScanResults": "نتائج المسح",
+  "yaraxSelectFile": "حدد الملف للمسح",
+  "yaraxSelectYaracFile": "حدد ملف .yarac",
+  "yaraxUnsupportedOnWeb": "ماسح YARA-X غير متوفر على الويب.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "كتابة القواعد"
 }

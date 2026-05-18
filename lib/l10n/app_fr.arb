@@ -278,7 +278,7 @@
   "vrd": "Valider le nom du répertoire des ressources",
   "welcomeBack": "Bienvenue!",
   "yes": "Oui",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Règles compilées enregistrées dans {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,23 +286,23 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
-  "yaraxNonMatchingRules": "Non-matching Rules",
-  "yaraxOffset": "Offset",
-  "yaraxPatterns": "Patterns",
-  "yaraxRulesValid": "Rules are valid",
-  "yaraxSaveCompiled": "Save as .yarac",
-  "yaraxScan": "Scan",
-  "yaraxScanInstalledApp": "Scan App",
-  "yaraxScanner": "YARA-X Scanner",
-  "yaraxScanning": "Scanning...",
-  "yaraxSelectFile": "Select file to scan",
-  "yaraxSelectYaracFile": "Select .yarac file",
-  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxLoadCompiled": "Charger compilé",
+  "yaraxLength": "Longueur",
+  "yaraxMatchingRules": "Règles correspondantes",
+  "yaraxNoMatches": "Aucune correspondance trouvée",
+  "yaraxNonMatchingRules": "Règles non correspondantes",
+  "yaraxOffset": "Décalage",
+  "yaraxPatterns": "Motifs",
+  "yaraxRulesValid": "Les règles sont valides",
+  "yaraxSaveCompiled": "Enregistrer en tant que .yarac",
+  "yaraxScan": "Analyser",
+  "yaraxScanInstalledApp": "Scanner l'application",
+  "yaraxScanner": "Scanner YARA-X",
+  "yaraxScanning": "Analyse en cours...",
+  "yaraxScanResults": "Résultats de l'analyse",
+  "yaraxSelectFile": "Sélectionnez le fichier à analyser",
+  "yaraxSelectYaracFile": "Sélectionnez le fichier .yarac",
+  "yaraxUnsupportedOnWeb": "YARA-X Scanner n'est pas disponible sur le Web.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Règles d'écriture"
 }
