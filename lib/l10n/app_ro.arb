@@ -248,7 +248,7 @@
   "status": "Status",
   "suggestLogin": "Ai un cont? Autentifică-te",
   "suggestRegister": "Ai nevoie de un cont? Înregistrează-te",
-  "systemApp": "System App",
+  "systemApp": "Aplicația de sistem",
   "systemMessage": "Mesaj de sistem",
   "theme": "Tema",
   "typeMessage": "Introduceți mesajul…",
@@ -268,7 +268,7 @@
   "updateAvailableMessage": "O nouă versiune a aplicației este disponibilă. Doriți să actualizați acum?",
   "uploading": "Încărcare...",
   "upperCase": "Caracterul superior",
-  "userApp": "User App",
+  "userApp": "Aplicație utilizator",
   "username": "Nume",
   "usernameCond": "Numele de utilizator poate conține doar litere, numere și underscore",
   "usernameLimit": "Numele de utilizator trebuie să aibă între 5 și 15 caractere",
@@ -278,7 +278,7 @@
   "vrd": "Validare nume resurse dir",
   "welcomeBack": "Bine ai revenit!",
   "yes": "Da",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Reguli compilate salvate în {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,10 +286,10 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
+  "yaraxLoadCompiled": "Încărcare compilată",
+  "yaraxLength": "Lungime",
+  "yaraxMatchingRules": "Reguli potrivite",
+  "yaraxNoMatches": "Nicio potrivire găsită",
   "yaraxNonMatchingRules": "Non-matching Rules",
   "yaraxOffset": "Offset",
   "yaraxPatterns": "Patterns",
@@ -299,10 +299,10 @@
   "yaraxScanInstalledApp": "Scan App",
   "yaraxScanner": "YARA-X Scanner",
   "yaraxScanning": "Scanning...",
+  "yaraxScanResults": "Scan Results",
   "yaraxSelectFile": "Select file to scan",
   "yaraxSelectYaracFile": "Select .yarac file",
   "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Write Rules"
 }
