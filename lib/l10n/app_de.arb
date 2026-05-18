@@ -278,7 +278,7 @@
   "vrd": "Überprüfe Ressourcen-Verzeichnisname",
   "welcomeBack": "Willkommen zurück!",
   "yes": "Ja",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "Kompilierte Regeln gespeichert in {path}",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,10 +286,10 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
+  "yaraxLoadCompiled": "Laden kompiliert",
+  "yaraxLength": "Länge",
+  "yaraxMatchingRules": "Passende Regeln",
+  "yaraxNoMatches": "Keine Treffer gefunden",
   "yaraxNonMatchingRules": "Non-matching Rules",
   "yaraxOffset": "Offset",
   "yaraxPatterns": "Patterns",
@@ -299,10 +299,10 @@
   "yaraxScanInstalledApp": "Scan App",
   "yaraxScanner": "YARA-X Scanner",
   "yaraxScanning": "Scanning...",
+  "yaraxScanResults": "Scan Results",
   "yaraxSelectFile": "Select file to scan",
   "yaraxSelectYaracFile": "Select .yarac file",
   "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "Write Rules"
 }
