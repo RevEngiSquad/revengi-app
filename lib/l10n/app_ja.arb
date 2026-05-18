@@ -278,7 +278,7 @@
   "vrd": "リソースのディレクトリ名を検証する",
   "welcomeBack": "おかえりなさい！",
   "yes": "はい",
-  "yaraxCompiledRulesSaved": "Compiled rules saved to {path}",
+  "yaraxCompiledRulesSaved": "コンパイル済みルールを {path}に保存しました",
   "@yaraxCompiledRulesSaved": {
     "placeholders": {
       "path": {
@@ -286,23 +286,23 @@
       }
     }
   },
-  "yaraxLoadCompiled": "Load Compiled",
-  "yaraxLength": "Length",
-  "yaraxMatchingRules": "Matching Rules",
-  "yaraxNoMatches": "No matches found",
-  "yaraxNonMatchingRules": "Non-matching Rules",
-  "yaraxOffset": "Offset",
-  "yaraxPatterns": "Patterns",
-  "yaraxRulesValid": "Rules are valid",
-  "yaraxSaveCompiled": "Save as .yarac",
-  "yaraxScan": "Scan",
-  "yaraxScanInstalledApp": "Scan App",
-  "yaraxScanner": "YARA-X Scanner",
-  "yaraxScanning": "Scanning...",
-  "yaraxSelectFile": "Select file to scan",
-  "yaraxSelectYaracFile": "Select .yarac file",
-  "yaraxUnsupportedOnWeb": "YARA-X Scanner is not available on web.",
+  "yaraxLoadCompiled": "コンパイル済みの読み込み",
+  "yaraxLength": "長さ",
+  "yaraxMatchingRules": "一致するルール",
+  "yaraxNoMatches": "一致するものが見つかりませんでした",
+  "yaraxNonMatchingRules": "一致しないルール",
+  "yaraxOffset": "オフセット",
+  "yaraxPatterns": "パターン",
+  "yaraxRulesValid": "ルールは有効です",
+  "yaraxSaveCompiled": ".yaracとして保存",
+  "yaraxScan": "スキャン",
+  "yaraxScanInstalledApp": "アプリをスキャン",
+  "yaraxScanner": "YARA-Xスキャナ",
+  "yaraxScanning": "スキャン中...",
+  "yaraxScanResults": "スキャン結果",
+  "yaraxSelectFile": "スキャンするファイルを選択",
+  "yaraxSelectYaracFile": ".yaracファイルを選択",
+  "yaraxUnsupportedOnWeb": "YARA-Xスキャナはウェブ上ではご利用いただけません。",
   "yaraxValidate": "Validate",
-  "yaraxWriteRules": "Write Rules",
-  "yaraxScanResults": "Scan Results"
+  "yaraxWriteRules": "書き込みルール"
 }
