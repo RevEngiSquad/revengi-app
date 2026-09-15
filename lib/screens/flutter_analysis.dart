@@ -25,21 +25,23 @@ class _FlutterAnalysisScreenState extends State<FlutterAnalysisScreen> {
 
   Future<void> _pickLibappFile() async {
     final localizations = AppLocalizations.of(context)!;
-    final result = await FilePicker.platform.pickFiles(type: FileType.any);
+    final file = await FilePicker.pickFile(type: FileType.any);
 
-    if (result != null) {
+    if (file != null) {
       if (isWeb()) {
+        final bytes = await file.readAsBytes();
         setState(() {
-          _fileName = result.files.first.name;
-          _libappBytes = result.files.first.bytes!;
+          _fileName = file.name;
+          _libappBytes = bytes;
           _libappFile = null;
           _error = null;
           _result = null;
         });
       } else {
+        if (file.path == null) return;
         setState(() {
-          _libappFile = File(result.files.single.path!);
-          _fileName = result.files.first.name;
+          _libappFile = File(file.path!);
+          _fileName = file.name;
           _error = null;
           _result = null;
         });
@@ -69,21 +71,23 @@ class _FlutterAnalysisScreenState extends State<FlutterAnalysisScreen> {
 
   Future<void> _pickLibflutterFile() async {
     final localizations = AppLocalizations.of(context)!;
-    final result = await FilePicker.platform.pickFiles(type: FileType.any);
+    final file = await FilePicker.pickFile(type: FileType.any);
 
-    if (result != null) {
+    if (file != null) {
       if (isWeb()) {
+        final bytes = await file.readAsBytes();
         setState(() {
-          _fileName = result.files.first.name;
-          _libflutterBytes = result.files.first.bytes!;
+          _fileName = file.name;
+          _libflutterBytes = bytes;
           _libflutterFile = null;
           _error = null;
           _result = null;
         });
       } else {
+        if (file.path == null) return;
         setState(() {
-          _fileName = result.files.first.name;
-          _libflutterFile = File(result.files.single.path!);
+          _fileName = file.name;
+          _libflutterFile = File(file.path!);
           _error = null;
           _result = null;
         });

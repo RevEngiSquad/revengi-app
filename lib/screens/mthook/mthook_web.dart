@@ -27,13 +27,14 @@ class _MTHookAnalysisScreenState extends State<MTHookAnalysisScreen> {
   late double _downloadProgress;
 
   Future<void> _pickFile() async {
-    final result = await FilePicker.platform.pickFiles(type: FileType.any);
+    final file = await FilePicker.pickFile(type: FileType.any);
 
-    if (result != null) {
+    if (file != null) {
       if (isWeb()) {
+        final bytes = await file.readAsBytes();
         setState(() {
-          _fileName = result.files.first.name;
-          _fileBytes = result.files.first.bytes!;
+          _fileName = file.name;
+          _fileBytes = bytes;
           _error = null;
           _successMessage = null;
         });

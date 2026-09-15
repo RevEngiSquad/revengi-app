@@ -30,15 +30,16 @@ class _BlutterAnalysisScreenState extends State<BlutterAnalysisScreen> {
   late double _downloadProgress;
 
   Future<void> _pickApkFile() async {
-    final result = await FilePicker.platform.pickFiles(
+    final file = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: ['zip', 'apk'],
     );
 
-    if (result != null) {
+    if (file != null) {
+      final bytes = await file.readAsBytes();
       setState(() {
-        _fileName = result.files.first.name;
-        _fileBytes = result.files.first.bytes!;
+        _fileName = file.name;
+        _fileBytes = bytes;
         _error = null;
         _successMessage = null;
       });

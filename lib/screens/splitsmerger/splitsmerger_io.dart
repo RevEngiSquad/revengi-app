@@ -63,11 +63,11 @@ class SplitApksMergerScreenState extends State<SplitApksMergerScreen> {
   }
 
   Future<void> _pickFile() async {
-    final result = await FilePicker.platform.pickFiles(type: FileType.any);
-    if (result != null) {
-      if (result.files.single.extension != 'apks' &&
-          result.files.single.extension != 'apkm' &&
-          result.files.single.extension != 'xapk') {
+    final file = await FilePicker.pickFile(type: FileType.any);
+    if (file != null) {
+      if (file.extension != 'apks' &&
+          file.extension != 'apkm' &&
+          file.extension != 'xapk') {
         setState(() {
           _showLogs = true;
           _logs.clear();
@@ -76,12 +76,9 @@ class SplitApksMergerScreenState extends State<SplitApksMergerScreen> {
         return;
       }
       setState(() {
-        _selectedFile =
-            result.files.single.path != null
-                ? File(result.files.single.path!)
-                : null;
-        _fileName = result.files.first.name;
-        _fileBytes = result.files.first.bytes ?? [];
+        _selectedFile = file.path != null ? File(file.path!) : null;
+        _fileName = file.name;
+        _fileBytes = [];
       });
     }
   }

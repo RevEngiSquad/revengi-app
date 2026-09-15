@@ -31,12 +31,12 @@ class _DexRepairScreenState extends State<DexRepairScreen> {
   ];
 
   Future<void> _pickDexFile() async {
-    final result = await FilePicker.platform.pickFiles(type: FileType.any);
+    final file = await FilePicker.pickFile(type: FileType.any);
 
-    if (result != null) {
+    if (file != null && file.path != null) {
       setState(() {
-        _dexFile = File(result.files.single.path!);
-        _fileName = result.files.first.name;
+        _dexFile = File(file.path!);
+        _fileName = file.name;
         _error = null;
         _result = null;
       });

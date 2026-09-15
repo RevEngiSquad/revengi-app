@@ -183,26 +183,26 @@ class _YaraxScannerScreenState extends State<YaraxScannerScreen>
   }
 
   Future<void> _loadYaracFile() async {
-    final result = await FilePicker.platform.pickFiles(
+    final file = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: ['yarac'],
     );
-    if (result != null && result.files.single.path != null) {
-      final file = File(result.files.single.path!);
-      final bytes = await file.readAsBytes();
+    if (file != null && file.path != null) {
+      final f = File(file.path!);
+      final bytes = await f.readAsBytes();
       setState(() {
         _compiledRulesBytes = bytes;
-        _compiledRulesFileName = result.files.single.name;
+        _compiledRulesFileName = file.name;
       });
     }
   }
 
   Future<void> _pickFileToScan() async {
-    final result = await FilePicker.platform.pickFiles(type: FileType.any);
-    if (result != null && result.files.single.path != null) {
+    final file = await FilePicker.pickFile(type: FileType.any);
+    if (file != null && file.path != null) {
       setState(() {
-        _selectedFilePath = result.files.single.path;
-        _selectedFileName = result.files.single.name;
+        _selectedFilePath = file.path;
+        _selectedFileName = file.name;
         _selectedAppName = null;
         _scanResults = null;
         _scanError = null;

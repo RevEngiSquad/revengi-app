@@ -25,15 +25,15 @@ class _MTHookAnalysisScreenState extends State<MTHookAnalysisScreen> {
   late double _downloadProgress;
 
   Future<void> _pickFile() async {
-    final result = await FilePicker.platform.pickFiles(type: FileType.any);
+    final file = await FilePicker.pickFile(type: FileType.any);
 
-    if (result != null) {
+    if (file != null && file.path != null) {
       setState(() {
-        _selectedFile = File(result.files.single.path!);
+        _selectedFile = File(file.path!);
         _error = null;
         _successMessage = null;
       });
-      _fileName = result.files.single.name;
+      _fileName = file.name;
       if (!_fileName!.endsWith('.apk')) {
         setState(() {
           _error = 'Please select an APK file';

@@ -24,18 +24,21 @@ class _JniAnalysisScreenState extends State<JniAnalysisScreen> {
   List<int> _fileBytes = [];
 
   Future<void> _pickFile() async {
-    final result = await FilePicker.platform.pickFiles(
+    final file = await FilePicker.pickFile(
       type: isWeb() ? FileType.custom : FileType.any,
       allowedExtensions: isWeb() ? ['apk'] : null,
     );
 
-    if (result != null) {
+    if (file != null) {
       int fileSizeBytes;
+      List<int>? webBytes;
 
       if (isWeb()) {
-        fileSizeBytes = result.files.first.bytes!.length;
+        webBytes = await file.readAsBytes();
+        fileSizeBytes = webBytes.length;
       } else {
-        fileSizeBytes = File(result.files.single.path!).lengthSync();
+        if (file.path == null) return;
+        fileSizeBytes = File(file.path!).lengthSync();
       }
 
       if (fileSizeBytes > 80 * 1024 * 1024) {
@@ -55,15 +58,15 @@ class _JniAnalysisScreenState extends State<JniAnalysisScreen> {
       if (isWeb()) {
         setState(() {
           _selectedFile = null;
-          _fileName = result.files.first.name;
-          _fileBytes = result.files.first.bytes!;
+          _fileName = file.name;
+          _fileBytes = webBytes!;
           _error = null;
           _result = null;
         });
       } else {
         setState(() {
-          _selectedFile = File(result.files.single.path!);
-          _fileName = result.files.first.name;
+          _selectedFile = File(file.path!);
+          _fileName = file.name;
           _error = null;
           _result = null;
         });
